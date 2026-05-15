@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon BSR Dashboard — Tejas Jadhav | KDP Author</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --amazon-orange: #FF9900;
+      --amazon-dark:   #131921;
+      --card-bg:       #1a2030;
+      --card-border:   #2a3548;
+      --text-primary:  #e8edf4;
+      --text-secondary:#8b9ab2;
+      --rank-gold:     #FFD700;
+      --rank-silver:   #C0C0C0;
+      --rank-bronze:   #CD7F32;
+    }
+    * { box-sizing: border-box; }
+    body { background: var(--amazon-dark); color: var(--text-primary); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
+    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; }
+    .amazon-orange { color: var(--amazon-orange); }
+    .badge-kindle   { background: #1a3a5c; color: #5dade2; }
+    .badge-paperback{ background: #1a3a1a; color: #58d68d; }
+    .badge-hardcover{ background: #3d1a00; color: #e59866; }
+    .rank-badge { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; padding: 2px 8px; border-radius: 20px; font-size: 0.8rem; }
+    .rank-1    { background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; }
+    .rank-top10{ background: linear-gradient(135deg, #C0C0C0, #a8a8a8); color: #000; }
+    .rank-top100{ background: linear-gradient(135deg, #CD7F32, #b87333); color: #fff; }
+    .rank-good { background: #1a3a1a; color: #58d68d; border: 1px solid #27ae60; }
+    .rank-mid  { background: #2d2a1a; color: #f0b429; border: 1px solid #d4a017; }
+    .rank-low  { background: #2a1a1a; color: #ec7063; border: 1px solid #c0392b; }
+    .rank-none { background: #1e2535; color: #566573; border: 1px solid #2c3e50; }
+    .format-tab { padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; border: 1px solid var(--card-border); transition: all 0.2s; }
+    .format-tab.active { border-color: var(--amazon-orange); color: var(--amazon-orange); background: rgba(255,153,0,0.1); }
+    .format-tab:not(.active):hover { border-color: #4a5568; }
+    .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+    .country-cell { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--card-border); background: #141c2d; text-align: center; transition: transform 0.2s; }
+    .country-cell:hover { transform: scale(1.03); }
+    .featured-glow { box-shadow: 0 0 40px rgba(255,153,0,0.15), 0 0 80px rgba(255,153,0,0.05); }
+    .featured-border { border-color: var(--amazon-orange) !important; }
+    .spinner { border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--amazon-orange); border-radius: 50%; width: 32px; height: 32px; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #27ae60; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
+    .country-table th { background: #0f1520; position: sticky; top: 0; z-index: 10; }
+    .trend-up   { color: #27ae60; }
+    .trend-down { color: #e74c3c; }
+    .trend-same { color: #566573; }
+    select { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-primary); padding: 4px 8px; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--amazon-dark); }
+    ::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 3px; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
+    .hidden { display: none !important; }
+    @media (max-width: 640px) { .country-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); } }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header style="background:linear-gradient(135deg,#0d1117 0%,#131921 100%); border-bottom: 1px solid #2a3548;">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
+    <div class="flex items-center gap-3">
+      <div style="background:var(--amazon-orange);border-radius:8px;padding:8px 12px;font-weight:900;font-size:1.1rem;color:#000;">A</div>
+      <div>
+        <h1 class="font-bold text-lg leading-tight">Amazon BSR Dashboard</h1>
+        <p class="text-xs" style="color:var(--text-secondary)">Tejas Jadhav · CFA, FRM · KDP Author</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-4 flex-wrap">
+      <div class="flex items-center gap-2 text-xs" style="color:var(--text-secondary)">
+        <div class="pulse-dot"></div>
+        <span id="last-updated-text">Loading...</span>
+      </div>
+      <div class="flex gap-2">
+        <select id="country-filter" onchange="applyFilters()" title="Filter by country">
+          <option value="ALL">🌍 All Countries</option>
+        </select>
+        <select id="format-filter" onchange="applyFilters()" title="Filter by format">
+          <option value="ALL">All Formats</option>
+          <option value="kindle">📱 Kindle</option>
+          <option value="paperback">📄 Paperback</option>
+          <option value="hardcover">📗 Hardcover</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- STATS BAR -->
+<div style="background:#0d1117; border-bottom:1px solid #1e2535;">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-6">
+    <div class="text-center">
+      <div class="font-bold text-lg amazon-orange" id="stat-books">5</div>
+      <div class="text-xs" style="color:var(--text-secondary)">Books</div>
+    </div>
+    <div class="text-center">
+      <div class="font-bold text-lg amazon-orange" id="stat-formats">9</div>
+      <div class="text-xs" style="color:var(--text-secondary)">Formats</div>
+    </div>
+    <div class="text-center">
+      <div class="font-bold text-lg amazon-orange" id="stat-countries">15</div>
+      <div class="text-xs" style="color:var(--text-secondary)">Countries</div>
+    </div>
+    <div class="text-center">
+      <div class="font-bold text-lg amazon-orange" id="stat-best-rank">—</div>
+      <div class="text-xs" style="color:var(--text-secondary)">Best Rank Today</div>
+    </div>
+    <div class="text-center">
+      <div class="font-bold text-lg text-green-400" id="stat-ranked">—</div>
+      <div class="text-xs" style="color:var(--text-secondary)">Rankings Found</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-7xl mx-auto px-4 py-6">
+
+  <!-- Loading spinner -->
+  <div id="loading-state" class="flex flex-col items-center justify-center py-24">
+    <div class="spinner mb-4"></div>
+    <p style="color:var(--text-secondary)">Loading dashboard data...</p>
+  </div>
+
+  <!-- Dashboard (hidden until data loads) -->
+  <div id="dashboard" class="hidden">
+
+    <!-- FEATURED BOOK -->
+    <div id="featured-section" class="mb-8"></div>
+
+    <!-- ALL BOOKS GRID -->
+    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">ALL BOOKS</h2>
+    <div id="books-grid" class="grid gap-5 mb-10" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));"></div>
+
+    <!-- COUNTRY COMPARISON TABLE -->
+    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">COUNTRY COMPARISON</h2>
+    <div class="card overflow-x-auto mb-10">
+      <table class="w-full text-sm country-table" id="comparison-table">
+        <thead id="comparison-thead"></thead>
+        <tbody id="comparison-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- HISTORY CHART -->
+    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">RANK HISTORY</h2>
+    <div class="card p-5 mb-10">
+      <div class="flex flex-wrap gap-3 mb-4 items-center">
+        <select id="chart-book" onchange="updateChart()" class="text-sm"></select>
+        <select id="chart-format" onchange="updateChart()" class="text-sm"></select>
+        <select id="chart-country" onchange="updateChart()" class="text-sm"></select>
+        <span class="text-xs" style="color:var(--text-secondary)">Lower rank = better</span>
+      </div>
+      <div style="position:relative; height:280px;">
+        <canvas id="history-chart"></canvas>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- RANK DETAIL MODAL -->
+<div id="rank-modal" class="modal-overlay hidden" onclick="closeModal(event)">
+  <div class="card p-6 max-w-lg w-full mx-4" onclick="event.stopPropagation()">
+    <div class="flex justify-between items-start mb-4">
+      <h3 class="font-bold text-base" id="modal-title"></h3>
+      <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xl leading-none">&times;</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script>
+// ─── STATE ─────────────────────────────────────────────────────────────────
+let BOOKS = null;
+let RANKINGS = null;
+let histChart = null;
+let activeFormat = 'ALL';
+let activeCountry = 'ALL';
+
+// ─── LOAD DATA ──────────────────────────────────────────────────────────────
+async function loadData() {
+  try {
+    const [bRes, rRes] = await Promise.all([
+      fetch('data/books.json?v=' + Date.now()),
+      fetch('data/rankings.json?v=' + Date.now())
+    ]);
+    BOOKS = await bRes.json();
+    RANKINGS = await rRes.json();
+    init();
+  } catch(e) {
+    document.getElementById('loading-state').innerHTML =
+      `<p style="color:#e74c3c">Failed to load data: ${e.message}</p>
+       <p class="text-sm mt-2" style="color:var(--text-secondary)">Make sure you're running via a web server (e.g. <code>python -m http.server</code>), not file://</p>`;
+  }
+}
+
+// ─── INIT ───────────────────────────────────────────────────────────────────
+function init() {
+  populateFilters();
+  renderLastUpdated();
+  renderStats();
+  renderFeatured();
+  renderBooksGrid();
+  renderComparisonTable();
+  initChart();
+
+  document.getElementById('loading-state').classList.add('hidden');
+  document.getElementById('dashboard').classList.remove('hidden');
+}
+
+// ─── HELPERS ────────────────────────────────────────────────────────────────
+function getRank(bookId, format, country) {
+  return RANKINGS?.current?.[bookId]?.[format]?.[country] || null;
+}
+
+function rankClass(rank) {
+  if (!rank) return 'rank-none';
+  if (rank === 1) return 'rank-1';
+  if (rank <= 10) return 'rank-top10';
+  if (rank <= 100) return 'rank-top100';
+  if (rank <= 1000) return 'rank-good';
+  if (rank <= 10000) return 'rank-mid';
+  return 'rank-low';
+}
+
+function rankBadgeHtml(rank) {
+  if (!rank) return `<span class="rank-badge rank-none">N/A</span>`;
+  const cls = rankClass(rank);
+  const stars = rank === 1 ? '🥇' : rank <= 10 ? '🏆' : rank <= 100 ? '⭐' : '';
+  return `<span class="rank-badge ${cls}">${stars} #${rank.toLocaleString()}</span>`;
+}
+
+function bestRankForBook(bookId) {
+  let best = null;
+  const cur = RANKINGS?.current?.[bookId] || {};
+  for (const fmt of Object.values(cur)) {
+    for (const data of Object.values(fmt)) {
+      if (data?.rank && (!best || data.rank < best.rank)) {
+        best = data;
+      }
+    }
+  }
+  return best;
+}
+
+function allCountries() {
+  return Object.keys(BOOKS.countries || {});
+}
+
+function countryFlag(code) {
+  return BOOKS.countries?.[code]?.flag || code;
+}
+function countryName(code) {
+  return BOOKS.countries?.[code]?.name || code;
+}
+
+function formatLabel(f) {
+  return { kindle: '📱 Kindle', paperback: '📄 Paperback', hardcover: '📗 Hardcover' }[f] || f;
+}
+
+function amazonUrl(asin, country) {
+  const domain = BOOKS.countries?.[country]?.domain || 'amazon.com';
+  return `https://www.${domain}/dp/${asin}`;
+}
+
+function timeAgo(isoStr) {
+  if (!isoStr) return 'Never';
+  const diff = Date.now() - new Date(isoStr).getTime();
+  const h = Math.floor(diff / 3600000);
+  if (h < 1) return 'Just now';
+  if (h < 24) return `${h}h ago`;
+  const d = Math.floor(h / 24);
+  return `${d}d ago`;
+}
+
+// ─── FILTERS ────────────────────────────────────────────────────────────────
+function populateFilters() {
+  const countryEl = document.getElementById('country-filter');
+  allCountries().forEach(code => {
+    const opt = document.createElement('option');
+    opt.value = code;
+    opt.textContent = `${countryFlag(code)} ${code}`;
+    countryEl.appendChild(opt);
+  });
+}
+
+function applyFilters() {
+  activeCountry = document.getElementById('country-filter').value;
+  activeFormat  = document.getElementById('format-filter').value;
+  renderBooksGrid();
+  renderComparisonTable();
+}
+
+// ─── LAST UPDATED ───────────────────────────────────────────────────────────
+function renderLastUpdated() {
+  const el = document.getElementById('last-updated-text');
+  const ts = RANKINGS?.last_updated;
+  if (!ts) {
+    el.textContent = 'Not yet updated — run scraper or enter manually';
+    return;
+  }
+  const d = new Date(ts);
+  el.textContent = `Updated ${timeAgo(ts)} · ${d.toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}`;
+}
+
+// ─── STATS ──────────────────────────────────────────────────────────────────
+function renderStats() {
+  let bestRank = null;
+  let rankedCount = 0;
+  let totalFormats = 0;
+
+  for (const book of BOOKS.books) {
+    totalFormats += Object.keys(book.formats || {}).length;
+    const cur = RANKINGS?.current?.[book.id] || {};
+    for (const fmt of Object.values(cur)) {
+      for (const data of Object.values(fmt)) {
+        if (data?.rank) {
+          rankedCount++;
+          if (!bestRank || data.rank < bestRank) bestRank = data.rank;
+        }
+      }
+    }
+  }
+  document.getElementById('stat-books').textContent = BOOKS.books.length;
+  document.getElementById('stat-formats').textContent = totalFormats;
+  document.getElementById('stat-countries').textContent = allCountries().length;
+  document.getElementById('stat-best-rank').textContent = bestRank ? `#${bestRank.toLocaleString()}` : '—';
+  document.getElementById('stat-ranked').textContent = rankedCount > 0 ? rankedCount : '—';
+}
+
+// ─── FEATURED BOOK ──────────────────────────────────────────────────────────
+function renderFeatured() {
+  const featId = BOOKS.featured_book_id;
+  const book   = BOOKS.books.find(b => b.id === featId);
+  if (!book) return;
+
+  const best = bestRankForBook(book.id);
+  const el   = document.getElementById('featured-section');
+
+  el.innerHTML = `
+    <div class="card featured-glow featured-border p-6 mb-2" style="background:linear-gradient(135deg,#0f1e35 0%,#1a2a40 100%);">
+      <div class="flex items-center gap-2 mb-3">
+        <span style="background:var(--amazon-orange);color:#000;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.05em;">★ FEATURED BOOK</span>
+        <span class="text-xs" style="color:var(--text-secondary)">AI &amp; Practical Finance Series</span>
+      </div>
+      <div class="flex flex-wrap gap-6 items-start">
+        <div style="font-size:4rem;line-height:1;background:linear-gradient(135deg,${book.cover_color},${book.cover_color2||book.cover_color});padding:16px 20px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+          ${book.cover_emoji}
+        </div>
+        <div class="flex-1 min-w-0">
+          <h2 class="font-bold text-xl mb-1 leading-tight">${book.title}</h2>
+          <p class="text-sm mb-3" style="color:var(--text-secondary)">${book.subtitle}</p>
+          ${best ? `<div class="flex items-center gap-2 mb-3">
+            <span style="color:var(--text-secondary);font-size:0.8rem;">Best rank:</span>
+            ${rankBadgeHtml(best.rank)}
+            <span class="text-xs" style="color:var(--text-secondary)">in ${best.category}</span>
+          </div>` : ''}
+          <div class="flex flex-wrap gap-2">
+            ${Object.entries(book.formats).map(([fmt, fd]) => {
+              const asin = fd.asin;
+              return `<a href="${amazonUrl(asin,'US')}" target="_blank" rel="noopener"
+                class="flex items-center gap-1 text-xs px-3 py-1 rounded-full border transition-colors"
+                style="border-color:#FF9900;color:#FF9900;text-decoration:none;"
+                onmouseover="this.style.background='rgba(255,153,0,0.1)'"
+                onmouseout="this.style.background=''"
+              >${formatLabel(fmt)} ↗</a>`;
+            }).join('')}
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 min-w-[220px]">
+          ${Object.keys(book.formats).map(fmt => renderMiniFormatCard(book.id, fmt)).join('')}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderMiniFormatCard(bookId, fmt) {
+  const countries = activeCountry === 'ALL' ? allCountries().slice(0, 6) : [activeCountry];
+  const ranks = countries.map(c => {
+    const d = getRank(bookId, fmt, c);
+    return d?.rank ? d.rank : null;
+  }).filter(Boolean);
+  const bestRank = ranks.length ? Math.min(...ranks) : null;
+
+  return `
+    <div class="px-3 py-2 rounded-lg" style="background:rgba(255,255,255,0.04);border:1px solid var(--card-border);">
+      <div class="flex justify-between items-center mb-1">
+        <span class="text-xs font-semibold">${formatLabel(fmt)}</span>
+        ${rankBadgeHtml(bestRank)}
+      </div>
+    </div>
+  `;
+}
+
+// ─── BOOKS GRID ─────────────────────────────────────────────────────────────
+function renderBooksGrid() {
+  const grid = document.getElementById('books-grid');
+  const otherBooks = BOOKS.books.filter(b => b.id !== BOOKS.featured_book_id);
+  grid.innerHTML = otherBooks.map(book => renderBookCard(book)).join('');
+}
+
+function renderBookCard(book) {
+  const fmts = Object.keys(book.formats || {});
+  const visibleFmts = activeFormat === 'ALL' ? fmts : fmts.filter(f => f === activeFormat);
+  const countries   = activeCountry === 'ALL' ? allCountries() : [activeCountry];
+
+  const best = bestRankForBook(book.id);
+
+  const formatsHtml = visibleFmts.map(fmt => {
+    const fd = book.formats[fmt];
+    const asin = fd.asin;
+    const rankCells = countries.slice(0, activeCountry === 'ALL' ? 8 : 15).map(c => {
+      const d = getRank(book.id, fmt, c);
+      const rank = d?.rank || null;
+      const cls  = rankClass(rank);
+      const url  = amazonUrl(d?.asin || asin, c);
+      const tip  = rank ? `#${rank.toLocaleString()} in ${d.category}` : 'Not ranked';
+      return `<a href="${url}" target="_blank" rel="noopener" title="${countryName(c)}: ${tip}"
+        class="country-cell" style="text-decoration:none;">
+        <div style="font-size:1.3rem;">${countryFlag(c)}</div>
+        <div class="rank-badge ${cls} mt-1" style="font-size:0.65rem;">${rank ? '#'+rank.toLocaleString() : 'N/A'}</div>
+      </a>`;
+    }).join('');
+
+    return `
+      <div class="mb-4">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="badge-${fmt} format-tab" style="font-size:0.75rem;">${formatLabel(fmt)}</span>
+          <span class="text-xs" style="color:var(--text-secondary)">ASIN: ${asin}</span>
+          <a href="${amazonUrl(asin,'US')}" target="_blank" rel="noopener"
+             class="text-xs amazon-orange ml-auto" style="text-decoration:none;">Amazon US ↗</a>
+        </div>
+        <div class="country-grid">${rankCells}</div>
+      </div>
+    `;
+  }).join('');
+
+  const hasVisibleFormats = visibleFmts.length > 0;
+
+  return `
+    <div class="card p-5" style="${!hasVisibleFormats ? 'opacity:0.5;' : ''}">
+      <div class="flex items-start gap-3 mb-4">
+        <div style="font-size:2rem;background:linear-gradient(135deg,${book.cover_color},${book.cover_color2||book.cover_color});padding:10px;border-radius:8px;flex-shrink:0;">${book.cover_emoji}</div>
+        <div class="flex-1 min-w-0">
+          <h3 class="font-bold text-sm leading-tight mb-1">${book.title}</h3>
+          <p class="text-xs leading-relaxed" style="color:var(--text-secondary);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${book.subtitle}</p>
+        </div>
+        ${best ? rankBadgeHtml(best.rank) : ''}
+      </div>
+      ${hasVisibleFormats ? formatsHtml : '<p class="text-sm text-center py-4" style="color:var(--text-secondary)">No matching format</p>'}
+    </div>
+  `;
+}
+
+// ─── COMPARISON TABLE ───────────────────────────────────────────────────────
+function renderComparisonTable() {
+  const thead  = document.getElementById('comparison-thead');
+  const tbody  = document.getElementById('comparison-tbody');
+  const books  = BOOKS.books;
+  const countries = activeCountry === 'ALL' ? allCountries() : [activeCountry];
+
+  // Header: Country | Book1 (fmt) | Book2 (fmt) ...
+  const bookCols = [];
+  books.forEach(book => {
+    const fmts = Object.keys(book.formats || {});
+    const visibleFmts = activeFormat === 'ALL' ? fmts : fmts.filter(f => f === activeFormat);
+    visibleFmts.forEach(fmt => bookCols.push({book, fmt}));
+  });
+
+  const thHtml = bookCols.map(({book, fmt}) =>
+    `<th class="px-3 py-2 text-xs font-semibold text-left" style="color:var(--text-secondary);min-width:120px;">
+       ${book.cover_emoji} ${book.title.split(':')[0].substring(0,22)}…<br/>
+       <span style="color:var(--amazon-orange);font-weight:400;">${formatLabel(fmt)}</span>
+     </th>`
+  ).join('');
+  thead.innerHTML = `<tr><th class="px-3 py-2 text-xs font-semibold text-left" style="color:var(--text-secondary);min-width:100px;">Country</th>${thHtml}</tr>`;
+
+  const rowsHtml = countries.map(code => {
+    const cells = bookCols.map(({book, fmt}) => {
+      const d = getRank(book.id, fmt, code);
+      const rank = d?.rank;
+      const cls  = rankClass(rank);
+      if (!rank) return `<td class="px-3 py-2 text-center"><span class="rank-badge rank-none" style="font-size:0.7rem;">—</span></td>`;
+      const url = amazonUrl(d.asin || book.formats[fmt].asin, code);
+      return `<td class="px-3 py-2 text-center">
+        <a href="${url}" target="_blank" rel="noopener" style="text-decoration:none;">
+          <span class="rank-badge ${cls}" style="font-size:0.7rem;">#${rank.toLocaleString()}</span>
+        </a>
+      </td>`;
+    }).join('');
+
+    return `<tr style="border-top:1px solid var(--card-border);">
+      <td class="px-3 py-2">
+        <span style="font-size:1.2rem;">${countryFlag(code)}</span>
+        <span class="ml-1 text-xs font-medium">${code}</span>
+      </td>
+      ${cells}
+    </tr>`;
+  }).join('');
+
+  tbody.innerHTML = rowsHtml;
+}
+
+// ─── HISTORY CHART ──────────────────────────────────────────────────────────
+function initChart() {
+  const bookSel    = document.getElementById('chart-book');
+  const fmtSel     = document.getElementById('chart-format');
+  const countrySel = document.getElementById('chart-country');
+
+  BOOKS.books.forEach(b => {
+    const o = document.createElement('option');
+    o.value = b.id;
+    o.textContent = b.cover_emoji + ' ' + b.title.split(':')[0];
+    bookSel.appendChild(o);
+  });
+
+  ['kindle','paperback','hardcover'].forEach(f => {
+    const o = document.createElement('option');
+    o.value = f;
+    o.textContent = formatLabel(f);
+    fmtSel.appendChild(o);
+  });
+
+  allCountries().forEach(code => {
+    const o = document.createElement('option');
+    o.value = code;
+    o.textContent = `${countryFlag(code)} ${code}`;
+    countrySel.appendChild(o);
+  });
+
+  const ctx = document.getElementById('history-chart').getContext('2d');
+  histChart = new Chart(ctx, {
+    type: 'line',
+    data: { labels: [], datasets: [] },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          reverse: true,
+          title: { display: true, text: 'BSR Rank (lower = better)', color: '#8b9ab2' },
+          ticks: { color: '#8b9ab2', callback: v => '#' + v.toLocaleString() },
+          grid: { color: 'rgba(255,255,255,0.05)' }
+        },
+        x: {
+          ticks: { color: '#8b9ab2' },
+          grid: { color: 'rgba(255,255,255,0.05)' }
+        }
+      },
+      plugins: {
+        legend: { labels: { color: '#e8edf4' } },
+        tooltip: {
+          callbacks: {
+            label: ctx => ` Rank #${ctx.raw?.toLocaleString()} (lower = better)`
+          }
+        }
+      }
+    }
+  });
+
+  updateChart();
+}
+
+function updateChart() {
+  if (!histChart) return;
+  const bookId  = document.getElementById('chart-book').value;
+  const fmt     = document.getElementById('chart-format').value;
+  const country = document.getElementById('chart-country').value;
+
+  const hist = RANKINGS?.history?.[bookId]?.[fmt]?.[country] || [];
+
+  if (hist.length === 0) {
+    histChart.data.labels = ['No data yet'];
+    histChart.data.datasets = [{
+      label: 'No history available',
+      data: [],
+      borderColor: '#FF9900',
+      backgroundColor: 'rgba(255,153,0,0.1)',
+    }];
+    histChart.update();
+    return;
+  }
+
+  const labels = hist.map(h => h.date);
+  const data   = hist.map(h => h.rank);
+
+  histChart.data.labels = labels;
+  histChart.data.datasets = [{
+    label: `BSR in ${country}`,
+    data,
+    borderColor: '#FF9900',
+    backgroundColor: 'rgba(255,153,0,0.1)',
+    borderWidth: 2,
+    pointRadius: 4,
+    pointBackgroundColor: '#FF9900',
+    tension: 0.3,
+    fill: true
+  }];
+  histChart.update();
+}
+
+// ─── MODAL ──────────────────────────────────────────────────────────────────
+function closeModal(event) {
+  if (!event || event.target === document.getElementById('rank-modal')) {
+    document.getElementById('rank-modal').classList.add('hidden');
+  }
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ─── BOOT ───────────────────────────────────────────────────────────────────
+loadData();
+</script>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid #1e2535;background:#0d1117;" class="mt-8">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-2 text-xs" style="color:var(--text-secondary)">
+    <span>Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em></span>
+    <span>Updated daily via GitHub Actions · Amazon BSR Dashboard</span>
+  </div>
+</footer>
+
+</body>
+</html>

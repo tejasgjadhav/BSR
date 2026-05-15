@@ -1,0 +1,174 @@
+{
+  "author": "Tejas Jadhav",
+  "author_credentials": "CFA, FRM",
+  "featured_book_id": "claude_ai_finance",
+  "series": "AI and Practical Finance Series",
+  "books": [
+    {
+      "id": "claude_ai_finance",
+      "title": "Claude AI for Finance Professionals",
+      "subtitle": "120+ Institutional grade Prompts for Financial Analysis, Valuation & Investment Research with model and Sample Outputs. Finance Plugins Included",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "\ud83e\udd16",
+      "cover_color": "#0f4c75",
+      "cover_color2": "#1b6ca8",
+      "formats": {
+        "kindle": {
+          "asin": "B0GSX73KF6",
+          "price": 5.99,
+          "currency": "USD",
+          "published": "2026-03-17",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0GSX73KF6"
+          }
+        },
+        "paperback": {
+          "asin": "B0GV2SS77G",
+          "price": 24.99,
+          "currency": "USD",
+          "published": "2026-03-27",
+          "country_asins": {
+            "US": "B0GV2SS77G"
+          }
+        },
+        "hardcover": {
+          "asin": "B0GVJPXVP8",
+          "price": 49.99,
+          "currency": "USD",
+          "published": "2026-03-31",
+          "country_asins": {
+            "US": "B0GVJPXVP8"
+          }
+        }
+      }
+    },
+    {
+      "id": "ai_prompts_financial_analysis",
+      "title": "AI Prompts for Financial Analysis",
+      "subtitle": "100+ Practical Prompts and Sample Outputs for Equity Research, Valuation, Investment Banking and Financial Risk Management",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "\ud83d\udcca",
+      "cover_color": "#1b4332",
+      "cover_color2": "#2d6a4f",
+      "formats": {
+        "kindle": {
+          "asin": "B0GS5RL6XS",
+          "price": 4.99,
+          "currency": "USD",
+          "published": "2026-03-11",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0GS5RL6XS"
+          }
+        },
+        "paperback": {
+          "asin": "9357823662",
+          "price": 21.99,
+          "currency": "USD",
+          "published": "2026-03-25",
+          "country_asins": {
+            "US": "9357823662"
+          }
+        }
+      }
+    },
+    {
+      "id": "wealth_code_shivaji",
+      "title": "The Wealth Code of Chhatrapati Shivaji Maharaj",
+      "subtitle": "Timeless Money Principles to Build Wealth, Security & Financial Freedom",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "\u2694\ufe0f",
+      "cover_color": "#7b2d00",
+      "cover_color2": "#a84300",
+      "formats": {
+        "kindle": {
+          "asin": "B0D8R41W2F",
+          "price": 2.99,
+          "currency": "USD",
+          "published": "2026-04-09",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0D8R41W2F"
+          }
+        },
+        "paperback": {
+          "asin": "B0GWWG34W6",
+          "price": 9.99,
+          "currency": "USD",
+          "published": "2026-04-12",
+          "country_asins": {
+            "US": "B0GWWG34W6"
+          }
+        }
+      }
+    },
+    {
+      "id": "stop_losing_money",
+      "title": "Stop Losing Money",
+      "subtitle": "Real Stories from a Private Wealth Manager, Costly Mistakes from Investors & the 3-3-3 System That Fixes Them",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "\ud83d\udcb0",
+      "cover_color": "#1a1a2e",
+      "cover_color2": "#16213e",
+      "formats": {
+        "kindle": {
+          "asin": "B0G7YSZZJM",
+          "price": 2.99,
+          "currency": "USD",
+          "published": "2026-04-07",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0G7YSZZJM"
+          }
+        },
+        "paperback": {
+          "asin": "B0GWHZLVK8",
+          "price": 6.99,
+          "currency": "USD",
+          "published": "2026-04-08",
+          "country_asins": {
+            "US": "B0GWHZLVK8"
+          }
+        }
+      }
+    },
+    {
+      "id": "ai_prompts_equity_research",
+      "title": "AI Prompts for Financial Analysis \u2014 Equity Research Edition",
+      "subtitle": "100+ Practical Prompts for Equity Research, Valuation, Investment Banking and Risk Management",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "\ud83d\udcc8",
+      "cover_color": "#2d3436",
+      "cover_color2": "#636e72",
+      "formats": {
+        "hardcover": {
+          "asin": "B0GSBV7QX9",
+          "price": 44.99,
+          "currency": "USD",
+          "published": "2026-03-12",
+          "country_asins": {
+            "US": "B0GSBV7QX9"
+          }
+        }
+      }
+    }
+  ],
+  "countries": {
+    "US": { "flag": "\ud83c\uddfa\ud83c\uddf8", "name": "United States", "domain": "amazon.com", "currency": "USD" },
+    "UK": { "flag": "\ud83c\uddec\ud83c\udde7", "name": "United Kingdom", "domain": "amazon.co.uk", "currency": "GBP" },
+    "IN": { "flag": "\ud83c\uddee\ud83c\uddf3", "name": "India", "domain": "amazon.in", "currency": "INR" },
+    "CA": { "flag": "\ud83c\udde8\ud83c\udde6", "name": "Canada", "domain": "amazon.ca", "currency": "CAD" },
+    "AU": { "flag": "\ud83c\udde6\ud83c\uddfa", "name": "Australia", "domain": "amazon.com.au", "currency": "AUD" },
+    "DE": { "flag": "\ud83c\udde9\ud83c\uddea", "name": "Germany", "domain": "amazon.de", "currency": "EUR" },
+    "FR": { "flag": "\ud83c\uddeb\ud83c\uddf7", "name": "France", "domain": "amazon.fr", "currency": "EUR" },
+    "IT": { "flag": "\ud83c\uddee\ud83c\uddf9", "name": "Italy", "domain": "amazon.it", "currency": "EUR" },
+    "ES": { "flag": "\ud83c\uddea\ud83c\uddf8", "name": "Spain", "domain": "amazon.es", "currency": "EUR" },
+    "JP": { "flag": "\ud83c\uddef\ud83c\uddf5", "name": "Japan", "domain": "amazon.co.jp", "currency": "JPY" },
+    "BR": { "flag": "\ud83c\udde7\ud83c\uddf7", "name": "Brazil", "domain": "amazon.com.br", "currency": "BRL" },
+    "MX": { "flag": "\ud83c\uddf2\ud83c\uddfd", "name": "Mexico", "domain": "amazon.com.mx", "currency": "MXN" },
+    "NL": { "flag": "\ud83c\uddf3\ud83c\uddf1", "name": "Netherlands", "domain": "amazon.nl", "currency": "EUR" },
+    "SE": { "flag": "\ud83c\uddf8\ud83c\uddea", "name": "Sweden", "domain": "amazon.se", "currency": "SEK" },
+    "PL": { "flag": "\ud83c\uddf5\ud83c\uddf1", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" }
+  }
+}
