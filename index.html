@@ -216,6 +216,15 @@ function getRank(bookId, format, country) {
   return RANKINGS?.current?.[bookId]?.[format]?.[country] || null;
 }
 
+// Returns the best subcategory rank from all_ranks (ignores generic "Books" / "Kindle Store")
+function getBestSubcatRank(data) {
+  if (!data?.all_ranks || data.all_ranks.length === 0) return null;
+  const generic = ['books', 'kindle store'];
+  const sub = data.all_ranks.filter(r => !generic.includes(r.category?.toLowerCase()));
+  if (sub.length > 0) return sub.reduce((a, b) => a.rank < b.rank ? a : b);
+  return data.all_ranks[0]; // fallback to overall
+}
+
 function rankClass(rank) {
   if (!rank) return 'rank-none';
   if (rank === 1) return 'rank-1';
@@ -238,8 +247,9 @@ function bestRankForBook(bookId) {
   const cur = RANKINGS?.current?.[bookId] || {};
   for (const fmt of Object.values(cur)) {
     for (const data of Object.values(fmt)) {
-      if (data?.rank && (!best || data.rank < best.rank)) {
-        best = data;
+      const sub = getBestSubcatRank(data);
+      if (sub?.rank && (!best || sub.rank < best.rank)) {
+        best = { ...sub, overall_rank: data.rank };
       }
     }
   }
@@ -414,15 +424,18 @@ function renderBookCard(book) {
     const fd = book.formats[fmt];
     const asin = fd.asin;
     const rankCells = countries.slice(0, activeCountry === 'ALL' ? 8 : 15).map(c => {
-      const d = getRank(book.id, fmt, c);
-      const rank = d?.rank || null;
+      const d    = getRank(book.id, fmt, c);
+      const sub  = getBestSubcatRank(d);
+      const rank = sub?.rank || null;
+      const cat  = sub?.category || d?.category || '';
       const cls  = rankClass(rank);
       const url  = amazonUrl(d?.asin || asin, c);
-      const tip  = rank ? `#${rank.toLocaleString()} in ${d.category}` : 'Not ranked';
+      const tip  = rank ? `#${rank.toLocaleString()} in ${cat}` : 'Not ranked';
       return `<a href="${url}" target="_blank" rel="noopener" title="${countryName(c)}: ${tip}"
         class="country-cell" style="text-decoration:none;">
         <div style="font-size:1.3rem;">${countryFlag(c)}</div>
         <div class="rank-badge ${cls} mt-1" style="font-size:0.65rem;">${rank ? '#'+rank.toLocaleString() : 'N/A'}</div>
+        ${rank && cat ? `<div style="font-size:0.55rem;color:var(--text-secondary);margin-top:2px;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${cat}</div>` : ''}
       </a>`;
     }).join('');
 
