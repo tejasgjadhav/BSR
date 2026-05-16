@@ -256,10 +256,6 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GV2SS77G/ref=tmm_pap_swatch_0"
         },
-        "IN": {
-          "last_error": "BSR not found",
-          "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
-        },
         "CA": {
           "rank": 651497,
           "category": "Books",
@@ -474,6 +470,27 @@
         "PL": {
           "last_error": "BSR not found",
           "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
+        },
+        "BE": {
+          "rank": 22655,
+          "category": "Books",
+          "all_ranks": [
+            {
+              "rank": 22655,
+              "category": "Books"
+            },
+            {
+              "rank": 9,
+              "category": "Generative AI"
+            },
+            {
+              "rank": 532,
+              "category": "Professional Finance"
+            }
+          ],
+          "timestamp": "2026-05-16T05:32:20.860441+00:00",
+          "asin": "B0GV2SS77G",
+          "url": "https://www.amazon.com.be/dp/B0GV2SS77G"
         }
       },
       "hardcover": {
@@ -921,10 +938,6 @@
           "asin": "9357823662",
           "url": "https://www.amazon.co.uk/AI-Prompts-Financial-Analysis-Practical/dp/9357823662/ref=tmm_pap_swatch_0"
         },
-        "IN": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
-        },
         "CA": {
           "rank": 333,
           "category": "Generative AI",
@@ -1240,10 +1253,6 @@
           "last_error": "BSR not found",
           "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
         },
-        "IN": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
-        },
         "CA": {
           "last_error": "BSR not found",
           "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
@@ -1432,10 +1441,6 @@
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
-        },
-        "IN": {
-          "last_error": "Not available (404)",
           "error_timestamp": "2026-05-16T04:15:31.033064+00:00"
         },
         "CA": {
@@ -1909,6 +1914,13 @@
             "date": "2026-05-16",
             "rank": 63583,
             "category": "Livros"
+          }
+        ],
+        "BE": [
+          {
+            "date": "2026-05-16",
+            "rank": 22655,
+            "category": "Books"
           }
         ]
       },

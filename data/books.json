@@ -29,7 +29,8 @@
           "currency": "USD",
           "published": "2026-03-27",
           "country_asins": {
-            "US": "B0GV2SS77G"
+            "US": "B0GV2SS77G",
+            "IN": "N/A"
           }
         },
         "hardcover": {
@@ -68,7 +69,8 @@
           "currency": "USD",
           "published": "2026-03-25",
           "country_asins": {
-            "US": "9357823662"
+            "US": "9357823662",
+            "IN": "N/A"
           }
         }
       }
@@ -98,7 +100,8 @@
           "currency": "USD",
           "published": "2026-04-12",
           "country_asins": {
-            "US": "B0GWWG34W6"
+            "US": "B0GWWG34W6",
+            "IN": "N/A"
           }
         }
       }
@@ -128,7 +131,8 @@
           "currency": "USD",
           "published": "2026-04-08",
           "country_asins": {
-            "US": "B0GWHZLVK8"
+            "US": "B0GWHZLVK8",
+            "IN": "N/A"
           }
         }
       }
@@ -169,6 +173,8 @@
     "MX": { "flag": "\ud83c\uddf2\ud83c\uddfd", "name": "Mexico", "domain": "amazon.com.mx", "currency": "MXN" },
     "NL": { "flag": "\ud83c\uddf3\ud83c\uddf1", "name": "Netherlands", "domain": "amazon.nl", "currency": "EUR" },
     "SE": { "flag": "\ud83c\uddf8\ud83c\uddea", "name": "Sweden", "domain": "amazon.se", "currency": "SEK" },
-    "PL": { "flag": "\ud83c\uddf5\ud83c\uddf1", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" }
+    "PL": { "flag": "\ud83c\uddf5\ud83c\uddf1", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" },
+    "BE": { "flag": "\ud83c\udde7\ud83c\uddea", "name": "Belgium", "domain": "amazon.com.be", "currency": "EUR" },
+    "IE": { "flag": "\ud83c\uddee\ud83c\uddea", "name": "Ireland", "domain": "amazon.ie", "currency": "EUR" }
   }
 }

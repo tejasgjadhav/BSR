@@ -64,6 +64,8 @@ AMAZON_DOMAINS = {
     'NL': 'www.amazon.nl',
     'SE': 'www.amazon.se',
     'PL': 'www.amazon.pl',
+    'BE': 'www.amazon.com.be',
+    'IE': 'www.amazon.ie',
 }
 
 
