@@ -82,93 +82,115 @@ def normalize_rank_number(s):
 
 def parse_bsr_text(text):
     """
-    Parse ALL rank entries from BSR text block.
+    Parse ALL rank entries from BSR text block across ALL Amazon locales.
 
-    Handles English:  #97,448 in Kindle Store / #5 in Investing Portfolio Management
-    Handles German:   Nr. 118.877 in Bücher / Nr. 61 in Generative KI
-    Handles French:   n°118 877 en Livres / nº 61 en IA Générative
-    Handles Italian:  n. 118.877 in Libri
-    Handles Japanese: 売れ筋ランキング - X位
-    Handles Spanish:  nº 118.877 en Libros / nº 61 en IA Generativa
+    Locale formats handled:
+      EN (US/UK/IN/CA/AU):  #97,448 in Kindle Store · #5 in Investing Portfolio Management
+      EN on non-US stores:  118,877 in Books · 62 in Financial Risk Management  (no # prefix)
+      DE:  Nr. 118.877 in Bücher · Nr. 61 in Generative KI
+      FR:  n° 193 en Intelligence artificielle générative
+      IT:  n. 598 in Economia, affari e finanza (Libri) · classifica Bestseller di Amazon
+      ES:  nº 32.764 en Libros · nº 61 en IA Generativa
+      BR:  Nº 30.974 em Loja Kindle · Nº 74 em Computação, internet e mídia digital em inglês
+      MX:  nº 86 en Finanzas Corporativas (uses # on EN response)
+      NL:  #26,711 in Kindle Store (EN response)
     """
-    # Remove noise like "( See Top 100 in Books )" / "( Siehe Top 100 in Bücher )"
-    clean = re.sub(r'\([^)]{0,60}(?:Top|top)\s+\d+[^)]*\)', '', text)
-    clean = re.sub(r'\([^)]{0,60}(?:Voir|voir|Vedi|vedi|Ver|ver)\s+[^)]*\)', '', clean)
+    # ── Step 1: Strip all noise parentheses
+    # Removes: ( See Top 100 in Books ) / ( Conheça o Top 100 na categoria Loja Kindle ) / ( Siehe Top 100 )
+    clean = re.sub(
+        r'\([^)]{0,120}(?:See|Voir|Vedi|Ver|Siehe|Conhe[çc]a|Consulta|Top\s+100)[^)]*\)',
+        ' ', text, flags=re.IGNORECASE
+    )
+    # Remove stray "Avaliações dos clientes" / "Customer reviews" trailing text
+    for stop in ['Avalia', 'Customer reviews', 'Recensioni', 'Reseñas', 'Kundrezensionen', 'Avis client']:
+        idx = clean.find(stop)
+        if idx > 0:
+            clean = clean[:idx]
 
     results = []
     seen = set()
 
-    # Remove noise: "( See Top 100 in Books )" style
-    clean = re.sub(r'\([^)]{0,80}(?:See|Voir|Vedi|Ver|Siehe)\s+Top[^)]*\)', '', clean)
-
-    # ── Pattern A: #number in Category  (US/UK/IN/CA/AU + EN pages of DE/FR/IT/ES)
-    for m in re.finditer(
-        r'#\s*([\d,]+)\s+in\s+((?:[\w&\u2019/()\-\u2013\s]){3,60}?)(?=\s*(?:#|\d{1,3}\s+in\s|\Z|\n))',
-        clean, re.UNICODE
-    ):
-        rank = normalize_rank_number(m.group(1))
-        cat  = m.group(2).strip().strip('(').strip()
-        if cat and not re.search(r'See\s+Top', cat, re.I) and rank > 0:
-            key = (rank, cat.lower()[:40])
-            if key not in seen:
-                seen.add(key)
-                results.append({'rank': rank, 'category': cat})
-
-    # ── Pattern A2: bare "NUMBER in Category" (EN-language DE/FR pages without #)
-    # Triggered after "Best Sellers Rank:" line
-    bare_pat = re.compile(
-        r'(?<!\w)([\d][\d,]*)\s+in\s+((?:[A-Z][\w&/()\-\s]){3,60}?)(?=\s*(?:\d{1,3}\s+in\s|Customer|$|\n))',
-        re.UNICODE
-    )
-    for m in bare_pat.finditer(clean):
-        try:
-            rank = normalize_rank_number(m.group(1))
-        except Exception:
-            continue
-        if rank == 0 or rank > 10_000_000:
-            continue
-        cat = m.group(2).strip().strip('(').strip()
-        if len(cat) < 3 or re.search(r'See\s+Top', cat, re.I):
-            continue
+    def add(rank, cat):
+        cat = cat.strip().strip('(').strip().rstrip('(').strip()
+        if not cat or len(cat) < 2 or rank <= 0 or rank > 10_000_000:
+            return
+        # Skip pure noise
+        if re.search(r'(?:See|Voir|Top\s+\d+|^\d+$)', cat, re.I):
+            return
         key = (rank, cat.lower()[:40])
         if key not in seen:
             seen.add(key)
             results.append({'rank': rank, 'category': cat})
+
+    # ── Pattern A: #number in/em Category  (EN, NL, some MX)
+    # Category can contain commas, accented chars, apostrophes
+    for m in re.finditer(
+        r'#\s*([\d,]+)\s+(?:in|em)\s+'
+        r'([\w\u00C0-\u024F&\'\u2019/()\-\u2013, ]{3,80}?)'
+        r'(?=\s*(?:#\s*\d|\d{1,3}\s+(?:in|em)\s+[A-Z\u00C0]|\Z|\n))',
+        clean, re.UNICODE
+    ):
+        try: add(normalize_rank_number(m.group(1)), m.group(2))
+        except: pass
+
+    # ── Pattern B: bare NUMBER in/em Category (EN pages on DE/FR/UK/IT/BR stores, no # prefix)
+    # e.g.: 118,877 in Books   62 in Financial Risk Management   131 in Managers' Guides
+    # Lookahead: next entry starts with a number OR Nr./Nº OR 2+ spaces OR end
+    for m in re.finditer(
+        r'(?<!\d)([\d][\d,\.]*)\s+(?:in|em)\s+'
+        r'([A-Z\u00C0-\u024F][A-Za-z\u00C0-\u024F0-9&\'\u2019/()\-, ]{2,70}?)'
+        r'(?=\s*(?:Nr\.|[Nn][°º]|n\.)|\s{2,}|\s*(?:\d{1,6}\s+(?:in|em)\s+[A-Z\u00C0])|\Z|\n)',
+        clean, re.UNICODE
+    ):
+        try:
+            rank = normalize_rank_number(m.group(1))
+            add(rank, m.group(2))
+        except: pass
 
     if results:
         return results
 
-    # ── Pattern B: European locale  Nr./n°/nº/n. NUMBER in/en CATEGORY
+    # ── Pattern C: Nr./n°/nº/Nº/n. NUMBER in/en/em CATEGORY  (DE/FR/ES/BR/IT native pages)
+    # BR: Nº 30.974 em Computação, internet e mídia digital em inglês
+    # DE: Nr. 118.877 in Bücher · Nr. 61 in Generative KI
+    # ES: nº 32.764 en Libros
+    # IT: n. 598 in Economia, affari e finanza (Libri)
     for m in re.finditer(
-        r'(?:Nr\.|n[°º]|n\.)\s*([\d.,\s]+?)\s+(?:in|en)\s+((?:[\w&\u00C0-\u024F\u4E00-\u9FFF()\-\s/&]){3,70}?)(?=\s*(?:Nr\.|n[°º]|n\.|$|\n|\())',
-        clean, re.UNICODE | re.IGNORECASE
+        r'(?:Nr\.|[Nn][°º]|n\.)\s*([\d.,\s]{1,15})\s+(?:in|en|em)\s+'
+        r'([\w\u00C0-\u024F&\'\u2019/()\-, ]{3,80}?)'
+        r'(?=\s*(?:Nr\.|[Nn][°º]|n\.|$|\n|\())',
+        clean, re.UNICODE
     ):
-        raw_num = m.group(1).strip()
-        rank = normalize_rank_number(raw_num)
-        if rank == 0 or rank > 10_000_000:
-            continue
-        cat = m.group(2).strip().strip('(').strip()
-        if len(cat) < 2 or re.search(r'^\d+$', cat):
-            continue
-        key = (rank, cat.lower()[:40])
-        if key not in seen:
-            seen.add(key)
-            results.append({'rank': rank, 'category': cat})
+        try:
+            rank = normalize_rank_number(m.group(1).strip())
+            add(rank, m.group(2))
+        except: pass
 
     return results
 
 
 # BSR trigger keywords across all Amazon locales
 BSR_KEYWORDS = [
-    'Best Sellers Rank', 'Bestsellers Rank', 'Amazon Best Sellers Rank',  # EN
-    'Amazon Bestseller-Rang', 'Bestseller-Rang',                           # DE
-    'Meilleures ventes',  'Classement des meilleures ventes',              # FR
-    'Posizione nella classifica', 'Classifica Bestseller',                 # IT
-    'Posición en los más vendidos', 'Los más vendidos',                    # ES
-    'Mais vendidos',                                                        # PT/BR
-    'Más vendidos',                                                         # MX
-    'ランキング', '売れ筋ランキング',                                       # JP
-    'Bestseller-rang', 'Bestsellerrang',                                    # NL/SE/PL
+    # English
+    'Best Sellers Rank', 'Bestsellers Rank', 'Amazon Best Sellers Rank',
+    # German
+    'Amazon Bestseller-Rang', 'Bestseller-Rang', 'Bestseller-Rang:',
+    # French
+    'Meilleures ventes', 'Classement des meilleures ventes',
+    # Italian
+    'Posizione nella classifica', 'Classifica Bestseller', 'classifica Bestseller',
+    # Spanish
+    'Posición en los más vendidos', 'Los más vendidos', 'más vendidos',
+    # Portuguese / Brazil
+    'Ranking dos mais vendidos', 'Mais vendidos', 'mais vendidos',
+    # Mexico
+    'Más vendidos', 'más vendidos',
+    # Japanese
+    'ランキング', '売れ筋ランキング', 'Amazon売れ筋ランキング',
+    # Dutch / Swedish / Polish
+    'Bestseller-rang', 'Bestsellerrang', 'Bästsäljare', 'Bestsellery',
+    # Fallback
+    'Bestseller Rang', 'Ranking',
 ]
 
 
@@ -180,13 +202,39 @@ def extract_bsr_from_html(soup):
     """Extract ALL BSR rank entries using multiple fallback strategies, all locales."""
     bsr_data = []
 
+    # Pre-compute full-page text once — has multi-space separators between elements,
+    # which is critical for correctly parsing bare-number ranks (DE/IT/FR EN-response pages).
+    # Single-spaced li.get_text() causes Pattern B to misparse "1,137 in Books" as
+    # category="... 1," + rank=137. Full page text avoids this.
+    page_text = soup.get_text(separator=' ')
+
+    def parse_from_page(keyword_hint):
+        """Find keyword in full-page text and parse the block from there."""
+        # Try the exact keyword first, then any BSR keyword
+        hints = [keyword_hint] if keyword_hint else []
+        hints += [kw for kw in BSR_KEYWORDS if kw != keyword_hint]
+        for kw in hints:
+            idx = page_text.find(kw)
+            if idx != -1:
+                block = page_text[idx:idx + 800]
+                data = parse_bsr_text(block)
+                if data:
+                    return data
+                data = _extract_bare_numbers(block)
+                if data:
+                    return data
+        return []
+
     # Strategy 1: Detail bullets wrapper (modern Amazon layout, all locales)
+    # Use li only as a locator; parse from full-page text for correct multi-spacing.
     detail_bullets = soup.find('div', {'id': 'detailBulletsWrapper_feature_div'})
     if detail_bullets:
         for li in detail_bullets.find_all('li'):
             text = li.get_text(separator=' ', strip=True)
             if has_bsr_keyword(text):
-                bsr_data = parse_bsr_text(text)
+                # Find which keyword matched so we can locate it in page_text
+                matched_kw = next((kw for kw in BSR_KEYWORDS if kw.lower() in text.lower()), None)
+                bsr_data = parse_from_page(matched_kw)
                 if bsr_data:
                     return bsr_data
 
@@ -199,7 +247,8 @@ def extract_bsr_from_html(soup):
                 th = row.find('th')
                 td = row.find('td')
                 if th and td and has_bsr_keyword(th.get_text()):
-                    bsr_data = parse_bsr_text(td.get_text(separator=' ', strip=True))
+                    matched_kw = next((kw for kw in BSR_KEYWORDS if kw.lower() in th.get_text().lower()), None)
+                    bsr_data = parse_from_page(matched_kw)
                     if bsr_data:
                         return bsr_data
 
@@ -207,21 +256,19 @@ def extract_bsr_from_html(soup):
     for tag in soup.find_all(['span', 'li']):
         text = tag.get_text(separator=' ', strip=True)
         if has_bsr_keyword(text) and len(text) < 2000:
-            bsr_data = parse_bsr_text(text)
+            matched_kw = next((kw for kw in BSR_KEYWORDS if kw.lower() in text.lower()), None)
+            bsr_data = parse_from_page(matched_kw)
             if bsr_data:
                 return bsr_data
 
     # Strategy 4: Full page text scan — find BSR block and parse up to 800 chars
-    page_text = soup.get_text(separator=' ')
     for kw in BSR_KEYWORDS:
         idx = page_text.find(kw)
         if idx != -1:
-            block = page_text[idx:idx+800]
+            block = page_text[idx:idx + 800]
             bsr_data = parse_bsr_text(block)
             if bsr_data:
                 return bsr_data
-            # Strategy 4b: direct bare-number extraction from the block
-            # Handles: "118,877 in Books   61 in Generative AI   90 in Management..."
             bsr_data = _extract_bare_numbers(block)
             if bsr_data:
                 return bsr_data
