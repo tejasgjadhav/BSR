@@ -71,8 +71,48 @@ def get_random_headers():
     return dict(random.choice(HEADERS_LIST))
 
 
+def parse_bsr_text(text):
+    """
+    Parse ALL rank entries from BSR text block.
+    Handles patterns like:
+      #97,448 in Kindle Store ( See Top 100 in Kindle Store )
+      #5 in Investing Portfolio Management
+      #7 in Financial Risk Management (Kindle Store)
+      #13 in Financial Risk Management (Books)
+    """
+    # Remove "See Top 100 in ..." noise in parentheses
+    clean = re.sub(r'\(\s*See Top \d+ in[^)]+\)', '', text)
+
+    # Match: #number in Category Name (optional qualifier)
+    # Category may contain letters, spaces, &, /, - and end with optional (Books)/(Kindle Store)
+    pattern = re.compile(
+        r'#([\d,]+)\s+in\s+'                          # #rank in
+        r'((?:[A-Za-z0-9&/\'\-\u2013\s]+'              # category words
+        r'(?:\([A-Za-z\s]+\))?)'                       # optional (Books) / (Kindle Store)
+        r')',
+        re.UNICODE
+    )
+
+    results = []
+    seen_keys = set()
+
+    for m in pattern.finditer(clean):
+        rank = int(m.group(1).replace(',', ''))
+        cat  = m.group(2).strip().rstrip('(').strip()
+        # Skip "See Top N" false positives
+        if re.match(r'^\d+$', cat) or 'See Top' in cat:
+            continue
+        key = (rank, cat.lower())
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+        results.append({'rank': rank, 'category': cat})
+
+    return results
+
+
 def extract_bsr_from_html(soup):
-    """Extract BSR data using multiple fallback strategies."""
+    """Extract ALL BSR rank entries using multiple fallback strategies."""
     bsr_data = []
 
     # Strategy 1: Detail bullets wrapper (modern Amazon layout)
@@ -80,13 +120,8 @@ def extract_bsr_from_html(soup):
     if detail_bullets:
         for li in detail_bullets.find_all('li'):
             text = li.get_text(separator=' ', strip=True)
-            if any(kw in text for kw in ['Best Sellers Rank', 'Bestsellers Rank', 'Amazon Bestsellers Rank', 'Best Seller Rank']):
-                ranks = re.findall(r'#([\d,]+)\s+in\s+([^\(#\n]+)', text)
-                for rank_str, category in ranks:
-                    bsr_data.append({
-                        'rank': int(rank_str.replace(',', '')),
-                        'category': category.strip().rstrip('(').strip()
-                    })
+            if any(kw in text for kw in ['Best Sellers Rank', 'Bestsellers Rank', 'Amazon Bestsellers Rank']):
+                bsr_data = parse_bsr_text(text)
                 if bsr_data:
                     return bsr_data
 
@@ -98,38 +133,25 @@ def extract_bsr_from_html(soup):
                 th = row.find('th')
                 td = row.find('td')
                 if th and td and 'Best Sellers Rank' in th.get_text():
-                    text = td.get_text(separator=' ', strip=True)
-                    ranks = re.findall(r'#([\d,]+)\s+in\s+([^\(#\n]+)', text)
-                    for rank_str, category in ranks:
-                        bsr_data.append({
-                            'rank': int(rank_str.replace(',', '')),
-                            'category': category.strip().rstrip('(').strip()
-                        })
+                    bsr_data = parse_bsr_text(td.get_text(separator=' ', strip=True))
                     if bsr_data:
                         return bsr_data
 
-    # Strategy 3: Scan all text spans
+    # Strategy 3: Scan all spans
     for span in soup.find_all('span', string=re.compile(r'Best Sellers Rank', re.I)):
         parent = span.parent
         if parent:
-            text = parent.get_text(separator=' ', strip=True)
-            ranks = re.findall(r'#([\d,]+)\s+in\s+([^\(#\n]+)', text)
-            for rank_str, category in ranks:
-                bsr_data.append({
-                    'rank': int(rank_str.replace(',', '')),
-                    'category': category.strip().rstrip('(').strip()
-                })
+            bsr_data = parse_bsr_text(parent.get_text(separator=' ', strip=True))
             if bsr_data:
                 return bsr_data
 
-    # Strategy 4: Full page text scan
+    # Strategy 4: Full page text
     page_text = soup.get_text(separator=' ')
-    bsr_match = re.search(r'Best Sellers? Rank[:\s]+#?([\d,]+)\s+in\s+([^\(#\n]{3,60})', page_text, re.I)
-    if bsr_match:
-        bsr_data.append({
-            'rank': int(bsr_match.group(1).replace(',', '')),
-            'category': bsr_match.group(2).strip()
-        })
+    idx = page_text.find('Best Sellers Rank')
+    if idx == -1:
+        idx = page_text.find('Bestsellers Rank')
+    if idx != -1:
+        bsr_data = parse_bsr_text(page_text[idx:idx+600])
 
     return bsr_data
 

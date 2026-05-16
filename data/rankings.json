@@ -1,14 +1,14 @@
 {
-  "last_updated": "2026-05-15T20:10:30.121172+00:00",
+  "last_updated": "2026-05-16T02:24:21.169520+00:00",
   "current": {
     "claude_ai_finance": {
       "kindle": {
         "US": {
-          "rank": 90383,
+          "rank": 97448,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 90383,
+              "rank": 97448,
               "category": "Kindle Store"
             },
             {
@@ -17,14 +17,14 @@
             },
             {
               "rank": 7,
-              "category": "Financial Risk Management"
+              "category": "Financial Risk Management (Kindle Store)"
             },
             {
-              "rank": 12,
-              "category": "Financial Risk Management"
+              "rank": 13,
+              "category": "Financial Risk Management (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com/dp/B0GSX73KF6"
         },
@@ -147,27 +147,27 @@
       },
       "paperback": {
         "US": {
-          "rank": 166261,
+          "rank": 185964,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 166261,
+              "rank": 185964,
               "category": "Books"
             },
             {
-              "rank": 12,
-              "category": "Financial Risk Management"
+              "rank": 13,
+              "category": "Financial Risk Management (Books)"
             },
             {
-              "rank": 29,
-              "category": "Generative AI"
+              "rank": 36,
+              "category": "Generative AI (Books)"
             },
             {
-              "rank": 35,
-              "category": "Valuation"
+              "rank": 39,
+              "category": "Valuation (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com/dp/B0GV2SS77G"
         },
@@ -314,27 +314,27 @@
       },
       "hardcover": {
         "US": {
-          "rank": 1233257,
+          "rank": 1263148,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1233257,
+              "rank": 1263148,
               "category": "Books"
             },
             {
-              "rank": 35,
-              "category": "Valuation"
+              "rank": 39,
+              "category": "Valuation (Books)"
             },
             {
-              "rank": 1391,
+              "rank": 1408,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 2162,
-              "category": "Economics"
+              "rank": 2234,
+              "category": "Economics (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com/dp/B0GVJPXVP8"
         },
@@ -443,27 +443,27 @@
     "ai_prompts_financial_analysis": {
       "kindle": {
         "US": {
-          "rank": 175601,
+          "rank": 188116,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 175601,
+              "rank": 188116,
               "category": "Kindle Store"
             },
             {
-              "rank": 26,
+              "rank": 30,
               "category": "Investing Portfolio Management"
             },
             {
-              "rank": 41,
-              "category": "Generative AI"
+              "rank": 51,
+              "category": "Generative AI (Kindle Store)"
             },
             {
-              "rank": 89,
-              "category": "Generative AI"
+              "rank": 100,
+              "category": "Investment Portfolio Management"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.com/dp/B0GS5RL6XS"
         },
@@ -595,27 +595,27 @@
       },
       "paperback": {
         "US": {
-          "rank": 1007952,
+          "rank": 1042233,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1007952,
+              "rank": 1042233,
               "category": "Books"
             },
             {
-              "rank": 89,
-              "category": "Generative AI"
+              "rank": 107,
+              "category": "Generative AI (Books)"
             },
             {
-              "rank": 235,
+              "rank": 263,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 2257,
-              "category": "Budgeting & Money Management"
+              "rank": 2299,
+              "category": "Budgeting & Money Management (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.com/dp/9357823662"
         },
@@ -751,27 +751,27 @@
     "wealth_code_shivaji": {
       "kindle": {
         "US": {
-          "rank": 2430553,
+          "rank": 2432275,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 2430553,
+              "rank": 2432275,
               "category": "Kindle Store"
             },
             {
-              "rank": 456,
-              "category": "Historical Asian Biographies"
+              "rank": 458,
+              "category": "Historical Asian Biographies (Kindle Store)"
             },
             {
-              "rank": 1501,
-              "category": "Wealth Management"
+              "rank": 1505,
+              "category": "Wealth Management (Kindle Store)"
             },
             {
-              "rank": 2731,
-              "category": "Historical Asian Biographies"
+              "rank": 2736,
+              "category": "Historical Asian Biographies (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.com/dp/B0D8R41W2F"
         },
@@ -855,19 +855,19 @@
       },
       "paperback": {
         "US": {
-          "rank": 2731,
-          "category": "Historical Asian Biographies",
+          "rank": 2736,
+          "category": "Historical Asian Biographies (Books)",
           "all_ranks": [
             {
-              "rank": 2731,
-              "category": "Historical Asian Biographies"
+              "rank": 2736,
+              "category": "Historical Asian Biographies (Books)"
             },
             {
-              "rank": 18593,
-              "category": "Investing"
+              "rank": 18610,
+              "category": "Investing (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GWWG34W6",
           "url": "https://www.amazon.com/dp/B0GWWG34W6"
         },
@@ -932,27 +932,27 @@
     "stop_losing_money": {
       "kindle": {
         "US": {
-          "rank": 1072702,
+          "rank": 1080816,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 1072702,
+              "rank": 1080816,
               "category": "Kindle Store"
             },
             {
-              "rank": 319,
+              "rank": 321,
               "category": "Investing Portfolio Management"
             },
             {
-              "rank": 443,
+              "rank": 449,
               "category": "One-Hour Business & Money Short Reads"
             },
             {
-              "rank": 699,
+              "rank": 703,
               "category": "Investment Portfolio Management"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0G7YSZZJM",
           "url": "https://www.amazon.com/dp/B0G7YSZZJM"
         },
@@ -1036,19 +1036,19 @@
       },
       "paperback": {
         "US": {
-          "rank": 7724,
-          "category": "Investing",
+          "rank": 7791,
+          "category": "Investing (Books)",
           "all_ranks": [
             {
-              "rank": 7724,
-              "category": "Investing"
+              "rank": 7791,
+              "category": "Investing (Books)"
             },
             {
-              "rank": 9332,
-              "category": "Personal Finance"
+              "rank": 9419,
+              "category": "Personal Finance (Books)"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GWHZLVK8",
           "url": "https://www.amazon.com/dp/B0GWHZLVK8"
         },
@@ -1113,27 +1113,27 @@
     "ai_prompts_equity_research": {
       "hardcover": {
         "US": {
-          "rank": 1644140,
+          "rank": 1668432,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1644140,
+              "rank": 1668432,
               "category": "Books"
             },
             {
-              "rank": 92,
+              "rank": 100,
               "category": "Investment Portfolio Management"
             },
             {
-              "rank": 235,
+              "rank": 263,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 766,
+              "rank": 776,
               "category": "Business Finance"
             }
           ],
-          "timestamp": "2026-05-15T20:10:30.121172+00:00",
+          "timestamp": "2026-05-16T02:24:21.169520+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.com/dp/B0GSBV7QX9"
         },
@@ -1248,6 +1248,11 @@
             "date": "2026-05-15",
             "rank": 90383,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 97448,
+            "category": "Kindle Store"
           }
         ],
         "IN": [
@@ -1284,6 +1289,11 @@
           {
             "date": "2026-05-15",
             "rank": 166261,
+            "category": "Books"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 185964,
             "category": "Books"
           }
         ],
@@ -1350,6 +1360,11 @@
             "date": "2026-05-15",
             "rank": 1233257,
             "category": "Books"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 1263148,
+            "category": "Books"
           }
         ],
         "UK": [
@@ -1388,6 +1403,11 @@
           {
             "date": "2026-05-15",
             "rank": 175601,
+            "category": "Kindle Store"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 188116,
             "category": "Kindle Store"
           }
         ],
@@ -1432,6 +1452,11 @@
           {
             "date": "2026-05-15",
             "rank": 1007952,
+            "category": "Books"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 1042233,
             "category": "Books"
           }
         ],
@@ -1493,6 +1518,11 @@
             "date": "2026-05-15",
             "rank": 2430553,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 2432275,
+            "category": "Kindle Store"
           }
         ],
         "IN": [
@@ -1509,6 +1539,11 @@
             "date": "2026-05-15",
             "rank": 2731,
             "category": "Historical Asian Biographies"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 2736,
+            "category": "Historical Asian Biographies (Books)"
           }
         ]
       }
@@ -1519,6 +1554,11 @@
           {
             "date": "2026-05-15",
             "rank": 1072702,
+            "category": "Kindle Store"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 1080816,
             "category": "Kindle Store"
           }
         ],
@@ -1536,6 +1576,11 @@
             "date": "2026-05-15",
             "rank": 7724,
             "category": "Investing"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 7791,
+            "category": "Investing (Books)"
           }
         ]
       }
@@ -1546,6 +1591,11 @@
           {
             "date": "2026-05-15",
             "rank": 1644140,
+            "category": "Books"
+          },
+          {
+            "date": "2026-05-16",
+            "rank": 1668432,
             "category": "Books"
           }
         ],

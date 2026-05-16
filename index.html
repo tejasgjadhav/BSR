@@ -1,686 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Amazon Best Seller Ranks — Tejas Jadhav | KDP Author</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --orange:    #FF9900;
-      --orange-dk: #e07b00;
-      --navy:      #0B1F3A;
-      --navy2:     #14304f;
-      --gold:      #D4AF37;
-      --green:     #16a34a;
-      --red:       #dc2626;
-      --gray-50:   #f9fafb;
-      --gray-100:  #f3f4f6;
-      --gray-200:  #e5e7eb;
-      --gray-300:  #d1d5db;
-      --gray-500:  #6b7280;
-      --gray-700:  #374151;
-      --gray-900:  #111827;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
-      --shadow:    0 4px 16px rgba(0,0,0,.10);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
-      --shadow-xl: 0 24px 64px rgba(0,0,0,.18);
-      --radius:    16px;
-      --radius-sm: 8px;
-    }
-    html { scroll-behavior: smooth; }
-    body  { font-family:'Inter',sans-serif; background:#f4f6f9; color:var(--gray-900); min-height:100vh; }
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Amazon BSR — Tejas Jadhav | KDP Author</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --or:#FF9900;--or2:#e07b00;
+  --navy:#0B1F3A;--navy2:#162f52;
+  --gold:#D4AF37;
+  --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;
+  --g400:#9ca3af;--g500:#6b7280;--g700:#374151;--g900:#111827;
+  --green:#16a34a;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;
+  --sh:0 1px 3px rgba(0,0,0,.08);
+  --sh2:0 4px 16px rgba(0,0,0,.10);
+  --sh3:0 12px 40px rgba(0,0,0,.13);
+  --sh4:0 24px 64px rgba(0,0,0,.16);
+  --r:16px;--rs:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#eef1f5;color:var(--g900);min-height:100vh}
 
-    /* ── HEADER ── */
-    .site-header {
-      background: var(--navy);
-      padding: 0 40px;
-      position: sticky; top:0; z-index:200;
-      box-shadow: 0 2px 20px rgba(0,0,0,.25);
-    }
-    .header-inner {
-      max-width:1300px; margin:0 auto;
-      display:flex; align-items:center; justify-content:space-between;
-      height:64px; gap:16px;
-    }
-    .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
-    .logo-badge {
-      background:var(--orange); color:#000; font-weight:900;
-      font-size:1.1rem; padding:6px 11px; border-radius:8px; letter-spacing:-.5px;
-    }
-    .logo-text { color:#fff; font-weight:700; font-size:1rem; line-height:1.2; }
-    .logo-sub  { color:rgba(255,255,255,.5); font-size:.72rem; font-weight:400; }
-    .header-live {
-      display:flex; align-items:center; gap:8px;
-      color:rgba(255,255,255,.7); font-size:.78rem;
-    }
-    .dot-live {
-      width:8px; height:8px; border-radius:50%; background:#22c55e;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)}}
+/* ── STICKY HEADER ── */
+.hdr{background:var(--navy);padding:0 40px;position:sticky;top:0;z-index:500;box-shadow:0 2px 24px rgba(0,0,0,.3)}
+.hdr-in{max-width:1400px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-a{background:var(--or);color:#000;font-weight:900;font-size:1.05rem;padding:5px 10px;border-radius:7px}
+.logo-t{color:#fff;font-weight:700;font-size:.95rem;line-height:1.25}
+.logo-s{color:rgba(255,255,255,.45);font-size:.68rem;font-weight:400}
+.hdr-live{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:.76rem}
+.dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
 
-    /* ── HERO STATS ── */
-    .hero-stats {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
-      padding: 40px 40px 48px;
-      text-align:center;
-    }
-    .hero-title {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(1.8rem,4vw,2.8rem);
-      color:#fff; font-weight:800; margin-bottom:6px;
-      letter-spacing:-.5px;
-    }
-    .hero-sub { color:rgba(255,255,255,.6); font-size:.95rem; margin-bottom:36px; }
-    .stats-row {
-      display:flex; justify-content:center; gap:12px; flex-wrap:wrap;
-    }
-    .stat-pill {
-      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
-      border-radius:40px; padding:12px 28px; text-align:center;
-      backdrop-filter:blur(8px);
-    }
-    .stat-num  { font-size:1.7rem; font-weight:800; color:var(--orange); line-height:1; }
-    .stat-lbl  { font-size:.7rem; color:rgba(255,255,255,.55); margin-top:2px; text-transform:uppercase; letter-spacing:.06em; }
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a60 60%,#0f2a4a 100%);padding:48px 40px 56px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(255,153,0,.12) 0%,transparent 65%)}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);color:#fff;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.hero-title span{color:var(--or)}
+.hero-sub{color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:40px}
+.pills{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:14px 30px;backdrop-filter:blur(12px);cursor:default;transition:all .2s}
+.pill:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.pill-n{font-size:1.8rem;font-weight:900;color:var(--or);line-height:1}
+.pill-l{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
 
-    /* ── MAIN ── */
-    .main { max-width:1300px; margin:0 auto; padding:40px 24px 80px; }
+/* ── MAIN ── */
+.main{max-width:1400px;margin:0 auto;padding:40px 24px 80px}
+.sec-label{text-align:center;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--g400);margin:36px 0 20px;position:relative}
+.sec-label::before,.sec-label::after{content:'';position:absolute;top:50%;width:30%;height:1px;background:var(--g200)}
+.sec-label::before{left:0}.sec-label::after{right:0}
 
-    /* ── SECTION HEADING ── */
-    .section-label {
-      display:flex; align-items:center; gap:10px;
-      font-size:.72rem; font-weight:700; text-transform:uppercase;
-      letter-spacing:.1em; color:var(--gray-500); margin-bottom:20px;
-    }
-    .section-label::before, .section-label::after {
-      content:''; flex:1; height:1px; background:var(--gray-200);
-    }
+/* ── BOOK CARD ── */
+.bcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh2);border:1px solid var(--g200);margin-bottom:32px;overflow:hidden;transition:box-shadow .2s,transform .2s}
+.bcard:hover{box-shadow:var(--sh3)}
+.bcard.featured{border:2px solid var(--or);box-shadow:0 0 0 4px rgba(255,153,0,.07),var(--sh4)}
 
-    /* ── BOOK CARD ── */
-    .book-card {
-      background:#fff; border-radius:var(--radius);
-      box-shadow: var(--shadow); overflow:hidden;
-      margin-bottom:36px; border:1px solid var(--gray-200);
-      transition: box-shadow .2s;
-    }
-    .book-card:hover { box-shadow: var(--shadow-lg); }
-    .book-card.featured {
-      border:2px solid var(--orange);
-      box-shadow: 0 0 0 4px rgba(255,153,0,.08), var(--shadow-xl);
-    }
+/* ── BOOK HERO ROW ── */
+.bhero{display:flex;min-height:280px}
+.bcov{flex-shrink:0;width:210px;background:linear-gradient(145deg,#e8edf5,#d6dde8);display:flex;align-items:center;justify-content:center;padding:28px 22px;border-right:1px solid var(--g100);position:relative}
+.bcov img{max-width:148px;max-height:210px;object-fit:contain;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.14);transition:transform .3s}
+.bcard:hover .bcov img{transform:scale(1.05) translateY(-3px) rotate(.5deg)}
+.ftag{position:absolute;top:12px;left:12px;background:var(--or);color:#000;font-size:.6rem;font-weight:800;padding:3px 8px;border-radius:12px;letter-spacing:.04em;text-transform:uppercase}
 
-    /* ── BOOK HERO ── */
-    .book-hero {
-      display:flex; gap:0; align-items:stretch;
-      min-height:260px;
-    }
-    .book-cover-wrap {
-      flex-shrink:0; width:200px;
-      background: linear-gradient(160deg,#f0f4ff,#e8edf8);
-      display:flex; align-items:center; justify-content:center;
-      padding:24px 20px;
-      border-right:1px solid var(--gray-100);
-    }
-    .book-cover-wrap img {
-      max-width:140px; max-height:200px;
-      object-fit:contain;
-      border-radius:4px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.12);
-      transition: transform .3s;
-    }
-    .book-card:hover .book-cover-wrap img { transform: scale(1.04) translateY(-2px); }
+.binfo{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.btop{display:flex;gap:16px;align-items:flex-start}
+.btitle{font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.8vw,1.3rem);font-weight:700;color:var(--navy);line-height:1.3}
+.bsub{font-size:.8rem;color:var(--g500);line-height:1.55}
+.bauthor{font-size:.75rem;color:var(--g400)}
+.bauthor strong{color:var(--navy)}
 
-    .book-info {
-      flex:1; padding:28px 32px;
-      display:flex; flex-direction:column; gap:14px;
-    }
-    .book-top {
-      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
-    }
-    .featured-tag {
-      flex-shrink:0;
-      background:var(--orange); color:#000; font-size:.65rem;
-      font-weight:800; padding:3px 10px; border-radius:20px;
-      letter-spacing:.05em; text-transform:uppercase;
-    }
-    .book-title {
-      font-family:'Playfair Display',serif;
-      font-size:clamp(1rem,2vw,1.35rem);
-      font-weight:700; color:var(--navy); line-height:1.3;
-    }
-    .book-subtitle {
-      font-size:.82rem; color:var(--gray-500); line-height:1.5;
-    }
-    .book-author {
-      font-size:.8rem; color:var(--gray-500);
-    }
-    .book-author strong { color:var(--navy); }
+/* BEST RANK BADGE */
+.best-rank-badge{flex-shrink:0;text-align:center;min-width:100px}
+.brb-num{font-size:2rem;font-weight:900;line-height:1;letter-spacing:-.05em}
+.brb-cat{font-size:.6rem;color:var(--g400);margin-top:2px;max-width:120px;line-height:1.3}
+.brb-label{font-size:.62rem;color:var(--g300);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
 
-    /* FORMAT TABS */
-    .format-tabs { display:flex; gap:6px; flex-wrap:wrap; }
-    .ftab {
-      padding:5px 14px; border-radius:20px; font-size:.78rem; font-weight:600;
-      cursor:pointer; border:1.5px solid var(--gray-200);
-      color:var(--gray-500); background:#fff;
-      transition: all .15s;
-    }
-    .ftab:hover { border-color:var(--orange); color:var(--orange); }
-    .ftab.active { background:var(--orange); color:#fff; border-color:var(--orange); }
-    .ftab-kindle   .ftab.active { background:#2563eb; border-color:#2563eb; }
-    .ftab-paperback .ftab.active { background:#16a34a; border-color:#16a34a; }
-    .ftab-hardcover .ftab.active { background:#7c3aed; border-color:#7c3aed; }
+/* FORMAT TABS */
+.ftabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.ftab{padding:6px 16px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:1.5px solid var(--g200);color:var(--g500);background:#fff;transition:all .15s;display:flex;align-items:center;gap:5px}
+.ftab:hover{border-color:var(--or);color:var(--or)}
+.ftab.active.kindle{background:#eff6ff;border-color:#2563eb;color:#2563eb}
+.ftab.active.paperback{background:#f0fdf4;border-color:#16a34a;color:#16a34a}
+.ftab.active.hardcover{background:#f5f3ff;border-color:#7c3aed;color:#7c3aed}
 
-    /* ── COUNTRY GRID ── */
-    .country-section { padding:0 28px 28px; }
-    .format-panel { display:none; }
-    .format-panel.active { display:block; }
+/* ── COUNTRY SECTION ── */
+.csec{padding:0 28px 28px}
+.fpanel{display:none}
+.fpanel.active{display:block}
+.fhdr{display:flex;align-items:center;gap:10px;padding:16px 0 14px;border-bottom:1px solid var(--g100);margin-bottom:16px}
+.fbadge{font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px}
+.fb-kindle{background:#eff6ff;color:#2563eb}
+.fb-paperback{background:#f0fdf4;color:#16a34a}
+.fb-hardcover{background:#f5f3ff;color:#7c3aed}
+.fasin{font-size:.7rem;color:var(--g300);font-family:monospace}
+.fprice{margin-left:auto;font-weight:700;color:var(--g700);font-size:.85rem}
 
-    .format-header {
-      display:flex; align-items:center; gap:10px;
-      padding:14px 0 16px;
-      border-bottom:1px solid var(--gray-100);
-      margin-bottom:16px;
-    }
-    .format-badge {
-      font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:20px;
-    }
-    .fmt-kindle    { background:#eff6ff; color:#2563eb; }
-    .fmt-paperback { background:#f0fdf4; color:#16a34a; }
-    .fmt-hardcover { background:#f5f3ff; color:#7c3aed; }
-    .format-asin { font-size:.72rem; color:var(--gray-400); }
-    .format-price { font-size:.85rem; font-weight:700; color:var(--gray-700); margin-left:auto; }
+/* ── COUNTRY TILES ── */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
+.ctile{
+  background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rs);
+  padding:12px 8px 10px;text-align:center;text-decoration:none;color:inherit;
+  cursor:pointer;transition:all .18s;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;
+}
+.ctile::after{content:'';position:absolute;inset:0;opacity:0;background:rgba(255,153,0,.04);transition:opacity .2s}
+.ctile:hover{transform:translateY(-3px);box-shadow:var(--sh2);border-color:var(--or)}
+.ctile:hover::after{opacity:1}
+.ctile.ranked{background:#fff;border-color:var(--g200)}
+.ctile.top100{border-color:#fbbf24;background:linear-gradient(145deg,#fffbeb,#fef3c7)}
+.ctile.top10{border-color:#f59e0b;background:linear-gradient(145deg,#fef9c3,#fde68a);box-shadow:0 0 0 2px rgba(251,191,36,.2)}
+.ctile.top1{border-color:#D4AF37;background:linear-gradient(145deg,#fef08a,#fde047);box-shadow:0 0 12px rgba(212,175,55,.3)}
 
-    .countries-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
-      gap:10px;
-    }
-    .country-tile {
-      background:var(--gray-50); border:1px solid var(--gray-200);
-      border-radius:var(--radius-sm); padding:12px 10px;
-      text-align:center; text-decoration:none; color:inherit;
-      transition: all .18s; position:relative; overflow:hidden;
-    }
-    .country-tile:hover {
-      transform:translateY(-2px);
-      box-shadow: var(--shadow);
-      border-color:var(--orange);
-    }
-    .country-tile.has-rank { background:#fff; }
-    .country-tile.top-rank {
-      border-color:#FFD700;
-      background:linear-gradient(135deg,#fffbeb,#fff8d6);
-    }
-    .country-flag  { font-size:1.8rem; line-height:1; margin-bottom:4px; }
-    .country-name  { font-size:.65rem; color:var(--gray-500); margin-bottom:6px; font-weight:500; }
-    .country-rank  { font-size:1rem; font-weight:800; line-height:1; }
-    .country-cat   { font-size:.6rem; color:var(--gray-500); margin-top:3px; line-height:1.3; }
-    .country-na    { font-size:.72rem; color:var(--gray-300); margin-top:4px; }
+.cflag{font-size:1.9rem;line-height:1;margin-bottom:3px}
+.ccode{font-size:.62rem;font-weight:700;color:var(--g400);letter-spacing:.04em;margin-bottom:5px}
+.crank{font-size:1.05rem;font-weight:900;line-height:1;margin-bottom:2px}
+.ccat{font-size:.57rem;color:var(--g500);line-height:1.3;max-height:2.6em;overflow:hidden}
+.cna{font-size:.68rem;color:var(--g300);margin-top:4px}
+.cstar{position:absolute;top:5px;right:6px;font-size:.8rem}
 
-    .rank-star  { color:#f59e0b; }
-    .rank-num   { color:var(--navy); }
-    .rank-good  { color:#16a34a; }
-    .rank-mid   { color:#d97706; }
-    .rank-low   { color:#9ca3af; }
+/* rank colors */
+.rc-gold{color:#b45309}
+.rc-orange{color:#ea580c}
+.rc-green{color:#16a34a}
+.rc-navy{color:var(--navy)}
+.rc-mid{color:#d97706}
+.rc-gray{color:var(--g400)}
 
-    /* rank badge pill for table */
-    .rpill {
-      display:inline-block; font-weight:700; padding:2px 8px;
-      border-radius:20px; font-size:.72rem; white-space:nowrap;
-    }
-    .rpill-gold   { background:#fef9c3; color:#92400e; border:1px solid #fde68a; }
-    .rpill-silver { background:#f1f5f9; color:#334155; border:1px solid #cbd5e1; }
-    .rpill-bronze { background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; }
-    .rpill-green  { background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
-    .rpill-amber  { background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
-    .rpill-gray   { background:#f9fafb; color:#9ca3af; border:1px solid #e5e7eb; }
+/* ── RANK MODAL / DRAWER ── */
+.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
+.drawer-overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;right:0;top:0;bottom:0;width:min(480px,100vw);background:#fff;z-index:901;transform:translateX(100%);transition:transform .3s cubic-bezier(.32,.72,0,1);box-shadow:-20px 0 60px rgba(0,0,0,.2);display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.drawer-hdr{padding:22px 24px 18px;border-bottom:1px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.drawer-title{font-weight:700;font-size:1rem;color:var(--navy);line-height:1.3}
+.drawer-sub{font-size:.78rem;color:var(--g400);margin-top:3px}
+.drawer-close{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--g200);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--g500);flex-shrink:0;transition:all .15s}
+.drawer-close:hover{background:var(--g100);color:var(--g900)}
+.drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
 
-    /* ── COMPARISON TABLE ── */
-    .table-wrap { background:#fff; border-radius:var(--radius); border:1px solid var(--gray-200); overflow:hidden; box-shadow:var(--shadow); margin-bottom:36px; }
-    .table-title { padding:20px 24px 0; font-weight:700; font-size:1rem; color:var(--navy); }
-    .table-scroll { overflow-x:auto; }
-    table { width:100%; border-collapse:collapse; font-size:.8rem; }
-    thead th {
-      background:#f8fafc; padding:10px 14px; text-align:left;
-      font-size:.68rem; font-weight:700; text-transform:uppercase;
-      letter-spacing:.06em; color:var(--gray-500);
-      border-bottom:2px solid var(--gray-200); white-space:nowrap;
-    }
-    tbody tr { border-bottom:1px solid var(--gray-100); }
-    tbody tr:last-child { border-bottom:none; }
-    tbody tr:hover { background:#fafbfc; }
-    tbody td { padding:10px 14px; vertical-align:middle; }
-    .country-cell-td { display:flex; align-items:center; gap:8px; font-weight:600; white-space:nowrap; }
+/* rank rows in drawer */
+.rrow{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--rs);margin-bottom:6px;border:1.5px solid transparent}
+.rrow.overall{background:var(--g50);border-color:var(--g200)}
+.rrow.sub{background:#fff;border-color:var(--g100)}
+.rrow.sub:hover{border-color:var(--g200)}
+.rrow-rank{font-size:1.3rem;font-weight:900;min-width:80px;line-height:1}
+.rrow-cat{flex:1;font-size:.82rem;color:var(--g700);line-height:1.35}
+.rrow-medal{font-size:1.1rem;flex-shrink:0}
+.rrow-bar{height:4px;border-radius:2px;background:var(--g100);margin-top:8px;overflow:hidden}
+.rrow-bar-fill{height:100%;border-radius:2px;transition:width .6s ease}
 
-    /* ── CHART ── */
-    .chart-card { background:#fff; border-radius:var(--radius); border:1px solid var(--gray-200); padding:24px; box-shadow:var(--shadow); margin-bottom:36px; }
-    .chart-controls { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; align-items:center; }
-    .chart-controls select {
-      background:#fff; border:1.5px solid var(--gray-200); border-radius:8px;
-      padding:7px 12px; font-size:.82rem; color:var(--gray-700);
-      font-family:inherit; outline:none; cursor:pointer;
-    }
-    .chart-controls select:focus { border-color:var(--orange); }
+.amz-btn{display:inline-flex;align-items:center;gap:6px;background:var(--or);color:#000;font-weight:700;font-size:.82rem;padding:9px 18px;border-radius:20px;text-decoration:none;margin-top:16px;transition:all .15s}
+.amz-btn:hover{background:var(--or2);transform:translateY(-1px)}
+.amz-btn svg{width:13px;height:13px}
 
-    /* ── FOOTER ── */
-    .site-footer {
-      background:var(--navy); color:rgba(255,255,255,.5);
-      text-align:center; padding:24px 40px; font-size:.78rem;
-    }
-    .site-footer a { color:var(--orange); text-decoration:none; }
+.drawer-fmt{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:12px;display:inline-block}
 
-    /* ── LOADING ── */
-    #loading { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:400px; gap:16px; }
-    .spinner { width:40px; height:40px; border:3px solid var(--gray-200); border-top-color:var(--orange); border-radius:50%; animation:spin .7s linear infinite; }
-    @keyframes spin{to{transform:rotate(360deg)}}
+/* ── COMPARISON TABLE ── */
+.tbl-card{background:#fff;border-radius:var(--r);border:1px solid var(--g200);box-shadow:var(--sh2);overflow:hidden;margin-bottom:32px}
+.tbl-hdr{padding:18px 24px 0;font-weight:700;font-size:.95rem;color:var(--navy)}
+.tbl-scroll{overflow-x:auto;padding-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:.78rem}
+thead th{background:#f8fafc;padding:10px 14px;text-align:left;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);border-bottom:2px solid var(--g200);white-space:nowrap;position:sticky;top:0}
+tbody tr{border-bottom:1px solid var(--g50)}
+tbody tr:last-child{border:none}
+tbody tr:hover{background:#fafbfc}
+td{padding:10px 14px;vertical-align:middle}
+.ctd{display:flex;align-items:center;gap:8px;font-weight:600;white-space:nowrap}
 
-    /* ── RESPONSIVE ── */
-    @media(max-width:768px) {
-      .site-header { padding:0 16px; }
-      .hero-stats   { padding:28px 16px 36px; }
-      .book-hero    { flex-direction:column; }
-      .book-cover-wrap { width:100%; height:200px; border-right:none; border-bottom:1px solid var(--gray-100); }
-      .book-info    { padding:20px; }
-      .country-section { padding:0 16px 20px; }
-      .main { padding:24px 12px 60px; }
-      .countries-grid { grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); }
-    }
-  </style>
+.rpill{display:inline-block;font-weight:700;padding:2px 8px;border-radius:12px;font-size:.7rem;white-space:nowrap}
+.rp-gold{background:#fef9c3;color:#92400e;border:1px solid #fde68a}
+.rp-sil{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
+.rp-brnz{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+.rp-grn{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
+.rp-amb{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
+.rp-gray{background:#f9fafb;color:#9ca3af;border:1px solid #e5e7eb}
+
+/* ── CHART ── */
+.chart-card{background:#fff;border-radius:var(--r);border:1px solid var(--g200);padding:24px;box-shadow:var(--sh2);margin-bottom:32px}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center}
+.ctrls select{background:#fff;border:1.5px solid var(--g200);border-radius:var(--rs);padding:7px 12px;font-size:.82rem;color:var(--g700);font-family:inherit;cursor:pointer;outline:none;transition:border-color .15s}
+.ctrls select:focus{border-color:var(--or)}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:22px 24px;font-size:.76rem}
+footer a{color:var(--or);text-decoration:none}
+
+/* ── LOADING ── */
+#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px}
+.spinner{width:40px;height:40px;border:3px solid var(--g200);border-top-color:var(--or);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hdr{padding:0 16px}.hero{padding:32px 16px 40px}
+  .bhero{flex-direction:column}.bcov{width:100%;height:180px;border-right:none;border-bottom:1px solid var(--g100)}
+  .binfo{padding:18px}.csec{padding:0 14px 18px}
+  .main{padding:20px 10px 60px}
+  .cgrid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:6px}
+  .drawer{width:100vw}
+}
+</style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
+<header class="hdr">
+  <div class="hdr-in">
     <a class="logo" href="#">
-      <div class="logo-badge">A</div>
-      <div>
-        <div class="logo-text">BSR Dashboard</div>
-        <div class="logo-sub">Amazon Best Seller Ranks</div>
-      </div>
+      <div class="logo-a">A</div>
+      <div><div class="logo-t">BSR Dashboard</div><div class="logo-s">Amazon Best Seller Ranks · Live</div></div>
     </a>
-    <div class="header-live">
-      <div class="dot-live"></div>
-      <span id="header-updated">Loading…</span>
-    </div>
+    <div class="hdr-live"><div class="dot"></div><span id="hdr-ts">Loading…</span></div>
   </div>
 </header>
 
 <!-- HERO -->
-<div class="hero-stats">
-  <div class="hero-title">Amazon Best Seller Ranks</div>
-  <div class="hero-sub">Tejas Jadhav · CFA, FRM · AI &amp; Practical Finance Series</div>
-  <div class="stats-row">
-    <div class="stat-pill"><div class="stat-num" id="s-books">5</div><div class="stat-lbl">Books</div></div>
-    <div class="stat-pill"><div class="stat-num" id="s-formats">9</div><div class="stat-lbl">Formats</div></div>
-    <div class="stat-pill"><div class="stat-num" id="s-countries">15</div><div class="stat-lbl">Countries</div></div>
-    <div class="stat-pill"><div class="stat-num" id="s-best">—</div><div class="stat-lbl">Best Rank Today</div></div>
-    <div class="stat-pill"><div class="stat-num" id="s-ranked">—</div><div class="stat-lbl">Rankings Live</div></div>
+<div class="hero">
+  <div class="hero-title">Amazon <span>Best Seller</span> Ranks</div>
+  <div class="hero-sub">Tejas Jadhav · CFA, FRM &nbsp;·&nbsp; AI &amp; Practical Finance Series &nbsp;·&nbsp; All Formats · 15 Countries</div>
+  <div class="pills">
+    <div class="pill"><div class="pill-n" id="s-books">5</div><div class="pill-l">Books</div></div>
+    <div class="pill"><div class="pill-n" id="s-formats">9</div><div class="pill-l">Formats</div></div>
+    <div class="pill"><div class="pill-n" id="s-countries">15</div><div class="pill-l">Countries</div></div>
+    <div class="pill"><div class="pill-n" id="s-best">—</div><div class="pill-l">Best Rank Today</div></div>
+    <div class="pill"><div class="pill-n" id="s-live">—</div><div class="pill-l">Rankings Live</div></div>
   </div>
 </div>
 
 <!-- MAIN -->
-<div class="main" id="main-content">
-  <div id="loading">
-    <div class="spinner"></div>
-    <div style="color:var(--gray-500);font-size:.9rem;">Fetching live rank data…</div>
-  </div>
-  <div id="dashboard" style="display:none">
+<div class="main">
+  <div id="loading"><div class="spinner"></div><p style="color:var(--g400)">Loading live rank data…</p></div>
+  <div id="dash" style="display:none">
 
-    <!-- FEATURED BOOK -->
-    <div class="section-label">★ Featured Book — Claude AI</div>
-    <div id="featured-slot"></div>
+    <div class="sec-label">★ Featured — Claude AI for Finance Professionals</div>
+    <div id="feat"></div>
 
-    <!-- OTHER BOOKS -->
-    <div class="section-label" style="margin-top:12px;">All Books</div>
-    <div id="other-books"></div>
+    <div class="sec-label" style="margin-top:8px">All Books</div>
+    <div id="others"></div>
 
-    <!-- COMPARISON TABLE -->
-    <div class="section-label">Country Comparison — All Books</div>
-    <div class="table-wrap">
-      <div class="table-title">Best Subcategory Rank per Country</div>
-      <div class="table-scroll"><table><thead id="tbl-head"></thead><tbody id="tbl-body"></tbody></table></div>
+    <div class="sec-label">Country Comparison — Best Rank Per Book</div>
+    <div class="tbl-card">
+      <div class="tbl-hdr">Best Subcategory Rank by Country &amp; Book</div>
+      <div class="tbl-scroll"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div>
     </div>
 
-    <!-- CHART -->
-    <div class="section-label">Rank History</div>
+    <div class="sec-label">Rank History Chart</div>
     <div class="chart-card">
-      <div class="chart-controls">
+      <div class="ctrls">
         <select id="c-book"></select>
-        <select id="c-format"></select>
-        <select id="c-country"></select>
-        <span style="font-size:.75rem;color:var(--gray-400);margin-left:auto;">Lower rank = Better position</span>
+        <select id="c-fmt"></select>
+        <select id="c-ctry"></select>
+        <span style="font-size:.73rem;color:var(--g400);margin-left:auto">↓ Lower = Better rank</span>
       </div>
-      <div style="position:relative;height:280px;"><canvas id="hist-chart"></canvas></div>
+      <div style="position:relative;height:280px"><canvas id="hchart"></canvas></div>
     </div>
-
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div>Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em> &nbsp;|&nbsp;
-  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank" rel="noopener">Amazon Author Page ↗</a> &nbsp;|&nbsp;
-  Ranks updated daily via GitHub Actions</div>
+<!-- RANK DRAWER -->
+<div class="drawer-overlay" id="overlay" onclick="closeDrawer()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-hdr">
+    <div>
+      <div class="drawer-title" id="dr-title"></div>
+      <div class="drawer-sub" id="dr-sub"></div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="drawer-body" id="dr-body"></div>
+</div>
+
+<footer>
+  Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em> &nbsp;|&nbsp;
+  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank">Amazon Author Page ↗</a> &nbsp;|&nbsp;
+  Updated daily via GitHub Actions
 </footer>
 
 <script>
-// ─────────────────────────────────────────────────────────
-//  DATA
-// ─────────────────────────────────────────────────────────
-let BOOKS = null, RANKS = null, histChart = null;
+// ─── DATA & STATE ────────────────────────────────────────
+let B=null,R=null,HC=null;
 
-const COVER = {
-  'B0GSX73KF6':'images/B0GSX73KF6.jpg', // Claude AI Kindle
-  'B0GV2SS77G':'images/B0GV2SS77G.jpg', // Claude AI PB
-  'B0GVJPXVP8':'images/B0GVJPXVP8.jpg', // Claude AI HC
-  'B0GS5RL6XS':'images/B0GS5RL6XS.jpg', // AI Prompts 100 Kindle
-  '9357823662':'images/9357823662.jpg',  // AI Prompts 100 PB
-  'B0D8R41W2F':'images/B0D8R41W2F.jpg', // Shivaji Kindle
-  'B0GWWG34W6':'images/B0GWWG34W6.jpg', // Shivaji PB
-  'B0G7YSZZJM':'images/B0G7YSZZJM.jpg', // Stop Losing Kindle
-  'B0GWHZLVK8':'images/B0GWHZLVK8.jpg', // Stop Losing PB
-  'B0GSBV7QX9':'images/B0GSBV7QX9.jpg', // Equity HC
+const COVERS={
+  'B0GSX73KF6':'images/B0GSX73KF6.jpg',
+  'B0GV2SS77G':'images/B0GV2SS77G.jpg',
+  'B0GVJPXVP8':'images/B0GVJPXVP8.jpg',
+  'B0GS5RL6XS':'images/B0GS5RL6XS.jpg',
+  '9357823662' :'images/9357823662.jpg',
+  'B0D8R41W2F':'images/B0D8R41W2F.jpg',
+  'B0GWWG34W6':'images/B0GWWG34W6.jpg',
+  'B0G7YSZZJM':'images/B0G7YSZZJM.jpg',
+  'B0GWHZLVK8':'images/B0GWHZLVK8.jpg',
+  'B0GSBV7QX9':'images/B0GSBV7QX9.jpg',
 };
-
-const FMT_LABEL = {kindle:'📱 Kindle eBook', paperback:'📄 Paperback', hardcover:'📗 Hardcover'};
-const FMT_CSS   = {kindle:'fmt-kindle', paperback:'fmt-paperback', hardcover:'fmt-hardcover'};
-const FORMAT_PRICE = {
+const FMT_LBL={kindle:'📱 Kindle eBook',paperback:'📄 Paperback',hardcover:'📗 Hardcover'};
+const FMT_PRICES={
   'B0GSX73KF6':'$5.99','B0GV2SS77G':'$24.99','B0GVJPXVP8':'$49.99',
   'B0GS5RL6XS':'$4.99','9357823662':'$21.99',
   'B0D8R41W2F':'$2.99','B0GWWG34W6':'$9.99',
-  'B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99',
-  'B0GSBV7QX9':'$44.99'
+  'B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99','B0GSBV7QX9':'$44.99'
 };
 
-async function load() {
-  try {
-    [BOOKS,RANKS] = await Promise.all([
+// ─── LOAD ────────────────────────────────────────────────
+async function load(){
+  try{
+    [B,R]=await Promise.all([
       fetch('data/books.json?v='+Date.now()).then(r=>r.json()),
       fetch('data/rankings.json?v='+Date.now()).then(r=>r.json())
     ]);
     boot();
-  } catch(e) {
-    document.getElementById('loading').innerHTML =
-      `<p style="color:var(--red)">Error loading data: ${e.message}</p>`;
+  }catch(e){
+    document.getElementById('loading').innerHTML=`<p style="color:red">Error: ${e.message}</p>`;
   }
 }
 
-function boot() {
-  renderHeader();
-  renderStats();
-  const featured = BOOKS.books.find(b=>b.id===BOOKS.featured_book_id);
-  const others   = BOOKS.books.filter(b=>b.id!==BOOKS.featured_book_id);
-  document.getElementById('featured-slot').innerHTML = buildBookCard(featured, true);
-  document.getElementById('other-books').innerHTML   = others.map(b=>buildBookCard(b,false)).join('');
-  renderTable();
-  initChart();
+function boot(){
+  renderHeader(); renderStats();
+  const feat=B.books.find(b=>b.id===B.featured_book_id);
+  const rest=B.books.filter(b=>b.id!==B.featured_book_id);
+  document.getElementById('feat').innerHTML=bookCard(feat,true);
+  document.getElementById('others').innerHTML=rest.map(b=>bookCard(b,false)).join('');
+  renderTable(); initChart();
   document.getElementById('loading').style.display='none';
-  document.getElementById('dashboard').style.display='block';
-  // activate first tab on each card
-  document.querySelectorAll('.book-card').forEach(card=>{
-    const firstTab = card.querySelector('.ftab');
-    if(firstTab) firstTab.click();
+  document.getElementById('dash').style.display='block';
+  // activate first tab on all cards
+  document.querySelectorAll('.bcard').forEach(card=>{
+    card.querySelector('.ftab')?.click();
   });
 }
 
-// ─────────────────────────────────────────────────────────
-//  HELPERS
-// ─────────────────────────────────────────────────────────
-function getD(bookId,fmt,country){ return RANKS?.current?.[bookId]?.[fmt]?.[country]||null; }
+// ─── HELPERS ────────────────────────────────────────────
+function getD(bid,fmt,cc){ return R?.current?.[bid]?.[fmt]?.[cc]||null; }
 
 function bestSubcat(d){
   if(!d?.all_ranks?.length) return null;
   const skip=['books','kindle store'];
   const sub=d.all_ranks.filter(r=>!skip.includes((r.category||'').toLowerCase()));
-  return sub.length ? sub.reduce((a,b)=>a.rank<b.rank?a:b) : d.all_ranks[0];
+  return sub.length?sub.reduce((a,b)=>a.rank<b.rank?a:b):d.all_ranks[0];
 }
 
-function bestOfBook(bookId){
+function bestOfBook(bid){
   let best=null;
-  const cur=RANKS?.current?.[bookId]||{};
+  const cur=R?.current?.[bid]||{};
   for(const fmt of Object.values(cur))
     for(const d of Object.values(fmt)){
-      const s=bestSubcat(d); if(s?.rank&&(!best||s.rank<best.rank)) best=s;
+      const s=bestSubcat(d);
+      if(s?.rank&&(!best||s.rank<best.rank)) best=s;
     }
   return best;
 }
 
+function allBestForBook(bid){
+  // returns flat list of {rank,category,format,country,asin} sorted by rank
+  const results=[];
+  const cur=R?.current?.[bid]||{};
+  for(const [fmt,fmtData] of Object.entries(cur))
+    for(const [cc,d] of Object.entries(fmtData)){
+      const s=bestSubcat(d);
+      if(s?.rank) results.push({...s,fmt,country:cc,asin:d.asin,url:d.url});
+    }
+  return results.sort((a,b)=>a.rank-b.rank);
+}
+
 function rankColor(r){
-  if(!r) return 'rank-low';
-  if(r<=10) return 'rank-star';
-  if(r<=100) return 'rank-num';
-  if(r<=1000) return 'rank-good';
-  if(r<=10000) return 'rank-mid';
-  return 'rank-low';
+  if(!r) return 'rc-gray';
+  if(r<=10) return 'rc-gold';
+  if(r<=100) return 'rc-orange';
+  if(r<=1000) return 'rc-green';
+  if(r<=10000) return 'rc-navy';
+  return 'rc-gray';
 }
-function rankPillClass(r){
-  if(!r) return 'rpill-gray';
-  if(r<=10) return 'rpill-gold';
-  if(r<=100) return 'rpill-silver';
-  if(r<=500) return 'rpill-bronze';
-  if(r<=5000) return 'rpill-green';
-  if(r<=50000) return 'rpill-amber';
-  return 'rpill-gray';
+function tileClass(r){
+  if(!r) return '';
+  if(r<=10) return 'top10';
+  if(r<=100) return 'top100';
+  return 'ranked';
+}
+function rankPillCls(r){
+  if(!r) return 'rp-gray';
+  if(r<=10) return 'rp-gold';
+  if(r<=100) return 'rp-sil';
+  if(r<=500) return 'rp-brnz';
+  if(r<=5000) return 'rp-grn';
+  if(r<=50000) return 'rp-amb';
+  return 'rp-gray';
+}
+function medal(r){
+  if(!r) return '';
+  if(r===1) return '🥇';
+  if(r<=3) return '🥈';
+  if(r<=10) return '🏆';
+  if(r<=100) return '⭐';
+  return '';
+}
+function rankBarColor(r){
+  if(!r) return '#e5e7eb';
+  if(r<=10) return '#f59e0b';
+  if(r<=100) return '#FF9900';
+  if(r<=1000) return '#16a34a';
+  if(r<=10000) return '#2563eb';
+  return '#9ca3af';
+}
+function rankBarPct(r){
+  if(!r) return 0;
+  if(r<=10) return 98;
+  if(r<=100) return 88;
+  if(r<=1000) return 72;
+  if(r<=10000) return 52;
+  if(r<=100000) return 30;
+  return 15;
 }
 
-function coverImg(book,fmt){
-  const asin=book.formats[fmt]?.asin;
-  const src=COVER[asin]||'';
-  return src ? `<img src="${src}" alt="${book.title}" onerror="this.style.display='none'"/>` : `<div style="font-size:4rem;">${book.cover_emoji}</div>`;
+function coverImg(asin,alt){
+  const src=COVERS[asin]||'';
+  return src
+    ?`<img src="${src}" alt="${alt}" onerror="this.style.display='none'">`
+    :`<div style="font-size:3.5rem;line-height:1">📚</div>`;
 }
-
 function bestCoverAsin(book){
-  // prefer hardcover > paperback > kindle for display
-  for(const f of ['hardcover','paperback','kindle']){
+  for(const f of ['hardcover','paperback','kindle'])
     if(book.formats[f]) return book.formats[f].asin;
-  }
   return null;
 }
 
-function coverImgMain(book){
-  const asin=bestCoverAsin(book);
-  const src=asin ? (COVER[asin]||'') : '';
-  return src
-    ? `<img src="${src}" alt="${book.title}" onerror="this.parentElement.innerHTML='<div style=\\'font-size:4rem;\\'>${book.cover_emoji}</div>'"/>`
-    : `<div style="font-size:4.5rem;">${book.cover_emoji}</div>`;
+function fmtDomain(cc){
+  return B.countries?.[cc]?.domain||'amazon.com';
 }
 
-// ─────────────────────────────────────────────────────────
-//  HEADER / STATS
-// ─────────────────────────────────────────────────────────
+// ─── HEADER / STATS ─────────────────────────────────────
 function renderHeader(){
-  const ts=RANKS?.last_updated;
-  if(!ts){ document.getElementById('header-updated').textContent='Not yet updated'; return; }
+  const ts=R?.last_updated;
+  if(!ts){ document.getElementById('hdr-ts').textContent='Not yet updated'; return; }
   const d=new Date(ts);
   const diff=Date.now()-d.getTime();
   const h=Math.floor(diff/3600000);
   const ago=h<1?'Just now':h<24?h+'h ago':Math.floor(h/24)+'d ago';
-  document.getElementById('header-updated').textContent=
+  document.getElementById('hdr-ts').textContent=
     `Updated ${ago} · ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;
 }
 function renderStats(){
-  let best=null, ranked=0;
-  for(const book of BOOKS.books){
-    const cur=RANKS?.current?.[book.id]||{};
+  let best=null,live=0;
+  for(const book of B.books){
+    const cur=R?.current?.[book.id]||{};
     for(const fmt of Object.values(cur))
       for(const d of Object.values(fmt)){
-        const s=bestSubcat(d); if(s?.rank){ranked++;if(!best||s.rank<best)best=s.rank;}
+        const s=bestSubcat(d);
+        if(s?.rank){live++;if(!best||s.rank<best)best=s.rank;}
       }
   }
-  document.getElementById('s-best').textContent  = best ? '#'+best.toLocaleString() : '—';
-  document.getElementById('s-ranked').textContent = ranked||'—';
+  document.getElementById('s-best').textContent=best?'#'+best.toLocaleString():'—';
+  document.getElementById('s-live').textContent=live||'—';
 }
 
-// ─────────────────────────────────────────────────────────
-//  BOOK CARD
-// ─────────────────────────────────────────────────────────
-function buildBookCard(book, featured){
+// ─── BOOK CARD ──────────────────────────────────────────
+function bookCard(book,featured){
   const fmts=Object.keys(book.formats||{});
   const best=bestOfBook(book.id);
+  const asin=bestCoverAsin(book);
 
-  const tabsHtml=fmts.map((f,i)=>
-    `<button class="ftab${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">${FMT_LABEL[f]||f}</button>`
+  const tabs=fmts.map((f,i)=>
+    `<button class="ftab ${f}${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">
+      ${FMT_LBL[f]||f}
+    </button>`
   ).join('');
 
-  const panelsHtml=fmts.map((f,i)=>
-    `<div class="format-panel${i===0?' active':''}" id="panel-${book.id}-${f}">${buildFormatPanel(book,f)}</div>`
+  const panels=fmts.map((f,i)=>
+    `<div class="fpanel${i===0?' active':''}" id="fp-${book.id}-${f}">${formatPanel(book,f)}</div>`
   ).join('');
+
+  const bestHtml=best?`
+    <div class="best-rank-badge">
+      <div class="brb-label">Best Rank</div>
+      <div class="brb-num ${rankColor(best.rank)}">#${best.rank.toLocaleString()}</div>
+      <div class="brb-cat">${best.category}</div>
+    </div>`:'';
 
   return `
-  <div class="book-card${featured?' featured':''}" id="card-${book.id}">
-    <div class="book-hero">
-      <div class="book-cover-wrap">${coverImgMain(book)}</div>
-      <div class="book-info">
-        <div class="book-top">
-          <div style="flex:1">
-            ${featured?'<div class="featured-tag" style="display:inline-block;margin-bottom:8px;">★ Featured</div><br/>':''}
-            <div class="book-title">${book.title}</div>
-            <div class="book-subtitle" style="margin-top:6px">${book.subtitle}</div>
+  <div class="bcard${featured?' featured':''}" id="bc-${book.id}">
+    <div class="bhero">
+      <div class="bcov">
+        ${featured?'<div class="ftag">★ Featured</div>':''}
+        ${coverImg(asin,book.title)}
+      </div>
+      <div class="binfo">
+        <div class="btop">
+          <div style="flex:1;min-width:0">
+            <div class="btitle">${book.title}</div>
+            <div class="bsub" style="margin-top:6px">${book.subtitle}</div>
           </div>
-          ${best?`<div style="text-align:right;flex-shrink:0">
-            <div style="font-size:.65rem;color:var(--gray-400);margin-bottom:2px;">Best Rank</div>
-            <div style="font-size:1.6rem;font-weight:900;color:${best.rank<=10?'#f59e0b':best.rank<=100?'var(--navy)':'#16a34a'};line-height:1;">#${best.rank.toLocaleString()}</div>
-            <div style="font-size:.62rem;color:var(--gray-400);margin-top:2px;">${best.category}</div>
-          </div>`:''}
+          ${bestHtml}
         </div>
-        <div class="book-author">by <strong>Tejas Jadhav</strong> · AI &amp; Practical Finance Series</div>
-        <div class="format-tabs">${tabsHtml}</div>
+        <div class="bauthor">by <strong>Tejas Jadhav</strong> · CFA, FRM · AI &amp; Practical Finance Series</div>
+        <div class="ftabs">${tabs}</div>
       </div>
     </div>
-    <div class="country-section">${panelsHtml}</div>
+    <div class="csec">${panels}</div>
   </div>`;
 }
 
-function buildFormatPanel(book, fmt){
-  const fd=book.formats[fmt];
-  if(!fd) return '';
+function formatPanel(book,fmt){
+  const fd=book.formats[fmt]; if(!fd) return '';
   const asin=fd.asin;
-  const price=FORMAT_PRICE[asin]||'';
-  const countries=Object.keys(BOOKS.countries||{});
+  const price=FMT_PRICES[asin]||'';
+  const countries=Object.keys(B.countries||{});
+  const fb_cls={'kindle':'fb-kindle','paperback':'fb-paperback','hardcover':'fb-hardcover'}[fmt]||'';
 
-  const tiles=countries.map(code=>{
-    const d=getD(book.id,fmt,code);
+  const tiles=countries.map(cc=>{
+    const d=getD(book.id,fmt,cc);
     const sub=bestSubcat(d);
     const rank=sub?.rank;
     const cat=sub?.category||'';
-    const flag=BOOKS.countries[code]?.flag||code;
-    const name=BOOKS.countries[code]?.name||code;
-    const domain=BOOKS.countries[code]?.domain||'amazon.com';
+    const flag=B.countries[cc]?.flag||cc;
+    const domain=fmtDomain(cc);
     const url=`https://www.${domain}/dp/${asin}`;
-    const isTop=rank&&rank<=100;
+    const tc=tileClass(rank);
+    const allRanks=d?.all_ranks||[];
 
     if(!rank) return `
-      <a class="country-tile" href="${url}" target="_blank" rel="noopener" title="${name}: Not ranked">
-        <div class="country-flag">${flag}</div>
-        <div class="country-name">${code}</div>
-        <div class="country-na">Not ranked</div>
+      <a class="ctile" href="${url}" target="_blank" rel="noopener">
+        <div class="cflag">${flag}</div>
+        <div class="ccode">${cc}</div>
+        <div class="cna">Not ranked</div>
       </a>`;
 
     return `
-      <a class="country-tile has-rank${isTop?' top-rank':''}" href="${url}" target="_blank" rel="noopener" title="${name}: #${rank.toLocaleString()} in ${cat}">
-        ${isTop?'<div style="position:absolute;top:6px;right:6px;font-size:.65rem;">⭐</div>':''}
-        <div class="country-flag">${flag}</div>
-        <div class="country-name">${code}</div>
-        <div class="country-rank ${rankColor(rank)}">#${rank.toLocaleString()}</div>
-        <div class="country-cat">${cat}</div>
-      </a>`;
+      <div class="ctile ranked ${tc}" onclick='openDrawer(${JSON.stringify({bid:book.id,fmt,cc,asin,url,allRanks:d?.all_ranks||[],country:B.countries[cc]?.name||cc,flag,domain})})'>
+        ${rank<=100?`<div class="cstar">${medal(rank)||'⭐'}</div>`:''}
+        <div class="cflag">${flag}</div>
+        <div class="ccode">${cc}</div>
+        <div class="crank ${rankColor(rank)}">#${rank.toLocaleString()}</div>
+        <div class="ccat">${cat}</div>
+      </div>`;
   }).join('');
 
   return `
-    <div class="format-header">
-      <span class="format-badge ${FMT_CSS[fmt]}">${FMT_LABEL[fmt]||fmt}</span>
-      <span class="format-asin">ASIN: ${asin}</span>
-      ${price?`<span class="format-price">${price} USD</span>`:''}
+    <div class="fhdr">
+      <span class="fbadge ${fb_cls}">${FMT_LBL[fmt]||fmt}</span>
+      <span class="fasin">ASIN: ${asin}</span>
+      ${price?`<span class="fprice">${price}</span>`:''}
     </div>
-    <div class="countries-grid">${tiles}</div>`;
+    <div class="cgrid">${tiles}</div>`;
 }
 
-function switchTab(bookId, fmt, btn){
-  const card=document.getElementById('card-'+bookId);
-  card.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
-  card.querySelectorAll('.format-panel').forEach(p=>p.classList.remove('active'));
+function switchTab(bid,fmt,btn){
+  const card=document.getElementById('bc-'+bid);
+  card.querySelectorAll('.ftab').forEach(b=>{b.classList.remove('active')});
+  card.querySelectorAll('.fpanel').forEach(p=>{p.classList.remove('active')});
   btn.classList.add('active');
-  const panel=document.getElementById(`panel-${bookId}-${fmt}`);
-  if(panel) panel.classList.add('active');
+  document.getElementById(`fp-${bid}-${fmt}`)?.classList.add('active');
 }
 
-// ─────────────────────────────────────────────────────────
-//  COMPARISON TABLE
-// ─────────────────────────────────────────────────────────
+// ─── DRAWER ─────────────────────────────────────────────
+function openDrawer(data){
+  const {bid,fmt,cc,asin,url,allRanks,country,flag,domain}=data;
+  document.getElementById('dr-title').textContent=`${flag} ${country} — ${FMT_LBL[fmt]||fmt}`;
+  document.getElementById('dr-sub').textContent=`ASIN: ${asin} · ${FMT_PRICES[asin]||''}`;
+
+  const fb_cls={'kindle':'fb-kindle','paperback':'fb-paperback','hardcover':'fb-hardcover'}[fmt]||'';
+
+  const skip=['books','kindle store'];
+  const overall=allRanks.filter(r=>skip.includes((r.category||'').toLowerCase()));
+  const subs   =allRanks.filter(r=>!skip.includes((r.category||'').toLowerCase()));
+  const sorted =[...subs].sort((a,b)=>a.rank-b.rank);
+
+  let html=`<span class="fbadge ${fb_cls}" style="margin-bottom:14px;display:inline-block">${FMT_LBL[fmt]||fmt}</span>`;
+
+  if(overall.length){
+    html+=`<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:8px">Overall Store Rank</div>`;
+    overall.forEach(r=>{
+      html+=`<div class="rrow overall">
+        <div style="flex:1">
+          <div style="font-size:.78rem;color:var(--g500)">${r.category}</div>
+          <div class="rrow-bar"><div class="rrow-bar-fill" style="width:${rankBarPct(r.rank)}%;background:var(--g300)"></div></div>
+        </div>
+        <div class="rrow-rank" style="color:var(--g400);font-size:1rem">#${r.rank.toLocaleString()}</div>
+      </div>`;
+    });
+  }
+
+  if(sorted.length){
+    html+=`<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin:16px 0 8px">Subcategory Rankings</div>`;
+    sorted.forEach((r,i)=>{
+      const m=medal(r.rank);
+      const color=rankBarColor(r.rank);
+      const pct=rankBarPct(r.rank);
+      html+=`<div class="rrow sub">
+        <div class="rrow-medal">${m||`<span style="font-size:.75rem;color:var(--g300)">#${i+1}</span>`}</div>
+        <div style="flex:1">
+          <div class="rrow-cat">${r.category}</div>
+          <div class="rrow-bar"><div class="rrow-bar-fill" style="width:${pct}%;background:${color}"></div></div>
+        </div>
+        <div class="rrow-rank ${rankColor(r.rank)}">#${r.rank.toLocaleString()}</div>
+      </div>`;
+    });
+  }
+
+  if(!allRanks.length){
+    html+=`<p style="color:var(--g400);font-size:.85rem;text-align:center;padding:24px 0">No rank data available for this country.</p>`;
+  }
+
+  html+=`<a class="amz-btn" href="${url}" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+    View on Amazon ${flag}
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+  </a>`;
+
+  document.getElementById('dr-body').innerHTML=html;
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeDrawer(){
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
+
+// ─── TABLE ──────────────────────────────────────────────
 function renderTable(){
-  const countries=Object.keys(BOOKS.countries||{});
-  const books=BOOKS.books;
+  const ctries=Object.keys(B.countries||{});
+  const books=B.books;
+  const th=books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,18)}…</th>`).join('');
+  document.getElementById('th').innerHTML=`<tr><th>Country</th>${th}</tr>`;
 
-  // header
-  const thCols=books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,20)}…</th>`).join('');
-  document.getElementById('tbl-head').innerHTML=
-    `<tr><th>Country</th>${thCols}</tr>`;
-
-  // rows
-  const rows=countries.map(code=>{
-    const flag=BOOKS.countries[code]?.flag||code;
-    const name=BOOKS.countries[code]?.name||code;
+  const rows=ctries.map(cc=>{
+    const flag=B.countries[cc]?.flag||cc;
+    const name=B.countries[cc]?.name||cc;
     const cells=books.map(book=>{
-      // find best rank across all formats for this country
       let best=null;
       for(const fmt of Object.keys(book.formats||{})){
-        const d=getD(book.id,fmt,code);
+        const d=getD(book.id,fmt,cc);
         const s=bestSubcat(d);
         if(s?.rank&&(!best||s.rank<best.rank)) best=s;
       }
-      if(!best) return `<td><span class="rpill rpill-gray">—</span></td>`;
-      const cls=rankPillClass(best.rank);
-      return `<td><span class="rpill ${cls}">#${best.rank.toLocaleString()}</span><br/><span style="font-size:.6rem;color:var(--gray-400)">${(best.category||'').substring(0,22)}</span></td>`;
+      if(!best) return `<td><span class="rpill rp-gray">—</span></td>`;
+      const cls=rankPillCls(best.rank);
+      return `<td>
+        <span class="rpill ${cls}">${medal(best.rank)} #${best.rank.toLocaleString()}</span>
+        <div style="font-size:.58rem;color:var(--g400);margin-top:2px">${(best.category||'').substring(0,22)}</div>
+      </td>`;
     }).join('');
-
     return `<tr>
-      <td><div class="country-cell-td"><span style="font-size:1.2rem">${flag}</span><div><div style="font-weight:600;font-size:.8rem">${name}</div><div style="font-size:.65rem;color:var(--gray-400)">${code}</div></div></div></td>
-      ${cells}
+      <td><div class="ctd"><span style="font-size:1.2rem">${flag}</span><div>
+        <div style="font-weight:600;font-size:.8rem">${name}</div>
+        <div style="font-size:.62rem;color:var(--g400)">${cc}</div>
+      </div></div></td>${cells}
     </tr>`;
   }).join('');
-
-  document.getElementById('tbl-body').innerHTML=rows;
+  document.getElementById('tb').innerHTML=rows;
 }
 
-// ─────────────────────────────────────────────────────────
-//  CHART
-// ─────────────────────────────────────────────────────────
+// ─── CHART ──────────────────────────────────────────────
 function initChart(){
   const bSel=document.getElementById('c-book');
-  const fSel=document.getElementById('c-format');
-  const cSel=document.getElementById('c-country');
-
-  BOOKS.books.forEach(b=>{
-    const o=document.createElement('option');
-    o.value=b.id; o.textContent=b.cover_emoji+' '+b.title.split(':')[0];
-    bSel.appendChild(o);
-  });
-  ['kindle','paperback','hardcover'].forEach(f=>{
-    const o=document.createElement('option'); o.value=f; o.textContent=FMT_LABEL[f]||f; fSel.appendChild(o);
-  });
-  Object.entries(BOOKS.countries).forEach(([code,info])=>{
-    const o=document.createElement('option'); o.value=code; o.textContent=info.flag+' '+code; cSel.appendChild(o);
-  });
-
-  const ctx=document.getElementById('hist-chart').getContext('2d');
-  histChart=new Chart(ctx,{
+  const fSel=document.getElementById('c-fmt');
+  const cSel=document.getElementById('c-ctry');
+  B.books.forEach(b=>{const o=new Option(b.cover_emoji+' '+b.title.split(':')[0],b.id);bSel.add(o)});
+  ['kindle','paperback','hardcover'].forEach(f=>{fSel.add(new Option(FMT_LBL[f],f))});
+  Object.entries(B.countries).forEach(([cc,info])=>{cSel.add(new Option(info.flag+' '+cc,cc))});
+  const ctx=document.getElementById('hchart').getContext('2d');
+  HC=new Chart(ctx,{
     type:'line',
     data:{labels:[],datasets:[]},
     options:{
-      responsive:true, maintainAspectRatio:false,
+      responsive:true,maintainAspectRatio:false,
       scales:{
         y:{reverse:true,title:{display:true,text:'BSR Rank (lower = better)',color:'#9ca3af'},
            ticks:{color:'#9ca3af',callback:v=>'#'+v.toLocaleString()},
            grid:{color:'rgba(0,0,0,.05)'}},
-        x:{ticks:{color:'#9ca3af'},grid:{color:'rgba(0,0,0,.05)'}}
+        x:{ticks:{color:'#9ca3af'},grid:{color:'rgba(0,0,0,.04)'}}
       },
       plugins:{
-        legend:{labels:{color:'#374151'}},
+        legend:{labels:{color:'#374151',font:{size:12}}},
         tooltip:{callbacks:{label:c=>` Rank #${(c.raw||0).toLocaleString()}`}}
       }
     }
@@ -688,21 +682,20 @@ function initChart(){
   [bSel,fSel,cSel].forEach(s=>s.addEventListener('change',drawChart));
   drawChart();
 }
-
 function drawChart(){
   const bid=document.getElementById('c-book').value;
-  const fmt=document.getElementById('c-format').value;
-  const cc =document.getElementById('c-country').value;
-  const hist=RANKS?.history?.[bid]?.[fmt]?.[cc]||[];
-  histChart.data.labels=hist.map(h=>h.date);
-  histChart.data.datasets=[{
-    label:`BSR in ${cc}`,
+  const fmt=document.getElementById('c-fmt').value;
+  const cc =document.getElementById('c-ctry').value;
+  const hist=R?.history?.[bid]?.[fmt]?.[cc]||[];
+  HC.data.labels=hist.map(h=>h.date);
+  HC.data.datasets=[{
+    label:`BSR in ${cc} — ${fmt}`,
     data:hist.map(h=>h.rank),
-    borderColor:'#FF9900', backgroundColor:'rgba(255,153,0,.08)',
-    borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#FF9900',
-    tension:.35, fill:true
+    borderColor:'#FF9900',backgroundColor:'rgba(255,153,0,.07)',
+    borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#FF9900',pointBorderColor:'#fff',pointBorderWidth:2,
+    tension:.35,fill:true
   }];
-  histChart.update();
+  HC.update();
 }
 
 load();
