@@ -1,643 +1,711 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amazon BSR Dashboard — Tejas Jadhav | KDP Author</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Amazon Best Seller Ranks — Tejas Jadhav | KDP Author</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --amazon-orange: #FF9900;
-      --amazon-dark:   #131921;
-      --card-bg:       #1a2030;
-      --card-border:   #2a3548;
-      --text-primary:  #e8edf4;
-      --text-secondary:#8b9ab2;
-      --rank-gold:     #FFD700;
-      --rank-silver:   #C0C0C0;
-      --rank-bronze:   #CD7F32;
+      --orange:    #FF9900;
+      --orange-dk: #e07b00;
+      --navy:      #0B1F3A;
+      --navy2:     #14304f;
+      --gold:      #D4AF37;
+      --green:     #16a34a;
+      --red:       #dc2626;
+      --gray-50:   #f9fafb;
+      --gray-100:  #f3f4f6;
+      --gray-200:  #e5e7eb;
+      --gray-300:  #d1d5db;
+      --gray-500:  #6b7280;
+      --gray-700:  #374151;
+      --gray-900:  #111827;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.08);
+      --shadow:    0 4px 16px rgba(0,0,0,.10);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,.14);
+      --shadow-xl: 0 24px 64px rgba(0,0,0,.18);
+      --radius:    16px;
+      --radius-sm: 8px;
     }
-    * { box-sizing: border-box; }
-    body { background: var(--amazon-dark); color: var(--text-primary); font-family: 'Segoe UI', system-ui, sans-serif; min-height: 100vh; }
-    .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; }
-    .amazon-orange { color: var(--amazon-orange); }
-    .badge-kindle   { background: #1a3a5c; color: #5dade2; }
-    .badge-paperback{ background: #1a3a1a; color: #58d68d; }
-    .badge-hardcover{ background: #3d1a00; color: #e59866; }
-    .rank-badge { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; padding: 2px 8px; border-radius: 20px; font-size: 0.8rem; }
-    .rank-1    { background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; }
-    .rank-top10{ background: linear-gradient(135deg, #C0C0C0, #a8a8a8); color: #000; }
-    .rank-top100{ background: linear-gradient(135deg, #CD7F32, #b87333); color: #fff; }
-    .rank-good { background: #1a3a1a; color: #58d68d; border: 1px solid #27ae60; }
-    .rank-mid  { background: #2d2a1a; color: #f0b429; border: 1px solid #d4a017; }
-    .rank-low  { background: #2a1a1a; color: #ec7063; border: 1px solid #c0392b; }
-    .rank-none { background: #1e2535; color: #566573; border: 1px solid #2c3e50; }
-    .format-tab { padding: 4px 14px; border-radius: 20px; font-size: 0.8rem; cursor: pointer; border: 1px solid var(--card-border); transition: all 0.2s; }
-    .format-tab.active { border-color: var(--amazon-orange); color: var(--amazon-orange); background: rgba(255,153,0,0.1); }
-    .format-tab:not(.active):hover { border-color: #4a5568; }
-    .country-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
-    .country-cell { padding: 8px 10px; border-radius: 8px; border: 1px solid var(--card-border); background: #141c2d; text-align: center; transition: transform 0.2s; }
-    .country-cell:hover { transform: scale(1.03); }
-    .featured-glow { box-shadow: 0 0 40px rgba(255,153,0,0.15), 0 0 80px rgba(255,153,0,0.05); }
-    .featured-border { border-color: var(--amazon-orange) !important; }
-    .spinner { border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--amazon-orange); border-radius: 50%; width: 32px; height: 32px; animation: spin 0.8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #27ae60; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.3)} }
-    .country-table th { background: #0f1520; position: sticky; top: 0; z-index: 10; }
-    .trend-up   { color: #27ae60; }
-    .trend-down { color: #e74c3c; }
-    .trend-same { color: #566573; }
-    select { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 6px; color: var(--text-primary); padding: 4px 8px; }
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--amazon-dark); }
-    ::-webkit-scrollbar-thumb { background: #2a3548; border-radius: 3px; }
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
-    .hidden { display: none !important; }
-    @media (max-width: 640px) { .country-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); } }
+    html { scroll-behavior: smooth; }
+    body  { font-family:'Inter',sans-serif; background:#f4f6f9; color:var(--gray-900); min-height:100vh; }
+
+    /* ── HEADER ── */
+    .site-header {
+      background: var(--navy);
+      padding: 0 40px;
+      position: sticky; top:0; z-index:200;
+      box-shadow: 0 2px 20px rgba(0,0,0,.25);
+    }
+    .header-inner {
+      max-width:1300px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      height:64px; gap:16px;
+    }
+    .logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .logo-badge {
+      background:var(--orange); color:#000; font-weight:900;
+      font-size:1.1rem; padding:6px 11px; border-radius:8px; letter-spacing:-.5px;
+    }
+    .logo-text { color:#fff; font-weight:700; font-size:1rem; line-height:1.2; }
+    .logo-sub  { color:rgba(255,255,255,.5); font-size:.72rem; font-weight:400; }
+    .header-live {
+      display:flex; align-items:center; gap:8px;
+      color:rgba(255,255,255,.7); font-size:.78rem;
+    }
+    .dot-live {
+      width:8px; height:8px; border-radius:50%; background:#22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.4)}}
+
+    /* ── HERO STATS ── */
+    .hero-stats {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 100%);
+      padding: 40px 40px 48px;
+      text-align:center;
+    }
+    .hero-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1.8rem,4vw,2.8rem);
+      color:#fff; font-weight:800; margin-bottom:6px;
+      letter-spacing:-.5px;
+    }
+    .hero-sub { color:rgba(255,255,255,.6); font-size:.95rem; margin-bottom:36px; }
+    .stats-row {
+      display:flex; justify-content:center; gap:12px; flex-wrap:wrap;
+    }
+    .stat-pill {
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+      border-radius:40px; padding:12px 28px; text-align:center;
+      backdrop-filter:blur(8px);
+    }
+    .stat-num  { font-size:1.7rem; font-weight:800; color:var(--orange); line-height:1; }
+    .stat-lbl  { font-size:.7rem; color:rgba(255,255,255,.55); margin-top:2px; text-transform:uppercase; letter-spacing:.06em; }
+
+    /* ── MAIN ── */
+    .main { max-width:1300px; margin:0 auto; padding:40px 24px 80px; }
+
+    /* ── SECTION HEADING ── */
+    .section-label {
+      display:flex; align-items:center; gap:10px;
+      font-size:.72rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.1em; color:var(--gray-500); margin-bottom:20px;
+    }
+    .section-label::before, .section-label::after {
+      content:''; flex:1; height:1px; background:var(--gray-200);
+    }
+
+    /* ── BOOK CARD ── */
+    .book-card {
+      background:#fff; border-radius:var(--radius);
+      box-shadow: var(--shadow); overflow:hidden;
+      margin-bottom:36px; border:1px solid var(--gray-200);
+      transition: box-shadow .2s;
+    }
+    .book-card:hover { box-shadow: var(--shadow-lg); }
+    .book-card.featured {
+      border:2px solid var(--orange);
+      box-shadow: 0 0 0 4px rgba(255,153,0,.08), var(--shadow-xl);
+    }
+
+    /* ── BOOK HERO ── */
+    .book-hero {
+      display:flex; gap:0; align-items:stretch;
+      min-height:260px;
+    }
+    .book-cover-wrap {
+      flex-shrink:0; width:200px;
+      background: linear-gradient(160deg,#f0f4ff,#e8edf8);
+      display:flex; align-items:center; justify-content:center;
+      padding:24px 20px;
+      border-right:1px solid var(--gray-100);
+    }
+    .book-cover-wrap img {
+      max-width:140px; max-height:200px;
+      object-fit:contain;
+      border-radius:4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.18), 0 2px 6px rgba(0,0,0,.12);
+      transition: transform .3s;
+    }
+    .book-card:hover .book-cover-wrap img { transform: scale(1.04) translateY(-2px); }
+
+    .book-info {
+      flex:1; padding:28px 32px;
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .book-top {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:16px;
+    }
+    .featured-tag {
+      flex-shrink:0;
+      background:var(--orange); color:#000; font-size:.65rem;
+      font-weight:800; padding:3px 10px; border-radius:20px;
+      letter-spacing:.05em; text-transform:uppercase;
+    }
+    .book-title {
+      font-family:'Playfair Display',serif;
+      font-size:clamp(1rem,2vw,1.35rem);
+      font-weight:700; color:var(--navy); line-height:1.3;
+    }
+    .book-subtitle {
+      font-size:.82rem; color:var(--gray-500); line-height:1.5;
+    }
+    .book-author {
+      font-size:.8rem; color:var(--gray-500);
+    }
+    .book-author strong { color:var(--navy); }
+
+    /* FORMAT TABS */
+    .format-tabs { display:flex; gap:6px; flex-wrap:wrap; }
+    .ftab {
+      padding:5px 14px; border-radius:20px; font-size:.78rem; font-weight:600;
+      cursor:pointer; border:1.5px solid var(--gray-200);
+      color:var(--gray-500); background:#fff;
+      transition: all .15s;
+    }
+    .ftab:hover { border-color:var(--orange); color:var(--orange); }
+    .ftab.active { background:var(--orange); color:#fff; border-color:var(--orange); }
+    .ftab-kindle   .ftab.active { background:#2563eb; border-color:#2563eb; }
+    .ftab-paperback .ftab.active { background:#16a34a; border-color:#16a34a; }
+    .ftab-hardcover .ftab.active { background:#7c3aed; border-color:#7c3aed; }
+
+    /* ── COUNTRY GRID ── */
+    .country-section { padding:0 28px 28px; }
+    .format-panel { display:none; }
+    .format-panel.active { display:block; }
+
+    .format-header {
+      display:flex; align-items:center; gap:10px;
+      padding:14px 0 16px;
+      border-bottom:1px solid var(--gray-100);
+      margin-bottom:16px;
+    }
+    .format-badge {
+      font-size:.75rem; font-weight:700; padding:3px 10px; border-radius:20px;
+    }
+    .fmt-kindle    { background:#eff6ff; color:#2563eb; }
+    .fmt-paperback { background:#f0fdf4; color:#16a34a; }
+    .fmt-hardcover { background:#f5f3ff; color:#7c3aed; }
+    .format-asin { font-size:.72rem; color:var(--gray-400); }
+    .format-price { font-size:.85rem; font-weight:700; color:var(--gray-700); margin-left:auto; }
+
+    .countries-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+      gap:10px;
+    }
+    .country-tile {
+      background:var(--gray-50); border:1px solid var(--gray-200);
+      border-radius:var(--radius-sm); padding:12px 10px;
+      text-align:center; text-decoration:none; color:inherit;
+      transition: all .18s; position:relative; overflow:hidden;
+    }
+    .country-tile:hover {
+      transform:translateY(-2px);
+      box-shadow: var(--shadow);
+      border-color:var(--orange);
+    }
+    .country-tile.has-rank { background:#fff; }
+    .country-tile.top-rank {
+      border-color:#FFD700;
+      background:linear-gradient(135deg,#fffbeb,#fff8d6);
+    }
+    .country-flag  { font-size:1.8rem; line-height:1; margin-bottom:4px; }
+    .country-name  { font-size:.65rem; color:var(--gray-500); margin-bottom:6px; font-weight:500; }
+    .country-rank  { font-size:1rem; font-weight:800; line-height:1; }
+    .country-cat   { font-size:.6rem; color:var(--gray-500); margin-top:3px; line-height:1.3; }
+    .country-na    { font-size:.72rem; color:var(--gray-300); margin-top:4px; }
+
+    .rank-star  { color:#f59e0b; }
+    .rank-num   { color:var(--navy); }
+    .rank-good  { color:#16a34a; }
+    .rank-mid   { color:#d97706; }
+    .rank-low   { color:#9ca3af; }
+
+    /* rank badge pill for table */
+    .rpill {
+      display:inline-block; font-weight:700; padding:2px 8px;
+      border-radius:20px; font-size:.72rem; white-space:nowrap;
+    }
+    .rpill-gold   { background:#fef9c3; color:#92400e; border:1px solid #fde68a; }
+    .rpill-silver { background:#f1f5f9; color:#334155; border:1px solid #cbd5e1; }
+    .rpill-bronze { background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; }
+    .rpill-green  { background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+    .rpill-amber  { background:#fffbeb; color:#92400e; border:1px solid #fde68a; }
+    .rpill-gray   { background:#f9fafb; color:#9ca3af; border:1px solid #e5e7eb; }
+
+    /* ── COMPARISON TABLE ── */
+    .table-wrap { background:#fff; border-radius:var(--radius); border:1px solid var(--gray-200); overflow:hidden; box-shadow:var(--shadow); margin-bottom:36px; }
+    .table-title { padding:20px 24px 0; font-weight:700; font-size:1rem; color:var(--navy); }
+    .table-scroll { overflow-x:auto; }
+    table { width:100%; border-collapse:collapse; font-size:.8rem; }
+    thead th {
+      background:#f8fafc; padding:10px 14px; text-align:left;
+      font-size:.68rem; font-weight:700; text-transform:uppercase;
+      letter-spacing:.06em; color:var(--gray-500);
+      border-bottom:2px solid var(--gray-200); white-space:nowrap;
+    }
+    tbody tr { border-bottom:1px solid var(--gray-100); }
+    tbody tr:last-child { border-bottom:none; }
+    tbody tr:hover { background:#fafbfc; }
+    tbody td { padding:10px 14px; vertical-align:middle; }
+    .country-cell-td { display:flex; align-items:center; gap:8px; font-weight:600; white-space:nowrap; }
+
+    /* ── CHART ── */
+    .chart-card { background:#fff; border-radius:var(--radius); border:1px solid var(--gray-200); padding:24px; box-shadow:var(--shadow); margin-bottom:36px; }
+    .chart-controls { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:20px; align-items:center; }
+    .chart-controls select {
+      background:#fff; border:1.5px solid var(--gray-200); border-radius:8px;
+      padding:7px 12px; font-size:.82rem; color:var(--gray-700);
+      font-family:inherit; outline:none; cursor:pointer;
+    }
+    .chart-controls select:focus { border-color:var(--orange); }
+
+    /* ── FOOTER ── */
+    .site-footer {
+      background:var(--navy); color:rgba(255,255,255,.5);
+      text-align:center; padding:24px 40px; font-size:.78rem;
+    }
+    .site-footer a { color:var(--orange); text-decoration:none; }
+
+    /* ── LOADING ── */
+    #loading { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:400px; gap:16px; }
+    .spinner { width:40px; height:40px; border:3px solid var(--gray-200); border-top-color:var(--orange); border-radius:50%; animation:spin .7s linear infinite; }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px) {
+      .site-header { padding:0 16px; }
+      .hero-stats   { padding:28px 16px 36px; }
+      .book-hero    { flex-direction:column; }
+      .book-cover-wrap { width:100%; height:200px; border-right:none; border-bottom:1px solid var(--gray-100); }
+      .book-info    { padding:20px; }
+      .country-section { padding:0 16px 20px; }
+      .main { padding:24px 12px 60px; }
+      .countries-grid { grid-template-columns:repeat(auto-fill,minmax(100px,1fr)); }
+    }
   </style>
 </head>
 <body>
 
 <!-- HEADER -->
-<header style="background:linear-gradient(135deg,#0d1117 0%,#131921 100%); border-bottom: 1px solid #2a3548;">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap items-center justify-between gap-3">
-    <div class="flex items-center gap-3">
-      <div style="background:var(--amazon-orange);border-radius:8px;padding:8px 12px;font-weight:900;font-size:1.1rem;color:#000;">A</div>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="logo" href="#">
+      <div class="logo-badge">A</div>
       <div>
-        <h1 class="font-bold text-lg leading-tight">Amazon BSR Dashboard</h1>
-        <p class="text-xs" style="color:var(--text-secondary)">Tejas Jadhav · CFA, FRM · KDP Author</p>
+        <div class="logo-text">BSR Dashboard</div>
+        <div class="logo-sub">Amazon Best Seller Ranks</div>
       </div>
-    </div>
-    <div class="flex items-center gap-4 flex-wrap">
-      <div class="flex items-center gap-2 text-xs" style="color:var(--text-secondary)">
-        <div class="pulse-dot"></div>
-        <span id="last-updated-text">Loading...</span>
-      </div>
-      <div class="flex gap-2">
-        <select id="country-filter" onchange="applyFilters()" title="Filter by country">
-          <option value="ALL">🌍 All Countries</option>
-        </select>
-        <select id="format-filter" onchange="applyFilters()" title="Filter by format">
-          <option value="ALL">All Formats</option>
-          <option value="kindle">📱 Kindle</option>
-          <option value="paperback">📄 Paperback</option>
-          <option value="hardcover">📗 Hardcover</option>
-        </select>
-      </div>
+    </a>
+    <div class="header-live">
+      <div class="dot-live"></div>
+      <span id="header-updated">Loading…</span>
     </div>
   </div>
 </header>
 
-<!-- STATS BAR -->
-<div style="background:#0d1117; border-bottom:1px solid #1e2535;">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap gap-6">
-    <div class="text-center">
-      <div class="font-bold text-lg amazon-orange" id="stat-books">5</div>
-      <div class="text-xs" style="color:var(--text-secondary)">Books</div>
-    </div>
-    <div class="text-center">
-      <div class="font-bold text-lg amazon-orange" id="stat-formats">9</div>
-      <div class="text-xs" style="color:var(--text-secondary)">Formats</div>
-    </div>
-    <div class="text-center">
-      <div class="font-bold text-lg amazon-orange" id="stat-countries">15</div>
-      <div class="text-xs" style="color:var(--text-secondary)">Countries</div>
-    </div>
-    <div class="text-center">
-      <div class="font-bold text-lg amazon-orange" id="stat-best-rank">—</div>
-      <div class="text-xs" style="color:var(--text-secondary)">Best Rank Today</div>
-    </div>
-    <div class="text-center">
-      <div class="font-bold text-lg text-green-400" id="stat-ranked">—</div>
-      <div class="text-xs" style="color:var(--text-secondary)">Rankings Found</div>
-    </div>
+<!-- HERO -->
+<div class="hero-stats">
+  <div class="hero-title">Amazon Best Seller Ranks</div>
+  <div class="hero-sub">Tejas Jadhav · CFA, FRM · AI &amp; Practical Finance Series</div>
+  <div class="stats-row">
+    <div class="stat-pill"><div class="stat-num" id="s-books">5</div><div class="stat-lbl">Books</div></div>
+    <div class="stat-pill"><div class="stat-num" id="s-formats">9</div><div class="stat-lbl">Formats</div></div>
+    <div class="stat-pill"><div class="stat-num" id="s-countries">15</div><div class="stat-lbl">Countries</div></div>
+    <div class="stat-pill"><div class="stat-num" id="s-best">—</div><div class="stat-lbl">Best Rank Today</div></div>
+    <div class="stat-pill"><div class="stat-num" id="s-ranked">—</div><div class="stat-lbl">Rankings Live</div></div>
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
-<main class="max-w-7xl mx-auto px-4 py-6">
-
-  <!-- Loading spinner -->
-  <div id="loading-state" class="flex flex-col items-center justify-center py-24">
-    <div class="spinner mb-4"></div>
-    <p style="color:var(--text-secondary)">Loading dashboard data...</p>
+<!-- MAIN -->
+<div class="main" id="main-content">
+  <div id="loading">
+    <div class="spinner"></div>
+    <div style="color:var(--gray-500);font-size:.9rem;">Fetching live rank data…</div>
   </div>
-
-  <!-- Dashboard (hidden until data loads) -->
-  <div id="dashboard" class="hidden">
+  <div id="dashboard" style="display:none">
 
     <!-- FEATURED BOOK -->
-    <div id="featured-section" class="mb-8"></div>
+    <div class="section-label">★ Featured Book — Claude AI</div>
+    <div id="featured-slot"></div>
 
-    <!-- ALL BOOKS GRID -->
-    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">ALL BOOKS</h2>
-    <div id="books-grid" class="grid gap-5 mb-10" style="grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));"></div>
+    <!-- OTHER BOOKS -->
+    <div class="section-label" style="margin-top:12px;">All Books</div>
+    <div id="other-books"></div>
 
-    <!-- COUNTRY COMPARISON TABLE -->
-    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">COUNTRY COMPARISON</h2>
-    <div class="card overflow-x-auto mb-10">
-      <table class="w-full text-sm country-table" id="comparison-table">
-        <thead id="comparison-thead"></thead>
-        <tbody id="comparison-tbody"></tbody>
-      </table>
+    <!-- COMPARISON TABLE -->
+    <div class="section-label">Country Comparison — All Books</div>
+    <div class="table-wrap">
+      <div class="table-title">Best Subcategory Rank per Country</div>
+      <div class="table-scroll"><table><thead id="tbl-head"></thead><tbody id="tbl-body"></tbody></table></div>
     </div>
 
-    <!-- HISTORY CHART -->
-    <h2 class="font-semibold text-base mb-4" style="color:var(--text-secondary); letter-spacing:0.05em;">RANK HISTORY</h2>
-    <div class="card p-5 mb-10">
-      <div class="flex flex-wrap gap-3 mb-4 items-center">
-        <select id="chart-book" onchange="updateChart()" class="text-sm"></select>
-        <select id="chart-format" onchange="updateChart()" class="text-sm"></select>
-        <select id="chart-country" onchange="updateChart()" class="text-sm"></select>
-        <span class="text-xs" style="color:var(--text-secondary)">Lower rank = better</span>
+    <!-- CHART -->
+    <div class="section-label">Rank History</div>
+    <div class="chart-card">
+      <div class="chart-controls">
+        <select id="c-book"></select>
+        <select id="c-format"></select>
+        <select id="c-country"></select>
+        <span style="font-size:.75rem;color:var(--gray-400);margin-left:auto;">Lower rank = Better position</span>
       </div>
-      <div style="position:relative; height:280px;">
-        <canvas id="history-chart"></canvas>
-      </div>
+      <div style="position:relative;height:280px;"><canvas id="hist-chart"></canvas></div>
     </div>
 
-  </div>
-</main>
-
-<!-- RANK DETAIL MODAL -->
-<div id="rank-modal" class="modal-overlay hidden" onclick="closeModal(event)">
-  <div class="card p-6 max-w-lg w-full mx-4" onclick="event.stopPropagation()">
-    <div class="flex justify-between items-start mb-4">
-      <h3 class="font-bold text-base" id="modal-title"></h3>
-      <button onclick="closeModal()" class="text-gray-400 hover:text-white text-xl leading-none">&times;</button>
-    </div>
-    <div id="modal-body"></div>
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div>Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em> &nbsp;|&nbsp;
+  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank" rel="noopener">Amazon Author Page ↗</a> &nbsp;|&nbsp;
+  Ranks updated daily via GitHub Actions</div>
+</footer>
+
 <script>
-// ─── STATE ─────────────────────────────────────────────────────────────────
-let BOOKS = null;
-let RANKINGS = null;
-let histChart = null;
-let activeFormat = 'ALL';
-let activeCountry = 'ALL';
+// ─────────────────────────────────────────────────────────
+//  DATA
+// ─────────────────────────────────────────────────────────
+let BOOKS = null, RANKS = null, histChart = null;
 
-// ─── LOAD DATA ──────────────────────────────────────────────────────────────
-async function loadData() {
+const COVER = {
+  'B0GSX73KF6':'images/B0GSX73KF6.jpg', // Claude AI Kindle
+  'B0GV2SS77G':'images/B0GV2SS77G.jpg', // Claude AI PB
+  'B0GVJPXVP8':'images/B0GVJPXVP8.jpg', // Claude AI HC
+  'B0GS5RL6XS':'images/B0GS5RL6XS.jpg', // AI Prompts 100 Kindle
+  '9357823662':'images/9357823662.jpg',  // AI Prompts 100 PB
+  'B0D8R41W2F':'images/B0D8R41W2F.jpg', // Shivaji Kindle
+  'B0GWWG34W6':'images/B0GWWG34W6.jpg', // Shivaji PB
+  'B0G7YSZZJM':'images/B0G7YSZZJM.jpg', // Stop Losing Kindle
+  'B0GWHZLVK8':'images/B0GWHZLVK8.jpg', // Stop Losing PB
+  'B0GSBV7QX9':'images/B0GSBV7QX9.jpg', // Equity HC
+};
+
+const FMT_LABEL = {kindle:'📱 Kindle eBook', paperback:'📄 Paperback', hardcover:'📗 Hardcover'};
+const FMT_CSS   = {kindle:'fmt-kindle', paperback:'fmt-paperback', hardcover:'fmt-hardcover'};
+const FORMAT_PRICE = {
+  'B0GSX73KF6':'$5.99','B0GV2SS77G':'$24.99','B0GVJPXVP8':'$49.99',
+  'B0GS5RL6XS':'$4.99','9357823662':'$21.99',
+  'B0D8R41W2F':'$2.99','B0GWWG34W6':'$9.99',
+  'B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99',
+  'B0GSBV7QX9':'$44.99'
+};
+
+async function load() {
   try {
-    const [bRes, rRes] = await Promise.all([
-      fetch('data/books.json?v=' + Date.now()),
-      fetch('data/rankings.json?v=' + Date.now())
+    [BOOKS,RANKS] = await Promise.all([
+      fetch('data/books.json?v='+Date.now()).then(r=>r.json()),
+      fetch('data/rankings.json?v='+Date.now()).then(r=>r.json())
     ]);
-    BOOKS = await bRes.json();
-    RANKINGS = await rRes.json();
-    init();
+    boot();
   } catch(e) {
-    document.getElementById('loading-state').innerHTML =
-      `<p style="color:#e74c3c">Failed to load data: ${e.message}</p>
-       <p class="text-sm mt-2" style="color:var(--text-secondary)">Make sure you're running via a web server (e.g. <code>python -m http.server</code>), not file://</p>`;
+    document.getElementById('loading').innerHTML =
+      `<p style="color:var(--red)">Error loading data: ${e.message}</p>`;
   }
 }
 
-// ─── INIT ───────────────────────────────────────────────────────────────────
-function init() {
-  populateFilters();
-  renderLastUpdated();
+function boot() {
+  renderHeader();
   renderStats();
-  renderFeatured();
-  renderBooksGrid();
-  renderComparisonTable();
+  const featured = BOOKS.books.find(b=>b.id===BOOKS.featured_book_id);
+  const others   = BOOKS.books.filter(b=>b.id!==BOOKS.featured_book_id);
+  document.getElementById('featured-slot').innerHTML = buildBookCard(featured, true);
+  document.getElementById('other-books').innerHTML   = others.map(b=>buildBookCard(b,false)).join('');
+  renderTable();
   initChart();
-
-  document.getElementById('loading-state').classList.add('hidden');
-  document.getElementById('dashboard').classList.remove('hidden');
+  document.getElementById('loading').style.display='none';
+  document.getElementById('dashboard').style.display='block';
+  // activate first tab on each card
+  document.querySelectorAll('.book-card').forEach(card=>{
+    const firstTab = card.querySelector('.ftab');
+    if(firstTab) firstTab.click();
+  });
 }
 
-// ─── HELPERS ────────────────────────────────────────────────────────────────
-function getRank(bookId, format, country) {
-  return RANKINGS?.current?.[bookId]?.[format]?.[country] || null;
+// ─────────────────────────────────────────────────────────
+//  HELPERS
+// ─────────────────────────────────────────────────────────
+function getD(bookId,fmt,country){ return RANKS?.current?.[bookId]?.[fmt]?.[country]||null; }
+
+function bestSubcat(d){
+  if(!d?.all_ranks?.length) return null;
+  const skip=['books','kindle store'];
+  const sub=d.all_ranks.filter(r=>!skip.includes((r.category||'').toLowerCase()));
+  return sub.length ? sub.reduce((a,b)=>a.rank<b.rank?a:b) : d.all_ranks[0];
 }
 
-// Returns the best subcategory rank from all_ranks (ignores generic "Books" / "Kindle Store")
-function getBestSubcatRank(data) {
-  if (!data?.all_ranks || data.all_ranks.length === 0) return null;
-  const generic = ['books', 'kindle store'];
-  const sub = data.all_ranks.filter(r => !generic.includes(r.category?.toLowerCase()));
-  if (sub.length > 0) return sub.reduce((a, b) => a.rank < b.rank ? a : b);
-  return data.all_ranks[0]; // fallback to overall
-}
-
-function rankClass(rank) {
-  if (!rank) return 'rank-none';
-  if (rank === 1) return 'rank-1';
-  if (rank <= 10) return 'rank-top10';
-  if (rank <= 100) return 'rank-top100';
-  if (rank <= 1000) return 'rank-good';
-  if (rank <= 10000) return 'rank-mid';
-  return 'rank-low';
-}
-
-function rankBadgeHtml(rank) {
-  if (!rank) return `<span class="rank-badge rank-none">N/A</span>`;
-  const cls = rankClass(rank);
-  const stars = rank === 1 ? '🥇' : rank <= 10 ? '🏆' : rank <= 100 ? '⭐' : '';
-  return `<span class="rank-badge ${cls}">${stars} #${rank.toLocaleString()}</span>`;
-}
-
-function bestRankForBook(bookId) {
-  let best = null;
-  const cur = RANKINGS?.current?.[bookId] || {};
-  for (const fmt of Object.values(cur)) {
-    for (const data of Object.values(fmt)) {
-      const sub = getBestSubcatRank(data);
-      if (sub?.rank && (!best || sub.rank < best.rank)) {
-        best = { ...sub, overall_rank: data.rank };
-      }
+function bestOfBook(bookId){
+  let best=null;
+  const cur=RANKS?.current?.[bookId]||{};
+  for(const fmt of Object.values(cur))
+    for(const d of Object.values(fmt)){
+      const s=bestSubcat(d); if(s?.rank&&(!best||s.rank<best.rank)) best=s;
     }
-  }
   return best;
 }
 
-function allCountries() {
-  return Object.keys(BOOKS.countries || {});
+function rankColor(r){
+  if(!r) return 'rank-low';
+  if(r<=10) return 'rank-star';
+  if(r<=100) return 'rank-num';
+  if(r<=1000) return 'rank-good';
+  if(r<=10000) return 'rank-mid';
+  return 'rank-low';
+}
+function rankPillClass(r){
+  if(!r) return 'rpill-gray';
+  if(r<=10) return 'rpill-gold';
+  if(r<=100) return 'rpill-silver';
+  if(r<=500) return 'rpill-bronze';
+  if(r<=5000) return 'rpill-green';
+  if(r<=50000) return 'rpill-amber';
+  return 'rpill-gray';
 }
 
-function countryFlag(code) {
-  return BOOKS.countries?.[code]?.flag || code;
-}
-function countryName(code) {
-  return BOOKS.countries?.[code]?.name || code;
-}
-
-function formatLabel(f) {
-  return { kindle: '📱 Kindle', paperback: '📄 Paperback', hardcover: '📗 Hardcover' }[f] || f;
+function coverImg(book,fmt){
+  const asin=book.formats[fmt]?.asin;
+  const src=COVER[asin]||'';
+  return src ? `<img src="${src}" alt="${book.title}" onerror="this.style.display='none'"/>` : `<div style="font-size:4rem;">${book.cover_emoji}</div>`;
 }
 
-function amazonUrl(asin, country) {
-  const domain = BOOKS.countries?.[country]?.domain || 'amazon.com';
-  return `https://www.${domain}/dp/${asin}`;
-}
-
-function timeAgo(isoStr) {
-  if (!isoStr) return 'Never';
-  const diff = Date.now() - new Date(isoStr).getTime();
-  const h = Math.floor(diff / 3600000);
-  if (h < 1) return 'Just now';
-  if (h < 24) return `${h}h ago`;
-  const d = Math.floor(h / 24);
-  return `${d}d ago`;
-}
-
-// ─── FILTERS ────────────────────────────────────────────────────────────────
-function populateFilters() {
-  const countryEl = document.getElementById('country-filter');
-  allCountries().forEach(code => {
-    const opt = document.createElement('option');
-    opt.value = code;
-    opt.textContent = `${countryFlag(code)} ${code}`;
-    countryEl.appendChild(opt);
-  });
-}
-
-function applyFilters() {
-  activeCountry = document.getElementById('country-filter').value;
-  activeFormat  = document.getElementById('format-filter').value;
-  renderBooksGrid();
-  renderComparisonTable();
-}
-
-// ─── LAST UPDATED ───────────────────────────────────────────────────────────
-function renderLastUpdated() {
-  const el = document.getElementById('last-updated-text');
-  const ts = RANKINGS?.last_updated;
-  if (!ts) {
-    el.textContent = 'Not yet updated — run scraper or enter manually';
-    return;
+function bestCoverAsin(book){
+  // prefer hardcover > paperback > kindle for display
+  for(const f of ['hardcover','paperback','kindle']){
+    if(book.formats[f]) return book.formats[f].asin;
   }
-  const d = new Date(ts);
-  el.textContent = `Updated ${timeAgo(ts)} · ${d.toLocaleDateString('en-US', {month:'short',day:'numeric',year:'numeric'})}`;
+  return null;
 }
 
-// ─── STATS ──────────────────────────────────────────────────────────────────
-function renderStats() {
-  let bestRank = null;
-  let rankedCount = 0;
-  let totalFormats = 0;
+function coverImgMain(book){
+  const asin=bestCoverAsin(book);
+  const src=asin ? (COVER[asin]||'') : '';
+  return src
+    ? `<img src="${src}" alt="${book.title}" onerror="this.parentElement.innerHTML='<div style=\\'font-size:4rem;\\'>${book.cover_emoji}</div>'"/>`
+    : `<div style="font-size:4.5rem;">${book.cover_emoji}</div>`;
+}
 
-  for (const book of BOOKS.books) {
-    totalFormats += Object.keys(book.formats || {}).length;
-    const cur = RANKINGS?.current?.[book.id] || {};
-    for (const fmt of Object.values(cur)) {
-      for (const data of Object.values(fmt)) {
-        if (data?.rank) {
-          rankedCount++;
-          if (!bestRank || data.rank < bestRank) bestRank = data.rank;
-        }
+// ─────────────────────────────────────────────────────────
+//  HEADER / STATS
+// ─────────────────────────────────────────────────────────
+function renderHeader(){
+  const ts=RANKS?.last_updated;
+  if(!ts){ document.getElementById('header-updated').textContent='Not yet updated'; return; }
+  const d=new Date(ts);
+  const diff=Date.now()-d.getTime();
+  const h=Math.floor(diff/3600000);
+  const ago=h<1?'Just now':h<24?h+'h ago':Math.floor(h/24)+'d ago';
+  document.getElementById('header-updated').textContent=
+    `Updated ${ago} · ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;
+}
+function renderStats(){
+  let best=null, ranked=0;
+  for(const book of BOOKS.books){
+    const cur=RANKS?.current?.[book.id]||{};
+    for(const fmt of Object.values(cur))
+      for(const d of Object.values(fmt)){
+        const s=bestSubcat(d); if(s?.rank){ranked++;if(!best||s.rank<best)best=s.rank;}
       }
-    }
   }
-  document.getElementById('stat-books').textContent = BOOKS.books.length;
-  document.getElementById('stat-formats').textContent = totalFormats;
-  document.getElementById('stat-countries').textContent = allCountries().length;
-  document.getElementById('stat-best-rank').textContent = bestRank ? `#${bestRank.toLocaleString()}` : '—';
-  document.getElementById('stat-ranked').textContent = rankedCount > 0 ? rankedCount : '—';
+  document.getElementById('s-best').textContent  = best ? '#'+best.toLocaleString() : '—';
+  document.getElementById('s-ranked').textContent = ranked||'—';
 }
 
-// ─── FEATURED BOOK ──────────────────────────────────────────────────────────
-function renderFeatured() {
-  const featId = BOOKS.featured_book_id;
-  const book   = BOOKS.books.find(b => b.id === featId);
-  if (!book) return;
+// ─────────────────────────────────────────────────────────
+//  BOOK CARD
+// ─────────────────────────────────────────────────────────
+function buildBookCard(book, featured){
+  const fmts=Object.keys(book.formats||{});
+  const best=bestOfBook(book.id);
 
-  const best = bestRankForBook(book.id);
-  const el   = document.getElementById('featured-section');
+  const tabsHtml=fmts.map((f,i)=>
+    `<button class="ftab${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">${FMT_LABEL[f]||f}</button>`
+  ).join('');
 
-  el.innerHTML = `
-    <div class="card featured-glow featured-border p-6 mb-2" style="background:linear-gradient(135deg,#0f1e35 0%,#1a2a40 100%);">
-      <div class="flex items-center gap-2 mb-3">
-        <span style="background:var(--amazon-orange);color:#000;font-size:0.65rem;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:0.05em;">★ FEATURED BOOK</span>
-        <span class="text-xs" style="color:var(--text-secondary)">AI &amp; Practical Finance Series</span>
-      </div>
-      <div class="flex flex-wrap gap-6 items-start">
-        <div style="font-size:4rem;line-height:1;background:linear-gradient(135deg,${book.cover_color},${book.cover_color2||book.cover_color});padding:16px 20px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
-          ${book.cover_emoji}
-        </div>
-        <div class="flex-1 min-w-0">
-          <h2 class="font-bold text-xl mb-1 leading-tight">${book.title}</h2>
-          <p class="text-sm mb-3" style="color:var(--text-secondary)">${book.subtitle}</p>
-          ${best ? `<div class="flex items-center gap-2 mb-3">
-            <span style="color:var(--text-secondary);font-size:0.8rem;">Best rank:</span>
-            ${rankBadgeHtml(best.rank)}
-            <span class="text-xs" style="color:var(--text-secondary)">in ${best.category}</span>
-          </div>` : ''}
-          <div class="flex flex-wrap gap-2">
-            ${Object.entries(book.formats).map(([fmt, fd]) => {
-              const asin = fd.asin;
-              return `<a href="${amazonUrl(asin,'US')}" target="_blank" rel="noopener"
-                class="flex items-center gap-1 text-xs px-3 py-1 rounded-full border transition-colors"
-                style="border-color:#FF9900;color:#FF9900;text-decoration:none;"
-                onmouseover="this.style.background='rgba(255,153,0,0.1)'"
-                onmouseout="this.style.background=''"
-              >${formatLabel(fmt)} ↗</a>`;
-            }).join('')}
-          </div>
-        </div>
-        <div class="flex flex-col gap-3 min-w-[220px]">
-          ${Object.keys(book.formats).map(fmt => renderMiniFormatCard(book.id, fmt)).join('')}
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function renderMiniFormatCard(bookId, fmt) {
-  const countries = activeCountry === 'ALL' ? allCountries().slice(0, 6) : [activeCountry];
-  const ranks = countries.map(c => {
-    const d = getRank(bookId, fmt, c);
-    return d?.rank ? d.rank : null;
-  }).filter(Boolean);
-  const bestRank = ranks.length ? Math.min(...ranks) : null;
+  const panelsHtml=fmts.map((f,i)=>
+    `<div class="format-panel${i===0?' active':''}" id="panel-${book.id}-${f}">${buildFormatPanel(book,f)}</div>`
+  ).join('');
 
   return `
-    <div class="px-3 py-2 rounded-lg" style="background:rgba(255,255,255,0.04);border:1px solid var(--card-border);">
-      <div class="flex justify-between items-center mb-1">
-        <span class="text-xs font-semibold">${formatLabel(fmt)}</span>
-        ${rankBadgeHtml(bestRank)}
+  <div class="book-card${featured?' featured':''}" id="card-${book.id}">
+    <div class="book-hero">
+      <div class="book-cover-wrap">${coverImgMain(book)}</div>
+      <div class="book-info">
+        <div class="book-top">
+          <div style="flex:1">
+            ${featured?'<div class="featured-tag" style="display:inline-block;margin-bottom:8px;">★ Featured</div><br/>':''}
+            <div class="book-title">${book.title}</div>
+            <div class="book-subtitle" style="margin-top:6px">${book.subtitle}</div>
+          </div>
+          ${best?`<div style="text-align:right;flex-shrink:0">
+            <div style="font-size:.65rem;color:var(--gray-400);margin-bottom:2px;">Best Rank</div>
+            <div style="font-size:1.6rem;font-weight:900;color:${best.rank<=10?'#f59e0b':best.rank<=100?'var(--navy)':'#16a34a'};line-height:1;">#${best.rank.toLocaleString()}</div>
+            <div style="font-size:.62rem;color:var(--gray-400);margin-top:2px;">${best.category}</div>
+          </div>`:''}
+        </div>
+        <div class="book-author">by <strong>Tejas Jadhav</strong> · AI &amp; Practical Finance Series</div>
+        <div class="format-tabs">${tabsHtml}</div>
       </div>
     </div>
-  `;
+    <div class="country-section">${panelsHtml}</div>
+  </div>`;
 }
 
-// ─── BOOKS GRID ─────────────────────────────────────────────────────────────
-function renderBooksGrid() {
-  const grid = document.getElementById('books-grid');
-  const otherBooks = BOOKS.books.filter(b => b.id !== BOOKS.featured_book_id);
-  grid.innerHTML = otherBooks.map(book => renderBookCard(book)).join('');
-}
+function buildFormatPanel(book, fmt){
+  const fd=book.formats[fmt];
+  if(!fd) return '';
+  const asin=fd.asin;
+  const price=FORMAT_PRICE[asin]||'';
+  const countries=Object.keys(BOOKS.countries||{});
 
-function renderBookCard(book) {
-  const fmts = Object.keys(book.formats || {});
-  const visibleFmts = activeFormat === 'ALL' ? fmts : fmts.filter(f => f === activeFormat);
-  const countries   = activeCountry === 'ALL' ? allCountries() : [activeCountry];
+  const tiles=countries.map(code=>{
+    const d=getD(book.id,fmt,code);
+    const sub=bestSubcat(d);
+    const rank=sub?.rank;
+    const cat=sub?.category||'';
+    const flag=BOOKS.countries[code]?.flag||code;
+    const name=BOOKS.countries[code]?.name||code;
+    const domain=BOOKS.countries[code]?.domain||'amazon.com';
+    const url=`https://www.${domain}/dp/${asin}`;
+    const isTop=rank&&rank<=100;
 
-  const best = bestRankForBook(book.id);
-
-  const formatsHtml = visibleFmts.map(fmt => {
-    const fd = book.formats[fmt];
-    const asin = fd.asin;
-    const rankCells = countries.slice(0, activeCountry === 'ALL' ? 8 : 15).map(c => {
-      const d    = getRank(book.id, fmt, c);
-      const sub  = getBestSubcatRank(d);
-      const rank = sub?.rank || null;
-      const cat  = sub?.category || d?.category || '';
-      const cls  = rankClass(rank);
-      const url  = amazonUrl(d?.asin || asin, c);
-      const tip  = rank ? `#${rank.toLocaleString()} in ${cat}` : 'Not ranked';
-      return `<a href="${url}" target="_blank" rel="noopener" title="${countryName(c)}: ${tip}"
-        class="country-cell" style="text-decoration:none;">
-        <div style="font-size:1.3rem;">${countryFlag(c)}</div>
-        <div class="rank-badge ${cls} mt-1" style="font-size:0.65rem;">${rank ? '#'+rank.toLocaleString() : 'N/A'}</div>
-        ${rank && cat ? `<div style="font-size:0.55rem;color:var(--text-secondary);margin-top:2px;line-height:1.2;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;">${cat}</div>` : ''}
+    if(!rank) return `
+      <a class="country-tile" href="${url}" target="_blank" rel="noopener" title="${name}: Not ranked">
+        <div class="country-flag">${flag}</div>
+        <div class="country-name">${code}</div>
+        <div class="country-na">Not ranked</div>
       </a>`;
-    }).join('');
 
     return `
-      <div class="mb-4">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="badge-${fmt} format-tab" style="font-size:0.75rem;">${formatLabel(fmt)}</span>
-          <span class="text-xs" style="color:var(--text-secondary)">ASIN: ${asin}</span>
-          <a href="${amazonUrl(asin,'US')}" target="_blank" rel="noopener"
-             class="text-xs amazon-orange ml-auto" style="text-decoration:none;">Amazon US ↗</a>
-        </div>
-        <div class="country-grid">${rankCells}</div>
-      </div>
-    `;
+      <a class="country-tile has-rank${isTop?' top-rank':''}" href="${url}" target="_blank" rel="noopener" title="${name}: #${rank.toLocaleString()} in ${cat}">
+        ${isTop?'<div style="position:absolute;top:6px;right:6px;font-size:.65rem;">⭐</div>':''}
+        <div class="country-flag">${flag}</div>
+        <div class="country-name">${code}</div>
+        <div class="country-rank ${rankColor(rank)}">#${rank.toLocaleString()}</div>
+        <div class="country-cat">${cat}</div>
+      </a>`;
   }).join('');
 
-  const hasVisibleFormats = visibleFmts.length > 0;
-
   return `
-    <div class="card p-5" style="${!hasVisibleFormats ? 'opacity:0.5;' : ''}">
-      <div class="flex items-start gap-3 mb-4">
-        <div style="font-size:2rem;background:linear-gradient(135deg,${book.cover_color},${book.cover_color2||book.cover_color});padding:10px;border-radius:8px;flex-shrink:0;">${book.cover_emoji}</div>
-        <div class="flex-1 min-w-0">
-          <h3 class="font-bold text-sm leading-tight mb-1">${book.title}</h3>
-          <p class="text-xs leading-relaxed" style="color:var(--text-secondary);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${book.subtitle}</p>
-        </div>
-        ${best ? rankBadgeHtml(best.rank) : ''}
-      </div>
-      ${hasVisibleFormats ? formatsHtml : '<p class="text-sm text-center py-4" style="color:var(--text-secondary)">No matching format</p>'}
+    <div class="format-header">
+      <span class="format-badge ${FMT_CSS[fmt]}">${FMT_LABEL[fmt]||fmt}</span>
+      <span class="format-asin">ASIN: ${asin}</span>
+      ${price?`<span class="format-price">${price} USD</span>`:''}
     </div>
-  `;
+    <div class="countries-grid">${tiles}</div>`;
 }
 
-// ─── COMPARISON TABLE ───────────────────────────────────────────────────────
-function renderComparisonTable() {
-  const thead  = document.getElementById('comparison-thead');
-  const tbody  = document.getElementById('comparison-tbody');
-  const books  = BOOKS.books;
-  const countries = activeCountry === 'ALL' ? allCountries() : [activeCountry];
+function switchTab(bookId, fmt, btn){
+  const card=document.getElementById('card-'+bookId);
+  card.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+  card.querySelectorAll('.format-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel=document.getElementById(`panel-${bookId}-${fmt}`);
+  if(panel) panel.classList.add('active');
+}
 
-  // Header: Country | Book1 (fmt) | Book2 (fmt) ...
-  const bookCols = [];
-  books.forEach(book => {
-    const fmts = Object.keys(book.formats || {});
-    const visibleFmts = activeFormat === 'ALL' ? fmts : fmts.filter(f => f === activeFormat);
-    visibleFmts.forEach(fmt => bookCols.push({book, fmt}));
-  });
+// ─────────────────────────────────────────────────────────
+//  COMPARISON TABLE
+// ─────────────────────────────────────────────────────────
+function renderTable(){
+  const countries=Object.keys(BOOKS.countries||{});
+  const books=BOOKS.books;
 
-  const thHtml = bookCols.map(({book, fmt}) =>
-    `<th class="px-3 py-2 text-xs font-semibold text-left" style="color:var(--text-secondary);min-width:120px;">
-       ${book.cover_emoji} ${book.title.split(':')[0].substring(0,22)}…<br/>
-       <span style="color:var(--amazon-orange);font-weight:400;">${formatLabel(fmt)}</span>
-     </th>`
-  ).join('');
-  thead.innerHTML = `<tr><th class="px-3 py-2 text-xs font-semibold text-left" style="color:var(--text-secondary);min-width:100px;">Country</th>${thHtml}</tr>`;
+  // header
+  const thCols=books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,20)}…</th>`).join('');
+  document.getElementById('tbl-head').innerHTML=
+    `<tr><th>Country</th>${thCols}</tr>`;
 
-  const rowsHtml = countries.map(code => {
-    const cells = bookCols.map(({book, fmt}) => {
-      const d = getRank(book.id, fmt, code);
-      const rank = d?.rank;
-      const cls  = rankClass(rank);
-      if (!rank) return `<td class="px-3 py-2 text-center"><span class="rank-badge rank-none" style="font-size:0.7rem;">—</span></td>`;
-      const url = amazonUrl(d.asin || book.formats[fmt].asin, code);
-      return `<td class="px-3 py-2 text-center">
-        <a href="${url}" target="_blank" rel="noopener" style="text-decoration:none;">
-          <span class="rank-badge ${cls}" style="font-size:0.7rem;">#${rank.toLocaleString()}</span>
-        </a>
-      </td>`;
+  // rows
+  const rows=countries.map(code=>{
+    const flag=BOOKS.countries[code]?.flag||code;
+    const name=BOOKS.countries[code]?.name||code;
+    const cells=books.map(book=>{
+      // find best rank across all formats for this country
+      let best=null;
+      for(const fmt of Object.keys(book.formats||{})){
+        const d=getD(book.id,fmt,code);
+        const s=bestSubcat(d);
+        if(s?.rank&&(!best||s.rank<best.rank)) best=s;
+      }
+      if(!best) return `<td><span class="rpill rpill-gray">—</span></td>`;
+      const cls=rankPillClass(best.rank);
+      return `<td><span class="rpill ${cls}">#${best.rank.toLocaleString()}</span><br/><span style="font-size:.6rem;color:var(--gray-400)">${(best.category||'').substring(0,22)}</span></td>`;
     }).join('');
 
-    return `<tr style="border-top:1px solid var(--card-border);">
-      <td class="px-3 py-2">
-        <span style="font-size:1.2rem;">${countryFlag(code)}</span>
-        <span class="ml-1 text-xs font-medium">${code}</span>
-      </td>
+    return `<tr>
+      <td><div class="country-cell-td"><span style="font-size:1.2rem">${flag}</span><div><div style="font-weight:600;font-size:.8rem">${name}</div><div style="font-size:.65rem;color:var(--gray-400)">${code}</div></div></div></td>
       ${cells}
     </tr>`;
   }).join('');
 
-  tbody.innerHTML = rowsHtml;
+  document.getElementById('tbl-body').innerHTML=rows;
 }
 
-// ─── HISTORY CHART ──────────────────────────────────────────────────────────
-function initChart() {
-  const bookSel    = document.getElementById('chart-book');
-  const fmtSel     = document.getElementById('chart-format');
-  const countrySel = document.getElementById('chart-country');
+// ─────────────────────────────────────────────────────────
+//  CHART
+// ─────────────────────────────────────────────────────────
+function initChart(){
+  const bSel=document.getElementById('c-book');
+  const fSel=document.getElementById('c-format');
+  const cSel=document.getElementById('c-country');
 
-  BOOKS.books.forEach(b => {
-    const o = document.createElement('option');
-    o.value = b.id;
-    o.textContent = b.cover_emoji + ' ' + b.title.split(':')[0];
-    bookSel.appendChild(o);
+  BOOKS.books.forEach(b=>{
+    const o=document.createElement('option');
+    o.value=b.id; o.textContent=b.cover_emoji+' '+b.title.split(':')[0];
+    bSel.appendChild(o);
+  });
+  ['kindle','paperback','hardcover'].forEach(f=>{
+    const o=document.createElement('option'); o.value=f; o.textContent=FMT_LABEL[f]||f; fSel.appendChild(o);
+  });
+  Object.entries(BOOKS.countries).forEach(([code,info])=>{
+    const o=document.createElement('option'); o.value=code; o.textContent=info.flag+' '+code; cSel.appendChild(o);
   });
 
-  ['kindle','paperback','hardcover'].forEach(f => {
-    const o = document.createElement('option');
-    o.value = f;
-    o.textContent = formatLabel(f);
-    fmtSel.appendChild(o);
-  });
-
-  allCountries().forEach(code => {
-    const o = document.createElement('option');
-    o.value = code;
-    o.textContent = `${countryFlag(code)} ${code}`;
-    countrySel.appendChild(o);
-  });
-
-  const ctx = document.getElementById('history-chart').getContext('2d');
-  histChart = new Chart(ctx, {
-    type: 'line',
-    data: { labels: [], datasets: [] },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        y: {
-          reverse: true,
-          title: { display: true, text: 'BSR Rank (lower = better)', color: '#8b9ab2' },
-          ticks: { color: '#8b9ab2', callback: v => '#' + v.toLocaleString() },
-          grid: { color: 'rgba(255,255,255,0.05)' }
-        },
-        x: {
-          ticks: { color: '#8b9ab2' },
-          grid: { color: 'rgba(255,255,255,0.05)' }
-        }
+  const ctx=document.getElementById('hist-chart').getContext('2d');
+  histChart=new Chart(ctx,{
+    type:'line',
+    data:{labels:[],datasets:[]},
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      scales:{
+        y:{reverse:true,title:{display:true,text:'BSR Rank (lower = better)',color:'#9ca3af'},
+           ticks:{color:'#9ca3af',callback:v=>'#'+v.toLocaleString()},
+           grid:{color:'rgba(0,0,0,.05)'}},
+        x:{ticks:{color:'#9ca3af'},grid:{color:'rgba(0,0,0,.05)'}}
       },
-      plugins: {
-        legend: { labels: { color: '#e8edf4' } },
-        tooltip: {
-          callbacks: {
-            label: ctx => ` Rank #${ctx.raw?.toLocaleString()} (lower = better)`
-          }
-        }
+      plugins:{
+        legend:{labels:{color:'#374151'}},
+        tooltip:{callbacks:{label:c=>` Rank #${(c.raw||0).toLocaleString()}`}}
       }
     }
   });
-
-  updateChart();
+  [bSel,fSel,cSel].forEach(s=>s.addEventListener('change',drawChart));
+  drawChart();
 }
 
-function updateChart() {
-  if (!histChart) return;
-  const bookId  = document.getElementById('chart-book').value;
-  const fmt     = document.getElementById('chart-format').value;
-  const country = document.getElementById('chart-country').value;
-
-  const hist = RANKINGS?.history?.[bookId]?.[fmt]?.[country] || [];
-
-  if (hist.length === 0) {
-    histChart.data.labels = ['No data yet'];
-    histChart.data.datasets = [{
-      label: 'No history available',
-      data: [],
-      borderColor: '#FF9900',
-      backgroundColor: 'rgba(255,153,0,0.1)',
-    }];
-    histChart.update();
-    return;
-  }
-
-  const labels = hist.map(h => h.date);
-  const data   = hist.map(h => h.rank);
-
-  histChart.data.labels = labels;
-  histChart.data.datasets = [{
-    label: `BSR in ${country}`,
-    data,
-    borderColor: '#FF9900',
-    backgroundColor: 'rgba(255,153,0,0.1)',
-    borderWidth: 2,
-    pointRadius: 4,
-    pointBackgroundColor: '#FF9900',
-    tension: 0.3,
-    fill: true
+function drawChart(){
+  const bid=document.getElementById('c-book').value;
+  const fmt=document.getElementById('c-format').value;
+  const cc =document.getElementById('c-country').value;
+  const hist=RANKS?.history?.[bid]?.[fmt]?.[cc]||[];
+  histChart.data.labels=hist.map(h=>h.date);
+  histChart.data.datasets=[{
+    label:`BSR in ${cc}`,
+    data:hist.map(h=>h.rank),
+    borderColor:'#FF9900', backgroundColor:'rgba(255,153,0,.08)',
+    borderWidth:2.5, pointRadius:4, pointBackgroundColor:'#FF9900',
+    tension:.35, fill:true
   }];
   histChart.update();
 }
 
-// ─── MODAL ──────────────────────────────────────────────────────────────────
-function closeModal(event) {
-  if (!event || event.target === document.getElementById('rank-modal')) {
-    document.getElementById('rank-modal').classList.add('hidden');
-  }
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
-});
-
-// ─── BOOT ───────────────────────────────────────────────────────────────────
-loadData();
+load();
 </script>
-
-<!-- FOOTER -->
-<footer style="border-top:1px solid #1e2535;background:#0d1117;" class="mt-8">
-  <div class="max-w-7xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-2 text-xs" style="color:var(--text-secondary)">
-    <span>Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em></span>
-    <span>Updated daily via GitHub Actions · Amazon BSR Dashboard</span>
-  </div>
-</footer>
-
 </body>
 </html>
