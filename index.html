@@ -205,7 +205,7 @@ footer a{color:var(--or);text-decoration:none}
     <div class="pill"><div class="pill-n" id="s-books">5</div><div class="pill-l">Books</div></div>
     <div class="pill"><div class="pill-n" id="s-formats">9</div><div class="pill-l">Formats</div></div>
     <div class="pill"><div class="pill-n" id="s-countries">15</div><div class="pill-l">Countries</div></div>
-    <div class="pill"><div class="pill-n" id="s-best">—</div><div class="pill-l">Best Rank Today</div></div>
+    <div class="pill"><div class="pill-n" id="s-best">—</div><div class="pill-l">Best Rank in Category</div></div>
     <div class="pill"><div class="pill-n" id="s-live">—</div><div class="pill-l">Rankings Live</div></div>
   </div>
 </div>
@@ -242,8 +242,12 @@ footer a{color:var(--or);text-decoration:none}
 
 <footer>
   Tejas Jadhav, CFA, FRM · <em>AI &amp; Practical Finance Series</em> &nbsp;|&nbsp;
-  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank" rel="noopener">Amazon Author Page ↗</a> &nbsp;|&nbsp;
-  Updated daily via GitHub Actions
+  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank" rel="noopener">Amazon Author Page ↗</a>
+  <br style="margin:6px 0"/>
+  <span style="font-size:.7rem;opacity:.7">
+    Best Seller Ranks are point-in-time snapshots updated daily and may not reflect current rankings on Amazon.
+    Amazon Best Sellers Rank is a trademark of Amazon.com, Inc. This is an independent personal dashboard and is not affiliated with, endorsed by, or sponsored by Amazon.
+  </span>
 </footer>
 
 <script>
@@ -380,7 +384,7 @@ function bookCard(book,featured){
   ).join('');
 
   const bestHtml=best?`<div style="text-align:right;flex-shrink:0">
-    <div style="font-size:.6rem;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px">Best Rank</div>
+    <div style="font-size:.6rem;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px">Best Rank in Category</div>
     <div style="font-size:2rem;font-weight:900;line-height:1;color:${best.rank<=10?'#d97706':best.rank<=100?'#16a34a':'#2563eb'}">#${best.rank.toLocaleString()}</div>
     <div style="font-size:.6rem;color:var(--g400);margin-top:2px;max-width:130px;line-height:1.3">${best.category}</div>
   </div>`:'';
