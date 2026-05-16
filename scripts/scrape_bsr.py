@@ -232,14 +232,16 @@ def extract_bsr_from_html(soup):
 def _extract_bare_numbers(block):
     """
     Last-resort parser for EN-language responses from non-US stores.
-    Finds patterns like: 118,877 in Books  61 in Generative AI
+    Finds patterns like: 118,877 in Books  61 in Generative AI  131 in Managers' Guides
+    Handles apostrophes and special chars in category names.
     """
-    # Strip noise parentheses
+    # Strip noise parentheses like (See Top 100 in Books)
     clean = re.sub(r'\([^)]{0,100}\)', ' ', block)
     results = []
     seen = set()
+    # Allow apostrophe \u2019 ' and extended chars in category names
     pat = re.compile(
-        r'\b([\d][\d,\.]*)\s+in\s+([A-Z][A-Za-z0-9 &/()\-]{2,50}?)(?=\s{2,}|\d|\Z|Customer|$)',
+        r'\b([\d][\d,\.]*)\s+in\s+([A-Z][A-Za-z0-9 &/()\'\u2019\-]{2,55}?)(?=\s{2,}|\s*\d|\Z|Customer|$)',
         re.UNICODE
     )
     for m in pat.finditer(clean):
@@ -249,7 +251,7 @@ def _extract_bare_numbers(block):
             continue
         if rank <= 0 or rank > 10_000_000:
             continue
-        cat = m.group(2).strip().rstrip()
+        cat = m.group(2).strip()
         if len(cat) < 3:
             continue
         key = (rank, cat.lower()[:40])
@@ -259,9 +261,57 @@ def _extract_bare_numbers(block):
     return results
 
 
+# Title slugs for stores where /dp/ASIN doesn't render BSR in HTML
+# Only physical formats (paperback/hardcover) work this way — Kindle eBooks are always JS-rendered on UK/ES
+# Format: asin -> {domain -> title_slug}
+TITLE_SLUGS = {
+    # Claude AI Paperback
+    'B0GV2SS77G': {
+        'www.amazon.co.uk': 'Claude-Finance-Professionals-Institutional-Investment',
+        'www.amazon.es':    'Claude-Finance-Professionals-Institutional-Investment',
+    },
+    # Claude AI Hardcover
+    'B0GVJPXVP8': {
+        'www.amazon.co.uk': 'Claude-Finance-Professionals-Institutional-Investment',
+        'www.amazon.es':    'Claude-Finance-Professionals-Institutional-Investment',
+    },
+    # AI Prompts 100+ Paperback
+    '9357823662': {
+        'www.amazon.co.uk': 'AI-Prompts-Financial-Analysis-Practical',
+        'www.amazon.es':    'AI-Prompts-Financial-Analysis-Practical',
+    },
+    # Shivaji Paperback
+    'B0GWWG34W6': {
+        'www.amazon.co.uk': 'Wealth-Code-Chhatrapati-Shivaji-Maharaj',
+        'www.amazon.es':    'Wealth-Code-Chhatrapati-Shivaji-Maharaj',
+    },
+    # Stop Losing Money Paperback
+    'B0GWHZLVK8': {
+        'www.amazon.co.uk': 'Stop-Losing-Money-Stories-Private',
+        'www.amazon.es':    'Stop-Losing-Money-Stories-Private',
+    },
+    # AI Prompts Equity Hardcover
+    'B0GSBV7QX9': {
+        'www.amazon.co.uk': 'AI-Prompts-Financial-Analysis-Practical',
+        'www.amazon.es':    'AI-Prompts-Financial-Analysis-Practical',
+    },
+}
+
+
+def build_urls(asin, domain):
+    """Return list of URLs to try, full-title slug first if available."""
+    urls = []
+    slug = TITLE_SLUGS.get(asin, {}).get(domain)
+    if slug:
+        urls.append(f"https://{domain}/{slug}/dp/{asin}/ref=tmm_pap_swatch_0")
+        urls.append(f"https://{domain}/{slug}/dp/{asin}")
+    urls.append(f"https://{domain}/dp/{asin}")
+    return urls
+
+
 def scrape_bsr(asin, domain, retries=2):
-    """Scrape BSR from an Amazon product page."""
-    url = f"https://{domain}/dp/{asin}"
+    """Scrape BSR from an Amazon product page, trying multiple URL formats."""
+    urls_to_try = build_urls(asin, domain)
 
     for attempt in range(retries + 1):
         try:
@@ -272,19 +322,33 @@ def scrape_bsr(asin, domain, retries=2):
 
             headers = get_random_headers()
             session = requests.Session()
-            response = session.get(url, headers=headers, timeout=20, allow_redirects=True)
 
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.content, 'lxml')
+            # Try each URL variant until we get BSR data
+            last_error = 'BSR not found'
+            for url in urls_to_try:
+                response = session.get(url, headers=headers, timeout=20, allow_redirects=True)
 
-                # Check if we hit a CAPTCHA/bot detection page
-                title = soup.find('title')
-                if title and ('robot' in title.text.lower() or 'captcha' in title.text.lower() or 'sorry' in title.text.lower()):
-                    logger.warning(f"      Bot detection on attempt {attempt + 1}")
+                if response.status_code == 404:
+                    logger.info(f"      Product {asin} not available on {domain}")
+                    return {'success': False, 'error': 'Not available (404)'}
+                elif response.status_code == 503:
+                    logger.warning(f"      Bot blocked (503)")
+                    last_error = 'Bot blocked (503)'
+                    break
+                elif response.status_code != 200:
+                    last_error = f'HTTP {response.status_code}'
                     continue
 
-                bsr_data = extract_bsr_from_html(soup)
+                soup = BeautifulSoup(response.content, 'lxml')
 
+                # Check CAPTCHA
+                title_tag = soup.find('title')
+                if title_tag and any(w in title_tag.text.lower() for w in ['robot', 'captcha', 'sorry']):
+                    logger.warning(f"      Bot detection")
+                    last_error = 'Bot detection'
+                    break
+
+                bsr_data = extract_bsr_from_html(soup)
                 if bsr_data:
                     return {
                         'success': True,
@@ -293,20 +357,14 @@ def scrape_bsr(asin, domain, retries=2):
                         'all_ranks': bsr_data,
                         'url': url
                     }
-                else:
-                    logger.warning(f"      No BSR found for {asin} on {domain}")
-                    return {'success': False, 'error': 'BSR not found', 'url': url}
+                # Try next URL variant
+                logger.info(f"      No BSR at {url}, trying next variant...")
+                time.sleep(2)
 
-            elif response.status_code == 404:
-                logger.info(f"      Product {asin} not available on {domain}")
-                return {'success': False, 'error': 'Not available (404)'}
-            elif response.status_code == 503:
-                logger.warning(f"      Bot blocked (503) attempt {attempt + 1}")
-                if attempt < retries:
-                    continue
-                return {'success': False, 'error': 'Bot blocked (503)'}
-            else:
-                return {'success': False, 'error': f'HTTP {response.status_code}'}
+            if attempt < retries:
+                continue
+            logger.warning(f"      No BSR found for {asin} on {domain}")
+            return {'success': False, 'error': last_error, 'url': urls_to_try[0]}
 
         except requests.exceptions.Timeout:
             if attempt < retries:
