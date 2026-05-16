@@ -4,93 +4,80 @@
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Amazon BSR — Tejas Jadhav | KDP Author</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --or:#FF9900;--or2:#e07b00;
-  --navy:#0B1F3A;--navy2:#162f52;
-  --gold:#D4AF37;
+  --or:#FF9900;--navy:#0B1F3A;--navy2:#162f52;
   --g50:#f9fafb;--g100:#f3f4f6;--g200:#e5e7eb;--g300:#d1d5db;
   --g400:#9ca3af;--g500:#6b7280;--g700:#374151;--g900:#111827;
-  --green:#16a34a;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;
-  --sh:0 1px 3px rgba(0,0,0,.08);
-  --sh2:0 4px 16px rgba(0,0,0,.10);
-  --sh3:0 12px 40px rgba(0,0,0,.13);
-  --sh4:0 24px 64px rgba(0,0,0,.16);
-  --r:16px;--rs:8px;
+  --green:#16a34a;--blue:#2563eb;--purple:#7c3aed;
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#eef1f5;color:var(--g900);min-height:100vh}
+body{font-family:'Inter',sans-serif;background:#f0f2f5;color:var(--g900);min-height:100vh}
 
-/* ── STICKY HEADER ── */
-.hdr{background:var(--navy);padding:0 40px;position:sticky;top:0;z-index:500;box-shadow:0 2px 24px rgba(0,0,0,.3)}
-.hdr-in{max-width:1400px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-a{background:var(--or);color:#000;font-weight:900;font-size:1.05rem;padding:5px 10px;border-radius:7px}
-.logo-t{color:#fff;font-weight:700;font-size:.95rem;line-height:1.25}
-.logo-s{color:rgba(255,255,255,.45);font-size:.68rem;font-weight:400}
-.hdr-live{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.6);font-size:.76rem}
+/* HEADER */
+.hdr{background:var(--navy);padding:0 32px;position:sticky;top:0;z-index:500;box-shadow:0 2px 20px rgba(0,0,0,.35)}
+.hdr-in{max-width:1440px;margin:0 auto;height:58px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+.logo-a{background:var(--or);color:#000;font-weight:900;font-size:1rem;padding:5px 10px;border-radius:7px;line-height:1}
+.logo-t{color:#fff;font-weight:700;font-size:.9rem}
+.logo-s{color:rgba(255,255,255,.4);font-size:.65rem;font-weight:400}
+.hdr-r{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.55);font-size:.74rem}
 .dot{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.5)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
 
-/* ── HERO ── */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a60 60%,#0f2a4a 100%);padding:48px 40px 56px;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(255,153,0,.12) 0%,transparent 65%)}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);color:#fff;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+/* HERO */
+.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1a3a60 55%,#0d2844 100%);padding:44px 32px 52px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(255,153,0,.13) 0%,transparent 60%);pointer-events:none}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4vw,3rem);color:#fff;font-weight:800;letter-spacing:-.5px;margin-bottom:6px}
 .hero-title span{color:var(--or)}
-.hero-sub{color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:40px}
+.hero-sub{color:rgba(255,255,255,.5);font-size:.92rem;margin-bottom:36px}
 .pills{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
-.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:40px;padding:14px 30px;backdrop-filter:blur(12px);cursor:default;transition:all .2s}
-.pill:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.pill-n{font-size:1.8rem;font-weight:900;color:var(--or);line-height:1}
-.pill-l{font-size:.68rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
+.pill{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:40px;padding:13px 28px;backdrop-filter:blur(10px);transition:background .2s}
+.pill:hover{background:rgba(255,255,255,.12)}
+.pill-n{font-size:1.75rem;font-weight:900;color:var(--or);line-height:1}
+.pill-l{font-size:.66rem;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:.07em;margin-top:3px}
 
-/* ── MAIN ── */
-.main{max-width:1400px;margin:0 auto;padding:40px 24px 80px}
-.sec-label{text-align:center;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--g400);margin:36px 0 20px;position:relative}
-.sec-label::before,.sec-label::after{content:'';position:absolute;top:50%;width:30%;height:1px;background:var(--g200)}
-.sec-label::before{left:0}.sec-label::after{right:0}
+/* MAIN */
+.main{max-width:1440px;margin:0 auto;padding:36px 20px 80px}
+.sec-lbl{text-align:center;font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--g400);margin:32px 0 18px;position:relative}
+.sec-lbl::before,.sec-lbl::after{content:'';position:absolute;top:50%;width:32%;height:1px;background:var(--g200)}
+.sec-lbl::before{left:0}.sec-lbl::after{right:0}
 
-/* ── BOOK CARD ── */
-.bcard{background:#fff;border-radius:var(--r);box-shadow:var(--sh2);border:1px solid var(--g200);margin-bottom:32px;overflow:hidden;transition:box-shadow .2s,transform .2s}
-.bcard:hover{box-shadow:var(--sh3)}
-.bcard.featured{border:2px solid var(--or);box-shadow:0 0 0 4px rgba(255,153,0,.07),var(--sh4)}
+/* BOOK CARD */
+.bcard{background:#fff;border-radius:18px;box-shadow:0 4px 18px rgba(0,0,0,.09);border:1px solid var(--g200);margin-bottom:28px;overflow:hidden;transition:box-shadow .2s}
+.bcard:hover{box-shadow:0 10px 36px rgba(0,0,0,.13)}
+.bcard.featured{border:2px solid var(--or);box-shadow:0 0 0 4px rgba(255,153,0,.08),0 12px 40px rgba(0,0,0,.13)}
 
-/* ── BOOK HERO ROW ── */
-.bhero{display:flex;min-height:280px}
-.bcov{flex-shrink:0;width:210px;background:linear-gradient(145deg,#e8edf5,#d6dde8);display:flex;align-items:center;justify-content:center;padding:28px 22px;border-right:1px solid var(--g100);position:relative}
-.bcov img{max-width:148px;max-height:210px;object-fit:contain;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.14);transition:transform .3s}
-.bcard:hover .bcov img{transform:scale(1.05) translateY(-3px) rotate(.5deg)}
-.ftag{position:absolute;top:12px;left:12px;background:var(--or);color:#000;font-size:.6rem;font-weight:800;padding:3px 8px;border-radius:12px;letter-spacing:.04em;text-transform:uppercase}
+/* BOOK HERO */
+.bhero{display:flex;min-height:260px}
+.bcov{flex-shrink:0;width:200px;background:linear-gradient(150deg,#e8edf5,#d4dbe8);display:flex;align-items:center;justify-content:center;padding:26px 18px;border-right:1px solid var(--g100);position:relative}
+.bcov img{max-width:140px;max-height:200px;object-fit:contain;border-radius:4px;box-shadow:0 10px 28px rgba(0,0,0,.22),0 2px 8px rgba(0,0,0,.12);transition:transform .3s}
+.bcard:hover .bcov img{transform:scale(1.05) translateY(-3px)}
+.ftag{position:absolute;top:10px;left:10px;background:var(--or);color:#000;font-size:.58rem;font-weight:800;padding:3px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.04em}
 
-.binfo{flex:1;padding:28px 32px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.btop{display:flex;gap:16px;align-items:flex-start}
-.btitle{font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.8vw,1.3rem);font-weight:700;color:var(--navy);line-height:1.3}
-.bsub{font-size:.8rem;color:var(--g500);line-height:1.55}
-.bauthor{font-size:.75rem;color:var(--g400)}
-.bauthor strong{color:var(--navy)}
-
-/* BEST RANK BADGE */
-.best-rank-badge{flex-shrink:0;text-align:center;min-width:100px}
-.brb-num{font-size:2rem;font-weight:900;line-height:1;letter-spacing:-.05em}
-.brb-cat{font-size:.6rem;color:var(--g400);margin-top:2px;max-width:120px;line-height:1.3}
-.brb-label{font-size:.62rem;color:var(--g300);margin-bottom:3px;text-transform:uppercase;letter-spacing:.06em}
+.binfo{flex:1;padding:26px 28px;display:flex;flex-direction:column;gap:11px;min-width:0}
+.btitle{font-family:'Playfair Display',serif;font-size:clamp(.95rem,1.8vw,1.25rem);font-weight:800;color:var(--navy);line-height:1.3}
+.bsub{font-size:.79rem;color:var(--g500);line-height:1.55}
+.bauthor{font-size:.73rem;color:var(--g400)}
 
 /* FORMAT TABS */
-.ftabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
-.ftab{padding:6px 16px;border-radius:20px;font-size:.78rem;font-weight:600;cursor:pointer;border:1.5px solid var(--g200);color:var(--g500);background:#fff;transition:all .15s;display:flex;align-items:center;gap:5px}
+.ftabs{display:flex;gap:6px;flex-wrap:wrap;margin-top:2px}
+.ftab{padding:5px 14px;border-radius:20px;font-size:.76rem;font-weight:600;cursor:pointer;border:1.5px solid var(--g200);color:var(--g500);background:#fff;transition:all .15s}
 .ftab:hover{border-color:var(--or);color:var(--or)}
 .ftab.active.kindle{background:#eff6ff;border-color:#2563eb;color:#2563eb}
 .ftab.active.paperback{background:#f0fdf4;border-color:#16a34a;color:#16a34a}
 .ftab.active.hardcover{background:#f5f3ff;border-color:#7c3aed;color:#7c3aed}
 
-/* ── COUNTRY SECTION ── */
-.csec{padding:0 28px 28px}
+/* FORMAT PANEL */
 .fpanel{display:none}
 .fpanel.active{display:block}
-.fhdr{display:flex;align-items:center;gap:10px;padding:16px 0 14px;border-bottom:1px solid var(--g100);margin-bottom:16px}
+
+/* ═══ COUNTRY RANKS SECTION ═══ */
+.csec{padding:0 24px 24px}
+.fhdr{display:flex;align-items:center;gap:10px;padding:14px 0 16px;border-bottom:1px solid var(--g100);margin-bottom:18px;flex-wrap:wrap}
 .fbadge{font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:20px}
 .fb-kindle{background:#eff6ff;color:#2563eb}
 .fb-paperback{background:#f0fdf4;color:#16a34a}
@@ -98,110 +85,103 @@ body{font-family:'Inter',sans-serif;background:#eef1f5;color:var(--g900);min-hei
 .fasin{font-size:.7rem;color:var(--g300);font-family:monospace}
 .fprice{margin-left:auto;font-weight:700;color:var(--g700);font-size:.85rem}
 
-/* ── COUNTRY TILES ── */
-.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px}
-.ctile{
-  background:var(--g50);border:1.5px solid var(--g200);border-radius:var(--rs);
-  padding:12px 8px 10px;text-align:center;text-decoration:none;color:inherit;
-  cursor:pointer;transition:all .18s;position:relative;overflow:hidden;
-  display:flex;flex-direction:column;align-items:center;
+/* COUNTRY GRID — 2-column layout: flag+name LEFT, all ranks RIGHT */
+.countries-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+
+.ctry-card{
+  border:1.5px solid var(--g200);border-radius:12px;
+  background:#fafbfc;overflow:hidden;
+  transition:all .18s;text-decoration:none;color:inherit;
+  display:flex;flex-direction:column;
 }
-.ctile::after{content:'';position:absolute;inset:0;opacity:0;background:rgba(255,153,0,.04);transition:opacity .2s}
-.ctile:hover{transform:translateY(-3px);box-shadow:var(--sh2);border-color:var(--or)}
-.ctile:hover::after{opacity:1}
-.ctile.ranked{background:#fff;border-color:var(--g200)}
-.ctile.top100{border-color:#fbbf24;background:linear-gradient(145deg,#fffbeb,#fef3c7)}
-.ctile.top10{border-color:#f59e0b;background:linear-gradient(145deg,#fef9c3,#fde68a);box-shadow:0 0 0 2px rgba(251,191,36,.2)}
-.ctile.top1{border-color:#D4AF37;background:linear-gradient(145deg,#fef08a,#fde047);box-shadow:0 0 12px rgba(212,175,55,.3)}
+.ctry-card.has-data{background:#fff}
+.ctry-card.top-100{border-color:#fbbf24;background:linear-gradient(135deg,#fffcf0,#fff8e0)}
+.ctry-card.top-10{border-color:#f59e0b;background:linear-gradient(135deg,#fef9c3,#fef3c7);box-shadow:0 0 0 2px rgba(251,191,36,.18)}
+.ctry-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1);border-color:var(--or)}
 
-.cflag{font-size:1.9rem;line-height:1;margin-bottom:3px}
-.ccode{font-size:.62rem;font-weight:700;color:var(--g400);letter-spacing:.04em;margin-bottom:5px}
-.crank{font-size:1.05rem;font-weight:900;line-height:1;margin-bottom:2px}
-.ccat{font-size:.57rem;color:var(--g500);line-height:1.3;max-height:2.6em;overflow:hidden}
-.cna{font-size:.68rem;color:var(--g300);margin-top:4px}
-.cstar{position:absolute;top:5px;right:6px;font-size:.8rem}
+/* Top row: flag + country name + link icon */
+.ctry-top{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px 8px;
+  border-bottom:1px solid var(--g100);
+}
+.ctry-flag{font-size:1.7rem;line-height:1;flex-shrink:0}
+.ctry-name-wrap{flex:1;min-width:0}
+.ctry-name{font-size:.8rem;font-weight:700;color:var(--navy)}
+.ctry-code{font-size:.62rem;color:var(--g400);font-weight:500}
+.ctry-link{font-size:.68rem;color:var(--or);text-decoration:none;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:3px}
+.ctry-link:hover{text-decoration:underline}
 
-/* rank colors */
-.rc-gold{color:#b45309}
-.rc-orange{color:#ea580c}
-.rc-green{color:#16a34a}
-.rc-navy{color:var(--navy)}
-.rc-mid{color:#d97706}
-.rc-gray{color:var(--g400)}
+/* Ranks list */
+.ranks-list{padding:8px 12px 10px;display:flex;flex-direction:column;gap:5px}
 
-/* ── RANK MODAL / DRAWER ── */
-.drawer-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:900;opacity:0;pointer-events:none;transition:opacity .25s;backdrop-filter:blur(4px)}
-.drawer-overlay.open{opacity:1;pointer-events:all}
-.drawer{position:fixed;right:0;top:0;bottom:0;width:min(480px,100vw);background:#fff;z-index:901;transform:translateX(100%);transition:transform .3s cubic-bezier(.32,.72,0,1);box-shadow:-20px 0 60px rgba(0,0,0,.2);display:flex;flex-direction:column}
-.drawer.open{transform:translateX(0)}
-.drawer-hdr{padding:22px 24px 18px;border-bottom:1px solid var(--g100);display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.drawer-title{font-weight:700;font-size:1rem;color:var(--navy);line-height:1.3}
-.drawer-sub{font-size:.78rem;color:var(--g400);margin-top:3px}
-.drawer-close{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--g200);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--g500);flex-shrink:0;transition:all .15s}
-.drawer-close:hover{background:var(--g100);color:var(--g900)}
-.drawer-body{flex:1;overflow-y:auto;padding:20px 24px}
+.rank-row{
+  display:flex;align-items:baseline;gap:8px;
+  padding:4px 8px;border-radius:8px;
+  transition:background .15s;
+}
+.rank-row.overall-row{background:var(--g50);border:1px solid var(--g100)}
+.rank-row.sub-row{background:transparent}
+.rank-row:hover{background:var(--g50)}
 
-/* rank rows in drawer */
-.rrow{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--rs);margin-bottom:6px;border:1.5px solid transparent}
-.rrow.overall{background:var(--g50);border-color:var(--g200)}
-.rrow.sub{background:#fff;border-color:var(--g100)}
-.rrow.sub:hover{border-color:var(--g200)}
-.rrow-rank{font-size:1.3rem;font-weight:900;min-width:80px;line-height:1}
-.rrow-cat{flex:1;font-size:.82rem;color:var(--g700);line-height:1.35}
-.rrow-medal{font-size:1.1rem;flex-shrink:0}
-.rrow-bar{height:4px;border-radius:2px;background:var(--g100);margin-top:8px;overflow:hidden}
-.rrow-bar-fill{height:100%;border-radius:2px;transition:width .6s ease}
+.rank-num{
+  font-size:1.05rem;font-weight:900;line-height:1;
+  white-space:nowrap;min-width:72px;
+  display:flex;align-items:center;gap:4px;
+}
+.rank-cat{font-size:.71rem;color:var(--g500);line-height:1.3;flex:1}
+.rank-medal{font-size:.9rem;flex-shrink:0}
 
-.amz-btn{display:inline-flex;align-items:center;gap:6px;background:var(--or);color:#000;font-weight:700;font-size:.82rem;padding:9px 18px;border-radius:20px;text-decoration:none;margin-top:16px;transition:all .15s}
-.amz-btn:hover{background:var(--or2);transform:translateY(-1px)}
-.amz-btn svg{width:13px;height:13px}
+/* rank number colors */
+.rn-top1{color:#b45309}      /* #1 */
+.rn-top10{color:#d97706}     /* 2-10 */
+.rn-top100{color:#16a34a}    /* 11-100 */
+.rn-top1k{color:#2563eb}     /* 101-1000 */
+.rn-top10k{color:#7c3aed}    /* 1001-10000 */
+.rn-gray{color:var(--g400)}  /* >10000 */
+.rn-store{color:var(--g300)} /* overall store rank */
 
-.drawer-fmt{font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:10px;margin-bottom:12px;display:inline-block}
+/* "Not ranked" tile */
+.no-rank{padding:18px 12px;text-align:center;color:var(--g300);font-size:.75rem}
 
-/* ── COMPARISON TABLE ── */
-.tbl-card{background:#fff;border-radius:var(--r);border:1px solid var(--g200);box-shadow:var(--sh2);overflow:hidden;margin-bottom:32px}
-.tbl-hdr{padding:18px 24px 0;font-weight:700;font-size:.95rem;color:var(--navy)}
-.tbl-scroll{overflow-x:auto;padding-bottom:4px}
+/* COMPARISON TABLE */
+.tbl-card{background:#fff;border-radius:18px;border:1px solid var(--g200);box-shadow:0 4px 18px rgba(0,0,0,.08);overflow:hidden;margin-bottom:28px}
+.tbl-hdr{padding:18px 22px 14px;font-weight:700;font-size:.95rem;color:var(--navy)}
+.tbl-scroll{overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:.78rem}
-thead th{background:#f8fafc;padding:10px 14px;text-align:left;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);border-bottom:2px solid var(--g200);white-space:nowrap;position:sticky;top:0}
+thead th{background:#f8fafc;padding:9px 14px;text-align:left;font-size:.64rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--g400);border-bottom:2px solid var(--g200);white-space:nowrap}
 tbody tr{border-bottom:1px solid var(--g50)}
-tbody tr:last-child{border:none}
-tbody tr:hover{background:#fafbfc}
-td{padding:10px 14px;vertical-align:middle}
-.ctd{display:flex;align-items:center;gap:8px;font-weight:600;white-space:nowrap}
-
-.rpill{display:inline-block;font-weight:700;padding:2px 8px;border-radius:12px;font-size:.7rem;white-space:nowrap}
+tbody tr:hover{background:#fafbfd}
+td{padding:9px 14px;vertical-align:middle}
+.ctd{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.rpill{display:inline-block;font-weight:700;padding:2px 8px;border-radius:10px;font-size:.7rem;white-space:nowrap}
 .rp-gold{background:#fef9c3;color:#92400e;border:1px solid #fde68a}
 .rp-sil{background:#f1f5f9;color:#334155;border:1px solid #cbd5e1}
-.rp-brnz{background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
 .rp-grn{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
 .rp-amb{background:#fffbeb;color:#92400e;border:1px solid #fde68a}
 .rp-gray{background:#f9fafb;color:#9ca3af;border:1px solid #e5e7eb}
 
-/* ── CHART ── */
-.chart-card{background:#fff;border-radius:var(--r);border:1px solid var(--g200);padding:24px;box-shadow:var(--sh2);margin-bottom:32px}
-.ctrls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;align-items:center}
-.ctrls select{background:#fff;border:1.5px solid var(--g200);border-radius:var(--rs);padding:7px 12px;font-size:.82rem;color:var(--g700);font-family:inherit;cursor:pointer;outline:none;transition:border-color .15s}
+/* CHART */
+.chart-card{background:#fff;border-radius:18px;border:1px solid var(--g200);padding:22px;box-shadow:0 4px 18px rgba(0,0,0,.08);margin-bottom:28px}
+.ctrls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;align-items:center}
+.ctrls select{background:#fff;border:1.5px solid var(--g200);border-radius:8px;padding:7px 12px;font-size:.82rem;color:var(--g700);font-family:inherit;cursor:pointer;outline:none}
 .ctrls select:focus{border-color:var(--or)}
 
-/* ── FOOTER ── */
-footer{background:var(--navy);color:rgba(255,255,255,.45);text-align:center;padding:22px 24px;font-size:.76rem}
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,.4);text-align:center;padding:20px;font-size:.74rem}
 footer a{color:var(--or);text-decoration:none}
 
-/* ── LOADING ── */
-#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:16px}
+/* LOADING */
+#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:14px}
 .spinner{width:40px;height:40px;border:3px solid var(--g200);border-top-color:var(--or);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .hdr{padding:0 16px}.hero{padding:32px 16px 40px}
-  .bhero{flex-direction:column}.bcov{width:100%;height:180px;border-right:none;border-bottom:1px solid var(--g100)}
-  .binfo{padding:18px}.csec{padding:0 14px 18px}
-  .main{padding:20px 10px 60px}
-  .cgrid{grid-template-columns:repeat(auto-fill,minmax(95px,1fr));gap:6px}
-  .drawer{width:100vw}
-}
+/* BEST RANK CALLOUT */
+.best-callout{display:flex;align-items:center;gap:6px;padding:7px 12px;background:linear-gradient(90deg,#fffbeb,#fff8d6);border:1px solid #fde68a;border-radius:8px;font-size:.78rem;font-weight:600;color:#92400e;flex-wrap:wrap}
+
+/* RESPONSIVE */
+@media(max-width:900px){.bhero{flex-direction:column}.bcov{width:100%;height:180px}.binfo{padding:18px}.csec{padding:0 12px 16px}.countries-wrap{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.countries-wrap{grid-template-columns:1fr}.main{padding:20px 10px 60px}}
 </style>
 </head>
 <body>
@@ -213,7 +193,7 @@ footer a{color:var(--or);text-decoration:none}
       <div class="logo-a">A</div>
       <div><div class="logo-t">BSR Dashboard</div><div class="logo-s">Amazon Best Seller Ranks · Live</div></div>
     </a>
-    <div class="hdr-live"><div class="dot"></div><span id="hdr-ts">Loading…</span></div>
+    <div class="hdr-r"><div class="dot"></div><span id="hdr-ts">Loading…</span></div>
   </div>
 </header>
 
@@ -235,75 +215,54 @@ footer a{color:var(--or);text-decoration:none}
   <div id="loading"><div class="spinner"></div><p style="color:var(--g400)">Loading live rank data…</p></div>
   <div id="dash" style="display:none">
 
-    <div class="sec-label">★ Featured — Claude AI for Finance Professionals</div>
+    <div class="sec-lbl">★ Featured — Claude AI for Finance Professionals</div>
     <div id="feat"></div>
 
-    <div class="sec-label" style="margin-top:8px">All Books</div>
+    <div class="sec-lbl">All Books</div>
     <div id="others"></div>
 
-    <div class="sec-label">Country Comparison — Best Rank Per Book</div>
+    <div class="sec-lbl">Country Comparison</div>
     <div class="tbl-card">
-      <div class="tbl-hdr">Best Subcategory Rank by Country &amp; Book</div>
+      <div class="tbl-hdr">Best Subcategory Rank · All Books · All Countries</div>
       <div class="tbl-scroll"><table><thead id="th"></thead><tbody id="tb"></tbody></table></div>
     </div>
 
-    <div class="sec-label">Rank History Chart</div>
+    <div class="sec-lbl">Rank History</div>
     <div class="chart-card">
       <div class="ctrls">
         <select id="c-book"></select>
         <select id="c-fmt"></select>
         <select id="c-ctry"></select>
-        <span style="font-size:.73rem;color:var(--g400);margin-left:auto">↓ Lower = Better rank</span>
+        <span style="font-size:.72rem;color:var(--g400);margin-left:auto">↓ Lower rank = better position</span>
       </div>
       <div style="position:relative;height:280px"><canvas id="hchart"></canvas></div>
     </div>
   </div>
 </div>
 
-<!-- RANK DRAWER -->
-<div class="drawer-overlay" id="overlay" onclick="closeDrawer()"></div>
-<div class="drawer" id="drawer">
-  <div class="drawer-hdr">
-    <div>
-      <div class="drawer-title" id="dr-title"></div>
-      <div class="drawer-sub" id="dr-sub"></div>
-    </div>
-    <button class="drawer-close" onclick="closeDrawer()">✕</button>
-  </div>
-  <div class="drawer-body" id="dr-body"></div>
-</div>
-
 <footer>
   Tejas Jadhav · CFA, FRM · <em>AI &amp; Practical Finance Series</em> &nbsp;|&nbsp;
-  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank">Amazon Author Page ↗</a> &nbsp;|&nbsp;
+  <a href="https://www.amazon.com/stores/Tejas-Jadhav/author/B0D8R41W2F" target="_blank" rel="noopener">Amazon Author Page ↗</a> &nbsp;|&nbsp;
   Updated daily via GitHub Actions
 </footer>
 
 <script>
-// ─── DATA & STATE ────────────────────────────────────────
 let B=null,R=null,HC=null;
 
 const COVERS={
-  'B0GSX73KF6':'images/B0GSX73KF6.jpg',
-  'B0GV2SS77G':'images/B0GV2SS77G.jpg',
-  'B0GVJPXVP8':'images/B0GVJPXVP8.jpg',
-  'B0GS5RL6XS':'images/B0GS5RL6XS.jpg',
-  '9357823662' :'images/9357823662.jpg',
-  'B0D8R41W2F':'images/B0D8R41W2F.jpg',
-  'B0GWWG34W6':'images/B0GWWG34W6.jpg',
-  'B0G7YSZZJM':'images/B0G7YSZZJM.jpg',
-  'B0GWHZLVK8':'images/B0GWHZLVK8.jpg',
-  'B0GSBV7QX9':'images/B0GSBV7QX9.jpg',
+  'B0GSX73KF6':'images/B0GSX73KF6.jpg','B0GV2SS77G':'images/B0GV2SS77G.jpg',
+  'B0GVJPXVP8':'images/B0GVJPXVP8.jpg','B0GS5RL6XS':'images/B0GS5RL6XS.jpg',
+  '9357823662':'images/9357823662.jpg','B0D8R41W2F':'images/B0D8R41W2F.jpg',
+  'B0GWWG34W6':'images/B0GWWG34W6.jpg','B0G7YSZZJM':'images/B0G7YSZZJM.jpg',
+  'B0GWHZLVK8':'images/B0GWHZLVK8.jpg','B0GSBV7QX9':'images/B0GSBV7QX9.jpg',
 };
 const FMT_LBL={kindle:'📱 Kindle eBook',paperback:'📄 Paperback',hardcover:'📗 Hardcover'};
 const FMT_PRICES={
   'B0GSX73KF6':'$5.99','B0GV2SS77G':'$24.99','B0GVJPXVP8':'$49.99',
-  'B0GS5RL6XS':'$4.99','9357823662':'$21.99',
-  'B0D8R41W2F':'$2.99','B0GWWG34W6':'$9.99',
-  'B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99','B0GSBV7QX9':'$44.99'
+  'B0GS5RL6XS':'$4.99','9357823662':'$21.99','B0D8R41W2F':'$2.99',
+  'B0GWWG34W6':'$9.99','B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99','B0GSBV7QX9':'$44.99'
 };
 
-// ─── LOAD ────────────────────────────────────────────────
 async function load(){
   try{
     [B,R]=await Promise.all([
@@ -312,7 +271,7 @@ async function load(){
     ]);
     boot();
   }catch(e){
-    document.getElementById('loading').innerHTML=`<p style="color:red">Error: ${e.message}</p>`;
+    document.getElementById('loading').innerHTML=`<p style="color:red;padding:24px">Error loading data: ${e.message}<br><small>Run via a web server (python -m http.server), not file://</small></p>`;
   }
 }
 
@@ -325,20 +284,20 @@ function boot(){
   renderTable(); initChart();
   document.getElementById('loading').style.display='none';
   document.getElementById('dash').style.display='block';
-  // activate first tab on all cards
-  document.querySelectorAll('.bcard').forEach(card=>{
-    card.querySelector('.ftab')?.click();
-  });
+  document.querySelectorAll('.bcard').forEach(card=>card.querySelector('.ftab')?.click());
 }
 
-// ─── HELPERS ────────────────────────────────────────────
+// ── HELPERS ──────────────────────────────────────────────
 function getD(bid,fmt,cc){ return R?.current?.[bid]?.[fmt]?.[cc]||null; }
+
+function isStoreRank(cat){
+  return ['books','kindle store'].includes((cat||'').trim().toLowerCase());
+}
 
 function bestSubcat(d){
   if(!d?.all_ranks?.length) return null;
-  const skip=['books','kindle store'];
-  const sub=d.all_ranks.filter(r=>!skip.includes((r.category||'').toLowerCase()));
-  return sub.length?sub.reduce((a,b)=>a.rank<b.rank?a:b):d.all_ranks[0];
+  const subs=d.all_ranks.filter(r=>!isStoreRank(r.category));
+  return subs.length ? subs.reduce((a,b)=>a.rank<b.rank?a:b) : d.all_ranks[0];
 }
 
 function bestOfBook(bid){
@@ -352,93 +311,46 @@ function bestOfBook(bid){
   return best;
 }
 
-function allBestForBook(bid){
-  // returns flat list of {rank,category,format,country,asin} sorted by rank
-  const results=[];
-  const cur=R?.current?.[bid]||{};
-  for(const [fmt,fmtData] of Object.entries(cur))
-    for(const [cc,d] of Object.entries(fmtData)){
-      const s=bestSubcat(d);
-      if(s?.rank) results.push({...s,fmt,country:cc,asin:d.asin,url:d.url});
-    }
-  return results.sort((a,b)=>a.rank-b.rank);
+function rankNumClass(r){
+  if(!r) return 'rn-gray';
+  if(r<=1)     return 'rn-top1';
+  if(r<=10)    return 'rn-top10';
+  if(r<=100)   return 'rn-top100';
+  if(r<=1000)  return 'rn-top1k';
+  if(r<=10000) return 'rn-top10k';
+  return 'rn-gray';
 }
-
-function rankColor(r){
-  if(!r) return 'rc-gray';
-  if(r<=10) return 'rc-gold';
-  if(r<=100) return 'rc-orange';
-  if(r<=1000) return 'rc-green';
-  if(r<=10000) return 'rc-navy';
-  return 'rc-gray';
-}
-function tileClass(r){
-  if(!r) return '';
-  if(r<=10) return 'top10';
-  if(r<=100) return 'top100';
-  return 'ranked';
+function medal(r){
+  if(!r)    return '';
+  if(r===1) return '🥇';
+  if(r<=3)  return '🥈';
+  if(r<=10) return '🏆';
+  if(r<=100)return '⭐';
+  return '';
 }
 function rankPillCls(r){
-  if(!r) return 'rp-gray';
-  if(r<=10) return 'rp-gold';
-  if(r<=100) return 'rp-sil';
-  if(r<=500) return 'rp-brnz';
-  if(r<=5000) return 'rp-grn';
+  if(!r)       return 'rp-gray';
+  if(r<=10)    return 'rp-gold';
+  if(r<=100)   return 'rp-sil';
+  if(r<=5000)  return 'rp-grn';
   if(r<=50000) return 'rp-amb';
   return 'rp-gray';
 }
-function medal(r){
-  if(!r) return '';
-  if(r===1) return '🥇';
-  if(r<=3) return '🥈';
-  if(r<=10) return '🏆';
-  if(r<=100) return '⭐';
-  return '';
-}
-function rankBarColor(r){
-  if(!r) return '#e5e7eb';
-  if(r<=10) return '#f59e0b';
-  if(r<=100) return '#FF9900';
-  if(r<=1000) return '#16a34a';
-  if(r<=10000) return '#2563eb';
-  return '#9ca3af';
-}
-function rankBarPct(r){
-  if(!r) return 0;
-  if(r<=10) return 98;
-  if(r<=100) return 88;
-  if(r<=1000) return 72;
-  if(r<=10000) return 52;
-  if(r<=100000) return 30;
-  return 15;
-}
-
-function coverImg(asin,alt){
-  const src=COVERS[asin]||'';
-  return src
-    ?`<img src="${src}" alt="${alt}" onerror="this.style.display='none'">`
-    :`<div style="font-size:3.5rem;line-height:1">📚</div>`;
-}
 function bestCoverAsin(book){
-  for(const f of ['hardcover','paperback','kindle'])
-    if(book.formats[f]) return book.formats[f].asin;
+  for(const f of ['hardcover','paperback','kindle']) if(book.formats[f]) return book.formats[f].asin;
   return null;
 }
-
-function fmtDomain(cc){
-  return B.countries?.[cc]?.domain||'amazon.com';
+function coverImgHtml(asin,alt){
+  const src=COVERS[asin]||'';
+  return src?`<img src="${src}" alt="${alt||'Book cover'}" onerror="this.style.display='none'">`:`<div style="font-size:3.5rem">📚</div>`;
 }
 
-// ─── HEADER / STATS ─────────────────────────────────────
+// ── HEADER / STATS ───────────────────────────────────────
 function renderHeader(){
-  const ts=R?.last_updated;
-  if(!ts){ document.getElementById('hdr-ts').textContent='Not yet updated'; return; }
-  const d=new Date(ts);
-  const diff=Date.now()-d.getTime();
-  const h=Math.floor(diff/3600000);
+  const ts=R?.last_updated; if(!ts){return;}
+  const d=new Date(ts), diff=Date.now()-d.getTime(), h=Math.floor(diff/3600000);
   const ago=h<1?'Just now':h<24?h+'h ago':Math.floor(h/24)+'d ago';
-  document.getElementById('hdr-ts').textContent=
-    `Updated ${ago} · ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;
+  document.getElementById('hdr-ts').textContent=`Updated ${ago} · ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;
 }
 function renderStats(){
   let best=null,live=0;
@@ -454,41 +366,33 @@ function renderStats(){
   document.getElementById('s-live').textContent=live||'—';
 }
 
-// ─── BOOK CARD ──────────────────────────────────────────
+// ── BOOK CARD ─────────────────────────────────────────────
 function bookCard(book,featured){
   const fmts=Object.keys(book.formats||{});
   const best=bestOfBook(book.id);
   const asin=bestCoverAsin(book);
 
   const tabs=fmts.map((f,i)=>
-    `<button class="ftab ${f}${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">
-      ${FMT_LBL[f]||f}
-    </button>`
+    `<button class="ftab ${f}${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">${FMT_LBL[f]||f}</button>`
   ).join('');
-
   const panels=fmts.map((f,i)=>
-    `<div class="fpanel${i===0?' active':''}" id="fp-${book.id}-${f}">${formatPanel(book,f)}</div>`
+    `<div class="fpanel${i===0?' active':''}" id="fp-${book.id}-${f}">${buildFormatPanel(book,f)}</div>`
   ).join('');
 
-  const bestHtml=best?`
-    <div class="best-rank-badge">
-      <div class="brb-label">Best Rank</div>
-      <div class="brb-num ${rankColor(best.rank)}">#${best.rank.toLocaleString()}</div>
-      <div class="brb-cat">${best.category}</div>
-    </div>`:'';
+  const bestHtml=best?`<div style="text-align:right;flex-shrink:0">
+    <div style="font-size:.6rem;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px">Best Rank</div>
+    <div style="font-size:2rem;font-weight:900;line-height:1;color:${best.rank<=10?'#d97706':best.rank<=100?'#16a34a':'#2563eb'}">#${best.rank.toLocaleString()}</div>
+    <div style="font-size:.6rem;color:var(--g400);margin-top:2px;max-width:130px;line-height:1.3">${best.category}</div>
+  </div>`:'';
 
-  return `
-  <div class="bcard${featured?' featured':''}" id="bc-${book.id}">
+  return `<div class="bcard${featured?' featured':''}" id="bc-${book.id}">
     <div class="bhero">
-      <div class="bcov">
-        ${featured?'<div class="ftag">★ Featured</div>':''}
-        ${coverImg(asin,book.title)}
-      </div>
+      <div class="bcov">${featured?'<div class="ftag">★ Featured</div>':''}${coverImgHtml(asin,book.title)}</div>
       <div class="binfo">
-        <div class="btop">
+        <div style="display:flex;gap:14px;align-items:flex-start">
           <div style="flex:1;min-width:0">
             <div class="btitle">${book.title}</div>
-            <div class="bsub" style="margin-top:6px">${book.subtitle}</div>
+            <div class="bsub" style="margin-top:5px">${book.subtitle}</div>
           </div>
           ${bestHtml}
         </div>
@@ -500,40 +404,86 @@ function bookCard(book,featured){
   </div>`;
 }
 
-function formatPanel(book,fmt){
+// ── FORMAT PANEL with ALL ranks per country ───────────────
+function buildFormatPanel(book,fmt){
   const fd=book.formats[fmt]; if(!fd) return '';
   const asin=fd.asin;
   const price=FMT_PRICES[asin]||'';
   const countries=Object.keys(B.countries||{});
   const fb_cls={'kindle':'fb-kindle','paperback':'fb-paperback','hardcover':'fb-hardcover'}[fmt]||'';
 
-  const tiles=countries.map(cc=>{
-    const d=getD(book.id,fmt,cc);
-    const sub=bestSubcat(d);
-    const rank=sub?.rank;
-    const cat=sub?.category||'';
-    const flag=B.countries[cc]?.flag||cc;
-    const domain=fmtDomain(cc);
-    const url=`https://www.${domain}/dp/${asin}`;
-    const tc=tileClass(rank);
-    const allRanks=d?.all_ranks||[];
+  // Show best ranked countries first, unranked last
+  const sorted=[...countries].sort((a,b)=>{
+    const da=getD(book.id,fmt,a), db=getD(book.id,fmt,b);
+    const sa=bestSubcat(da)?.rank||999999999;
+    const sb=bestSubcat(db)?.rank||999999999;
+    return sa-sb;
+  });
 
-    if(!rank) return `
-      <a class="ctile" href="${url}" target="_blank" rel="noopener">
-        <div class="cflag">${flag}</div>
-        <div class="ccode">${cc}</div>
-        <div class="cna">Not ranked</div>
-      </a>`;
+  const cards=sorted.map(cc=>{
+    const d=getD(book.id,fmt,cc);
+    const allRanks=d?.all_ranks||[];
+    const flag=B.countries[cc]?.flag||cc;
+    const name=B.countries[cc]?.name||cc;
+    const domain=B.countries[cc]?.domain||'amazon.com';
+    const url=`https://www.${domain}/dp/${asin}`;
+    const best=bestSubcat(d);
+    const hasData=allRanks.length>0;
+
+    // determine card class
+    const br=best?.rank;
+    let cardCls='ctry-card';
+    if(br){cardCls+=' has-data';if(br<=100)cardCls+=' top-100';if(br<=10)cardCls+=' top-10';}
+
+    if(!hasData) return `
+      <div class="${cardCls}">
+        <div class="ctry-top">
+          <div class="ctry-flag">${flag}</div>
+          <div class="ctry-name-wrap"><div class="ctry-name">${name}</div><div class="ctry-code">${cc}</div></div>
+          <a class="ctry-link" href="${url}" target="_blank" rel="noopener">View ↗</a>
+        </div>
+        <div class="no-rank">Not yet ranked</div>
+      </div>`;
+
+    // Build rank rows — store ranks first (gray), then subcats sorted by rank
+    const storeRanks=allRanks.filter(r=>isStoreRank(r.category));
+    const subcatRanks=allRanks.filter(r=>!isStoreRank(r.category)).sort((a,b)=>a.rank-b.rank);
+
+    const storeHtml=storeRanks.map(r=>`
+      <div class="rank-row overall-row">
+        <div class="rank-num rn-store">#${r.rank.toLocaleString()}</div>
+        <div class="rank-cat" style="color:var(--g300)">${r.category}</div>
+      </div>`).join('');
+
+    const subcatHtml=subcatRanks.map(r=>`
+      <div class="rank-row sub-row">
+        <div class="rank-num ${rankNumClass(r.rank)}">${medal(r.rank)?`<span>${medal(r.rank)}</span>`:''} #${r.rank.toLocaleString()}</div>
+        <div class="rank-cat">${r.category}</div>
+      </div>`).join('');
 
     return `
-      <div class="ctile ranked ${tc}" onclick='openDrawer(${JSON.stringify({bid:book.id,fmt,cc,asin,url,allRanks:d?.all_ranks||[],country:B.countries[cc]?.name||cc,flag,domain})})'>
-        ${rank<=100?`<div class="cstar">${medal(rank)||'⭐'}</div>`:''}
-        <div class="cflag">${flag}</div>
-        <div class="ccode">${cc}</div>
-        <div class="crank ${rankColor(rank)}">#${rank.toLocaleString()}</div>
-        <div class="ccat">${cat}</div>
+      <div class="${cardCls}">
+        <div class="ctry-top">
+          <div class="ctry-flag">${flag}</div>
+          <div class="ctry-name-wrap"><div class="ctry-name">${name}</div><div class="ctry-code">${cc}</div></div>
+          <a class="ctry-link" href="${url}" target="_blank" rel="noopener">Amazon ↗</a>
+        </div>
+        <div class="ranks-list">
+          ${storeHtml}
+          ${subcatHtml}
+        </div>
       </div>`;
   }).join('');
+
+  // Best rank callout
+  const topRanks=sorted.slice(0,3).map(cc=>{
+    const d=getD(book.id,fmt,cc);
+    const s=bestSubcat(d); if(!s?.rank) return '';
+    const flag=B.countries[cc]?.flag||cc;
+    return `<span>${flag} <strong>#${s.rank}</strong> ${s.category}</span>`;
+  }).filter(Boolean);
+
+  const callout=topRanks.length?`<div class="best-callout" style="margin-bottom:14px">🏆 Top ranks: ${topRanks.join(' &nbsp;·&nbsp; ')}</div>`:'';
 
   return `
     <div class="fhdr">
@@ -541,94 +491,26 @@ function formatPanel(book,fmt){
       <span class="fasin">ASIN: ${asin}</span>
       ${price?`<span class="fprice">${price}</span>`:''}
     </div>
-    <div class="cgrid">${tiles}</div>`;
+    ${callout}
+    <div class="countries-wrap">${cards}</div>`;
 }
 
 function switchTab(bid,fmt,btn){
   const card=document.getElementById('bc-'+bid);
-  card.querySelectorAll('.ftab').forEach(b=>{b.classList.remove('active')});
-  card.querySelectorAll('.fpanel').forEach(p=>{p.classList.remove('active')});
+  card.querySelectorAll('.ftab').forEach(b=>b.classList.remove('active'));
+  card.querySelectorAll('.fpanel').forEach(p=>p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById(`fp-${bid}-${fmt}`)?.classList.add('active');
 }
 
-// ─── DRAWER ─────────────────────────────────────────────
-function openDrawer(data){
-  const {bid,fmt,cc,asin,url,allRanks,country,flag,domain}=data;
-  document.getElementById('dr-title').textContent=`${flag} ${country} — ${FMT_LBL[fmt]||fmt}`;
-  document.getElementById('dr-sub').textContent=`ASIN: ${asin} · ${FMT_PRICES[asin]||''}`;
-
-  const fb_cls={'kindle':'fb-kindle','paperback':'fb-paperback','hardcover':'fb-hardcover'}[fmt]||'';
-
-  const skip=['books','kindle store'];
-  const overall=allRanks.filter(r=>skip.includes((r.category||'').toLowerCase()));
-  const subs   =allRanks.filter(r=>!skip.includes((r.category||'').toLowerCase()));
-  const sorted =[...subs].sort((a,b)=>a.rank-b.rank);
-
-  let html=`<span class="fbadge ${fb_cls}" style="margin-bottom:14px;display:inline-block">${FMT_LBL[fmt]||fmt}</span>`;
-
-  if(overall.length){
-    html+=`<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin-bottom:8px">Overall Store Rank</div>`;
-    overall.forEach(r=>{
-      html+=`<div class="rrow overall">
-        <div style="flex:1">
-          <div style="font-size:.78rem;color:var(--g500)">${r.category}</div>
-          <div class="rrow-bar"><div class="rrow-bar-fill" style="width:${rankBarPct(r.rank)}%;background:var(--g300)"></div></div>
-        </div>
-        <div class="rrow-rank" style="color:var(--g400);font-size:1rem">#${r.rank.toLocaleString()}</div>
-      </div>`;
-    });
-  }
-
-  if(sorted.length){
-    html+=`<div style="font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--g400);margin:16px 0 8px">Subcategory Rankings</div>`;
-    sorted.forEach((r,i)=>{
-      const m=medal(r.rank);
-      const color=rankBarColor(r.rank);
-      const pct=rankBarPct(r.rank);
-      html+=`<div class="rrow sub">
-        <div class="rrow-medal">${m||`<span style="font-size:.75rem;color:var(--g300)">#${i+1}</span>`}</div>
-        <div style="flex:1">
-          <div class="rrow-cat">${r.category}</div>
-          <div class="rrow-bar"><div class="rrow-bar-fill" style="width:${pct}%;background:${color}"></div></div>
-        </div>
-        <div class="rrow-rank ${rankColor(r.rank)}">#${r.rank.toLocaleString()}</div>
-      </div>`;
-    });
-  }
-
-  if(!allRanks.length){
-    html+=`<p style="color:var(--g400);font-size:.85rem;text-align:center;padding:24px 0">No rank data available for this country.</p>`;
-  }
-
-  html+=`<a class="amz-btn" href="${url}" target="_blank" rel="noopener">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
-    View on Amazon ${flag}
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-  </a>`;
-
-  document.getElementById('dr-body').innerHTML=html;
-  document.getElementById('overlay').classList.add('open');
-  document.getElementById('drawer').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeDrawer(){
-  document.getElementById('overlay').classList.remove('open');
-  document.getElementById('drawer').classList.remove('open');
-  document.body.style.overflow='';
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer()});
-
-// ─── TABLE ──────────────────────────────────────────────
+// ── COMPARISON TABLE ─────────────────────────────────────
 function renderTable(){
   const ctries=Object.keys(B.countries||{});
   const books=B.books;
-  const th=books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,18)}…</th>`).join('');
-  document.getElementById('th').innerHTML=`<tr><th>Country</th>${th}</tr>`;
-
-  const rows=ctries.map(cc=>{
-    const flag=B.countries[cc]?.flag||cc;
-    const name=B.countries[cc]?.name||cc;
+  document.getElementById('th').innerHTML=
+    `<tr><th>Country</th>${books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,18)}…</th>`).join('')}</tr>`;
+  document.getElementById('tb').innerHTML=ctries.map(cc=>{
+    const flag=B.countries[cc]?.flag||cc, name=B.countries[cc]?.name||cc;
     const cells=books.map(book=>{
       let best=null;
       for(const fmt of Object.keys(book.formats||{})){
@@ -637,64 +519,40 @@ function renderTable(){
         if(s?.rank&&(!best||s.rank<best.rank)) best=s;
       }
       if(!best) return `<td><span class="rpill rp-gray">—</span></td>`;
-      const cls=rankPillCls(best.rank);
-      return `<td>
-        <span class="rpill ${cls}">${medal(best.rank)} #${best.rank.toLocaleString()}</span>
-        <div style="font-size:.58rem;color:var(--g400);margin-top:2px">${(best.category||'').substring(0,22)}</div>
-      </td>`;
+      return `<td><span class="rpill ${rankPillCls(best.rank)}">${medal(best.rank)} #${best.rank.toLocaleString()}</span>
+        <div style="font-size:.58rem;color:var(--g400);margin-top:2px">${(best.category||'').substring(0,24)}</div></td>`;
     }).join('');
-    return `<tr>
-      <td><div class="ctd"><span style="font-size:1.2rem">${flag}</span><div>
-        <div style="font-weight:600;font-size:.8rem">${name}</div>
-        <div style="font-size:.62rem;color:var(--g400)">${cc}</div>
-      </div></div></td>${cells}
-    </tr>`;
+    return `<tr><td><div class="ctd"><span style="font-size:1.15rem">${flag}</span>
+      <div><div style="font-weight:600;font-size:.8rem">${name}</div><div style="font-size:.6rem;color:var(--g400)">${cc}</div></div></div></td>${cells}</tr>`;
   }).join('');
-  document.getElementById('tb').innerHTML=rows;
 }
 
-// ─── CHART ──────────────────────────────────────────────
+// ── CHART ────────────────────────────────────────────────
 function initChart(){
-  const bSel=document.getElementById('c-book');
-  const fSel=document.getElementById('c-fmt');
-  const cSel=document.getElementById('c-ctry');
-  B.books.forEach(b=>{const o=new Option(b.cover_emoji+' '+b.title.split(':')[0],b.id);bSel.add(o)});
-  ['kindle','paperback','hardcover'].forEach(f=>{fSel.add(new Option(FMT_LBL[f],f))});
-  Object.entries(B.countries).forEach(([cc,info])=>{cSel.add(new Option(info.flag+' '+cc,cc))});
+  const bS=document.getElementById('c-book'),fS=document.getElementById('c-fmt'),cS=document.getElementById('c-ctry');
+  B.books.forEach(b=>bS.add(new Option(b.cover_emoji+' '+b.title.split(':')[0],b.id)));
+  ['kindle','paperback','hardcover'].forEach(f=>fS.add(new Option(FMT_LBL[f],f)));
+  Object.entries(B.countries).forEach(([cc,info])=>cS.add(new Option(info.flag+' '+cc,cc)));
   const ctx=document.getElementById('hchart').getContext('2d');
-  HC=new Chart(ctx,{
-    type:'line',
-    data:{labels:[],datasets:[]},
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      scales:{
-        y:{reverse:true,title:{display:true,text:'BSR Rank (lower = better)',color:'#9ca3af'},
-           ticks:{color:'#9ca3af',callback:v=>'#'+v.toLocaleString()},
-           grid:{color:'rgba(0,0,0,.05)'}},
-        x:{ticks:{color:'#9ca3af'},grid:{color:'rgba(0,0,0,.04)'}}
-      },
-      plugins:{
-        legend:{labels:{color:'#374151',font:{size:12}}},
-        tooltip:{callbacks:{label:c=>` Rank #${(c.raw||0).toLocaleString()}`}}
-      }
-    }
-  });
-  [bSel,fSel,cSel].forEach(s=>s.addEventListener('change',drawChart));
+  HC=new Chart(ctx,{type:'line',data:{labels:[],datasets:[]},options:{
+    responsive:true,maintainAspectRatio:false,
+    scales:{
+      y:{reverse:true,title:{display:true,text:'BSR Rank (lower = better)',color:'#9ca3af'},
+         ticks:{color:'#9ca3af',callback:v=>'#'+v.toLocaleString()},grid:{color:'rgba(0,0,0,.05)'}},
+      x:{ticks:{color:'#9ca3af'},grid:{color:'rgba(0,0,0,.04)'}}
+    },
+    plugins:{legend:{labels:{color:'#374151'}},tooltip:{callbacks:{label:c=>` Rank #${(c.raw||0).toLocaleString()}`}}}
+  }});
+  [bS,fS,cS].forEach(s=>s.addEventListener('change',drawChart));
   drawChart();
 }
 function drawChart(){
-  const bid=document.getElementById('c-book').value;
-  const fmt=document.getElementById('c-fmt').value;
-  const cc =document.getElementById('c-ctry').value;
+  const bid=document.getElementById('c-book').value,fmt=document.getElementById('c-fmt').value,cc=document.getElementById('c-ctry').value;
   const hist=R?.history?.[bid]?.[fmt]?.[cc]||[];
   HC.data.labels=hist.map(h=>h.date);
-  HC.data.datasets=[{
-    label:`BSR in ${cc} — ${fmt}`,
-    data:hist.map(h=>h.rank),
+  HC.data.datasets=[{label:`BSR in ${cc}`,data:hist.map(h=>h.rank),
     borderColor:'#FF9900',backgroundColor:'rgba(255,153,0,.07)',
-    borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#FF9900',pointBorderColor:'#fff',pointBorderWidth:2,
-    tension:.35,fill:true
-  }];
+    borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#FF9900',pointBorderColor:'#fff',pointBorderWidth:2,tension:.35,fill:true}];
   HC.update();
 }
 
