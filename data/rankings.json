@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-17T07:55:01.188308+00:00",
+  "last_updated": "2026-05-17T11:13:58.172784+00:00",
   "current": {
     "claude_ai_finance": {
       "kindle": {
@@ -26,11 +26,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.com/dp/B0GSX73KF6"
+          "url": "https://www.amazon.com/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IN": {
           "rank": 8359,
@@ -55,7 +57,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.in/dp/B0GSX73KF6"
+          "url": "https://www.amazon.in/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "CA": {
           "rank": 232149,
@@ -80,7 +84,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.ca/dp/B0GSX73KF6"
+          "url": "https://www.amazon.ca/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "AU": {
           "rank": 784259,
@@ -105,27 +111,29 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.com.au/dp/B0GSX73KF6"
+          "url": "https://www.amazon.com.au/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BR": {
           "rank": 21812,
@@ -150,7 +158,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.com.br/dp/B0GSX73KF6"
+          "url": "https://www.amazon.com.br/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "MX": {
           "rank": 1190,
@@ -169,7 +179,7 @@
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com.mx/dp/B0GSX73KF6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "NL": {
           "rank": 29061,
@@ -194,23 +204,25 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GSX73KF6",
-          "url": "https://www.amazon.nl/dp/B0GSX73KF6"
+          "url": "https://www.amazon.nl/dp/B0GSX73KF6",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "SE": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "PL": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BE": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IE": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         }
       },
       "paperback": {
@@ -237,7 +249,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.com/dp/B0GV2SS77G"
+          "url": "https://www.amazon.com/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "UK": {
           "rank": 198254,
@@ -262,7 +276,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GV2SS77G/ref=tmm_pap_swatch_0"
+          "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GV2SS77G/ref=tmm_pap_swatch_0",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "CA": {
           "rank": 671182,
@@ -287,7 +303,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.ca/dp/B0GV2SS77G"
+          "url": "https://www.amazon.ca/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "AU": {
           "rank": 4311,
@@ -304,7 +322,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.com.au/dp/B0GV2SS77G"
+          "url": "https://www.amazon.com.au/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "DE": {
           "rank": 202205,
@@ -329,7 +349,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.de/dp/B0GV2SS77G"
+          "url": "https://www.amazon.de/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "FR": {
           "rank": 222,
@@ -350,7 +372,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.fr/dp/B0GV2SS77G"
+          "url": "https://www.amazon.fr/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IT": {
           "rank": 538,
@@ -371,15 +395,17 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.it/dp/B0GV2SS77G"
+          "url": "https://www.amazon.it/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BR": {
           "rank": 79277,
@@ -400,7 +426,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.com.br/dp/B0GV2SS77G"
+          "url": "https://www.amazon.com.br/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "MX": {
           "rank": 32764,
@@ -427,7 +455,7 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com.mx/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "NL": {
           "rank": 127560,
@@ -452,7 +480,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.nl/dp/B0GV2SS77G"
+          "url": "https://www.amazon.nl/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "SE": {
           "rank": 33120,
@@ -473,11 +503,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.se/dp/B0GV2SS77G"
+          "url": "https://www.amazon.se/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BE": {
           "rank": 28613,
@@ -498,11 +530,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GV2SS77G",
-          "url": "https://www.amazon.com.be/dp/B0GV2SS77G"
+          "url": "https://www.amazon.com.be/dp/B0GV2SS77G",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         }
       },
       "hardcover": {
@@ -529,7 +563,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.com/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.com/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "UK": {
           "rank": 738749,
@@ -546,11 +582,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GVJPXVP8/ref=tmm_pap_swatch_0"
+          "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GVJPXVP8/ref=tmm_pap_swatch_0",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IN": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "CA": {
           "rank": 112,
@@ -571,7 +609,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.ca/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.ca/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "AU": {
           "rank": 4311,
@@ -588,27 +628,29 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.com.au/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.com.au/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "JP": {
-          "last_error": "Not available (404)",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BR": {
           "rank": 12,
@@ -625,7 +667,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.com.br/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.com.br/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "MX": {
           "rank": 86,
@@ -648,7 +692,7 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com.mx/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "NL": {
           "rank": 886,
@@ -665,7 +709,9 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.nl/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.nl/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "SE": {
           "rank": 418,
@@ -678,11 +724,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.se/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.se/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "BE": {
           "rank": 627,
@@ -695,11 +743,13 @@
           ],
           "timestamp": "2026-05-17T07:55:01.188308+00:00",
           "asin": "B0GVJPXVP8",
-          "url": "https://www.amazon.com.be/dp/B0GVJPXVP8"
+          "url": "https://www.amazon.com.be/dp/B0GVJPXVP8",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-05-17T07:55:01.188308+00:00"
+          "error_timestamp": "2026-05-17T11:13:58.172784+00:00"
         }
       }
     },
