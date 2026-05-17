@@ -366,41 +366,45 @@ def scrape_bsr(asin, domain, retries=None):
     if retries is None:
         retries = 1 if CI_MODE else 2  # fewer retries in CI to stay within timeout
     urls_to_try = build_urls(asin, domain)
+    headers = get_random_headers()
+    session = requests.Session()
 
-    for attempt in range(retries + 1):
-        try:
-            if attempt > 0:
-                wait = random.uniform(3, 7) if CI_MODE else random.uniform(5, 12)
-                logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
-                time.sleep(wait)
+    # Try each URL variant
+    for url in urls_to_try:
+        for attempt in range(retries + 1):
+            try:
+                if attempt > 0:
+                    wait = random.uniform(2, 5) if CI_MODE else random.uniform(5, 12)
+                    logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
+                    time.sleep(wait)
 
-            headers = get_random_headers()
-            session = requests.Session()
-
-            # Try each URL variant until we get BSR data
-            last_error = 'BSR not found'
-            for url in urls_to_try:
-                response = session.get(url, headers=headers, timeout=20, allow_redirects=True)
+                response = session.get(url, headers=headers, timeout=15, allow_redirects=True)
 
                 if response.status_code == 404:
-                    logger.info(f"      Product {asin} not available on {domain}")
+                    logger.info(f"      Not available on {domain} (404)")
                     return {'success': False, 'error': 'Not available (404)'}
-                elif response.status_code == 503:
-                    logger.warning(f"      Bot blocked (503)")
-                    last_error = 'Bot blocked (503)'
-                    break
-                elif response.status_code != 200:
-                    last_error = f'HTTP {response.status_code}'
-                    continue
+
+                if response.status_code in (503, 429):
+                    # Rate limited — no point retrying quickly, move on
+                    logger.warning(f"      Rate limited ({response.status_code})")
+                    return {'success': False, 'error': f'Rate limited ({response.status_code})'}
+
+                if response.status_code != 200:
+                    # Transient error — worth retrying
+                    if attempt < retries:
+                        continue
+                    return {'success': False, 'error': f'HTTP {response.status_code}'}
 
                 soup = BeautifulSoup(response.content, 'lxml')
 
-                # Check CAPTCHA
+                # Bot detection page — no point retrying
                 title_tag = soup.find('title')
-                if title_tag and any(w in title_tag.text.lower() for w in ['robot', 'captcha', 'sorry']):
-                    logger.warning(f"      Bot detection")
-                    last_error = 'Bot detection'
-                    break
+                page_len = len(response.content)
+                if page_len < 1000 or (title_tag and any(
+                    w in title_tag.text.lower() for w in ['robot', 'captcha', 'sorry', 'amazon.']
+                )):
+                    logger.warning(f"      Bot detection (page {page_len}b)")
+                    return {'success': False, 'error': 'Bot detection'}
 
                 bsr_data = extract_bsr_from_html(soup)
                 if bsr_data:
@@ -411,26 +415,26 @@ def scrape_bsr(asin, domain, retries=None):
                         'all_ranks': bsr_data,
                         'url': url
                     }
-                # Try next URL variant
-                logger.info(f"      No BSR at {url}, trying next variant...")
-                time.sleep(2)
 
-            if attempt < retries:
-                continue
-            logger.warning(f"      No BSR found for {asin} on {domain}")
-            return {'success': False, 'error': last_error, 'url': urls_to_try[0]}
+                # Got a real page but no BSR — no retry, try next URL variant
+                logger.info(f"      No BSR at {url}")
+                break
 
-        except requests.exceptions.Timeout:
-            if attempt < retries:
-                continue
-            return {'success': False, 'error': 'Timeout'}
-        except Exception as e:
-            logger.error(f"      Error: {e}")
-            if attempt < retries:
-                continue
-            return {'success': False, 'error': str(e)}
+            except requests.exceptions.Timeout:
+                if attempt < retries:
+                    continue
+                logger.warning(f"      Timeout: {url}")
+                break
+            except Exception as e:
+                if attempt < retries:
+                    continue
+                logger.error(f"      Error: {e}")
+                break
 
-    return {'success': False, 'error': 'All retries failed'}
+        time.sleep(1)  # small gap between URL variants
+
+    logger.warning(f"      No BSR found for {asin} on {domain}")
+    return {'success': False, 'error': 'BSR not found', 'url': urls_to_try[0]}
 
 
 def load_json(filepath):
