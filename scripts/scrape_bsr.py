@@ -401,7 +401,7 @@ def scrape_bsr(asin, domain, retries=None):
                 title_tag = soup.find('title')
                 page_len = len(response.content)
                 if page_len < 1000 or (title_tag and any(
-                    w in title_tag.text.lower() for w in ['robot', 'captcha', 'sorry', 'amazon.']
+                    w in title_tag.text.lower() for w in ['robot check', 'captcha', 'something went wrong', 'verify yourself']
                 )):
                     logger.warning(f"      Bot detection (page {page_len}b)")
                     return {'success': False, 'error': 'Bot detection'}
