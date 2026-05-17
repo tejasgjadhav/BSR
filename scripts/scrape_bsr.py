@@ -443,6 +443,31 @@ def save_json(filepath, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
+def git_commit_rankings(filepath, message):
+    """In CI, commit and push rankings.json immediately after each book so progress
+    is never lost even if the job times out before the workflow commit step runs."""
+    if not CI_MODE:
+        return
+    import subprocess
+    try:
+        subprocess.run(['git', 'add', filepath], check=True, capture_output=True)
+        result = subprocess.run(
+            ['git', 'diff', '--staged', '--quiet'],
+            capture_output=True
+        )
+        if result.returncode != 0:  # there are staged changes
+            subprocess.run(
+                ['git', 'commit', '-m', message],
+                check=True, capture_output=True
+            )
+            subprocess.run(['git', 'push'], check=True, capture_output=True)
+            logger.info(f"  [git commit+push: {message}]")
+        else:
+            logger.info(f"  [No changes to commit]")
+    except Exception as e:
+        logger.warning(f"  [git commit failed: {e}]")
+
+
 def update_rankings():
     """Main update loop — scrapes all books × formats × countries."""
     books_data = load_json(os.path.join(DATA_DIR, 'books.json'))
@@ -517,9 +542,13 @@ def update_rankings():
                 # Respectful delay between requests (shorter in CI to stay within timeout)
                 time.sleep(random.uniform(2, 4) if CI_MODE else random.uniform(3, 7))
 
-        # Save after every book so progress is never lost if workflow times out
-        save_json(os.path.join(DATA_DIR, 'rankings.json'), rankings)
-        logger.info(f"  [Saved rankings after {book['title']}]")
+        # Save + commit after every book — progress preserved even if job times out
+        rankings_path = os.path.join(DATA_DIR, 'rankings.json')
+        save_json(rankings_path, rankings)
+        git_commit_rankings(
+            rankings_path,
+            f"chore: update BSR rankings {date_key} — {book['title'][:40]}"
+        )
 
     logger.info(f"\nDone! Success: {success_count}, Failed: {fail_count}")
     return rankings

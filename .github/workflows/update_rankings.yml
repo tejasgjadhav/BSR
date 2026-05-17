@@ -32,17 +32,20 @@ jobs:
       - name: Install dependencies
         run: pip install -r scripts/requirements.txt
 
+      - name: Configure git (before scraper runs so it can commit per-book)
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
       - name: Run BSR scraper
         run: python scripts/scrape_bsr.py
         continue-on-error: true   # Dashboard still deploys even if scraping partially fails
 
-      - name: Commit updated rankings
+      - name: Commit any remaining rankings (safety net)
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
           git add data/rankings.json
           git diff --staged --quiet || git commit -m "chore: update BSR rankings $(date -u '+%Y-%m-%d %H:%M UTC')"
-          git push
+          git push || true
 
       - name: Upload dashboard to GitHub Pages
         uses: actions/upload-pages-artifact@v3
