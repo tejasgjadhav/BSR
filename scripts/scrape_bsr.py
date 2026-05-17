@@ -358,14 +358,19 @@ def build_urls(asin, domain):
     return urls
 
 
-def scrape_bsr(asin, domain, retries=2):
+CI_MODE = os.environ.get('CI', '').lower() in ('true', '1', 'yes')
+
+
+def scrape_bsr(asin, domain, retries=None):
     """Scrape BSR from an Amazon product page, trying multiple URL formats."""
+    if retries is None:
+        retries = 1 if CI_MODE else 2  # fewer retries in CI to stay within timeout
     urls_to_try = build_urls(asin, domain)
 
     for attempt in range(retries + 1):
         try:
             if attempt > 0:
-                wait = random.uniform(5, 12)
+                wait = random.uniform(3, 7) if CI_MODE else random.uniform(5, 12)
                 logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
                 time.sleep(wait)
 
@@ -509,10 +514,13 @@ def update_rankings():
                     existing['error_timestamp'] = timestamp
                     rankings['current'][book_id][fmt_name][country_code] = existing
 
-                # Respectful delay between requests
-                time.sleep(random.uniform(3, 7))
+                # Respectful delay between requests (shorter in CI to stay within timeout)
+                time.sleep(random.uniform(2, 4) if CI_MODE else random.uniform(3, 7))
 
-    save_json(os.path.join(DATA_DIR, 'rankings.json'), rankings)
+        # Save after every book so progress is never lost if workflow times out
+        save_json(os.path.join(DATA_DIR, 'rankings.json'), rankings)
+        logger.info(f"  [Saved rankings after {book['title']}]")
+
     logger.info(f"\nDone! Success: {success_count}, Failed: {fail_count}")
     return rankings
 
