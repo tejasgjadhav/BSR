@@ -13,7 +13,7 @@ echo "[$DATE] Starting daily BSR update..." >> "$LOG"
 cd "$REPO"
 
 # Pull latest in case of any remote changes
-git pull --rebase --quiet
+git pull --no-rebase --quiet
 
 # Run scraper
 python3 scripts/scrape_bsr.py >> "$LOG" 2>&1
