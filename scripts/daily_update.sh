@@ -1,34 +1,43 @@
 #!/bin/bash
-# Daily BSR scraper — runs on Mac, pushes to GitHub
-# Scheduled via crontab to run at 8:00 AM IST daily
+# Daily BSR scraper — runs locally, commits and pushes updated rankings to GitHub.
+# Scheduled via: bash scripts/setup_local.sh
 
-set -e
-
-REPO="/Users/sayali/files/kdp-dashboard"
-LOG="$REPO/scripts/daily_update.log"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO="$(dirname "$SCRIPT_DIR")"
+LOG="$SCRIPT_DIR/daily_update.log"
 DATE=$(date '+%Y-%m-%d %H:%M:%S')
 
-echo "[$DATE] Starting daily BSR update..." >> "$LOG"
+log() { echo "[$DATE] $*" | tee -a "$LOG"; }
 
+log "Starting BSR update (repo: $REPO)"
 cd "$REPO"
 
-# Pull latest in case of any remote changes
-git pull --no-rebase --quiet
+# Pull latest to avoid push conflicts
+git pull --no-rebase --quiet 2>&1 || log "WARNING: git pull failed, continuing"
 
 # Run scraper
-python3 scripts/scrape_bsr.py >> "$LOG" 2>&1
-
-# Commit and push
-git add data/rankings.json
-if git diff --staged --quiet; then
-    echo "[$DATE] No changes to commit." >> "$LOG"
+if python3 scripts/scrape_bsr.py >> "$LOG" 2>&1; then
+    log "Scraper finished"
 else
-    git commit -m "chore: update BSR rankings $(date -u '+%Y-%m-%d %H:%M UTC')"
-    git push
-    echo "[$DATE] Pushed rankings to GitHub." >> "$LOG"
+    log "ERROR: scraper exited with code $?"
+    exit 1
 fi
 
-echo "[$DATE] Done." >> "$LOG"
+# Commit and push only if rankings changed
+git add data/rankings.json
+if git diff --staged --quiet; then
+    log "No changes to commit."
+else
+    git commit -m "chore: update BSR rankings $(date -u '+%Y-%m-%d')"
+    if git push; then
+        log "Pushed rankings to GitHub."
+    else
+        log "ERROR: git push failed"
+        exit 1
+    fi
+fi
 
-# Keep log to last 500 lines
+log "Done."
+
+# Keep log trimmed to last 500 lines
 tail -500 "$LOG" > "$LOG.tmp" && mv "$LOG.tmp" "$LOG"
