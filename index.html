@@ -200,11 +200,11 @@ footer a{color:var(--or);text-decoration:none}
 <!-- HERO -->
 <div class="hero">
   <div class="hero-title">Amazon <span>Best Seller</span> Ranks</div>
-  <div class="hero-sub">Tejas Jadhav, CFA, FRM &nbsp;·&nbsp; AI &amp; Practical Finance Series &nbsp;·&nbsp; All Formats · 15 Countries</div>
+  <div class="hero-sub">Tejas Jadhav, CFA, FRM &nbsp;·&nbsp; AI &amp; Practical Finance Series &nbsp;·&nbsp; All Formats · <span id="s-ctry-hero">17</span> Countries</div>
   <div class="pills">
     <div class="pill"><div class="pill-n" id="s-books">5</div><div class="pill-l">Books</div></div>
     <div class="pill"><div class="pill-n" id="s-formats">9</div><div class="pill-l">Formats</div></div>
-    <div class="pill"><div class="pill-n" id="s-countries">15</div><div class="pill-l">Countries</div></div>
+    <div class="pill"><div class="pill-n" id="s-countries">17</div><div class="pill-l">Countries</div></div>
     <div class="pill"><div class="pill-n" id="s-best">—</div><div class="pill-l">Best Rank in Category</div></div>
     <div class="pill"><div class="pill-n" id="s-live">—</div><div class="pill-l">Rankings Live</div></div>
   </div>
@@ -358,7 +358,9 @@ function renderHeader(){
 }
 function renderStats(){
   let best=null,live=0;
+  let totalFormats=0;
   for(const book of B.books){
+    totalFormats+=Object.keys(book.formats||{}).length;
     const cur=R?.current?.[book.id]||{};
     for(const fmt of Object.values(cur))
       for(const d of Object.values(fmt)){
@@ -366,6 +368,11 @@ function renderStats(){
         if(s?.rank){live++;if(!best||s.rank<best)best=s.rank;}
       }
   }
+  const ctryCount=Object.keys(B.countries||{}).length;
+  document.getElementById('s-books').textContent=B.books.length;
+  document.getElementById('s-formats').textContent=totalFormats;
+  document.getElementById('s-countries').textContent=ctryCount;
+  document.getElementById('s-ctry-hero').textContent=ctryCount;
   document.getElementById('s-best').textContent=best?'#'+best.toLocaleString():'—';
   document.getElementById('s-live').textContent=live||'—';
 }
