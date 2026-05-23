@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 """
 Amazon BSR (Best Seller Rank) Scraper for KDP Dashboard
-Scrapes BSR data from Amazon product pages for 15 countries.
+Scrapes BSR data from Amazon product pages for 17 countries.
 Run daily via GitHub Actions.
 """
 
-import requests
+try:
+    from curl_cffi import requests
+    CURL_CFFI = True
+except ImportError:
+    import requests
+    CURL_CFFI = False
+
 from bs4 import BeautifulSoup
 import json
 import time
@@ -22,31 +28,26 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)]
 )
 logger = logging.getLogger(__name__)
+if CURL_CFFI:
+    logger.info("curl_cffi available — using Chrome TLS impersonation")
+else:
+    logger.warning("curl_cffi not available — falling back to plain requests (may be blocked)")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
 
-HEADERS_LIST = [
-    {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.9',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Cache-Control': 'max-age=0',
-    },
-    {
-        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Language': 'en-GB,en;q=0.9',
-    },
-    {
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-        'Accept-Language': 'en-US,en;q=0.5',
-    },
-]
+# Chrome versions to rotate through for realistic impersonation
+CHROME_VERSIONS = ['chrome119', 'chrome120', 'chrome124', 'chrome131']
+
+# Minimal locale headers — curl_cffi sets UA + TLS automatically
+LOCALE_HEADERS = {
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Accept-Encoding': 'gzip, deflate, br',
+    'Connection': 'keep-alive',
+    'Upgrade-Insecure-Requests': '1',
+    'Cache-Control': 'max-age=0',
+}
 
 AMAZON_DOMAINS = {
     'US': 'www.amazon.com',
@@ -69,8 +70,12 @@ AMAZON_DOMAINS = {
 }
 
 
-def get_random_headers():
-    return dict(random.choice(HEADERS_LIST))
+def make_session():
+    """Create a session with Chrome impersonation if curl_cffi is available."""
+    if CURL_CFFI:
+        version = random.choice(CHROME_VERSIONS)
+        return requests.Session(impersonate=version)
+    return requests.Session()
 
 
 def normalize_rank_number(s):
@@ -97,13 +102,10 @@ def parse_bsr_text(text):
       MX:  nº 86 en Finanzas Corporativas (uses # on EN response)
       NL:  #26,711 in Kindle Store (EN response)
     """
-    # ── Step 1: Strip all noise parentheses
-    # Removes: ( See Top 100 in Books ) / ( Conheça o Top 100 na categoria Loja Kindle ) / ( Siehe Top 100 )
     clean = re.sub(
         r'\([^)]{0,120}(?:See|Voir|Vedi|Ver|Siehe|Conhe[çc]a|Consulta|Top\s+100)[^)]*\)',
         ' ', text, flags=re.IGNORECASE
     )
-    # Remove stray "Avaliações dos clientes" / "Customer reviews" trailing text
     for stop in ['Avalia', 'Customer reviews', 'Recensioni', 'Reseñas', 'Kundrezensionen', 'Avis client']:
         idx = clean.find(stop)
         if idx > 0:
@@ -116,7 +118,6 @@ def parse_bsr_text(text):
         cat = cat.strip().strip('(').strip().rstrip('(').strip()
         if not cat or len(cat) < 2 or rank <= 0 or rank > 10_000_000:
             return
-        # Skip pure noise
         if re.search(r'(?:See|Voir|Top\s+\d+|^\d+$)', cat, re.I):
             return
         key = (rank, cat.lower()[:40])
@@ -124,24 +125,19 @@ def parse_bsr_text(text):
             seen.add(key)
             results.append({'rank': rank, 'category': cat})
 
-    # ── Pattern A: #number in/em Category  (EN, NL, some MX)
-    # Category can contain commas, accented chars, apostrophes
     for m in re.finditer(
         r'#\s*([\d,]+)\s+(?:in|em)\s+'
-        r'([\w\u00C0-\u024F&\'\u2019/()\-\u2013, ]{3,80}?)'
-        r'(?=\s*(?:#\s*\d|\d{1,3}\s+(?:in|em)\s+[A-Z\u00C0]|\Z|\n))',
+        r'([\wÀ-ɏ&\'’/()\-–, ]{3,80}?)'
+        r'(?=\s*(?:#\s*\d|\d{1,3}\s+(?:in|em)\s+[A-ZÀ]|\Z|\n))',
         clean, re.UNICODE
     ):
         try: add(normalize_rank_number(m.group(1)), m.group(2))
         except: pass
 
-    # ── Pattern B: bare NUMBER in/em Category (EN pages on DE/FR/UK/IT/BR stores, no # prefix)
-    # e.g.: 118,877 in Books   62 in Financial Risk Management   131 in Managers' Guides
-    # Lookahead: next entry starts with a number OR Nr./Nº OR 2+ spaces OR end
     for m in re.finditer(
-        r'(?<!\d)([\d][\d,\.]*)\s+(?:in|em)\s+'
-        r'([A-Z\u00C0-\u024F][A-Za-z\u00C0-\u024F0-9&\'\u2019/()\-, ]{2,70}?)'
-        r'(?=\s*(?:Nr\.|[Nn][°º]|n\.)|\s{2,}|\s*(?:\d{1,6}\s+(?:in|em)\s+[A-Z\u00C0])|\Z|\n)',
+        r'(?<!\d)([\d][\d,\.]*) \s+(?:in|em)\s+'
+        r'([A-ZÀ-ɏ][A-Za-zÀ-ɏ0-9&\'’/()\-, ]{2,70}?)'
+        r'(?=\s*(?:Nr\.|[Nn][°º]|n\.)| \s{2,}|\s*(?:\d{1,6}\s+(?:in|em)\s+[A-ZÀ])|\Z|\n)',
         clean, re.UNICODE
     ):
         try:
@@ -152,14 +148,9 @@ def parse_bsr_text(text):
     if results:
         return results
 
-    # ── Pattern C: Nr./n°/nº/Nº/n. NUMBER in/en/em CATEGORY  (DE/FR/ES/BR/IT native pages)
-    # BR: Nº 30.974 em Computação, internet e mídia digital em inglês
-    # DE: Nr. 118.877 in Bücher · Nr. 61 in Generative KI
-    # ES: nº 32.764 en Libros
-    # IT: n. 598 in Economia, affari e finanza (Libri)
     for m in re.finditer(
         r'(?:Nr\.|[Nn][°º]|n\.)\s*([\d.,\s]{1,15})\s+(?:in|en|em)\s+'
-        r'([\w\u00C0-\u024F&\'\u2019/()\-, ]{3,80}?)'
+        r'([\wÀ-ɏ&\'’/()\-, ]{3,80}?)'
         r'(?=\s*(?:Nr\.|[Nn][°º]|n\.|$|\n|\())',
         clean, re.UNICODE
     ):
@@ -171,27 +162,16 @@ def parse_bsr_text(text):
     return results
 
 
-# BSR trigger keywords across all Amazon locales
 BSR_KEYWORDS = [
-    # English
     'Best Sellers Rank', 'Bestsellers Rank', 'Amazon Best Sellers Rank',
-    # German
     'Amazon Bestseller-Rang', 'Bestseller-Rang', 'Bestseller-Rang:',
-    # French
     'Meilleures ventes', 'Classement des meilleures ventes',
-    # Italian
     'Posizione nella classifica', 'Classifica Bestseller', 'classifica Bestseller',
-    # Spanish
     'Posición en los más vendidos', 'Los más vendidos', 'más vendidos',
-    # Portuguese / Brazil
     'Ranking dos mais vendidos', 'Mais vendidos', 'mais vendidos',
-    # Mexico
     'Más vendidos', 'más vendidos',
-    # Japanese
     'ランキング', '売れ筋ランキング', 'Amazon売れ筋ランキング',
-    # Dutch / Swedish / Polish
     'Bestseller-rang', 'Bestsellerrang', 'Bästsäljare', 'Bestsellery',
-    # Fallback
     'Bestseller Rang', 'Ranking',
 ]
 
@@ -203,16 +183,9 @@ def has_bsr_keyword(text):
 def extract_bsr_from_html(soup):
     """Extract ALL BSR rank entries using multiple fallback strategies, all locales."""
     bsr_data = []
-
-    # Pre-compute full-page text once — has multi-space separators between elements,
-    # which is critical for correctly parsing bare-number ranks (DE/IT/FR EN-response pages).
-    # Single-spaced li.get_text() causes Pattern B to misparse "1,137 in Books" as
-    # category="... 1," + rank=137. Full page text avoids this.
     page_text = soup.get_text(separator=' ')
 
     def parse_from_page(keyword_hint):
-        """Find keyword in full-page text and parse the block from there."""
-        # Try the exact keyword first, then any BSR keyword
         hints = [keyword_hint] if keyword_hint else []
         hints += [kw for kw in BSR_KEYWORDS if kw != keyword_hint]
         for kw in hints:
@@ -227,20 +200,16 @@ def extract_bsr_from_html(soup):
                     return data
         return []
 
-    # Strategy 1: Detail bullets wrapper (modern Amazon layout, all locales)
-    # Use li only as a locator; parse from full-page text for correct multi-spacing.
     detail_bullets = soup.find('div', {'id': 'detailBulletsWrapper_feature_div'})
     if detail_bullets:
         for li in detail_bullets.find_all('li'):
             text = li.get_text(separator=' ', strip=True)
             if has_bsr_keyword(text):
-                # Find which keyword matched so we can locate it in page_text
                 matched_kw = next((kw for kw in BSR_KEYWORDS if kw.lower() in text.lower()), None)
                 bsr_data = parse_from_page(matched_kw)
                 if bsr_data:
                     return bsr_data
 
-    # Strategy 2: Product details table (used on DE, FR, IT, ES...)
     for table_id in ['productDetails_detailBullets_sections1', 'productDetails_techSpec_section_1',
                      'productDetails_db_sections1']:
         table = soup.find('table', {'id': table_id})
@@ -254,7 +223,6 @@ def extract_bsr_from_html(soup):
                     if bsr_data:
                         return bsr_data
 
-    # Strategy 3: Any span/li containing a BSR keyword
     for tag in soup.find_all(['span', 'li']):
         text = tag.get_text(separator=' ', strip=True)
         if has_bsr_keyword(text) and len(text) < 2000:
@@ -263,7 +231,6 @@ def extract_bsr_from_html(soup):
             if bsr_data:
                 return bsr_data
 
-    # Strategy 4: Full page text scan — find BSR block and parse up to 800 chars
     for kw in BSR_KEYWORDS:
         idx = page_text.find(kw)
         if idx != -1:
@@ -279,18 +246,11 @@ def extract_bsr_from_html(soup):
 
 
 def _extract_bare_numbers(block):
-    """
-    Last-resort parser for EN-language responses from non-US stores.
-    Finds patterns like: 118,877 in Books  61 in Generative AI  131 in Managers' Guides
-    Handles apostrophes and special chars in category names.
-    """
-    # Strip noise parentheses like (See Top 100 in Books)
     clean = re.sub(r'\([^)]{0,100}\)', ' ', block)
     results = []
     seen = set()
-    # Allow apostrophe \u2019 ' and extended chars in category names
     pat = re.compile(
-        r'\b([\d][\d,\.]*)\s+in\s+([A-Z][A-Za-z0-9 &/()\'\u2019\-]{2,55}?)(?=\s{2,}|\s*\d|\Z|Customer|$)',
+        r'\b([\d][\d,\.]*) \s+in\s+([A-Z][A-Za-z0-9 &/()\'’\-]{2,55}?)(?=\s{2,}|\s*\d|\Z|Customer|$)',
         re.UNICODE
     )
     for m in pat.finditer(clean):
@@ -310,36 +270,27 @@ def _extract_bare_numbers(block):
     return results
 
 
-# Title slugs for stores where /dp/ASIN doesn't render BSR in HTML
-# Only physical formats (paperback/hardcover) work this way — Kindle eBooks are always JS-rendered on UK/ES
-# Format: asin -> {domain -> title_slug}
 TITLE_SLUGS = {
-    # Claude AI Paperback
     'B0GV2SS77G': {
         'www.amazon.co.uk': 'Claude-Finance-Professionals-Institutional-Investment',
         'www.amazon.es':    'Claude-Finance-Professionals-Institutional-Investment',
     },
-    # Claude AI Hardcover
     'B0GVJPXVP8': {
         'www.amazon.co.uk': 'Claude-Finance-Professionals-Institutional-Investment',
         'www.amazon.es':    'Claude-Finance-Professionals-Institutional-Investment',
     },
-    # AI Prompts 100+ Paperback
     '9357823662': {
         'www.amazon.co.uk': 'AI-Prompts-Financial-Analysis-Practical',
         'www.amazon.es':    'AI-Prompts-Financial-Analysis-Practical',
     },
-    # Shivaji Paperback
     'B0GWWG34W6': {
         'www.amazon.co.uk': 'Wealth-Code-Chhatrapati-Shivaji-Maharaj',
         'www.amazon.es':    'Wealth-Code-Chhatrapati-Shivaji-Maharaj',
     },
-    # Stop Losing Money Paperback
     'B0GWHZLVK8': {
         'www.amazon.co.uk': 'Stop-Losing-Money-Stories-Private',
         'www.amazon.es':    'Stop-Losing-Money-Stories-Private',
     },
-    # AI Prompts Equity Hardcover
     'B0GSBV7QX9': {
         'www.amazon.co.uk': 'AI-Prompts-Financial-Analysis-Practical',
         'www.amazon.es':    'AI-Prompts-Financial-Analysis-Practical',
@@ -348,7 +299,6 @@ TITLE_SLUGS = {
 
 
 def build_urls(asin, domain):
-    """Return list of URLs to try, full-title slug first if available."""
     urls = []
     slug = TITLE_SLUGS.get(asin, {}).get(domain)
     if slug:
@@ -364,12 +314,10 @@ CI_MODE = os.environ.get('CI', '').lower() in ('true', '1', 'yes')
 def scrape_bsr(asin, domain, retries=None):
     """Scrape BSR from an Amazon product page, trying multiple URL formats."""
     if retries is None:
-        retries = 1 if CI_MODE else 2  # fewer retries in CI to stay within timeout
+        retries = 1 if CI_MODE else 2
     urls_to_try = build_urls(asin, domain)
-    headers = get_random_headers()
-    session = requests.Session()
+    session = make_session()
 
-    # Try each URL variant
     for url in urls_to_try:
         for attempt in range(retries + 1):
             try:
@@ -378,26 +326,23 @@ def scrape_bsr(asin, domain, retries=None):
                     logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
                     time.sleep(wait)
 
-                response = session.get(url, headers=headers, timeout=15, allow_redirects=True)
+                response = session.get(url, headers=LOCALE_HEADERS, timeout=20, allow_redirects=True)
 
                 if response.status_code == 404:
                     logger.info(f"      Not available on {domain} (404)")
                     return {'success': False, 'error': 'Not available (404)'}
 
                 if response.status_code in (503, 429):
-                    # Rate limited — no point retrying quickly, move on
                     logger.warning(f"      Rate limited ({response.status_code})")
                     return {'success': False, 'error': f'Rate limited ({response.status_code})'}
 
                 if response.status_code != 200:
-                    # Transient error — worth retrying
                     if attempt < retries:
                         continue
                     return {'success': False, 'error': f'HTTP {response.status_code}'}
 
                 soup = BeautifulSoup(response.content, 'lxml')
 
-                # Bot detection page — no point retrying
                 title_tag = soup.find('title')
                 page_len = len(response.content)
                 if page_len < 1000 or (title_tag and any(
@@ -416,22 +361,22 @@ def scrape_bsr(asin, domain, retries=None):
                         'url': url
                     }
 
-                # Got a real page but no BSR — no retry, try next URL variant
                 logger.info(f"      No BSR at {url}")
                 break
 
-            except requests.exceptions.Timeout:
-                if attempt < retries:
-                    continue
-                logger.warning(f"      Timeout: {url}")
-                break
             except Exception as e:
+                err = str(e).lower()
+                if 'timeout' in err or 'timed out' in err:
+                    if attempt < retries:
+                        continue
+                    logger.warning(f"      Timeout: {url}")
+                    break
                 if attempt < retries:
                     continue
                 logger.error(f"      Error: {e}")
                 break
 
-        time.sleep(1)  # small gap between URL variants
+        time.sleep(random.uniform(1, 2))
 
     logger.warning(f"      No BSR found for {asin} on {domain}")
     return {'success': False, 'error': 'BSR not found', 'url': urls_to_try[0]}
@@ -448,22 +393,15 @@ def save_json(filepath, data):
 
 
 def git_commit_rankings(filepath, message):
-    """In CI, commit and push rankings.json immediately after each book so progress
-    is never lost even if the job times out before the workflow commit step runs."""
+    """In CI, commit and push after each book so progress is preserved on timeout."""
     if not CI_MODE:
         return
     import subprocess
     try:
         subprocess.run(['git', 'add', filepath], check=True, capture_output=True)
-        result = subprocess.run(
-            ['git', 'diff', '--staged', '--quiet'],
-            capture_output=True
-        )
-        if result.returncode != 0:  # there are staged changes
-            subprocess.run(
-                ['git', 'commit', '-m', message],
-                check=True, capture_output=True
-            )
+        result = subprocess.run(['git', 'diff', '--staged', '--quiet'], capture_output=True)
+        if result.returncode != 0:
+            subprocess.run(['git', 'commit', '-m', message], check=True, capture_output=True)
             subprocess.run(['git', 'push'], check=True, capture_output=True)
             logger.info(f"  [git commit+push: {message}]")
         else:
@@ -473,7 +411,7 @@ def git_commit_rankings(filepath, message):
 
 
 def update_rankings():
-    """Main update loop — scrapes all books × formats × countries."""
+    """Main update loop — scrapes all books x formats x countries."""
     books_data = load_json(os.path.join(DATA_DIR, 'books.json'))
     rankings = load_json(os.path.join(DATA_DIR, 'rankings.json'))
 
@@ -509,7 +447,6 @@ def update_rankings():
             country_asins = fmt_data.get('country_asins', {})
 
             for country_code, domain in AMAZON_DOMAINS.items():
-                # Use country-specific ASIN if mapped, else default
                 asin = country_asins.get(country_code, base_asin)
                 if asin == 'N/A':
                     continue
@@ -526,27 +463,21 @@ def update_rankings():
                         'asin': asin,
                         'url': result.get('url')
                     }
-
-                    # Append to history
                     hist = rankings['history'][book_id][fmt_name].setdefault(country_code, [])
                     hist.append({'date': date_key, 'rank': result['primary_rank'], 'category': result['primary_category']})
-                    rankings['history'][book_id][fmt_name][country_code] = hist[-90:]  # 90 days
-
+                    rankings['history'][book_id][fmt_name][country_code] = hist[-90:]
                     logger.info(f"    OK: #{result['primary_rank']:,} in {result['primary_category']}")
                     success_count += 1
                 else:
                     logger.warning(f"    FAIL: {result['error']}")
                     fail_count += 1
-                    # Preserve existing data, add error note
                     existing = rankings['current'][book_id][fmt_name].get(country_code, {})
                     existing['last_error'] = result['error']
                     existing['error_timestamp'] = timestamp
                     rankings['current'][book_id][fmt_name][country_code] = existing
 
-                # Respectful delay between requests (shorter in CI to stay within timeout)
                 time.sleep(random.uniform(2, 4) if CI_MODE else random.uniform(3, 7))
 
-        # Save + commit after every book — progress preserved even if job times out
         rankings_path = os.path.join(DATA_DIR, 'rankings.json')
         save_json(rankings_path, rankings)
         git_commit_rankings(
