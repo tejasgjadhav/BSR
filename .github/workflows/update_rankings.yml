@@ -30,18 +30,20 @@ jobs:
           cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r scripts/requirements.txt
+        run: |
+          pip install --upgrade pip
+          pip install curl_cffi beautifulsoup4 lxml
 
-      - name: Configure git (before scraper runs so it can commit per-book)
+      - name: Configure git
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
       - name: Run BSR scraper
         run: python scripts/scrape_bsr.py
-        continue-on-error: true   # Dashboard still deploys even if scraping partially fails
+        continue-on-error: true
 
-      - name: Commit any remaining rankings (safety net)
+      - name: Commit any remaining rankings
         run: |
           git add data/rankings.json
           git diff --staged --quiet || git commit -m "chore: update BSR rankings $(date -u '+%Y-%m-%d %H:%M UTC')"
