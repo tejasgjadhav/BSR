@@ -5100,5 +5100,411 @@
         ]
       }
     }
+  },
+  "audit_log": {
+    "claude_ai_finance": [
+      {
+        "date": "2026-05-15",
+        "rank": 108,
+        "category": "Valuation",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-16",
+        "rank": 8,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-17",
+        "rank": 12,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-22",
+        "rank": 33,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-24",
+        "rank": 3,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 3,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 10,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 143,
+        "category": "Valuation",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 28,
+        "category": "Importados sobre Finanças Corporativas",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GVJPXVP8"
+      }
+    ],
+    "ai_prompts_financial_analysis": [
+      {
+        "date": "2026-05-15",
+        "rank": 219,
+        "category": "Personal Finance",
+        "country": "IT",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-16",
+        "rank": 250,
+        "category": "Personal Finance (Books)",
+        "country": "IT",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-17",
+        "rank": 340,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-22",
+        "rank": 380,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-24",
+        "rank": 391,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 404,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 405,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 419,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 438,
+        "category": "Generative AI",
+        "country": "CA",
+        "format": "paperback",
+        "asin": "9357823662"
+      }
+    ],
+    "wealth_code_shivaji": [
+      {
+        "date": "2026-05-15",
+        "rank": 2731,
+        "category": "Historical Asian Biographies",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-16",
+        "rank": 1054,
+        "category": "Biografias Importadas e Casos Verdadeiros Históricos",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-17",
+        "rank": 1105,
+        "category": "Biografias Importadas e Casos Verdadeiros Históricos",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-22",
+        "rank": 1364,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-24",
+        "rank": 1438,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 1448,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 1531,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 1569,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 1650,
+        "category": "Importados sobre Investimento",
+        "country": "BR",
+        "format": "paperback",
+        "asin": "B0GWWG34W6"
+      }
+    ],
+    "stop_losing_money": [
+      {
+        "date": "2026-05-15",
+        "rank": 7724,
+        "category": "Investing",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-16",
+        "rank": 7791,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-17",
+        "rank": 8176,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-22",
+        "rank": 1307957,
+        "category": "Kindle Store",
+        "country": "US",
+        "format": "kindle",
+        "asin": "B0G7YSZZJM"
+      },
+      {
+        "date": "2026-05-24",
+        "rank": 10114,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 10311,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 10695,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 11009,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 11607,
+        "category": "Investing (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0GWHZLVK8"
+      }
+    ],
+    "ai_prompts_equity_research": [
+      {
+        "date": "2026-05-15",
+        "rank": 389,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-16",
+        "rank": 290,
+        "category": "Finanzas Profesionales",
+        "country": "MX",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-17",
+        "rank": 389,
+        "category": "Administração, Negócios e Economia (Livros)",
+        "country": "BR",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-22",
+        "rank": 439,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-24",
+        "rank": 447,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-25",
+        "rank": 449,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 464,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 478,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 492,
+        "category": "Investment Portfolio Management",
+        "country": "CA",
+        "format": "hardcover",
+        "asin": "B0GSBV7QX9"
+      }
+    ],
+    "claude_cowork_finance": [
+      {
+        "date": "2026-05-25",
+        "rank": 93,
+        "category": "Generative AI (Books)",
+        "country": "US",
+        "format": "paperback",
+        "asin": "B0H2CZKK2W"
+      },
+      {
+        "date": "2026-05-26",
+        "rank": 162,
+        "category": "Generative AI (Books)",
+        "country": "US",
+        "format": "hardcover",
+        "asin": "B0H2CWS6K7"
+      },
+      {
+        "date": "2026-05-27",
+        "rank": 341,
+        "category": "Generative AI (Books)",
+        "country": "US",
+        "format": "hardcover",
+        "asin": "B0H2CWS6K7"
+      },
+      {
+        "date": "2026-05-29",
+        "rank": 96,
+        "category": "Generative AI (Books)",
+        "country": "US",
+        "format": "hardcover",
+        "asin": "B0H2CWS6K7"
+      }
+    ]
   }
 }

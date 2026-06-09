@@ -410,6 +410,54 @@ def git_commit_rankings(filepath, message):
         logger.warning(f"  [git commit failed: {e}]")
 
 
+def update_audit_log(rankings, books_data, date_key):
+    """
+    Append today's best rank (lowest number) for each book across all formats
+    and countries into rankings['audit_log'][book_id].
+    Keeps one entry per date; overwrites if called again on the same date.
+    """
+    rankings.setdefault('audit_log', {})
+
+    for book in books_data['books']:
+        book_id = book['id']
+        rankings['audit_log'].setdefault(book_id, [])
+
+        best = None  # {'rank', 'category', 'country', 'format', 'asin'}
+        for fmt_name, countries in rankings['current'].get(book_id, {}).items():
+            for country, data in countries.items():
+                if not isinstance(data, dict):
+                    continue
+                rank = data.get('rank')
+                if rank and (best is None or rank < best['rank']):
+                    best = {
+                        'rank': rank,
+                        'category': data.get('category', ''),
+                        'country': country,
+                        'format': fmt_name,
+                        'asin': data.get('asin', ''),
+                    }
+
+        if best is None:
+            continue
+
+        entry = {'date': date_key, **best}
+
+        log = rankings['audit_log'][book_id]
+        # Replace existing entry for today, otherwise append
+        for i, e in enumerate(log):
+            if e['date'] == date_key:
+                log[i] = entry
+                break
+        else:
+            log.append(entry)
+
+        # Keep last 365 entries, most recent last
+        log.sort(key=lambda e: e['date'])
+        rankings['audit_log'][book_id] = log[-365:]
+
+    logger.info("  [audit_log updated]")
+
+
 def update_rankings():
     """Main update loop — scrapes all books x formats x countries."""
     books_data = load_json(os.path.join(DATA_DIR, 'books.json'))
@@ -484,6 +532,11 @@ def update_rankings():
             rankings_path,
             f"chore: update BSR rankings {date_key} — {book['title'][:40]}"
         )
+
+    update_audit_log(rankings, books_data, date_key)
+    rankings_path = os.path.join(DATA_DIR, 'rankings.json')
+    save_json(rankings_path, rankings)
+    git_commit_rankings(rankings_path, f"chore: update BSR audit log {date_key}")
 
     logger.info(f"\nDone! Success: {success_count}, Failed: {fail_count}")
     return rankings
