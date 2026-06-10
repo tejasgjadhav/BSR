@@ -182,15 +182,28 @@ footer a{color:var(--or);text-decoration:none}
 .audit-book-hdr .ab-best{background:var(--or);color:#000;font-weight:800;font-size:.78rem;padding:3px 10px;border-radius:20px;white-space:nowrap}
 .audit-book-hdr .ab-toggle{font-size:.8rem;opacity:.5;transition:transform .25s}
 .audit-book-hdr.open .ab-toggle{transform:rotate(180deg)}
-.audit-body{display:none;padding:0 20px 16px}
+.audit-body{display:none}
 .audit-body.open{display:block}
-.audit-tbl{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:10px}
-.audit-tbl th{text-align:left;padding:7px 10px;background:var(--g100);color:var(--g500);font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--g200)}
-.audit-tbl td{padding:7px 10px;border-bottom:1px solid var(--g100);color:var(--g700)}
+/* format tabs inside audit */
+.audit-ftabs{display:flex;gap:0;border-bottom:2px solid var(--g200);padding:0 20px;background:var(--g50)}
+.audit-ftab{padding:10px 18px;font-size:.78rem;font-weight:600;cursor:pointer;color:var(--g500);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s}
+.audit-ftab.active{color:var(--navy);border-color:var(--or)}
+.audit-fpanel{display:none;padding:16px 20px}
+.audit-fpanel.active{display:block}
+.audit-tbl{width:100%;border-collapse:collapse;font-size:.79rem}
+.audit-tbl th{text-align:left;padding:7px 10px;background:var(--g100);color:var(--g500);font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--g200);position:sticky;top:0}
+.audit-tbl td{padding:6px 10px;border-bottom:1px solid var(--g100);color:var(--g700);vertical-align:top}
 .audit-tbl tr:last-child td{border-bottom:none}
-.audit-tbl tr.best-row td{background:#fffbe6;font-weight:700}
-.audit-tbl .rank-cell{font-weight:700;color:var(--navy);font-size:.88rem}
-.audit-tbl .fmt-badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:.67rem;font-weight:600;text-transform:uppercase}
+.audit-tbl tr.day-best td{background:#fffbe6}
+.audit-tbl .rank-cell{font-weight:800;color:var(--navy);font-size:.85rem}
+.audit-tbl .rank-cell.gold{color:#b45309}
+.audit-cats{display:flex;flex-direction:column;gap:3px}
+.audit-cat-row{display:flex;align-items:center;gap:6px}
+.audit-cat-rank{font-weight:700;color:var(--navy);min-width:42px;font-size:.82rem}
+.audit-cat-rank.top3{color:#b45309}
+.audit-cat-name{color:var(--g700);font-size:.76rem}
+.audit-cat-flag{font-size:.85rem}
+.fmt-badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:.67rem;font-weight:600;text-transform:uppercase}
 .fmt-kindle{background:#e0f2fe;color:#0369a1}
 .fmt-paperback{background:#f0fdf4;color:#15803d}
 .fmt-hardcover{background:#f5f3ff;color:#6d28d9}
@@ -572,38 +585,69 @@ function drawChart(){
 function renderAuditLog(){
   const wrap=document.getElementById('audit-wrap');
   if(!wrap||!R?.audit_log||!B) return;
-  const fmtBadge=f=>`<span class="fmt-badge fmt-${f}">${f}</span>`;
   const flagOf=cc=>B.countries?.[cc]?.flag||cc;
+  const FMTS=['kindle','paperback','hardcover'];
+  const FMT_LABEL={kindle:'📱 Kindle',paperback:'📄 Paperback',hardcover:'📗 Hardcover'};
 
   wrap.innerHTML=B.books.map(book=>{
-    const log=(R.audit_log[book.id]||[]).slice().reverse(); // most recent first
-    if(!log.length) return '';
-    const allTime=log.reduce((b,e)=>(!b||e.rank<b.rank)?e:b,null);
+    const bookLog=R.audit_log[book.id]||{};
+    const availFmts=FMTS.filter(f=>bookLog[f]?.length);
+    if(!availFmts.length) return '';
 
-    const rows=log.map(e=>{
-      const isBest=e.rank===allTime.rank&&e.date===allTime.date;
-      return `<tr class="${isBest?'best-row':''}">
-        <td>${e.date}${isBest?' ⭐':''}</td>
-        <td class="rank-cell">#${e.rank.toLocaleString()}</td>
-        <td>${e.category||'—'}</td>
-        <td>${flagOf(e.country)} ${e.country}</td>
-        <td>${fmtBadge(e.format)}</td>
-      </tr>`;
-    }).join('');
+    // all-time best across all formats
+    let globalBest=null;
+    for(const fmt of availFmts){
+      for(const day of bookLog[fmt]){
+        if(!globalBest||day.best_rank<globalBest.rank)
+          globalBest={rank:day.best_rank,fmt};
+      }
+    }
 
-    const id='al-'+book.id;
-    return `<div class="audit-book">
-      <div class="audit-book-hdr" onclick="toggleAudit('${id}')">
-        <span class="ab-emoji">${book.cover_emoji||'📚'}</span>
-        <span class="ab-title">${book.title}</span>
-        <span class="ab-best">All-time best: #${allTime.rank.toLocaleString()} ${flagOf(allTime.country)}</span>
-        <span class="ab-toggle">▼</span>
-      </div>
-      <div class="audit-body" id="${id}">
+    const bid='al-'+book.id;
+
+    // format tabs
+    const tabs=availFmts.map((f,i)=>`<div class="audit-ftab${i===0?' active':''}" onclick="auditTab('${bid}','${f}')" id="${bid}-tab-${f}">${FMT_LABEL[f]}</div>`).join('');
+
+    // format panels
+    const panels=availFmts.map((f,i)=>{
+      const log=(bookLog[f]||[]).slice().reverse(); // most recent first
+      const allTimeBest=log.reduce((b,e)=>(!b||e.best_rank<b.best_rank)?e:b,null);
+
+      const rows=log.map(day=>{
+        const isBest=day.date===allTimeBest?.date;
+        const catRows=day.entries.map(e=>{
+          const isTop3=e.rank<=3;
+          return `<div class="audit-cat-row">
+            <span class="audit-cat-rank${isTop3?' top3':''}">#${e.rank.toLocaleString()}</span>
+            <span class="audit-cat-flag">${flagOf(e.country)}</span>
+            <span class="audit-cat-name">${e.category}</span>
+          </div>`;
+        }).join('');
+        return `<tr class="${isBest?'day-best':''}">
+          <td><strong>${day.date}</strong>${isBest?' ⭐':''}</td>
+          <td class="rank-cell${day.best_rank<=3?' gold':''}">#${day.best_rank.toLocaleString()}</td>
+          <td><div class="audit-cats">${catRows}</div></td>
+        </tr>`;
+      }).join('');
+
+      return `<div class="audit-fpanel${i===0?' active':''}" id="${bid}-panel-${f}">
         <table class="audit-tbl">
-          <thead><tr><th>Date</th><th>Best Rank</th><th>Category</th><th>Country</th><th>Format</th></tr></thead>
+          <thead><tr><th>Date</th><th>Best</th><th>All Category Rankings That Day</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
+      </div>`;
+    }).join('');
+
+    return `<div class="audit-book">
+      <div class="audit-book-hdr" onclick="toggleAudit('${bid}')">
+        <span class="ab-emoji">${book.cover_emoji||'📚'}</span>
+        <span class="ab-title">${book.title}</span>
+        ${globalBest?`<span class="ab-best">All-time best: #${globalBest.rank.toLocaleString()} (${globalBest.fmt})</span>`:''}
+        <span class="ab-toggle">▼</span>
+      </div>
+      <div class="audit-body" id="${bid}">
+        <div class="audit-ftabs">${tabs}</div>
+        ${panels}
       </div>
     </div>`;
   }).join('');
@@ -614,6 +658,13 @@ function toggleAudit(id){
   if(!body) return;
   const open=body.classList.toggle('open');
   hdr?.classList.toggle('open',open);
+}
+function auditTab(bid,fmt){
+  // switch active tab and panel
+  ['kindle','paperback','hardcover'].forEach(f=>{
+    document.getElementById(`${bid}-tab-${f}`)?.classList.toggle('active',f===fmt);
+    document.getElementById(`${bid}-panel-${f}`)?.classList.toggle('active',f===fmt);
+  });
 }
 
 load();

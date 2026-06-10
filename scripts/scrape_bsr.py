@@ -412,48 +412,62 @@ def git_commit_rankings(filepath, message):
 
 def update_audit_log(rankings, books_data, date_key):
     """
-    Append today's best rank (lowest number) for each book across all formats
-    and countries into rankings['audit_log'][book_id].
-    Keeps one entry per date; overwrites if called again on the same date.
+    Per book, per format: record ALL notable sub-category ranks for today
+    collected from current[book_id][fmt][country]['all_ranks'].
+    Structure: audit_log[book_id][fmt] = [{date, best_rank, entries:[{rank,category,country}]}]
     """
     rankings.setdefault('audit_log', {})
 
+    TOP_LEVEL = {'kindle store', 'books', 'livros', 'libros', 'bücher', 'livres',
+                 'libri', 'kindle storeの商品', 'kindle ストア'}
+
     for book in books_data['books']:
         book_id = book['id']
-        rankings['audit_log'].setdefault(book_id, [])
+        rankings['audit_log'].setdefault(book_id, {})
 
-        best = None  # {'rank', 'category', 'country', 'format', 'asin'}
         for fmt_name, countries in rankings['current'].get(book_id, {}).items():
+            rankings['audit_log'][book_id].setdefault(fmt_name, [])
+
+            # Collect all sub-category ranks across every country for this format
+            seen = {}  # category_lower -> best {rank, category, country}
             for country, data in countries.items():
                 if not isinstance(data, dict):
                     continue
-                rank = data.get('rank')
-                if rank and (best is None or rank < best['rank']):
-                    best = {
-                        'rank': rank,
-                        'category': data.get('category', ''),
-                        'country': country,
-                        'format': fmt_name,
-                        'asin': data.get('asin', ''),
-                    }
+                for item in data.get('all_ranks', []):
+                    rank = item.get('rank')
+                    cat = item.get('category', '').strip()
+                    if not rank or not cat:
+                        continue
+                    if cat.lower() in TOP_LEVEL:
+                        continue
+                    key = cat.lower()[:60]
+                    if key not in seen or rank < seen[key]['rank']:
+                        seen[key] = {'rank': rank, 'category': cat, 'country': country}
 
-        if best is None:
-            continue
+                # Also include primary rank if all_ranks is empty
+                if not data.get('all_ranks') and data.get('rank') and data.get('category'):
+                    cat = data['category'].strip()
+                    key = cat.lower()[:60]
+                    if key not in seen or data['rank'] < seen[key]['rank']:
+                        seen[key] = {'rank': data['rank'], 'category': cat, 'country': country}
 
-        entry = {'date': date_key, **best}
+            if not seen:
+                continue
 
-        log = rankings['audit_log'][book_id]
-        # Replace existing entry for today, otherwise append
-        for i, e in enumerate(log):
-            if e['date'] == date_key:
-                log[i] = entry
-                break
-        else:
-            log.append(entry)
+            entries = sorted(seen.values(), key=lambda x: x['rank'])
+            best_rank = entries[0]['rank']
+            entry = {'date': date_key, 'best_rank': best_rank, 'entries': entries}
 
-        # Keep last 365 entries, most recent last
-        log.sort(key=lambda e: e['date'])
-        rankings['audit_log'][book_id] = log[-365:]
+            log = rankings['audit_log'][book_id][fmt_name]
+            for i, e in enumerate(log):
+                if e['date'] == date_key:
+                    log[i] = entry
+                    break
+            else:
+                log.append(entry)
+
+            log.sort(key=lambda e: e['date'])
+            rankings['audit_log'][book_id][fmt_name] = log[-365:]
 
     logger.info("  [audit_log updated]")
 
