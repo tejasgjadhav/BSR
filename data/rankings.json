@@ -5103,2470 +5103,858 @@
   },
   "audit_log": {
     "claude_ai_finance": {
-      "kindle": [
-        {
-          "date": "2026-05-16",
+      "kindle": {
+        "inversiones": {
           "best_rank": 1190,
-          "entries": [
-            {
-              "rank": 1190,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 37011,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Inversiones",
+          "country": "MX",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-05-17",
-          "best_rank": 21812,
-          "entries": [
-            {
-              "rank": 21812,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 30783,
-          "entries": [
-            {
-              "rank": 30783,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 53699,
-          "entries": [
-            {
-              "rank": 53699,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 61593,
-          "entries": [
-            {
-              "rank": 61593,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 77639,
-          "entries": [
-            {
-              "rank": 77639,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 83033,
-          "entries": [
-            {
-              "rank": 83033,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
-          "best_rank": 21933,
-          "entries": [
-            {
-              "rank": 21933,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-06",
-          "best_rank": 38319,
-          "entries": [
-            {
-              "rank": 38319,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-07",
+        "loja kindle": {
           "best_rank": 20763,
-          "entries": [
-            {
-              "rank": 20763,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Loja Kindle",
+          "country": "BR",
+          "date": "2026-06-07"
         },
-        {
-          "date": "2026-06-08",
-          "best_rank": 37118,
-          "entries": [
-            {
-              "rank": 37118,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
+        "financial risk management (kindle store)": {
           "best_rank": 2,
-          "entries": [
-            {
-              "rank": 2,
-              "category": "Financial Risk Management (Kindle Store)",
-              "country": "US"
-            },
-            {
-              "rank": 6,
-              "category": "Investing Portfolio Management",
-              "country": "US"
-            },
-            {
-              "rank": 26,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 37,
-              "category": "Investing (Kindle Store)",
-              "country": "CA"
-            },
-            {
-              "rank": 43,
-              "category": "Management of Financial Risk",
-              "country": "NL"
-            },
-            {
-              "rank": 68,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            },
-            {
-              "rank": 92,
-              "category": "Computação, internet e mídia digital em inglês",
-              "country": "BR"
-            },
-            {
-              "rank": 100,
-              "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras",
-              "country": "BR"
-            },
-            {
-              "rank": 133,
-              "category": "Computers & Technology eBooks",
-              "country": "IN"
-            },
-            {
-              "rank": 297,
-              "category": "Computing, Internet & Digital Media (English)",
-              "country": "NL"
-            },
-            {
-              "rank": 373,
-              "category": "Financial Risk Management",
-              "country": "AU"
-            },
-            {
-              "rank": 419,
-              "category": "Computers & Internet",
-              "country": "IN"
-            },
-            {
-              "rank": 445,
-              "category": "Business & Investing eBooks",
-              "country": "IN"
-            },
-            {
-              "rank": 657,
-              "category": "Business Finance & Investing",
-              "country": "AU"
-            },
-            {
-              "rank": 1190,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 10337,
-              "category": "Negocios y Economía en Idiomas Extranjeros",
-              "country": "MX"
-            },
-            {
-              "rank": 37118,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        }
-      ],
-      "paperback": [
-        {
-          "date": "2026-05-15",
-          "best_rank": 193,
-          "entries": [
-            {
-              "rank": 193,
-              "category": "Generative AI",
-              "country": "FR"
-            },
-            {
-              "rank": 445,
-              "category": "Business & Careers",
-              "country": "IT"
-            },
-            {
-              "rank": 4106,
-              "category": "Investing",
-              "country": "AU"
-            }
-          ]
+          "category": "Financial Risk Management (Kindle Store)",
+          "country": "US",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-05-16",
-          "best_rank": 203,
-          "entries": [
-            {
-              "rank": 203,
-              "category": "Generative AI (Books)",
-              "country": "FR"
-            },
-            {
-              "rank": 598,
-              "category": "Business & Careers",
-              "country": "IT"
-            },
-            {
-              "rank": 598,
-              "category": "Business & Careers (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 4109,
-              "category": "Investing",
-              "country": "AU"
-            },
-            {
-              "rank": 4115,
-              "category": "Investing (Books)",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-17",
-          "best_rank": 222,
-          "entries": [
-            {
-              "rank": 222,
-              "category": "Generative AI (Books)",
-              "country": "FR"
-            },
-            {
-              "rank": 538,
-              "category": "Business & Careers (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 4311,
-              "category": "Investing (Books)",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 4752,
-          "entries": [
-            {
-              "rank": 4752,
-              "category": "Investing (Books)",
-              "country": "AU"
-            },
-            {
-              "rank": 6655,
-              "category": "Business & Careers (Books)",
-              "country": "IT"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
-          "best_rank": 3,
-          "entries": [
-            {
-              "rank": 3,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 7,
-              "category": "Importados sobre Finanças e Investimentos",
-              "country": "BR"
-            },
-            {
-              "rank": 9,
-              "category": "Financial Risk Management (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 11,
-              "category": "Management of Financial Risk",
-              "country": "SE"
-            },
-            {
-              "rank": 12,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 26,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 41,
-              "category": "Financial Risk Management",
-              "country": "CA"
-            },
-            {
-              "rank": 86,
-              "category": "Finanzas Corporativas",
-              "country": "MX"
-            },
-            {
-              "rank": 137,
-              "category": "Managers' Guides to Computing",
-              "country": "UK"
-            },
-            {
-              "rank": 192,
-              "category": "E-Business",
-              "country": "UK"
-            },
-            {
-              "rank": 394,
-              "category": "Finanzas Profesionales",
-              "country": "MX"
-            },
-            {
-              "rank": 419,
-              "category": "Finanzas e Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 1044,
-              "category": "Computing & Internet",
-              "country": "DE"
-            },
-            {
-              "rank": 1165,
-              "category": "Professional Finance",
-              "country": "BE"
-            },
-            {
-              "rank": 4752,
-              "category": "Investing (Books)",
-              "country": "AU"
-            },
-            {
-              "rank": 4770,
-              "category": "Finance (Books)",
-              "country": "AU"
-            },
-            {
-              "rank": 6655,
-              "category": "Business & Careers (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 7481,
-              "category": "Business Management & Leadership",
-              "country": "FR"
-            },
-            {
-              "rank": 33364,
-              "category": "Books in English",
-              "country": "IT"
-            },
-            {
-              "rank": 41774,
-              "category": "Books in other languages",
-              "country": "IT"
-            },
-            {
-              "rank": 67508,
-              "category": "Englishman",
-              "country": "FR"
-            },
-            {
-              "rank": 92895,
-              "category": "English language books",
-              "country": "NL"
-            }
-          ]
-        }
-      ],
-      "hardcover": [
-        {
-          "date": "2026-05-15",
-          "best_rank": 108,
-          "entries": [
-            {
-              "rank": 108,
-              "category": "Valuation",
-              "country": "CA"
-            },
-            {
-              "rank": 827,
-              "category": "Professional Investments & Securities      85,893 in  Englis",
-              "country": "NL"
-            },
-            {
-              "rank": 4106,
-              "category": "Investing",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-16",
-          "best_rank": 8,
-          "entries": [
-            {
-              "rank": 8,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 86,
-              "category": "Finanzas Corporativas",
-              "country": "MX"
-            },
-            {
-              "rank": 108,
-              "category": "Valuation",
-              "country": "CA"
-            },
-            {
-              "rank": 371,
-              "category": "Professional Finance",
-              "country": "SE"
-            },
-            {
-              "rank": 832,
-              "category": "Professional Investments & Securities",
-              "country": "NL"
-            },
-            {
-              "rank": 4109,
-              "category": "Investing",
-              "country": "AU"
-            },
-            {
-              "rank": 4115,
-              "category": "Investing (Books)",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-17",
-          "best_rank": 12,
-          "entries": [
-            {
-              "rank": 12,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 112,
-              "category": "Valuation",
-              "country": "CA"
-            },
-            {
-              "rank": 418,
-              "category": "Professional Finance",
-              "country": "SE"
-            },
-            {
-              "rank": 886,
-              "category": "Professional Investments & Securities",
-              "country": "NL"
-            },
-            {
-              "rank": 4311,
-              "category": "Investing (Books)",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 33,
-          "entries": [
-            {
-              "rank": 33,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 130,
-              "category": "Valuation",
-              "country": "CA"
-            },
-            {
-              "rank": 526,
-              "category": "Professional Finance",
-              "country": "SE"
-            },
-            {
-              "rank": 1081,
-              "category": "Professional Investments & Securities",
-              "country": "NL"
-            },
-            {
-              "rank": 4752,
-              "category": "Investing (Books)",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 3,
-          "entries": [
-            {
-              "rank": 3,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 133,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 3,
-          "entries": [
-            {
-              "rank": 3,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 133,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 10,
-          "entries": [
-            {
-              "rank": 10,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 140,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 143,
-          "entries": [
-            {
-              "rank": 143,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 28,
-          "entries": [
-            {
-              "rank": 28,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 148,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
+        "investing portfolio management": {
           "best_rank": 6,
-          "entries": [
-            {
-              "rank": 6,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 166,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+          "category": "Investing Portfolio Management",
+          "country": "US",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-03",
-          "best_rank": 11,
-          "entries": [
-            {
-              "rank": 11,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 170,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "computers & technology ebooks": {
+          "best_rank": 133,
+          "category": "Computers & Technology eBooks",
+          "country": "IN",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-04",
-          "best_rank": 16,
-          "entries": [
-            {
-              "rank": 16,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 171,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "computers & internet": {
+          "best_rank": 419,
+          "category": "Computers & Internet",
+          "country": "IN",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-05",
-          "best_rank": 171,
-          "entries": [
-            {
-              "rank": 171,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "business & investing ebooks": {
+          "best_rank": 445,
+          "category": "Business & Investing eBooks",
+          "country": "IN",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-06",
-          "best_rank": 171,
-          "entries": [
-            {
-              "rank": 171,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "generative ai": {
+          "best_rank": 26,
+          "category": "Generative AI",
+          "country": "CA",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-07",
-          "best_rank": 9,
-          "entries": [
-            {
-              "rank": 9,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 173,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "investing (kindle store)": {
+          "best_rank": 37,
+          "category": "Investing (Kindle Store)",
+          "country": "CA",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-08",
-          "best_rank": 3,
-          "entries": [
-            {
-              "rank": 3,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 175,
-              "category": "Valuation",
-              "country": "CA"
-            }
-          ]
+        "financial risk management": {
+          "best_rank": 373,
+          "category": "Financial Risk Management",
+          "country": "AU",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-06-10",
-          "best_rank": 3,
-          "entries": [
-            {
-              "rank": 3,
-              "category": "Importados sobre Finanças Corporativas",
-              "country": "BR"
-            },
-            {
-              "rank": 7,
-              "category": "Importados sobre Finanças e Investimentos",
-              "country": "BR"
-            },
-            {
-              "rank": 14,
-              "category": "Valuation (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 86,
-              "category": "Finanzas Corporativas",
-              "country": "MX"
-            },
-            {
-              "rank": 175,
-              "category": "Valuation",
-              "country": "CA"
-            },
-            {
-              "rank": 199,
-              "category": "Economics (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 394,
-              "category": "Finanzas Profesionales",
-              "country": "MX"
-            },
-            {
-              "rank": 419,
-              "category": "Finanzas e Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 523,
-              "category": "Investing (Books)",
-              "country": "CA"
-            },
-            {
-              "rank": 526,
-              "category": "Professional Finance",
-              "country": "SE"
-            },
-            {
-              "rank": 624,
-              "category": "Corporate Finance",
-              "country": "UK"
-            },
-            {
-              "rank": 1081,
-              "category": "Professional Investments & Securities",
-              "country": "NL"
-            },
-            {
-              "rank": 4770,
-              "category": "Finance (Books)",
-              "country": "AU"
-            },
-            {
-              "rank": 48122,
-              "category": "English language books",
-              "country": "NL"
-            }
-          ]
+        "business finance & investing": {
+          "best_rank": 657,
+          "category": "Business Finance & Investing",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "administração, negócios e economia": {
+          "best_rank": 68,
+          "category": "Administração, Negócios e Economia",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "computação, internet e mídia digital em inglês": {
+          "best_rank": 92,
+          "category": "Computação, internet e mídia digital em inglês",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "computação, informática e mídias digitais em línguas estrang": {
+          "best_rank": 100,
+          "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "negocios y economía en idiomas extranjeros": {
+          "best_rank": 10337,
+          "category": "Negocios y Economía en Idiomas Extranjeros",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "management of financial risk": {
+          "best_rank": 43,
+          "category": "Management of Financial Risk",
+          "country": "NL",
+          "date": "2026-06-10"
+        },
+        "computing, internet & digital media (english)": {
+          "best_rank": 297,
+          "category": "Computing, Internet & Digital Media (English)",
+          "country": "NL",
+          "date": "2026-06-10"
         }
-      ]
+      },
+      "paperback": {
+        "investing": {
+          "best_rank": 4106,
+          "category": "Investing",
+          "country": "AU",
+          "date": "2026-05-15"
+        },
+        "investing (books)": {
+          "best_rank": 4115,
+          "category": "Investing (Books)",
+          "country": "AU",
+          "date": "2026-05-16"
+        },
+        "generative ai": {
+          "best_rank": 26,
+          "category": "Generative AI",
+          "country": "CA",
+          "date": "2026-06-10"
+        },
+        "generative ai (books)": {
+          "best_rank": 12,
+          "category": "Generative AI (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "business & careers": {
+          "best_rank": 445,
+          "category": "Business & Careers",
+          "country": "IT",
+          "date": "2026-05-15"
+        },
+        "business & careers (books)": {
+          "best_rank": 538,
+          "category": "Business & Careers (Books)",
+          "country": "IT",
+          "date": "2026-05-17"
+        },
+        "financial risk management (books)": {
+          "best_rank": 9,
+          "category": "Financial Risk Management (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "financial risk management": {
+          "best_rank": 41,
+          "category": "Financial Risk Management",
+          "country": "CA",
+          "date": "2026-06-10"
+        },
+        "managers' guides to computing": {
+          "best_rank": 137,
+          "category": "Managers' Guides to Computing",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "e-business": {
+          "best_rank": 192,
+          "category": "E-Business",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "finance (books)": {
+          "best_rank": 4770,
+          "category": "Finance (Books)",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "management of financial risk": {
+          "best_rank": 11,
+          "category": "Management of Financial Risk",
+          "country": "SE",
+          "date": "2026-06-10"
+        },
+        "computing & internet": {
+          "best_rank": 1044,
+          "category": "Computing & Internet",
+          "country": "DE",
+          "date": "2026-06-10"
+        },
+        "business management & leadership": {
+          "best_rank": 7481,
+          "category": "Business Management & Leadership",
+          "country": "FR",
+          "date": "2026-06-10"
+        },
+        "englishman": {
+          "best_rank": 67508,
+          "category": "Englishman",
+          "country": "FR",
+          "date": "2026-06-10"
+        },
+        "books in english": {
+          "best_rank": 33364,
+          "category": "Books in English",
+          "country": "IT",
+          "date": "2026-06-10"
+        },
+        "books in other languages": {
+          "best_rank": 41774,
+          "category": "Books in other languages",
+          "country": "IT",
+          "date": "2026-06-10"
+        },
+        "importados sobre finanças corporativas": {
+          "best_rank": 3,
+          "category": "Importados sobre Finanças Corporativas",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "importados sobre finanças e investimentos": {
+          "best_rank": 7,
+          "category": "Importados sobre Finanças e Investimentos",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "finanzas corporativas": {
+          "best_rank": 86,
+          "category": "Finanzas Corporativas",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "finanzas profesionales": {
+          "best_rank": 394,
+          "category": "Finanzas Profesionales",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "finanzas e inversiones": {
+          "best_rank": 419,
+          "category": "Finanzas e Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "english language books": {
+          "best_rank": 92895,
+          "category": "English language books",
+          "country": "NL",
+          "date": "2026-06-10"
+        },
+        "professional finance": {
+          "best_rank": 1165,
+          "category": "Professional Finance",
+          "country": "BE",
+          "date": "2026-06-10"
+        }
+      },
+      "hardcover": {
+        "valuation": {
+          "best_rank": 108,
+          "category": "Valuation",
+          "country": "CA",
+          "date": "2026-05-15"
+        },
+        "investing": {
+          "best_rank": 4106,
+          "category": "Investing",
+          "country": "AU",
+          "date": "2026-05-15"
+        },
+        "investing (books)": {
+          "best_rank": 523,
+          "category": "Investing (Books)",
+          "country": "CA",
+          "date": "2026-06-10"
+        },
+        "professional investments & securities      85,893 in  englis": {
+          "best_rank": 827,
+          "category": "Professional Investments & Securities      85,893 in  Englis",
+          "country": "NL",
+          "date": "2026-05-15"
+        },
+        "professional investments & securities": {
+          "best_rank": 832,
+          "category": "Professional Investments & Securities",
+          "country": "NL",
+          "date": "2026-05-16"
+        },
+        "finanzas corporativas": {
+          "best_rank": 86,
+          "category": "Finanzas Corporativas",
+          "country": "MX",
+          "date": "2026-05-16"
+        },
+        "importados sobre finanças corporativas": {
+          "best_rank": 3,
+          "category": "Importados sobre Finanças Corporativas",
+          "country": "BR",
+          "date": "2026-05-24"
+        },
+        "professional finance": {
+          "best_rank": 371,
+          "category": "Professional Finance",
+          "country": "SE",
+          "date": "2026-05-16"
+        },
+        "valuation (books)": {
+          "best_rank": 14,
+          "category": "Valuation (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "economics (books)": {
+          "best_rank": 199,
+          "category": "Economics (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "corporate finance": {
+          "best_rank": 624,
+          "category": "Corporate Finance",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "finance (books)": {
+          "best_rank": 4770,
+          "category": "Finance (Books)",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "importados sobre finanças e investimentos": {
+          "best_rank": 7,
+          "category": "Importados sobre Finanças e Investimentos",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "finanzas profesionales": {
+          "best_rank": 394,
+          "category": "Finanzas Profesionales",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "finanzas e inversiones": {
+          "best_rank": 419,
+          "category": "Finanzas e Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "english language books": {
+          "best_rank": 48122,
+          "category": "English language books",
+          "country": "NL",
+          "date": "2026-06-10"
+        }
+      }
     },
     "claude_cowork_finance": {
-      "kindle": [
-        {
-          "date": "2026-06-10",
+      "kindle": {
+        "generative ai (books)": {
           "best_rank": 337,
-          "entries": [
-            {
-              "rank": 337,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 396,
-              "category": "Two-Hour Computers & Technology Short Reads",
-              "country": "US"
-            }
-          ]
+          "category": "Generative AI (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "two-hour computers & technology short reads": {
+          "best_rank": 396,
+          "category": "Two-Hour Computers & Technology Short Reads",
+          "country": "US",
+          "date": "2026-06-10"
         }
-      ],
-      "paperback": [
-        {
-          "date": "2026-05-25",
+      },
+      "paperback": {
+        "generative ai (books)": {
           "best_rank": 93,
-          "entries": [
-            {
-              "rank": 93,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            }
-          ]
+          "category": "Generative AI (Books)",
+          "country": "US",
+          "date": "2026-05-25"
         },
-        {
-          "date": "2026-06-10",
-          "best_rank": 337,
-          "entries": [
-            {
-              "rank": 337,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 615,
-              "category": "Investment Analysis & Strategy",
-              "country": "US"
-            }
-          ]
+        "investment analysis & strategy": {
+          "best_rank": 615,
+          "category": "Investment Analysis & Strategy",
+          "country": "US",
+          "date": "2026-06-10"
         }
-      ],
-      "hardcover": [
-        {
-          "date": "2026-05-25",
+      },
+      "hardcover": {
+        "generative ai (books)": {
           "best_rank": 93,
-          "entries": [
-            {
-              "rank": 93,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            }
-          ]
+          "category": "Generative AI (Books)",
+          "country": "US",
+          "date": "2026-05-25"
         },
-        {
-          "date": "2026-05-26",
-          "best_rank": 162,
-          "entries": [
-            {
-              "rank": 162,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 341,
-          "entries": [
-            {
-              "rank": 341,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 96,
-          "entries": [
-            {
-              "rank": 96,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
-          "best_rank": 337,
-          "entries": [
-            {
-              "rank": 337,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 615,
-              "category": "Investment Analysis & Strategy",
-              "country": "US"
-            }
-          ]
+        "investment analysis & strategy": {
+          "best_rank": 615,
+          "category": "Investment Analysis & Strategy",
+          "country": "US",
+          "date": "2026-06-10"
         }
-      ]
+      }
     },
     "ai_prompts_financial_analysis": {
-      "kindle": [
-        {
-          "date": "2026-05-15",
+      "kindle": {
+        "shares analysis            customer reviews:": {
           "best_rank": 714,
-          "entries": [
-            {
-              "rank": 714,
-              "category": "Shares Analysis            Customer reviews:",
-              "country": "NL"
-            }
-          ]
+          "category": "Shares Analysis            Customer reviews:",
+          "country": "NL",
+          "date": "2026-05-15"
         },
-        {
-          "date": "2026-05-16",
+        "shares analysis": {
           "best_rank": 714,
-          "entries": [
-            {
-              "rank": 714,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 889,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 272283,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Shares Analysis",
+          "country": "NL",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-05-17",
-          "best_rank": 730,
-          "entries": [
-            {
-              "rank": 730,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 34579,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+        "inversiones": {
+          "best_rank": 889,
+          "category": "Inversiones",
+          "country": "MX",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-05-22",
-          "best_rank": 764,
-          "entries": [
-            {
-              "rank": 764,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 110801,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 133643,
-          "entries": [
-            {
-              "rank": 133643,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 137535,
-          "entries": [
-            {
-              "rank": 137535,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 163344,
-          "entries": [
-            {
-              "rank": 163344,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 177428,
-          "entries": [
-            {
-              "rank": 177428,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 202128,
-          "entries": [
-            {
-              "rank": 202128,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-04",
-          "best_rank": 214834,
-          "entries": [
-            {
-              "rank": 214834,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
+        "loja kindle": {
           "best_rank": 31038,
-          "entries": [
-            {
-              "rank": 31038,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Loja Kindle",
+          "country": "BR",
+          "date": "2026-06-05"
         },
-        {
-          "date": "2026-06-07",
-          "best_rank": 60607,
-          "entries": [
-            {
-              "rank": 60607,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-08",
-          "best_rank": 74120,
-          "entries": [
-            {
-              "rank": 74120,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
+        "investing portfolio management": {
           "best_rank": 21,
-          "entries": [
-            {
-              "rank": 21,
-              "category": "Investing Portfolio Management",
-              "country": "US"
-            },
-            {
-              "rank": 28,
-              "category": "Generative AI (Kindle Store)",
-              "country": "US"
-            },
-            {
-              "rank": 197,
-              "category": "Managers' Guides to Computing",
-              "country": "UK"
-            },
-            {
-              "rank": 332,
-              "category": "Generative AI",
-              "country": "AU"
-            },
-            {
-              "rank": 360,
-              "category": "Computação, internet e mídia digital em inglês",
-              "country": "BR"
-            },
-            {
-              "rank": 384,
-              "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras",
-              "country": "BR"
-            },
-            {
-              "rank": 534,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 631,
-              "category": "Negócios e economia em inglês",
-              "country": "BR"
-            },
-            {
-              "rank": 764,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 889,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 928,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            },
-            {
-              "rank": 1123,
-              "category": "Computers & Technology eBooks",
-              "country": "IN"
-            },
-            {
-              "rank": 1568,
-              "category": "Professional Finance",
-              "country": "UK"
-            },
-            {
-              "rank": 2341,
-              "category": "Computers & Internet",
-              "country": "IN"
-            },
-            {
-              "rank": 2548,
-              "category": "Business & Investing eBooks",
-              "country": "IN"
-            },
-            {
-              "rank": 4154,
-              "category": "Computers & Technology (Kindle Store)",
-              "country": "AU"
-            },
-            {
-              "rank": 74120,
-              "category": "Loja Kindle",
-              "country": "BR"
-            },
-            {
-              "rank": 150946,
-              "category": "Libros Extranjeros",
-              "country": "MX"
-            }
-          ]
+          "category": "Investing Portfolio Management",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "generative ai (kindle store)": {
+          "best_rank": 28,
+          "category": "Generative AI (Kindle Store)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "managers' guides to computing": {
+          "best_rank": 197,
+          "category": "Managers' Guides to Computing",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "professional finance": {
+          "best_rank": 1568,
+          "category": "Professional Finance",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "computers & technology ebooks": {
+          "best_rank": 1123,
+          "category": "Computers & Technology eBooks",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "computers & internet": {
+          "best_rank": 2341,
+          "category": "Computers & Internet",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "business & investing ebooks": {
+          "best_rank": 2548,
+          "category": "Business & Investing eBooks",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "generative ai": {
+          "best_rank": 332,
+          "category": "Generative AI",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "investment portfolio management": {
+          "best_rank": 534,
+          "category": "Investment Portfolio Management",
+          "country": "CA",
+          "date": "2026-06-10"
+        },
+        "investment analysis & strategy": {
+          "best_rank": 928,
+          "category": "Investment Analysis & Strategy",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "computers & technology (kindle store)": {
+          "best_rank": 4154,
+          "category": "Computers & Technology (Kindle Store)",
+          "country": "AU",
+          "date": "2026-06-10"
+        },
+        "computação, internet e mídia digital em inglês": {
+          "best_rank": 360,
+          "category": "Computação, internet e mídia digital em inglês",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "computação, informática e mídias digitais em línguas estrang": {
+          "best_rank": 384,
+          "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "negócios e economia em inglês": {
+          "best_rank": 631,
+          "category": "Negócios e economia em inglês",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "libros extranjeros": {
+          "best_rank": 150946,
+          "category": "Libros Extranjeros",
+          "country": "MX",
+          "date": "2026-06-10"
         }
-      ],
-      "paperback": [
-        {
-          "date": "2026-05-15",
-          "best_rank": 219,
-          "entries": [
-            {
-              "rank": 219,
-              "category": "Personal Finance",
-              "country": "IT"
-            },
-            {
-              "rank": 336,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 714,
-              "category": "Shares Analysis      230,826 in  English language books",
-              "country": "NL"
-            },
-            {
-              "rank": 798,
-              "category": "Investment Analysis & Strategy            Customer Reviews:",
-              "country": "AU"
-            }
-          ]
+      },
+      "paperback": {
+        "generative ai": {
+          "best_rank": 265,
+          "category": "Generative AI",
+          "country": "DE",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-05-16",
-          "best_rank": 250,
-          "entries": [
-            {
-              "rank": 250,
-              "category": "Personal Finance (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 333,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 420,
-              "category": "Generative AI (Books)",
-              "country": "FR"
-            },
-            {
-              "rank": 714,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 804,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            }
-          ]
+        "investment analysis & strategy            customer reviews:": {
+          "best_rank": 798,
+          "category": "Investment Analysis & Strategy            Customer Reviews:",
+          "country": "AU",
+          "date": "2026-05-15"
         },
-        {
-          "date": "2026-05-17",
-          "best_rank": 340,
-          "entries": [
-            {
-              "rank": 340,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 368,
-              "category": "Personal Finance (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 436,
-              "category": "Generative AI (Books)",
-              "country": "FR"
-            },
-            {
-              "rank": 730,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 841,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            }
-          ]
+        "investment analysis & strategy": {
+          "best_rank": 161,
+          "category": "Investment Analysis & Strategy",
+          "country": "US",
+          "date": "2026-06-10"
         },
-        {
-          "date": "2026-05-22",
-          "best_rank": 380,
-          "entries": [
-            {
-              "rank": 380,
-              "category": "Generative AI",
-              "country": "CA"
-            },
-            {
-              "rank": 893,
-              "category": "Personal Finance (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 928,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 391,
-          "entries": [
-            {
-              "rank": 391,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 404,
-          "entries": [
-            {
-              "rank": 404,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 405,
-          "entries": [
-            {
-              "rank": 405,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 419,
-          "entries": [
-            {
-              "rank": 419,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 438,
-          "entries": [
-            {
-              "rank": 438,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 453,
-          "entries": [
-            {
-              "rank": 453,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-03",
-          "best_rank": 459,
-          "entries": [
-            {
-              "rank": 459,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
-          "best_rank": 469,
-          "entries": [
-            {
-              "rank": 469,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-07",
-          "best_rank": 492,
-          "entries": [
-            {
-              "rank": 492,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-08",
-          "best_rank": 490,
-          "entries": [
-            {
-              "rank": 490,
-              "category": "Generative AI",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
+        "generative ai (books)": {
           "best_rank": 49,
-          "entries": [
-            {
-              "rank": 49,
-              "category": "Generative AI (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 161,
-              "category": "Investment Analysis & Strategy",
-              "country": "US"
-            },
-            {
-              "rank": 227,
-              "category": "Managers' Guides to Computing",
-              "country": "UK"
-            },
-            {
-              "rank": 260,
-              "category": "Personal Finance Budgeting",
-              "country": "UK"
-            },
-            {
-              "rank": 265,
-              "category": "Generative AI",
-              "country": "DE"
-            },
-            {
-              "rank": 269,
-              "category": "Shares Analysis",
-              "country": "DE"
-            },
-            {
-              "rank": 290,
-              "category": "Finanzas Profesionales",
-              "country": "MX"
-            },
-            {
-              "rank": 307,
-              "category": "Finanzas e Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 361,
-              "category": "E-Business",
-              "country": "UK"
-            },
-            {
-              "rank": 509,
-              "category": "Technological Analysis",
-              "country": "FR"
-            },
-            {
-              "rank": 653,
-              "category": "Manager's Guides to Computing",
-              "country": "CA"
-            },
-            {
-              "rank": 889,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 893,
-              "category": "Personal Finance (Books)",
-              "country": "IT"
-            },
-            {
-              "rank": 2035,
-              "category": "Stock Market & Money Guidebooks",
-              "country": "DE"
-            },
-            {
-              "rank": 64018,
-              "category": "Books in English",
-              "country": "IT"
-            },
-            {
-              "rank": 80465,
-              "category": "Books in other languages",
-              "country": "IT"
-            },
-            {
-              "rank": 240711,
-              "category": "English language books",
-              "country": "NL"
-            }
-          ]
+          "category": "Generative AI (Books)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "personal finance": {
+          "best_rank": 219,
+          "category": "Personal Finance",
+          "country": "IT",
+          "date": "2026-05-15"
+        },
+        "personal finance (books)": {
+          "best_rank": 250,
+          "category": "Personal Finance (Books)",
+          "country": "IT",
+          "date": "2026-05-16"
+        },
+        "shares analysis      230,826 in  english language books": {
+          "best_rank": 714,
+          "category": "Shares Analysis      230,826 in  English language books",
+          "country": "NL",
+          "date": "2026-05-15"
+        },
+        "shares analysis": {
+          "best_rank": 269,
+          "category": "Shares Analysis",
+          "country": "DE",
+          "date": "2026-06-10"
+        },
+        "managers' guides to computing": {
+          "best_rank": 227,
+          "category": "Managers' Guides to Computing",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "personal finance budgeting": {
+          "best_rank": 260,
+          "category": "Personal Finance Budgeting",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "e-business": {
+          "best_rank": 361,
+          "category": "E-Business",
+          "country": "UK",
+          "date": "2026-06-10"
+        },
+        "manager's guides to computing": {
+          "best_rank": 653,
+          "category": "Manager's Guides to Computing",
+          "country": "CA",
+          "date": "2026-06-10"
+        },
+        "stock market & money guidebooks": {
+          "best_rank": 2035,
+          "category": "Stock Market & Money Guidebooks",
+          "country": "DE",
+          "date": "2026-06-10"
+        },
+        "technological analysis": {
+          "best_rank": 509,
+          "category": "Technological Analysis",
+          "country": "FR",
+          "date": "2026-06-10"
+        },
+        "books in english": {
+          "best_rank": 64018,
+          "category": "Books in English",
+          "country": "IT",
+          "date": "2026-06-10"
+        },
+        "books in other languages": {
+          "best_rank": 80465,
+          "category": "Books in other languages",
+          "country": "IT",
+          "date": "2026-06-10"
+        },
+        "finanzas profesionales": {
+          "best_rank": 290,
+          "category": "Finanzas Profesionales",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "finanzas e inversiones": {
+          "best_rank": 307,
+          "category": "Finanzas e Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "inversiones": {
+          "best_rank": 889,
+          "category": "Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "english language books": {
+          "best_rank": 240711,
+          "category": "English language books",
+          "country": "NL",
+          "date": "2026-06-10"
         }
-      ]
+      }
     },
     "wealth_code_shivaji": {
-      "kindle": [
-        {
-          "date": "2026-05-16",
+      "kindle": {
+        "loja kindle": {
           "best_rank": 347876,
-          "entries": [
-            {
-              "rank": 347876,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Loja Kindle",
+          "country": "BR",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-05-17",
-          "best_rank": 357986,
-          "entries": [
-            {
-              "rank": 357986,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 411307,
-          "entries": [
-            {
-              "rank": 411307,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 431658,
-          "entries": [
-            {
-              "rank": 431658,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 432904,
-          "entries": [
-            {
-              "rank": 432904,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 453013,
-          "entries": [
-            {
-              "rank": 453013,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 463765,
-          "entries": [
-            {
-              "rank": 463765,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 483736,
-          "entries": [
-            {
-              "rank": 483736,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 522047,
-          "entries": [
-            {
-              "rank": 522047,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-04",
-          "best_rank": 540824,
-          "entries": [
-            {
-              "rank": 540824,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-06",
-          "best_rank": 558011,
-          "entries": [
-            {
-              "rank": 558011,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-07",
-          "best_rank": 565714,
-          "entries": [
-            {
-              "rank": 565714,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-08",
-          "best_rank": 573248,
-          "entries": [
-            {
-              "rank": 573248,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
+        "historical asian biographies (kindle store)": {
           "best_rank": 80,
-          "entries": [
-            {
-              "rank": 80,
-              "category": "Historical Asian Biographies (Kindle Store)",
-              "country": "US"
-            },
-            {
-              "rank": 304,
-              "category": "Wealth Management (Kindle Store)",
-              "country": "US"
-            },
-            {
-              "rank": 1231,
-              "category": "Biographies & Autobiographies (Kindle Store)",
-              "country": "IN"
-            },
-            {
-              "rank": 1534,
-              "category": "Business, Strategy & Management",
-              "country": "IN"
-            },
-            {
-              "rank": 2044,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 2436,
-              "category": "Biografias Importadas e Casos Verdadeiros Históricos",
-              "country": "BR"
-            },
-            {
-              "rank": 4556,
-              "category": "Analysis & Strategy",
-              "country": "IN"
-            },
-            {
-              "rank": 8874,
-              "category": "Biografias e histórias reais em inglês",
-              "country": "BR"
-            },
-            {
-              "rank": 573248,
-              "category": "Loja Kindle",
-              "country": "BR"
-            }
-          ]
+          "category": "Historical Asian Biographies (Kindle Store)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "wealth management (kindle store)": {
+          "best_rank": 304,
+          "category": "Wealth Management (Kindle Store)",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "biographies & autobiographies (kindle store)": {
+          "best_rank": 1231,
+          "category": "Biographies & Autobiographies (Kindle Store)",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "business, strategy & management": {
+          "best_rank": 1534,
+          "category": "Business, Strategy & Management",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "analysis & strategy": {
+          "best_rank": 4556,
+          "category": "Analysis & Strategy",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "importados sobre investimento": {
+          "best_rank": 2044,
+          "category": "Importados sobre Investimento",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "biografias importadas e casos verdadeiros históricos": {
+          "best_rank": 2436,
+          "category": "Biografias Importadas e Casos Verdadeiros Históricos",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "biografias e histórias reais em inglês": {
+          "best_rank": 8874,
+          "category": "Biografias e histórias reais em inglês",
+          "country": "BR",
+          "date": "2026-06-10"
         }
-      ],
-      "paperback": [
-        {
-          "date": "2026-05-15",
+      },
+      "paperback": {
+        "historical asian biographies": {
           "best_rank": 2731,
-          "entries": [
-            {
-              "rank": 2731,
-              "category": "Historical Asian Biographies",
-              "country": "US"
-            }
-          ]
+          "category": "Historical Asian Biographies",
+          "country": "US",
+          "date": "2026-05-15"
         },
-        {
-          "date": "2026-05-16",
-          "best_rank": 1054,
-          "entries": [
-            {
-              "rank": 1054,
-              "category": "Biografias Importadas e Casos Verdadeiros Históricos",
-              "country": "BR"
-            },
-            {
-              "rank": 2736,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-17",
-          "best_rank": 1105,
-          "entries": [
-            {
-              "rank": 1105,
-              "category": "Biografias Importadas e Casos Verdadeiros Históricos",
-              "country": "BR"
-            },
-            {
-              "rank": 2875,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 1364,
-          "entries": [
-            {
-              "rank": 1364,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3234,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 1438,
-          "entries": [
-            {
-              "rank": 1438,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3367,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 1448,
-          "entries": [
-            {
-              "rank": 1448,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3385,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 1531,
-          "entries": [
-            {
-              "rank": 1531,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3525,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 1569,
-          "entries": [
-            {
-              "rank": 1569,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3594,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 1650,
-          "entries": [
-            {
-              "rank": 1650,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 3715,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 3944,
-          "entries": [
-            {
-              "rank": 3944,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-03",
-          "best_rank": 1853,
-          "entries": [
-            {
-              "rank": 1853,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 4003,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
-          "best_rank": 4102,
-          "entries": [
-            {
-              "rank": 4102,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-06",
+        "historical asian biographies (books)": {
           "best_rank": 269,
-          "entries": [
-            {
-              "rank": 269,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 1994,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            }
-          ]
+          "category": "Historical Asian Biographies (Books)",
+          "country": "US",
+          "date": "2026-06-06"
         },
-        {
-          "date": "2026-06-07",
-          "best_rank": 425,
-          "entries": [
-            {
-              "rank": 425,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 2017,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            }
-          ]
+        "biografias importadas e casos verdadeiros históricos": {
+          "best_rank": 1054,
+          "category": "Biografias Importadas e Casos Verdadeiros Históricos",
+          "country": "BR",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-06-08",
-          "best_rank": 536,
-          "entries": [
-            {
-              "rank": 536,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 2044,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
-          "best_rank": 536,
-          "entries": [
-            {
-              "rank": 536,
-              "category": "Historical Asian Biographies (Books)",
-              "country": "US"
-            },
-            {
-              "rank": 2044,
-              "category": "Importados sobre Investimento",
-              "country": "BR"
-            },
-            {
-              "rank": 2436,
-              "category": "Biografias Importadas e Casos Verdadeiros Históricos",
-              "country": "BR"
-            }
-          ]
+        "importados sobre investimento": {
+          "best_rank": 1364,
+          "category": "Importados sobre Investimento",
+          "country": "BR",
+          "date": "2026-05-22"
         }
-      ]
+      }
     },
     "stop_losing_money": {
-      "kindle": [
-        {
-          "date": "2026-06-10",
+      "kindle": {
+        "one-hour business & money short reads": {
           "best_rank": 117,
-          "entries": [
-            {
-              "rank": 117,
-              "category": "One-Hour Business & Money Short Reads",
-              "country": "US"
-            },
-            {
-              "rank": 131,
-              "category": "Investing Portfolio Management",
-              "country": "US"
-            },
-            {
-              "rank": 506,
-              "category": "Business, Strategy & Management",
-              "country": "IN"
-            },
-            {
-              "rank": 1079,
-              "category": "Self-Help eBooks",
-              "country": "IN"
-            },
-            {
-              "rank": 2004,
-              "category": "Analysis & Strategy",
-              "country": "IN"
-            }
-          ]
+          "category": "One-Hour Business & Money Short Reads",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "investing portfolio management": {
+          "best_rank": 131,
+          "category": "Investing Portfolio Management",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "business, strategy & management": {
+          "best_rank": 506,
+          "category": "Business, Strategy & Management",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "self-help ebooks": {
+          "best_rank": 1079,
+          "category": "Self-Help eBooks",
+          "country": "IN",
+          "date": "2026-06-10"
+        },
+        "analysis & strategy": {
+          "best_rank": 2004,
+          "category": "Analysis & Strategy",
+          "country": "IN",
+          "date": "2026-06-10"
         }
-      ],
-      "paperback": [
-        {
-          "date": "2026-05-15",
+      },
+      "paperback": {
+        "investing": {
           "best_rank": 7724,
-          "entries": [
-            {
-              "rank": 7724,
-              "category": "Investing",
-              "country": "US"
-            }
-          ]
+          "category": "Investing",
+          "country": "US",
+          "date": "2026-05-15"
         },
-        {
-          "date": "2026-05-16",
-          "best_rank": 7791,
-          "entries": [
-            {
-              "rank": 7791,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-17",
-          "best_rank": 8176,
-          "entries": [
-            {
-              "rank": 8176,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 10114,
-          "entries": [
-            {
-              "rank": 10114,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 10311,
-          "entries": [
-            {
-              "rank": 10311,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 10695,
-          "entries": [
-            {
-              "rank": 10695,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 11009,
-          "entries": [
-            {
-              "rank": 11009,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 11607,
-          "entries": [
-            {
-              "rank": 11607,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 12935,
-          "entries": [
-            {
-              "rank": 12935,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-03",
-          "best_rank": 13232,
-          "entries": [
-            {
-              "rank": 13232,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-04",
-          "best_rank": 13537,
-          "entries": [
-            {
-              "rank": 13537,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
-          "best_rank": 13844,
-          "entries": [
-            {
-              "rank": 13844,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-06",
-          "best_rank": 14140,
-          "entries": [
-            {
-              "rank": 14140,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-08",
+        "investing (books)": {
           "best_rank": 3281,
-          "entries": [
-            {
-              "rank": 3281,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
-          "best_rank": 3281,
-          "entries": [
-            {
-              "rank": 3281,
-              "category": "Investing (Books)",
-              "country": "US"
-            }
-          ]
+          "category": "Investing (Books)",
+          "country": "US",
+          "date": "2026-06-08"
         }
-      ]
+      }
     },
     "ai_prompts_equity_research": {
-      "hardcover": [
-        {
-          "date": "2026-05-15",
-          "best_rank": 389,
-          "entries": [
-            {
-              "rank": 389,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 714,
-              "category": "Shares Analysis      230,826 in  English language books",
-              "country": "NL"
-            },
-            {
-              "rank": 798,
-              "category": "Investment Analysis & Strategy            Customer Reviews:",
-              "country": "AU"
-            },
-            {
-              "rank": 1064,
-              "category": "Professional Finance            Customer reviews:",
-              "country": "UK"
-            }
-          ]
+      "hardcover": {
+        "professional finance            customer reviews:": {
+          "best_rank": 1064,
+          "category": "Professional Finance            Customer reviews:",
+          "country": "UK",
+          "date": "2026-05-15"
         },
-        {
-          "date": "2026-05-16",
-          "best_rank": 290,
-          "entries": [
-            {
-              "rank": 290,
-              "category": "Finanzas Profesionales",
-              "country": "MX"
-            },
-            {
-              "rank": 389,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 714,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 804,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            },
-            {
-              "rank": 1219,
-              "category": "Professional Finance",
-              "country": "UK"
-            },
-            {
-              "rank": 8140,
-              "category": "Administração, Negócios e Economia (Livros)",
-              "country": "BR"
-            }
-          ]
+        "professional finance": {
+          "best_rank": 1219,
+          "category": "Professional Finance",
+          "country": "UK",
+          "date": "2026-05-16"
         },
-        {
-          "date": "2026-05-17",
-          "best_rank": 389,
-          "entries": [
-            {
-              "rank": 389,
-              "category": "Administração, Negócios e Economia (Livros)",
-              "country": "BR"
-            },
-            {
-              "rank": 395,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 730,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 841,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            },
-            {
-              "rank": 1787,
-              "category": "Professional Finance",
-              "country": "UK"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-22",
-          "best_rank": 439,
-          "entries": [
-            {
-              "rank": 439,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 764,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 928,
-              "category": "Investment Analysis & Strategy",
-              "country": "AU"
-            },
-            {
-              "rank": 1568,
-              "category": "Professional Finance",
-              "country": "UK"
-            },
-            {
-              "rank": 2605,
-              "category": "Administração, Negócios e Economia (Livros)",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-24",
-          "best_rank": 447,
-          "entries": [
-            {
-              "rank": 447,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 3250,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-25",
-          "best_rank": 449,
-          "entries": [
-            {
-              "rank": 449,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 3411,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-26",
-          "best_rank": 464,
-          "entries": [
-            {
-              "rank": 464,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 3919,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-27",
-          "best_rank": 478,
-          "entries": [
-            {
-              "rank": 478,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 4201,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-05-29",
-          "best_rank": 492,
-          "entries": [
-            {
-              "rank": 492,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            },
-            {
-              "rank": 4770,
-              "category": "Administração, Negócios e Economia",
-              "country": "BR"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-02",
-          "best_rank": 515,
-          "entries": [
-            {
-              "rank": 515,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-03",
-          "best_rank": 515,
-          "entries": [
-            {
-              "rank": 515,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-05",
-          "best_rank": 520,
-          "entries": [
-            {
-              "rank": 520,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-06",
-          "best_rank": 525,
-          "entries": [
-            {
-              "rank": 525,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-07",
-          "best_rank": 528,
-          "entries": [
-            {
-              "rank": 528,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-08",
-          "best_rank": 534,
-          "entries": [
-            {
-              "rank": 534,
-              "category": "Investment Portfolio Management",
-              "country": "CA"
-            }
-          ]
-        },
-        {
-          "date": "2026-06-10",
+        "investment portfolio management": {
           "best_rank": 63,
-          "entries": [
-            {
-              "rank": 63,
-              "category": "Investment Portfolio Management",
-              "country": "US"
-            },
-            {
-              "rank": 161,
-              "category": "Investment Analysis & Strategy",
-              "country": "US"
-            },
-            {
-              "rank": 178,
-              "category": "Importados sobre Finanças e Investimentos",
-              "country": "BR"
-            },
-            {
-              "rank": 290,
-              "category": "Finanzas Profesionales",
-              "country": "MX"
-            },
-            {
-              "rank": 307,
-              "category": "Finanzas e Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 764,
-              "category": "Shares Analysis",
-              "country": "NL"
-            },
-            {
-              "rank": 889,
-              "category": "Inversiones",
-              "country": "MX"
-            },
-            {
-              "rank": 1568,
-              "category": "Professional Finance",
-              "country": "UK"
-            },
-            {
-              "rank": 260883,
-              "category": "English language books",
-              "country": "NL"
-            }
-          ]
+          "category": "Investment Portfolio Management",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "investment analysis & strategy            customer reviews:": {
+          "best_rank": 798,
+          "category": "Investment Analysis & Strategy            Customer Reviews:",
+          "country": "AU",
+          "date": "2026-05-15"
+        },
+        "investment analysis & strategy": {
+          "best_rank": 161,
+          "category": "Investment Analysis & Strategy",
+          "country": "US",
+          "date": "2026-06-10"
+        },
+        "shares analysis      230,826 in  english language books": {
+          "best_rank": 714,
+          "category": "Shares Analysis      230,826 in  English language books",
+          "country": "NL",
+          "date": "2026-05-15"
+        },
+        "shares analysis": {
+          "best_rank": 714,
+          "category": "Shares Analysis",
+          "country": "NL",
+          "date": "2026-05-16"
+        },
+        "finanzas profesionales": {
+          "best_rank": 290,
+          "category": "Finanzas Profesionales",
+          "country": "MX",
+          "date": "2026-05-16"
+        },
+        "administração, negócios e economia (livros)": {
+          "best_rank": 389,
+          "category": "Administração, Negócios e Economia (Livros)",
+          "country": "BR",
+          "date": "2026-05-17"
+        },
+        "administração, negócios e economia": {
+          "best_rank": 3250,
+          "category": "Administração, Negócios e Economia",
+          "country": "BR",
+          "date": "2026-05-24"
+        },
+        "importados sobre finanças e investimentos": {
+          "best_rank": 178,
+          "category": "Importados sobre Finanças e Investimentos",
+          "country": "BR",
+          "date": "2026-06-10"
+        },
+        "finanzas e inversiones": {
+          "best_rank": 307,
+          "category": "Finanzas e Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "inversiones": {
+          "best_rank": 889,
+          "category": "Inversiones",
+          "country": "MX",
+          "date": "2026-06-10"
+        },
+        "english language books": {
+          "best_rank": 260883,
+          "category": "English language books",
+          "country": "NL",
+          "date": "2026-06-10"
         }
-      ]
+      }
     }
   }
 }

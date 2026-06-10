@@ -591,48 +591,43 @@ function renderAuditLog(){
 
   wrap.innerHTML=B.books.map(book=>{
     const bookLog=R.audit_log[book.id]||{};
-    const availFmts=FMTS.filter(f=>bookLog[f]?.length);
+    const availFmts=FMTS.filter(f=>bookLog[f]&&Object.keys(bookLog[f]).length);
     if(!availFmts.length) return '';
 
-    // all-time best across all formats
+    // global best rank across all formats
     let globalBest=null;
     for(const fmt of availFmts){
-      for(const day of bookLog[fmt]){
-        if(!globalBest||day.best_rank<globalBest.rank)
-          globalBest={rank:day.best_rank,fmt};
+      for(const v of Object.values(bookLog[fmt])){
+        if(!globalBest||v.best_rank<globalBest.rank)
+          globalBest={rank:v.best_rank,fmt};
       }
     }
 
     const bid='al-'+book.id;
+    const tabs=availFmts.map((f,i)=>
+      `<div class="audit-ftab${i===0?' active':''}" onclick="auditTab('${bid}','${f}')" id="${bid}-tab-${f}">${FMT_LABEL[f]}</div>`
+    ).join('');
 
-    // format tabs
-    const tabs=availFmts.map((f,i)=>`<div class="audit-ftab${i===0?' active':''}" onclick="auditTab('${bid}','${f}')" id="${bid}-tab-${f}">${FMT_LABEL[f]}</div>`).join('');
-
-    // format panels
     const panels=availFmts.map((f,i)=>{
-      const log=(bookLog[f]||[]).slice().reverse(); // most recent first
-      const allTimeBest=log.reduce((b,e)=>(!b||e.best_rank<b.best_rank)?e:b,null);
-
-      const rows=log.map(day=>{
-        const isBest=day.date===allTimeBest?.date;
-        const catRows=day.entries.map(e=>{
-          const isTop3=e.rank<=3;
-          return `<div class="audit-cat-row">
-            <span class="audit-cat-rank${isTop3?' top3':''}">#${e.rank.toLocaleString()}</span>
-            <span class="audit-cat-flag">${flagOf(e.country)}</span>
-            <span class="audit-cat-name">${e.category}</span>
-          </div>`;
+      const bests=bookLog[f]||{};
+      // sort by best_rank ascending
+      const rows=Object.values(bests)
+        .sort((a,b)=>a.best_rank-b.best_rank)
+        .map(e=>{
+          const isTop3=e.best_rank<=3;
+          return `<tr>
+            <td class="rank-cell${isTop3?' gold':''}">${isTop3?'🏆 ':''}<strong>#${e.best_rank.toLocaleString()}</strong></td>
+            <td>${e.category}</td>
+            <td>${flagOf(e.country)} ${e.country}</td>
+            <td style="color:var(--g400);font-size:.72rem">${e.date}</td>
+          </tr>`;
         }).join('');
-        return `<tr class="${isBest?'day-best':''}">
-          <td><strong>${day.date}</strong>${isBest?' ⭐':''}</td>
-          <td class="rank-cell${day.best_rank<=3?' gold':''}">#${day.best_rank.toLocaleString()}</td>
-          <td><div class="audit-cats">${catRows}</div></td>
-        </tr>`;
-      }).join('');
 
+      const fmt_best=Object.values(bests).reduce((b,e)=>(!b||e.best_rank<b.best_rank)?e:b,null);
       return `<div class="audit-fpanel${i===0?' active':''}" id="${bid}-panel-${f}">
+        ${fmt_best?`<div style="padding:10px 0 6px;font-size:.78rem;color:var(--g500)">Best rank ever: <strong style="color:var(--navy)">#${fmt_best.best_rank.toLocaleString()}</strong> in <em>${fmt_best.category}</em> · ${flagOf(fmt_best.country)} ${fmt_best.country} · ${fmt_best.date}</div>`:''}
         <table class="audit-tbl">
-          <thead><tr><th>Date</th><th>Best</th><th>All Category Rankings That Day</th></tr></thead>
+          <thead><tr><th>Best Rank Ever</th><th>Category</th><th>Country</th><th>Date Achieved</th></tr></thead>
           <tbody>${rows}</tbody>
         </table>
       </div>`;

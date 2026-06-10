@@ -410,64 +410,63 @@ def git_commit_rankings(filepath, message):
         logger.warning(f"  [git commit failed: {e}]")
 
 
+TOP_LEVEL_CATS = {
+    'kindle store', 'books', 'livros', 'libros', 'bücher', 'livres',
+    'libri', 'kindle storeの商品', 'kindle ストア',
+}
+
+
 def update_audit_log(rankings, books_data, date_key):
     """
-    Per book, per format: record ALL notable sub-category ranks for today
-    collected from current[book_id][fmt][country]['all_ranks'].
-    Structure: audit_log[book_id][fmt] = [{date, best_rank, entries:[{rank,category,country}]}]
+    Personal-bests board: per book, per format, track the best rank EVER
+    achieved in each sub-category. Updated daily — a record is only changed
+    when today's rank beats the stored best.
+
+    Structure:
+      audit_log[book_id][fmt_name] = {
+        cat_key: {best_rank, category, country, date}
+      }
     """
     rankings.setdefault('audit_log', {})
-
-    TOP_LEVEL = {'kindle store', 'books', 'livros', 'libros', 'bücher', 'livres',
-                 'libri', 'kindle storeの商品', 'kindle ストア'}
 
     for book in books_data['books']:
         book_id = book['id']
         rankings['audit_log'].setdefault(book_id, {})
 
         for fmt_name, countries in rankings['current'].get(book_id, {}).items():
-            rankings['audit_log'][book_id].setdefault(fmt_name, [])
+            rankings['audit_log'][book_id].setdefault(fmt_name, {})
+            bests = rankings['audit_log'][book_id][fmt_name]
 
-            # Collect all sub-category ranks across every country for this format
-            seen = {}  # category_lower -> best {rank, category, country}
             for country, data in countries.items():
                 if not isinstance(data, dict):
                     continue
                 for item in data.get('all_ranks', []):
                     rank = item.get('rank')
-                    cat = item.get('category', '').strip()
-                    if not rank or not cat:
-                        continue
-                    if cat.lower() in TOP_LEVEL:
+                    cat = (item.get('category') or '').strip()
+                    if not rank or not cat or cat.lower() in TOP_LEVEL_CATS:
                         continue
                     key = cat.lower()[:60]
-                    if key not in seen or rank < seen[key]['rank']:
-                        seen[key] = {'rank': rank, 'category': cat, 'country': country}
+                    if key not in bests or rank < bests[key]['best_rank']:
+                        bests[key] = {
+                            'best_rank': rank,
+                            'category': cat,
+                            'country': country,
+                            'date': date_key,
+                        }
 
-                # Also include primary rank if all_ranks is empty
+                # Fallback to primary rank when all_ranks is absent
                 if not data.get('all_ranks') and data.get('rank') and data.get('category'):
                     cat = data['category'].strip()
-                    key = cat.lower()[:60]
-                    if key not in seen or data['rank'] < seen[key]['rank']:
-                        seen[key] = {'rank': data['rank'], 'category': cat, 'country': country}
-
-            if not seen:
-                continue
-
-            entries = sorted(seen.values(), key=lambda x: x['rank'])
-            best_rank = entries[0]['rank']
-            entry = {'date': date_key, 'best_rank': best_rank, 'entries': entries}
-
-            log = rankings['audit_log'][book_id][fmt_name]
-            for i, e in enumerate(log):
-                if e['date'] == date_key:
-                    log[i] = entry
-                    break
-            else:
-                log.append(entry)
-
-            log.sort(key=lambda e: e['date'])
-            rankings['audit_log'][book_id][fmt_name] = log[-365:]
+                    if cat.lower() not in TOP_LEVEL_CATS:
+                        key = cat.lower()[:60]
+                        rank = data['rank']
+                        if key not in bests or rank < bests[key]['best_rank']:
+                            bests[key] = {
+                                'best_rank': rank,
+                                'category': cat,
+                                'country': country,
+                                'date': date_key,
+                            }
 
     logger.info("  [audit_log updated]")
 
