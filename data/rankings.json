@@ -1189,11 +1189,13 @@
           ],
           "timestamp": "2026-07-12T05:28:52.851354+00:00",
           "asin": "B0D8R41W2F",
-          "url": "https://www.amazon.com/dp/B0D8R41W2F"
+          "url": "https://www.amazon.com/dp/B0D8R41W2F",
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "IN": {
           "rank": 41873,
@@ -1220,35 +1222,35 @@
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.in/dp/B0D8R41W2F",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "BR": {
           "rank": 680966,
@@ -1275,31 +1277,31 @@
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.com.br/dp/B0D8R41W2F",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "BE": {
-          "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "last_error": "Not available (404)",
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         }
       },
       "paperback": {
@@ -1316,82 +1318,80 @@
           "asin": "B0GWWG34W6",
           "url": "https://www.amazon.com/dp/B0GWWG34W6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "BR": {
-          "rank": 2427,
+          "rank": 2440,
           "category": "Importados sobre Investimento",
           "all_ranks": [
             {
-              "rank": 2427,
+              "rank": 2440,
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 3098,
+              "rank": 3107,
               "category": "Biografias Importadas e Casos Verdadeiros Históricos"
             }
           ],
-          "timestamp": "2026-07-11T05:13:40.317005+00:00",
+          "timestamp": "2026-07-13T05:37:52.992460+00:00",
           "asin": "B0GWWG34W6",
-          "url": "https://www.amazon.com.br/dp/B0GWWG34W6",
-          "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "url": "https://www.amazon.com.br/dp/B0GWWG34W6"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-07-12T05:28:52.851354+00:00"
+          "error_timestamp": "2026-07-13T05:37:52.992460+00:00"
         }
       }
     },
@@ -6226,6 +6226,11 @@
           {
             "date": "2026-07-11",
             "rank": 2427,
+            "category": "Importados sobre Investimento"
+          },
+          {
+            "date": "2026-07-13",
+            "rank": 2440,
             "category": "Importados sobre Investimento"
           }
         ]
