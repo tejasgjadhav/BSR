@@ -345,7 +345,18 @@ def scrape_bsr(asin, domain, retries=None):
 
                 title_tag = soup.find('title')
                 page_len = len(response.content)
-                if page_len < 1000 or (title_tag and any(
+                body_lc = response.text.lower()
+                # Amazon serves a 200-OK automated-access block page (no product data,
+                # generic "Amazon.com" title, a few KB) that the title check alone misses.
+                # Detect it by body signature so it is not mislabelled "BSR not found".
+                block_signatures = (
+                    'to discuss automated access',
+                    'api-services-support',
+                    'validatecaptcha',
+                    'not a robot',
+                    'enter the characters you see below',
+                )
+                if page_len < 1000 or any(sig in body_lc for sig in block_signatures) or (title_tag and any(
                     w in title_tag.text.lower() for w in ['robot check', 'captcha', 'something went wrong', 'verify yourself']
                 )):
                     logger.warning(f"      Bot detection (page {page_len}b)")
