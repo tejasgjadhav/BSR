@@ -45,6 +45,84 @@
       }
     },
     {
+      "id": "claude_ai_finance_es",
+      "title": "Claude AI para profesionales de las finanzas",
+      "subtitle": "Prompts, plugins y flujos de trabajo — 18 mesas financieras institucionales, 130+ prompts originales",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "🇪🇸",
+      "cover_color": "#7a1f2b",
+      "cover_color2": "#b5303f",
+      "formats": {
+        "kindle": {
+          "asin": "B0H57YSP56",
+          "price": 6.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0H57YSP56"
+          }
+        },
+        "paperback": {
+          "asin": "B0H9B6HXK2",
+          "price": 34.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "country_asins": {
+            "US": "B0H9B6HXK2"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H99G7KFX",
+          "price": 59.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "country_asins": {
+            "US": "B0H99G7KFX"
+          }
+        }
+      }
+    },
+    {
+      "id": "claude_ai_finance_de",
+      "title": "Claude AI für Finanzprofis",
+      "subtitle": "130+ institutionelle Prompts für Aktienresearch, Bewertung, Makro, Quant Finance, ESG, Portfolio-Strategie und Investmentanalyse mit Claude AI",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "🇩🇪",
+      "cover_color": "#2b2b2b",
+      "cover_color2": "#4a4a4a",
+      "formats": {
+        "kindle": {
+          "asin": "B0H2TGNDDV",
+          "price": 7.99,
+          "currency": "EUR",
+          "published": "2026-05-25",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "DE": "B0H2TGNDDV"
+          }
+        },
+        "paperback": {
+          "asin": "B0H32M1F9Q",
+          "price": 24.99,
+          "currency": "EUR",
+          "published": "2026-05-27",
+          "country_asins": {
+            "DE": "B0H32M1F9Q"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H98B8CMY",
+          "price": 49.99,
+          "currency": "EUR",
+          "published": "2026-07-17",
+          "country_asins": {
+            "DE": "B0H98B8CMY"
+          }
+        }
+      }
+    },
+    {
       "id": "claude_cowork_finance",
       "title": "Claude Cowork for Finance",
       "subtitle": "A Simple and Practical Guide to Building AI Agents and Financial Workflows for Dashboards, Automations and Trading Bots",
@@ -141,6 +219,15 @@
           "country_asins": {
             "US": "B0GWWG34W6",
             "IN": "N/A"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H9FCDVVB",
+          "price": 29.99,
+          "currency": "USD",
+          "published": "2026-07-18",
+          "country_asins": {
+            "US": "B0H9FCDVVB"
           }
         }
       }
