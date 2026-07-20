@@ -2290,6 +2290,218 @@
           "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
         }
       }
+    },
+    "claude_ai_finance_de": {
+      "kindle": {
+        "US": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "UK": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IN": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "CA": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "AU": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "DE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "FR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IT": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "ES": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "JP": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "MX": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "NL": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "SE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "PL": {
+          "last_error": "Not available (404)",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        }
+      },
+      "paperback": {
+        "US": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "UK": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IN": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "CA": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "AU": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "DE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "FR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IT": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "ES": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "JP": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "MX": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "NL": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "SE": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "PL": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        }
+      },
+      "hardcover": {
+        "US": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "UK": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IN": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "CA": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "AU": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "DE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "FR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IT": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "ES": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "JP": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BR": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "MX": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "NL": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "SE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "PL": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "BE": {
+          "last_error": "BSR not found",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        },
+        "IE": {
+          "last_error": "Bot detection",
+          "error_timestamp": "2026-07-20T05:40:02.257075+00:00"
+        }
+      }
     }
   },
   "history": {
@@ -8475,6 +8687,11 @@
       }
     },
     "claude_ai_finance_es": {
+      "kindle": {},
+      "paperback": {},
+      "hardcover": {}
+    },
+    "claude_ai_finance_de": {
       "kindle": {},
       "paperback": {},
       "hardcover": {}
