@@ -9593,7 +9593,8 @@
           "country": "BR",
           "date": "2026-05-22"
         }
-      }
+      },
+      "hardcover": {}
     },
     "stop_losing_money": {
       "kindle": {
@@ -9730,6 +9731,16 @@
           "date": "2026-05-22"
         }
       }
+    },
+    "claude_ai_finance_es": {
+      "kindle": {},
+      "paperback": {},
+      "hardcover": {}
+    },
+    "claude_ai_finance_de": {
+      "kindle": {},
+      "paperback": {},
+      "hardcover": {}
     }
   }
 }
