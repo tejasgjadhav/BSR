@@ -2,15 +2,11 @@
 """
 Amazon BSR (Best Seller Rank) Scraper for KDP Dashboard
 Scrapes BSR data from Amazon product pages for 17 countries.
-Run daily via GitHub Actions.
+Run daily via local launchd (Amazon blocks datacenter/CI IPs; a real
+headless Chrome from a residential IP gets through).
 """
 
-try:
-    from curl_cffi import requests
-    CURL_CFFI = True
-except ImportError:
-    import requests
-    CURL_CFFI = False
+from playwright.sync_api import sync_playwright
 
 from bs4 import BeautifulSoup
 import json
@@ -28,26 +24,10 @@ logging.basicConfig(
     handlers=[logging.StreamHandler(sys.stdout)]
 )
 logger = logging.getLogger(__name__)
-if CURL_CFFI:
-    logger.info("curl_cffi available — using Chrome TLS impersonation")
-else:
-    logger.warning("curl_cffi not available — falling back to plain requests (may be blocked)")
+logger.info("Using headless Chrome (Playwright) with bot-interstitial handling")
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, 'data')
-
-# Chrome versions to rotate through for realistic impersonation
-CHROME_VERSIONS = ['chrome119', 'chrome120', 'chrome124', 'chrome131']
-
-# Minimal locale headers — curl_cffi sets UA + TLS automatically
-LOCALE_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Connection': 'keep-alive',
-    'Upgrade-Insecure-Requests': '1',
-    'Cache-Control': 'max-age=0',
-}
 
 AMAZON_DOMAINS = {
     'US': 'www.amazon.com',
@@ -70,12 +50,70 @@ AMAZON_DOMAINS = {
 }
 
 
-def make_session():
-    """Create a session with Chrome impersonation if curl_cffi is available."""
-    if CURL_CFFI:
-        version = random.choice(CHROME_VERSIONS)
-        return requests.Session(impersonate=version)
-    return requests.Session()
+_PW = None
+_BROWSER = None
+_CONTEXT = None
+
+USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
+             "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
+
+
+def _get_context():
+    """Lazily launch one headless Chrome + context, reused for the whole run."""
+    global _PW, _BROWSER, _CONTEXT
+    if _CONTEXT is not None:
+        return _CONTEXT
+    _PW = sync_playwright().start()
+    launch_args = dict(headless=True, args=['--disable-blink-features=AutomationControlled'])
+    try:
+        _BROWSER = _PW.chromium.launch(channel='chrome', **launch_args)
+    except Exception:
+        # Fall back to Playwright's bundled Chromium if system Chrome is absent.
+        _BROWSER = _PW.chromium.launch(**launch_args)
+    _CONTEXT = _BROWSER.new_context(
+        user_agent=USER_AGENT, locale='en-US', viewport={'width': 1280, 'height': 900}
+    )
+    _CONTEXT.add_init_script(
+        "Object.defineProperty(navigator,'webdriver',{get:()=>undefined}); window.chrome={runtime:{}};"
+    )
+    return _CONTEXT
+
+
+def close_browser():
+    global _PW, _BROWSER, _CONTEXT
+    try:
+        if _BROWSER:
+            _BROWSER.close()
+        if _PW:
+            _PW.stop()
+    except Exception:
+        pass
+    _PW = _BROWSER = _CONTEXT = None
+
+
+def fetch_html(url):
+    """Load an Amazon page with headless Chrome, clicking through the
+    'Continue shopping' bot-interstitial when it appears. Returns (status, html)."""
+    page = _get_context().new_page()
+    try:
+        resp = page.goto(url, timeout=30000, wait_until='domcontentloaded')
+        status = resp.status if resp else 0
+        page.wait_for_timeout(800)
+        body = page.inner_text('body')
+        if 'continue shopping' in body.lower() and 'Best Sellers Rank' not in body:
+            try:
+                btn = page.get_by_role('button', name=re.compile('continue shopping', re.I))
+                if not btn.count():
+                    btn = page.locator("button:has-text('Continue shopping'), input[type=submit]")
+                btn.first.click(timeout=5000)
+                page.wait_for_load_state('domcontentloaded', timeout=15000)
+                page.wait_for_timeout(800)
+                status = 200
+            except Exception:
+                pass
+        return status, page.content()
+    finally:
+        page.close()
 
 
 def normalize_rank_number(s):
@@ -106,8 +144,13 @@ def parse_bsr_text(text):
         r'\([^)]{0,120}(?:See|Voir|Vedi|Ver|Siehe|Conhe[çc]a|Consulta|Top\s+100)[^)]*\)',
         ' ', text, flags=re.IGNORECASE
     )
-    for stop in ['Avalia', 'Customer reviews', 'Recensioni', 'Reseñas', 'Kundrezensionen', 'Avis client']:
-        idx = clean.find(stop)
+    # Truncate at the field that follows the BSR list so the LAST rank entry
+    # isn't swallowed by trailing text. Case-insensitive — Amazon renders
+    # "Customer Reviews" (capital R), which a case-sensitive find would miss.
+    for stop in ['avalia', 'customer review', 'recensioni', 'reseñas',
+                 'kundrezensionen', 'rezensionen', 'avis client', 'opiniones',
+                 'date first available', 'asin', 'publisher', 'publication date']:
+        idx = clean.lower().find(stop)
         if idx > 0:
             clean = clean[:idx]
 
@@ -316,7 +359,6 @@ def scrape_bsr(asin, domain, retries=None):
     if retries is None:
         retries = 1 if CI_MODE else 2
     urls_to_try = build_urls(asin, domain)
-    session = make_session()
 
     for url in urls_to_try:
         for attempt in range(retries + 1):
@@ -326,25 +368,25 @@ def scrape_bsr(asin, domain, retries=None):
                     logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
                     time.sleep(wait)
 
-                response = session.get(url, headers=LOCALE_HEADERS, timeout=20, allow_redirects=True)
+                status_code, html = fetch_html(url)
 
-                if response.status_code == 404:
+                if status_code == 404:
                     logger.info(f"      Not available on {domain} (404)")
                     return {'success': False, 'error': 'Not available (404)'}
 
-                if response.status_code in (503, 429):
-                    logger.warning(f"      Rate limited ({response.status_code})")
-                    return {'success': False, 'error': f'Rate limited ({response.status_code})'}
+                if status_code in (503, 429):
+                    logger.warning(f"      Rate limited ({status_code})")
+                    return {'success': False, 'error': f'Rate limited ({status_code})'}
 
-                if response.status_code != 200:
+                if status_code and status_code != 200:
                     if attempt < retries:
                         continue
-                    return {'success': False, 'error': f'HTTP {response.status_code}'}
+                    return {'success': False, 'error': f'HTTP {status_code}'}
 
-                soup = BeautifulSoup(response.content, 'lxml')
+                soup = BeautifulSoup(html, 'lxml')
 
                 title_tag = soup.find('title')
-                page_len = len(response.content)
+                page_len = len(html)
                 if page_len < 1000 or (title_tag and any(
                     w in title_tag.text.lower() for w in ['robot check', 'captcha', 'something went wrong', 'verify yourself']
                 )):
@@ -490,4 +532,7 @@ def update_rankings():
 
 
 if __name__ == '__main__':
-    update_rankings()
+    try:
+        update_rankings()
+    finally:
+        close_browser()

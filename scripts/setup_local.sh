@@ -23,6 +23,8 @@ echo ""
 # --- Install Python deps ---
 echo "Installing Python dependencies..."
 pip3 install -q -r "$SCRIPT_DIR/requirements.txt"
+# Chromium fallback for Playwright (used only if system Chrome is missing)
+python3 -m playwright install chromium
 echo "  Done."
 
 # --- Make scripts executable ---

@@ -1,8 +1,9 @@
 name: Update BSR Rankings Daily
 
 on:
-  schedule:
-    - cron: '0 2 * * *'   # 2 AM UTC = 7:30 AM IST daily
+  # NOTE: the daily scrape now runs LOCALLY via launchd — Amazon blocks
+  # datacenter/CI IPs, so curl_cffi in Actions always hit "Bot detection".
+  # Kept for manual runs only. Site deploys happen on push via deploy_pages.yml.
   workflow_dispatch:        # Manual trigger from GitHub Actions tab
 
 permissions:
