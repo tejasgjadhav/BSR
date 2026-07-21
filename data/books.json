@@ -9,7 +9,7 @@
       "title": "Claude AI for Finance Professionals",
       "subtitle": "120+ Institutional grade Prompts for Financial Analysis, Valuation & Investment Research with model and Sample Outputs. Finance Plugins Included",
       "series": "AI and Practical Finance Series",
-      "cover_emoji": "\ud83e\udd16",
+      "cover_emoji": "🤖",
       "cover_color": "#0f4c75",
       "cover_color2": "#1b6ca8",
       "formats": {
@@ -45,11 +45,128 @@
       }
     },
     {
+      "id": "claude_ai_finance_es",
+      "title": "Claude AI para profesionales de las finanzas",
+      "subtitle": "Prompts, plugins y flujos de trabajo — 18 mesas financieras institucionales, 130+ prompts originales",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "🇪🇸",
+      "cover_color": "#7a1f2b",
+      "cover_color2": "#b5303f",
+      "formats": {
+        "kindle": {
+          "asin": "B0H57YSP56",
+          "price": 6.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0H57YSP56"
+          }
+        },
+        "paperback": {
+          "asin": "B0H9B6HXK2",
+          "price": 34.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "country_asins": {
+            "US": "B0H9B6HXK2"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H99G7KFX",
+          "price": 59.99,
+          "currency": "USD",
+          "published": "2026-07-17",
+          "country_asins": {
+            "US": "B0H99G7KFX"
+          }
+        }
+      }
+    },
+    {
+      "id": "claude_ai_finance_de",
+      "title": "Claude AI für Finanzprofis",
+      "subtitle": "130+ institutionelle Prompts für Aktienresearch, Bewertung, Makro, Quant Finance, ESG, Portfolio-Strategie und Investmentanalyse mit Claude AI",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "🇩🇪",
+      "cover_color": "#2b2b2b",
+      "cover_color2": "#4a4a4a",
+      "formats": {
+        "kindle": {
+          "asin": "B0H2TGNDDV",
+          "price": 7.99,
+          "currency": "EUR",
+          "published": "2026-05-25",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "DE": "B0H2TGNDDV"
+          }
+        },
+        "paperback": {
+          "asin": "B0H32M1F9Q",
+          "price": 24.99,
+          "currency": "EUR",
+          "published": "2026-05-27",
+          "country_asins": {
+            "DE": "B0H32M1F9Q"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H98B8CMY",
+          "price": 49.99,
+          "currency": "EUR",
+          "published": "2026-07-17",
+          "country_asins": {
+            "DE": "B0H98B8CMY"
+          }
+        }
+      }
+    },
+    {
+      "id": "claude_cowork_finance",
+      "title": "Claude Cowork for Finance",
+      "subtitle": "A Simple and Practical Guide to Building AI Agents and Financial Workflows for Dashboards, Automations and Trading Bots",
+      "series": "AI and Practical Finance Series",
+      "cover_emoji": "🤝",
+      "cover_color": "#0d1b3e",
+      "cover_color2": "#1a2f5e",
+      "formats": {
+        "kindle": {
+          "asin": "B0H1R2GZX9",
+          "price": 3.99,
+          "currency": "USD",
+          "published": "2026-05-18",
+          "enrolled_kdp_select": true,
+          "country_asins": {
+            "US": "B0H1R2GZX9"
+          }
+        },
+        "paperback": {
+          "asin": "B0H2CZKK2W",
+          "price": 14.99,
+          "currency": "USD",
+          "published": "2026-05-20",
+          "country_asins": {
+            "US": "B0H2CZKK2W"
+          }
+        },
+        "hardcover": {
+          "asin": "B0H2CWS6K7",
+          "price": 34.99,
+          "currency": "USD",
+          "published": "2026-05-20",
+          "country_asins": {
+            "US": "B0H2CWS6K7"
+          }
+        }
+      }
+    },
+    {
       "id": "ai_prompts_financial_analysis",
       "title": "AI Prompts for Financial Analysis",
       "subtitle": "100+ Practical Prompts and Sample Outputs for Equity Research, Valuation, Investment Banking and Financial Risk Management",
       "series": "AI and Practical Finance Series",
-      "cover_emoji": "\ud83d\udcca",
+      "cover_emoji": "📊",
       "cover_color": "#1b4332",
       "cover_color2": "#2d6a4f",
       "formats": {
@@ -80,7 +197,7 @@
       "title": "The Wealth Code of Chhatrapati Shivaji Maharaj",
       "subtitle": "Timeless Money Principles to Build Wealth, Security & Financial Freedom",
       "series": "AI and Practical Finance Series",
-      "cover_emoji": "\u2694\ufe0f",
+      "cover_emoji": "⚔️",
       "cover_color": "#7b2d00",
       "cover_color2": "#a84300",
       "formats": {
@@ -103,6 +220,15 @@
             "US": "B0GWWG34W6",
             "IN": "N/A"
           }
+        },
+        "hardcover": {
+          "asin": "B0H9FCDVVB",
+          "price": 29.99,
+          "currency": "USD",
+          "published": "2026-07-18",
+          "country_asins": {
+            "US": "B0H9FCDVVB"
+          }
         }
       }
     },
@@ -111,7 +237,7 @@
       "title": "Stop Losing Money",
       "subtitle": "Real Stories from a Private Wealth Manager, Costly Mistakes from Investors & the 3-3-3 System That Fixes Them",
       "series": "AI and Practical Finance Series",
-      "cover_emoji": "\ud83d\udcb0",
+      "cover_emoji": "💰",
       "cover_color": "#1a1a2e",
       "cover_color2": "#16213e",
       "formats": {
@@ -139,10 +265,10 @@
     },
     {
       "id": "ai_prompts_equity_research",
-      "title": "AI Prompts for Financial Analysis \u2014 Equity Research Edition",
+      "title": "AI Prompts for Financial Analysis — Equity Research Edition",
       "subtitle": "100+ Practical Prompts for Equity Research, Valuation, Investment Banking and Risk Management",
       "series": "AI and Practical Finance Series",
-      "cover_emoji": "\ud83d\udcc8",
+      "cover_emoji": "📈",
       "cover_color": "#2d3436",
       "cover_color2": "#636e72",
       "formats": {
@@ -159,22 +285,22 @@
     }
   ],
   "countries": {
-    "US": { "flag": "\ud83c\uddfa\ud83c\uddf8", "name": "United States", "domain": "amazon.com", "currency": "USD" },
-    "UK": { "flag": "\ud83c\uddec\ud83c\udde7", "name": "United Kingdom", "domain": "amazon.co.uk", "currency": "GBP" },
-    "IN": { "flag": "\ud83c\uddee\ud83c\uddf3", "name": "India", "domain": "amazon.in", "currency": "INR" },
-    "CA": { "flag": "\ud83c\udde8\ud83c\udde6", "name": "Canada", "domain": "amazon.ca", "currency": "CAD" },
-    "AU": { "flag": "\ud83c\udde6\ud83c\uddfa", "name": "Australia", "domain": "amazon.com.au", "currency": "AUD" },
-    "DE": { "flag": "\ud83c\udde9\ud83c\uddea", "name": "Germany", "domain": "amazon.de", "currency": "EUR" },
-    "FR": { "flag": "\ud83c\uddeb\ud83c\uddf7", "name": "France", "domain": "amazon.fr", "currency": "EUR" },
-    "IT": { "flag": "\ud83c\uddee\ud83c\uddf9", "name": "Italy", "domain": "amazon.it", "currency": "EUR" },
-    "ES": { "flag": "\ud83c\uddea\ud83c\uddf8", "name": "Spain", "domain": "amazon.es", "currency": "EUR" },
-    "JP": { "flag": "\ud83c\uddef\ud83c\uddf5", "name": "Japan", "domain": "amazon.co.jp", "currency": "JPY" },
-    "BR": { "flag": "\ud83c\udde7\ud83c\uddf7", "name": "Brazil", "domain": "amazon.com.br", "currency": "BRL" },
-    "MX": { "flag": "\ud83c\uddf2\ud83c\uddfd", "name": "Mexico", "domain": "amazon.com.mx", "currency": "MXN" },
-    "NL": { "flag": "\ud83c\uddf3\ud83c\uddf1", "name": "Netherlands", "domain": "amazon.nl", "currency": "EUR" },
-    "SE": { "flag": "\ud83c\uddf8\ud83c\uddea", "name": "Sweden", "domain": "amazon.se", "currency": "SEK" },
-    "PL": { "flag": "\ud83c\uddf5\ud83c\uddf1", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" },
-    "BE": { "flag": "\ud83c\udde7\ud83c\uddea", "name": "Belgium", "domain": "amazon.com.be", "currency": "EUR" },
-    "IE": { "flag": "\ud83c\uddee\ud83c\uddea", "name": "Ireland", "domain": "amazon.ie", "currency": "EUR" }
+    "US": { "flag": "🇺🇸", "name": "United States", "domain": "amazon.com", "currency": "USD" },
+    "UK": { "flag": "🇬🇧", "name": "United Kingdom", "domain": "amazon.co.uk", "currency": "GBP" },
+    "IN": { "flag": "🇮🇳", "name": "India", "domain": "amazon.in", "currency": "INR" },
+    "CA": { "flag": "🇨🇦", "name": "Canada", "domain": "amazon.ca", "currency": "CAD" },
+    "AU": { "flag": "🇦🇺", "name": "Australia", "domain": "amazon.com.au", "currency": "AUD" },
+    "DE": { "flag": "🇩🇪", "name": "Germany", "domain": "amazon.de", "currency": "EUR" },
+    "FR": { "flag": "🇫🇷", "name": "France", "domain": "amazon.fr", "currency": "EUR" },
+    "IT": { "flag": "🇮🇹", "name": "Italy", "domain": "amazon.it", "currency": "EUR" },
+    "ES": { "flag": "🇪🇸", "name": "Spain", "domain": "amazon.es", "currency": "EUR" },
+    "JP": { "flag": "🇯🇵", "name": "Japan", "domain": "amazon.co.jp", "currency": "JPY" },
+    "BR": { "flag": "🇧🇷", "name": "Brazil", "domain": "amazon.com.br", "currency": "BRL" },
+    "MX": { "flag": "🇲🇽", "name": "Mexico", "domain": "amazon.com.mx", "currency": "MXN" },
+    "NL": { "flag": "🇳🇱", "name": "Netherlands", "domain": "amazon.nl", "currency": "EUR" },
+    "SE": { "flag": "🇸🇪", "name": "Sweden", "domain": "amazon.se", "currency": "SEK" },
+    "PL": { "flag": "🇵🇱", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" },
+    "BE": { "flag": "🇧🇪", "name": "Belgium", "domain": "amazon.com.be", "currency": "EUR" },
+    "IE": { "flag": "🇮🇪", "name": "Ireland", "domain": "amazon.ie", "currency": "EUR" }
   }
 }

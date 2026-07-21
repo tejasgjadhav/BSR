@@ -387,7 +387,20 @@ def scrape_bsr(asin, domain, retries=None):
 
                 title_tag = soup.find('title')
                 page_len = len(html)
-                if page_len < 1000 or (title_tag and any(
+                body_lc = html.lower()
+                # Amazon serves a 200-OK automated-access block page (no product data,
+                # generic "Amazon.com" title, a few KB) that the title check alone misses.
+                # Detect it by body signature so it is not mislabelled "BSR not found".
+                # (fetch_html already clicks through the common "Continue shopping"
+                # interstitial; this is the secondary net for other block variants.)
+                block_signatures = (
+                    'to discuss automated access',
+                    'api-services-support',
+                    'validatecaptcha',
+                    'not a robot',
+                    'enter the characters you see below',
+                )
+                if page_len < 1000 or any(sig in body_lc for sig in block_signatures) or (title_tag and any(
                     w in title_tag.text.lower() for w in ['robot check', 'captcha', 'something went wrong', 'verify yourself']
                 )):
                     logger.warning(f"      Bot detection (page {page_len}b)")
@@ -450,6 +463,67 @@ def git_commit_rankings(filepath, message):
             logger.info(f"  [No changes to commit]")
     except Exception as e:
         logger.warning(f"  [git commit failed: {e}]")
+
+
+TOP_LEVEL_CATS = {
+    'kindle store', 'books', 'livros', 'libros', 'bücher', 'livres',
+    'libri', 'kindle storeの商品', 'kindle ストア',
+}
+
+
+def update_audit_log(rankings, books_data, date_key):
+    """
+    Personal-bests board: per book, per format, track the best rank EVER
+    achieved in each sub-category. Updated daily — a record is only changed
+    when today's rank beats the stored best.
+
+    Structure:
+      audit_log[book_id][fmt_name] = {
+        cat_key: {best_rank, category, country, date}
+      }
+    """
+    rankings.setdefault('audit_log', {})
+
+    for book in books_data['books']:
+        book_id = book['id']
+        rankings['audit_log'].setdefault(book_id, {})
+
+        for fmt_name, countries in rankings['current'].get(book_id, {}).items():
+            rankings['audit_log'][book_id].setdefault(fmt_name, {})
+            bests = rankings['audit_log'][book_id][fmt_name]
+
+            for country, data in countries.items():
+                if not isinstance(data, dict):
+                    continue
+                for item in data.get('all_ranks', []):
+                    rank = item.get('rank')
+                    cat = (item.get('category') or '').strip()
+                    if not rank or not cat or cat.lower() in TOP_LEVEL_CATS:
+                        continue
+                    key = cat.lower()[:60]
+                    if key not in bests or rank < bests[key]['best_rank']:
+                        bests[key] = {
+                            'best_rank': rank,
+                            'category': cat,
+                            'country': country,
+                            'date': date_key,
+                        }
+
+                # Fallback to primary rank when all_ranks is absent
+                if not data.get('all_ranks') and data.get('rank') and data.get('category'):
+                    cat = data['category'].strip()
+                    if cat.lower() not in TOP_LEVEL_CATS:
+                        key = cat.lower()[:60]
+                        rank = data['rank']
+                        if key not in bests or rank < bests[key]['best_rank']:
+                            bests[key] = {
+                                'best_rank': rank,
+                                'category': cat,
+                                'country': country,
+                                'date': date_key,
+                            }
+
+    logger.info("  [audit_log updated]")
 
 
 def update_rankings():
@@ -526,6 +600,11 @@ def update_rankings():
             rankings_path,
             f"chore: update BSR rankings {date_key} — {book['title'][:40]}"
         )
+
+    update_audit_log(rankings, books_data, date_key)
+    rankings_path = os.path.join(DATA_DIR, 'rankings.json')
+    save_json(rankings_path, rankings)
+    git_commit_rankings(rankings_path, f"chore: update BSR audit log {date_key}")
 
     logger.info(f"\nDone! Success: {success_count}, Failed: {fail_count}")
     return rankings

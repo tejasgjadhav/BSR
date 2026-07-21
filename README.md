@@ -1,6 +1,6 @@
 # Amazon BSR Dashboard — Tejas Jadhav (KDP Author)
 
-Live dashboard tracking Amazon Best Seller Ranks across **5 books**, **3 formats**, and **15 countries**, updated daily via GitHub Actions.
+Live dashboard tracking Amazon Best Seller Ranks across **8 books**, **3 formats**, and **15 countries**, updated daily via GitHub Actions.
 
 ## Setup (One-Time)
 
@@ -79,7 +79,10 @@ Edit `data/books.json` and add an entry to the `books` array. Then run the scrap
 | # | Title | Kindle | Paperback | Hardcover |
 |---|-------|--------|-----------|-----------|
 | ⭐ | Claude AI for Finance Professionals | B0GSX73KF6 | B0GV2SS77G | B0GVJPXVP8 |
-| 2 | AI Prompts for Financial Analysis (100+) | B0GS5RL6XS | 9357823662 | — |
-| 3 | The Wealth Code of Chhatrapati Shivaji Maharaj | B0D8R41W2F | B0GWWG34W6 | — |
-| 4 | Stop Losing Money | B0G7YSZZJM | B0GWHZLVK8 | — |
-| 5 | AI Prompts — Equity Research Hardcover | — | — | B0GSBV7QX9 |
+| 2 | Claude AI para profesionales de las finanzas (ES) | B0H57YSP56 | B0H9B6HXK2 | B0H99G7KFX |
+| 3 | Claude AI für Finanzprofis (DE) | B0H2TGNDDV | B0H32M1F9Q | B0H98B8CMY |
+| 4 | Claude Cowork for Finance | B0H1R2GZX9 | B0H2CZKK2W | B0H2CWS6K7 |
+| 5 | AI Prompts for Financial Analysis (100+) | B0GS5RL6XS | 9357823662 | — |
+| 6 | The Wealth Code of Chhatrapati Shivaji Maharaj | B0D8R41W2F | B0GWWG34W6 | B0H9FCDVVB |
+| 7 | Stop Losing Money | B0G7YSZZJM | B0GWHZLVK8 | — |
+| 8 | AI Prompts — Equity Research Hardcover | — | — | B0GSBV7QX9 |

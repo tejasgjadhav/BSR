@@ -85,7 +85,7 @@ body{font-family:'Inter',sans-serif;background:#f0f2f5;color:var(--g900);min-hei
 .fasin{font-size:.7rem;color:var(--g300);font-family:monospace}
 .fprice{margin-left:auto;font-weight:700;color:var(--g700);font-size:.85rem}
 
-/* COUNTRY GRID — 2-column layout: flag+name LEFT, all ranks RIGHT */
+/* COUNTRY GRID */
 .countries-wrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 
 .ctry-card{
@@ -99,7 +99,6 @@ body{font-family:'Inter',sans-serif;background:#f0f2f5;color:var(--g900);min-hei
 .ctry-card.top-10{border-color:#f59e0b;background:linear-gradient(135deg,#fef9c3,#fef3c7);box-shadow:0 0 0 2px rgba(251,191,36,.18)}
 .ctry-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.1);border-color:var(--or)}
 
-/* Top row: flag + country name + link icon */
 .ctry-top{
   display:flex;align-items:center;gap:10px;
   padding:10px 12px 8px;
@@ -112,7 +111,6 @@ body{font-family:'Inter',sans-serif;background:#f0f2f5;color:var(--g900);min-hei
 .ctry-link{font-size:.68rem;color:var(--or);text-decoration:none;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:3px}
 .ctry-link:hover{text-decoration:underline}
 
-/* Ranks list */
 .ranks-list{padding:8px 12px 10px;display:flex;flex-direction:column;gap:5px}
 
 .rank-row{
@@ -132,16 +130,14 @@ body{font-family:'Inter',sans-serif;background:#f0f2f5;color:var(--g900);min-hei
 .rank-cat{font-size:.71rem;color:var(--g500);line-height:1.3;flex:1}
 .rank-medal{font-size:.9rem;flex-shrink:0}
 
-/* rank number colors */
-.rn-top1{color:#b45309}      /* #1 */
-.rn-top10{color:#d97706}     /* 2-10 */
-.rn-top100{color:#16a34a}    /* 11-100 */
-.rn-top1k{color:#2563eb}     /* 101-1000 */
-.rn-top10k{color:#7c3aed}    /* 1001-10000 */
-.rn-gray{color:var(--g400)}  /* >10000 */
-.rn-store{color:var(--g300)} /* overall store rank */
+.rn-top1{color:#b45309}
+.rn-top10{color:#d97706}
+.rn-top100{color:#16a34a}
+.rn-top1k{color:#2563eb}
+.rn-top10k{color:#7c3aed}
+.rn-gray{color:var(--g400)}
+.rn-store{color:var(--g300)}
 
-/* "Not ranked" tile */
 .no-rank{padding:18px 12px;text-align:center;color:var(--g300);font-size:.75rem}
 
 /* COMPARISON TABLE */
@@ -167,26 +163,54 @@ td{padding:9px 14px;vertical-align:middle}
 .ctrls select{background:#fff;border:1.5px solid var(--g200);border-radius:8px;padding:7px 12px;font-size:.82rem;color:var(--g700);font-family:inherit;cursor:pointer;outline:none}
 .ctrls select:focus{border-color:var(--or)}
 
-/* FOOTER */
 footer{background:var(--navy);color:rgba(255,255,255,.4);text-align:center;padding:20px;font-size:.74rem}
 footer a{color:var(--or);text-decoration:none}
 
-/* LOADING */
 #loading{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;gap:14px}
 .spinner{width:40px;height:40px;border:3px solid var(--g200);border-top-color:var(--or);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* BEST RANK CALLOUT */
 .best-callout{display:flex;align-items:center;gap:6px;padding:7px 12px;background:linear-gradient(90deg,#fffbeb,#fff8d6);border:1px solid #fde68a;border-radius:8px;font-size:.78rem;font-weight:600;color:#92400e;flex-wrap:wrap}
 
-/* RESPONSIVE */
 @media(max-width:900px){.bhero{flex-direction:column}.bcov{width:100%;height:180px}.binfo{padding:18px}.csec{padding:0 12px 16px}.countries-wrap{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.countries-wrap{grid-template-columns:1fr}.main{padding:20px 10px 60px}}
+/* AUDIT LOG */
+.audit-book{background:#fff;border-radius:14px;box-shadow:0 1px 6px rgba(0,0,0,.07);margin-bottom:18px;overflow:hidden}
+.audit-book-hdr{display:flex;align-items:center;gap:12px;padding:14px 20px;background:var(--navy);color:#fff;cursor:pointer;user-select:none}
+.audit-book-hdr .ab-emoji{font-size:1.4rem}
+.audit-book-hdr .ab-title{font-weight:700;font-size:.95rem;flex:1}
+.audit-book-hdr .ab-best{background:var(--or);color:#000;font-weight:800;font-size:.78rem;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.audit-book-hdr .ab-toggle{font-size:.8rem;opacity:.5;transition:transform .25s}
+.audit-book-hdr.open .ab-toggle{transform:rotate(180deg)}
+.audit-body{display:none}
+.audit-body.open{display:block}
+/* format tabs inside audit */
+.audit-ftabs{display:flex;gap:0;border-bottom:2px solid var(--g200);padding:0 20px;background:var(--g50)}
+.audit-ftab{padding:10px 18px;font-size:.78rem;font-weight:600;cursor:pointer;color:var(--g500);border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s}
+.audit-ftab.active{color:var(--navy);border-color:var(--or)}
+.audit-fpanel{display:none;padding:16px 20px}
+.audit-fpanel.active{display:block}
+.audit-tbl{width:100%;border-collapse:collapse;font-size:.79rem}
+.audit-tbl th{text-align:left;padding:7px 10px;background:var(--g100);color:var(--g500);font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--g200);position:sticky;top:0}
+.audit-tbl td{padding:6px 10px;border-bottom:1px solid var(--g100);color:var(--g700);vertical-align:top}
+.audit-tbl tr:last-child td{border-bottom:none}
+.audit-tbl tr.day-best td{background:#fffbe6}
+.audit-tbl .rank-cell{font-weight:800;color:var(--navy);font-size:.85rem}
+.audit-tbl .rank-cell.gold{color:#b45309}
+.audit-cats{display:flex;flex-direction:column;gap:3px}
+.audit-cat-row{display:flex;align-items:center;gap:6px}
+.audit-cat-rank{font-weight:700;color:var(--navy);min-width:42px;font-size:.82rem}
+.audit-cat-rank.top3{color:#b45309}
+.audit-cat-name{color:var(--g700);font-size:.76rem}
+.audit-cat-flag{font-size:.85rem}
+.fmt-badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:.67rem;font-weight:600;text-transform:uppercase}
+.fmt-kindle{background:#e0f2fe;color:#0369a1}
+.fmt-paperback{background:#f0fdf4;color:#15803d}
+.fmt-hardcover{background:#f5f3ff;color:#6d28d9}
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="hdr">
   <div class="hdr-in">
     <a class="logo" href="#">
@@ -197,20 +221,18 @@ footer a{color:var(--or);text-decoration:none}
   </div>
 </header>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-title">Amazon <span>Best Seller</span> Ranks</div>
   <div class="hero-sub">Tejas Jadhav, CFA, FRM &nbsp;·&nbsp; AI &amp; Practical Finance Series &nbsp;·&nbsp; All Formats · <span id="s-ctry-hero">17</span> Countries</div>
   <div class="pills">
-    <div class="pill"><div class="pill-n" id="s-books">5</div><div class="pill-l">Books</div></div>
-    <div class="pill"><div class="pill-n" id="s-formats">9</div><div class="pill-l">Formats</div></div>
+    <div class="pill"><div class="pill-n" id="s-books">6</div><div class="pill-l">Books</div></div>
+    <div class="pill"><div class="pill-n" id="s-formats">12</div><div class="pill-l">Formats</div></div>
     <div class="pill"><div class="pill-n" id="s-countries">17</div><div class="pill-l">Countries</div></div>
     <div class="pill"><div class="pill-n" id="s-best">—</div><div class="pill-l">Best Rank in Category</div></div>
     <div class="pill"><div class="pill-n" id="s-live">—</div><div class="pill-l">Rankings Live</div></div>
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
   <div id="loading"><div class="spinner"></div><p style="color:var(--g400)">Loading live rank data…</p></div>
   <div id="dash" style="display:none">
@@ -237,6 +259,9 @@ footer a{color:var(--or);text-decoration:none}
       </div>
       <div style="position:relative;height:280px"><canvas id="hchart"></canvas></div>
     </div>
+
+    <div class="sec-lbl">📋 Top Ranking Audit Log</div>
+    <div id="audit-wrap"></div>
   </div>
 </div>
 
@@ -259,12 +284,19 @@ const COVERS={
   '9357823662':'images/9357823662.jpg','B0D8R41W2F':'images/B0D8R41W2F.jpg',
   'B0GWWG34W6':'images/B0GWWG34W6.jpg','B0G7YSZZJM':'images/B0G7YSZZJM.jpg',
   'B0GWHZLVK8':'images/B0GWHZLVK8.jpg','B0GSBV7QX9':'images/B0GSBV7QX9.jpg',
+  'B0H1R2GZX9':'images/B0H1R2GZX9.jpg','B0H2CZKK2W':'images/B0H2CZKK2W.jpg',
+  'B0H2CWS6K7':'images/B0H2CWS6K7.jpg',
+  'B0H57YSP56':'images/B0H57YSP56.jpg','B0H9B6HXK2':'images/B0H9B6HXK2.jpg',
+  'B0H99G7KFX':'images/B0H99G7KFX.jpg','B0H2TGNDDV':'images/B0H2TGNDDV.jpg',
+  'B0H32M1F9Q':'images/B0H32M1F9Q.jpg','B0H98B8CMY':'images/B0H98B8CMY.jpg',
+  'B0H9FCDVVB':'images/B0H9FCDVVB.jpg',
 };
 const FMT_LBL={kindle:'📱 Kindle eBook',paperback:'📄 Paperback',hardcover:'📗 Hardcover'};
 const FMT_PRICES={
   'B0GSX73KF6':'$5.99','B0GV2SS77G':'$24.99','B0GVJPXVP8':'$49.99',
   'B0GS5RL6XS':'$4.99','9357823662':'$21.99','B0D8R41W2F':'$2.99',
-  'B0GWWG34W6':'$9.99','B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99','B0GSBV7QX9':'$44.99'
+  'B0GWWG34W6':'$9.99','B0G7YSZZJM':'$2.99','B0GWHZLVK8':'$6.99','B0GSBV7QX9':'$44.99',
+  'B0H1R2GZX9':'$3.99','B0H2CZKK2W':'$14.99','B0H2CWS6K7':'$34.99',
 };
 
 async function load(){
@@ -285,13 +317,12 @@ function boot(){
   const rest=B.books.filter(b=>b.id!==B.featured_book_id);
   document.getElementById('feat').innerHTML=bookCard(feat,true);
   document.getElementById('others').innerHTML=rest.map(b=>bookCard(b,false)).join('');
-  renderTable(); initChart();
+  renderTable(); initChart(); renderAuditLog();
   document.getElementById('loading').style.display='none';
   document.getElementById('dash').style.display='block';
   document.querySelectorAll('.bcard').forEach(card=>card.querySelector('.ftab')?.click());
 }
 
-// ── HELPERS ──────────────────────────────────────────────
 function getD(bid,fmt,cc){ return R?.current?.[bid]?.[fmt]?.[cc]||null; }
 
 function isStoreRank(cat){
@@ -344,21 +375,58 @@ function bestCoverAsin(book){
   for(const f of ['hardcover','paperback','kindle']) if(book.formats[f]) return book.formats[f].asin;
   return null;
 }
-function coverImgHtml(asin,alt){
+function coverImgHtml(asin,alt,book){
   const src=COVERS[asin]||'';
-  return src?`<img src="${src}" alt="${alt||'Book cover'}" onerror="this.style.display='none'">`:`<div style="font-size:3.5rem">📚</div>`;
+  if(src) return `<img src="${src}" alt="${alt||'Book cover'}" onerror="this.replaceWith(makeCssCover(${JSON.stringify(book||{})}))">`;
+  return makeCssCover(book||{}).outerHTML;
+}
+function makeCssCover(book){
+  const c1=book.cover_color||'#0B1F3A', c2=book.cover_color2||'#162f52';
+  const emoji=book.cover_emoji||'📚';
+  const title=(book.title||'').replace(/[<>]/g,'');
+  const words=title.split(' ');
+  const mid=Math.ceil(words.length/2);
+  const l1=words.slice(0,mid).join(' '), l2=words.slice(mid).join(' ');
+  const d=document.createElement('div');
+  d.style.cssText=`width:140px;height:200px;background:linear-gradient(150deg,${c1},${c2});border-radius:4px;box-shadow:0 10px 28px rgba(0,0,0,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 10px;gap:8px;text-align:center`;
+  d.innerHTML=`<div style="font-size:2.2rem;line-height:1">${emoji}</div>`+
+    `<div style="font-size:.62rem;font-weight:800;color:#fff;line-height:1.3;font-family:'Playfair Display',serif">${l1}</div>`+
+    (l2?`<div style="font-size:.62rem;font-weight:700;color:rgba(255,200,100,.9);line-height:1.3;font-family:'Playfair Display',serif">${l2}</div>`:'');
+  return d;
 }
 
-// ── HEADER / STATS ───────────────────────────────────────
+const STALE_DAYS=7;
+function fmtAge(ms){const h=Math.floor(ms/3600000);return h<1?'just now':h<24?h+'h ago':Math.floor(h/24)+'d ago';}
+function fmtDate(ts){return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+function isStale(ts){return Date.now()-new Date(ts).getTime()>STALE_DAYS*86400000;}
+function newestRankTs(){
+  let newest=null;
+  for(const fmts of Object.values(R?.current||{}))
+    for(const countries of Object.values(fmts))
+      for(const d of Object.values(countries))
+        if(d&&d.rank!=null&&d.timestamp){
+          const t=new Date(d.timestamp).getTime();
+          if(!newest||t>newest)newest=t;
+        }
+  return newest;
+}
+
 function renderHeader(){
-  const ts=R?.last_updated; if(!ts){return;}
-  const d=new Date(ts), diff=Date.now()-d.getTime(), h=Math.floor(diff/3600000);
-  const ago=h<1?'Just now':h<24?h+'h ago':Math.floor(h/24)+'d ago';
-  document.getElementById('hdr-ts').textContent=`Updated ${ago} · ${d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}`;
+  // Show freshness based on the newest actual RANK, not the scrape-run time —
+  // Amazon blocking means a scrape can "run" hourly while every rank stays weeks old.
+  const rankTs=newestRankTs();
+  const el=document.getElementById('hdr-ts');
+  if(!el)return;
+  if(!rankTs){
+    const ts=R?.last_updated;
+    el.textContent=ts?`Last checked ${fmtDate(ts)} · no live ranks`:'';
+    return;
+  }
+  const stale=isStale(rankTs);
+  el.textContent=`${stale?'⚠ ':''}Ranks as of ${fmtDate(rankTs)} · ${fmtAge(Date.now()-rankTs)}`;
 }
 function renderStats(){
-  let best=null,live=0;
-  let totalFormats=0;
+  let best=null,live=0,totalFormats=0;
   for(const book of B.books){
     totalFormats+=Object.keys(book.formats||{}).length;
     const cur=R?.current?.[book.id]||{};
@@ -377,28 +445,24 @@ function renderStats(){
   document.getElementById('s-live').textContent=live||'—';
 }
 
-// ── BOOK CARD ─────────────────────────────────────────────
 function bookCard(book,featured){
   const fmts=Object.keys(book.formats||{});
   const best=bestOfBook(book.id);
   const asin=bestCoverAsin(book);
-
   const tabs=fmts.map((f,i)=>
     `<button class="ftab ${f}${i===0?' active':''}" onclick="switchTab('${book.id}','${f}',this)">${FMT_LBL[f]||f}</button>`
   ).join('');
   const panels=fmts.map((f,i)=>
     `<div class="fpanel${i===0?' active':''}" id="fp-${book.id}-${f}">${buildFormatPanel(book,f)}</div>`
   ).join('');
-
   const bestHtml=best?`<div style="text-align:right;flex-shrink:0">
     <div style="font-size:.6rem;color:var(--g400);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px">Best Rank in Category</div>
     <div style="font-size:2rem;font-weight:900;line-height:1;color:${best.rank<=10?'#d97706':best.rank<=100?'#16a34a':'#2563eb'}">#${best.rank.toLocaleString()}</div>
     <div style="font-size:.6rem;color:var(--g400);margin-top:2px;max-width:130px;line-height:1.3">${best.category}</div>
   </div>`:'';
-
   return `<div class="bcard${featured?' featured':''}" id="bc-${book.id}">
     <div class="bhero">
-      <div class="bcov">${featured?'<div class="ftag">★ Featured</div>':''}${coverImgHtml(asin,book.title)}</div>
+      <div class="bcov">${featured?'<div class="ftag">★ Featured</div>':''}${coverImgHtml(asin,book.title,book)}</div>
       <div class="binfo">
         <div style="display:flex;gap:14px;align-items:flex-start">
           <div style="flex:1;min-width:0">
@@ -415,22 +479,18 @@ function bookCard(book,featured){
   </div>`;
 }
 
-// ── FORMAT PANEL with ALL ranks per country ───────────────
 function buildFormatPanel(book,fmt){
   const fd=book.formats[fmt]; if(!fd) return '';
   const asin=fd.asin;
   const price=FMT_PRICES[asin]||'';
   const countries=Object.keys(B.countries||{});
   const fb_cls={'kindle':'fb-kindle','paperback':'fb-paperback','hardcover':'fb-hardcover'}[fmt]||'';
-
-  // Show best ranked countries first, unranked last
   const sorted=[...countries].sort((a,b)=>{
     const da=getD(book.id,fmt,a), db=getD(book.id,fmt,b);
     const sa=bestSubcat(da)?.rank||999999999;
     const sb=bestSubcat(db)?.rank||999999999;
     return sa-sb;
   });
-
   const cards=sorted.map(cc=>{
     const d=getD(book.id,fmt,cc);
     const allRanks=d?.all_ranks||[];
@@ -440,12 +500,9 @@ function buildFormatPanel(book,fmt){
     const url=`https://www.${domain}/dp/${asin}`;
     const best=bestSubcat(d);
     const hasData=allRanks.length>0;
-
-    // determine card class
     const br=best?.rank;
     let cardCls='ctry-card';
     if(br){cardCls+=' has-data';if(br<=100)cardCls+=' top-100';if(br<=10)cardCls+=' top-10';}
-
     if(!hasData) return `
       <div class="${cardCls}">
         <div class="ctry-top">
@@ -455,23 +512,20 @@ function buildFormatPanel(book,fmt){
         </div>
         <div class="no-rank">Not yet ranked</div>
       </div>`;
-
-    // Build rank rows — store ranks first (gray), then subcats sorted by rank
     const storeRanks=allRanks.filter(r=>isStoreRank(r.category));
     const subcatRanks=allRanks.filter(r=>!isStoreRank(r.category)).sort((a,b)=>a.rank-b.rank);
-
     const storeHtml=storeRanks.map(r=>`
       <div class="rank-row overall-row">
         <div class="rank-num rn-store">#${r.rank.toLocaleString()}</div>
         <div class="rank-cat" style="color:var(--g300)">${r.category}</div>
       </div>`).join('');
-
     const subcatHtml=subcatRanks.map(r=>`
       <div class="rank-row sub-row">
         <div class="rank-num ${rankNumClass(r.rank)}">${medal(r.rank)?`<span>${medal(r.rank)}</span>`:''} #${r.rank.toLocaleString()}</div>
         <div class="rank-cat">${r.category}</div>
       </div>`).join('');
-
+    const ts=d?.timestamp;
+    const ageHtml=ts?`<div style="font-size:.58rem;color:var(--g400);margin-top:6px${isStale(ts)?';opacity:.75':''}">as of ${fmtDate(ts)}${isStale(ts)?' · stale':''}</div>`:'';
     return `
       <div class="${cardCls}">
         <div class="ctry-top">
@@ -479,23 +533,16 @@ function buildFormatPanel(book,fmt){
           <div class="ctry-name-wrap"><div class="ctry-name">${name}</div><div class="ctry-code">${cc}</div></div>
           <a class="ctry-link" href="${url}" target="_blank" rel="noopener">Amazon ↗</a>
         </div>
-        <div class="ranks-list">
-          ${storeHtml}
-          ${subcatHtml}
-        </div>
+        <div class="ranks-list">${storeHtml}${subcatHtml}</div>${ageHtml}
       </div>`;
   }).join('');
-
-  // Best rank callout
   const topRanks=sorted.slice(0,3).map(cc=>{
     const d=getD(book.id,fmt,cc);
     const s=bestSubcat(d); if(!s?.rank) return '';
     const flag=B.countries[cc]?.flag||cc;
     return `<span>${flag} <strong>#${s.rank}</strong> ${s.category}</span>`;
   }).filter(Boolean);
-
   const callout=topRanks.length?`<div class="best-callout" style="margin-bottom:14px">🏆 Top ranks: ${topRanks.join(' &nbsp;·&nbsp; ')}</div>`:'';
-
   return `
     <div class="fhdr">
       <span class="fbadge ${fb_cls}">${FMT_LBL[fmt]||fmt}</span>
@@ -514,12 +561,11 @@ function switchTab(bid,fmt,btn){
   document.getElementById(`fp-${bid}-${fmt}`)?.classList.add('active');
 }
 
-// ── COMPARISON TABLE ─────────────────────────────────────
 function renderTable(){
   const ctries=Object.keys(B.countries||{});
   const books=B.books;
   document.getElementById('th').innerHTML=
-    `<tr><th>Country</th>${books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,18)}…</th>`).join('')}</tr>`;
+    `<tr><th>Country</th>${books.map(b=>`<th>${b.cover_emoji} ${b.title.split(':')[0].substring(0,16)}…</th>`).join('')}</tr>`;
   document.getElementById('tb').innerHTML=ctries.map(cc=>{
     const flag=B.countries[cc]?.flag||cc, name=B.countries[cc]?.name||cc;
     const cells=books.map(book=>{
@@ -538,7 +584,6 @@ function renderTable(){
   }).join('');
 }
 
-// ── CHART ────────────────────────────────────────────────
 function initChart(){
   const bS=document.getElementById('c-book'),fS=document.getElementById('c-fmt'),cS=document.getElementById('c-ctry');
   B.books.forEach(b=>bS.add(new Option(b.cover_emoji+' '+b.title.split(':')[0],b.id)));
@@ -565,6 +610,86 @@ function drawChart(){
     borderColor:'#FF9900',backgroundColor:'rgba(255,153,0,.07)',
     borderWidth:2.5,pointRadius:5,pointBackgroundColor:'#FF9900',pointBorderColor:'#fff',pointBorderWidth:2,tension:.35,fill:true}];
   HC.update();
+}
+
+function renderAuditLog(){
+  const wrap=document.getElementById('audit-wrap');
+  if(!wrap||!R?.audit_log||!B) return;
+  const flagOf=cc=>B.countries?.[cc]?.flag||cc;
+  const FMTS=['kindle','paperback','hardcover'];
+  const FMT_LABEL={kindle:'📱 Kindle',paperback:'📄 Paperback',hardcover:'📗 Hardcover'};
+
+  wrap.innerHTML=B.books.map(book=>{
+    const bookLog=R.audit_log[book.id]||{};
+    const availFmts=FMTS.filter(f=>bookLog[f]&&Object.keys(bookLog[f]).length);
+    if(!availFmts.length) return '';
+
+    // global best rank across all formats
+    let globalBest=null;
+    for(const fmt of availFmts){
+      for(const v of Object.values(bookLog[fmt])){
+        if(!globalBest||v.best_rank<globalBest.rank)
+          globalBest={rank:v.best_rank,fmt};
+      }
+    }
+
+    const bid='al-'+book.id;
+    const tabs=availFmts.map((f,i)=>
+      `<div class="audit-ftab${i===0?' active':''}" onclick="auditTab('${bid}','${f}')" id="${bid}-tab-${f}">${FMT_LABEL[f]}</div>`
+    ).join('');
+
+    const panels=availFmts.map((f,i)=>{
+      const bests=bookLog[f]||{};
+      // sort by best_rank ascending
+      const rows=Object.values(bests)
+        .sort((a,b)=>a.best_rank-b.best_rank)
+        .map(e=>{
+          const isTop3=e.best_rank<=3;
+          return `<tr>
+            <td class="rank-cell${isTop3?' gold':''}">${isTop3?'🏆 ':''}<strong>#${e.best_rank.toLocaleString()}</strong></td>
+            <td>${e.category}</td>
+            <td>${flagOf(e.country)} ${e.country}</td>
+            <td style="color:var(--g400);font-size:.72rem">${e.date}</td>
+          </tr>`;
+        }).join('');
+
+      const fmt_best=Object.values(bests).reduce((b,e)=>(!b||e.best_rank<b.best_rank)?e:b,null);
+      return `<div class="audit-fpanel${i===0?' active':''}" id="${bid}-panel-${f}">
+        ${fmt_best?`<div style="padding:10px 0 6px;font-size:.78rem;color:var(--g500)">Best rank ever: <strong style="color:var(--navy)">#${fmt_best.best_rank.toLocaleString()}</strong> in <em>${fmt_best.category}</em> · ${flagOf(fmt_best.country)} ${fmt_best.country} · ${fmt_best.date}</div>`:''}
+        <table class="audit-tbl">
+          <thead><tr><th>Best Rank Ever</th><th>Category</th><th>Country</th><th>Date Achieved</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    }).join('');
+
+    return `<div class="audit-book">
+      <div class="audit-book-hdr" onclick="toggleAudit('${bid}')">
+        <span class="ab-emoji">${book.cover_emoji||'📚'}</span>
+        <span class="ab-title">${book.title}</span>
+        ${globalBest?`<span class="ab-best">All-time best: #${globalBest.rank.toLocaleString()} (${globalBest.fmt})</span>`:''}
+        <span class="ab-toggle">▼</span>
+      </div>
+      <div class="audit-body" id="${bid}">
+        <div class="audit-ftabs">${tabs}</div>
+        ${panels}
+      </div>
+    </div>`;
+  }).join('');
+}
+function toggleAudit(id){
+  const body=document.getElementById(id);
+  const hdr=body?.previousElementSibling;
+  if(!body) return;
+  const open=body.classList.toggle('open');
+  hdr?.classList.toggle('open',open);
+}
+function auditTab(bid,fmt){
+  // switch active tab and panel
+  ['kindle','paperback','hardcover'].forEach(f=>{
+    document.getElementById(`${bid}-tab-${f}`)?.classList.toggle('active',f===fmt);
+    document.getElementById(`${bid}-panel-${f}`)?.classList.toggle('active',f===fmt);
+  });
 }
 
 load();
