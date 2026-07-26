@@ -52,35 +52,53 @@ AMAZON_DOMAINS = {
 
 _PW = None
 _BROWSER = None
-_CONTEXT = None
+_CONTEXTS = {}
 
 USER_AGENT = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
              "(KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36")
 
+# Amazon only renders the Best-Sellers-Rank detail section when the browser
+# locale matches the store's country; an en-US context on amazon.de/.fr/... gets
+# a stripped page with no rank. Give each store its native locale.
+DOMAIN_LOCALE = {
+    'www.amazon.com': 'en-US', 'www.amazon.co.uk': 'en-GB', 'www.amazon.in': 'en-IN',
+    'www.amazon.ca': 'en-CA', 'www.amazon.com.au': 'en-AU', 'www.amazon.de': 'de-DE',
+    'www.amazon.fr': 'fr-FR', 'www.amazon.it': 'it-IT', 'www.amazon.es': 'es-ES',
+    'www.amazon.co.jp': 'ja-JP', 'www.amazon.com.br': 'pt-BR', 'www.amazon.com.mx': 'es-MX',
+    'www.amazon.nl': 'nl-NL', 'www.amazon.se': 'sv-SE', 'www.amazon.pl': 'pl-PL',
+    'www.amazon.com.be': 'nl-BE', 'www.amazon.ie': 'en-IE',
+}
 
-def _get_context():
-    """Lazily launch one headless Chrome + context, reused for the whole run."""
-    global _PW, _BROWSER, _CONTEXT
-    if _CONTEXT is not None:
-        return _CONTEXT
-    _PW = sync_playwright().start()
-    launch_args = dict(headless=True, args=['--disable-blink-features=AutomationControlled'])
-    try:
-        _BROWSER = _PW.chromium.launch(channel='chrome', **launch_args)
-    except Exception:
-        # Fall back to Playwright's bundled Chromium if system Chrome is absent.
-        _BROWSER = _PW.chromium.launch(**launch_args)
-    _CONTEXT = _BROWSER.new_context(
-        user_agent=USER_AGENT, locale='en-US', viewport={'width': 1280, 'height': 900}
-    )
-    _CONTEXT.add_init_script(
-        "Object.defineProperty(navigator,'webdriver',{get:()=>undefined}); window.chrome={runtime:{}};"
-    )
-    return _CONTEXT
+
+def _get_browser():
+    global _PW, _BROWSER
+    if _BROWSER is None:
+        _PW = sync_playwright().start()
+        launch_args = dict(headless=True, args=['--disable-blink-features=AutomationControlled'])
+        try:
+            _BROWSER = _PW.chromium.launch(channel='chrome', **launch_args)
+        except Exception:
+            # Fall back to Playwright's bundled Chromium if system Chrome is absent.
+            _BROWSER = _PW.chromium.launch(**launch_args)
+    return _BROWSER
+
+
+def _get_context(locale='en-US'):
+    """One reusable context per locale (Amazon serves the BSR detail section only
+    when the context locale matches the store's country)."""
+    if locale not in _CONTEXTS:
+        ctx = _get_browser().new_context(
+            user_agent=USER_AGENT, locale=locale, viewport={'width': 1280, 'height': 900}
+        )
+        ctx.add_init_script(
+            "Object.defineProperty(navigator,'webdriver',{get:()=>undefined}); window.chrome={runtime:{}};"
+        )
+        _CONTEXTS[locale] = ctx
+    return _CONTEXTS[locale]
 
 
 def close_browser():
-    global _PW, _BROWSER, _CONTEXT
+    global _PW, _BROWSER, _CONTEXTS
     try:
         if _BROWSER:
             _BROWSER.close()
@@ -88,29 +106,57 @@ def close_browser():
             _PW.stop()
     except Exception:
         pass
-    _PW = _BROWSER = _CONTEXT = None
+    _PW = _BROWSER = None
+    _CONTEXTS = {}
 
 
-def fetch_html(url):
+# "Continue shopping" bot-interstitial button text across the Amazon locales we
+# scrape. The button on non-US stores does NOT return to the product (it often
+# lands on the store homepage), so after clicking we re-navigate to the product.
+INTERSTITIAL_PHRASES = (
+    'continue shopping', 'weiter shoppen', 'einkauf fortzufahren',
+    'continuer les achats', 'poursuivre vos achats',
+    'seguir comprando', 'continuar comprando', 'continua con gli acquisti',
+    'continua lo shopping', 'fortsätt handla', 'verder winkelen',
+    'continuar as compras', 'kontynuuj zakupy',
+)
+
+
+def _is_interstitial(body):
+    """True if the page is Amazon's automated-access interstitial (any locale),
+    not the product page. Product pages always carry a Best-Sellers-Rank block."""
+    b = body.lower().strip()
+    if 'best sellers rank' in b or 'bestseller-rang' in b or 'meilleures ventes amazon' in b:
+        return False
+    if any(pz in b for pz in INTERSTITIAL_PHRASES):
+        return True
+    return len(b) < 600  # tiny page, no product data = block/interstitial
+
+
+def fetch_html(url, locale='en-US'):
     """Load an Amazon page with headless Chrome, clicking through the
-    'Continue shopping' bot-interstitial when it appears. Returns (status, html)."""
-    page = _get_context().new_page()
+    bot-interstitial (in any locale) when it appears. Returns (status, html)."""
+    page = _get_context(locale).new_page()
     try:
         resp = page.goto(url, timeout=30000, wait_until='domcontentloaded')
         status = resp.status if resp else 0
-        page.wait_for_timeout(800)
-        body = page.inner_text('body')
-        if 'continue shopping' in body.lower() and 'Best Sellers Rank' not in body:
+        page.wait_for_timeout(700)
+        for _ in range(3):
+            if status == 404:
+                break
+            if not _is_interstitial(page.inner_text('body')):
+                break
             try:
-                btn = page.get_by_role('button', name=re.compile('continue shopping', re.I))
-                if not btn.count():
-                    btn = page.locator("button:has-text('Continue shopping'), input[type=submit]")
-                btn.first.click(timeout=5000)
-                page.wait_for_load_state('domcontentloaded', timeout=15000)
-                page.wait_for_timeout(800)
-                status = 200
+                # Click the interstitial's primary button to set the pass-cookie...
+                page.locator("button, input[type=submit]").first.click(timeout=4000)
+                page.wait_for_load_state('domcontentloaded', timeout=12000)
+                page.wait_for_timeout(400)
             except Exception:
                 pass
+            # ...then re-open the product (the button may have gone to the homepage).
+            resp = page.goto(url, timeout=30000, wait_until='domcontentloaded')
+            status = resp.status if resp else status
+            page.wait_for_timeout(700)
         return status, page.content()
     finally:
         page.close()
@@ -359,6 +405,7 @@ def scrape_bsr(asin, domain, retries=None):
     if retries is None:
         retries = 1 if CI_MODE else 2
     urls_to_try = build_urls(asin, domain)
+    locale = DOMAIN_LOCALE.get(domain, 'en-US')
 
     for url in urls_to_try:
         for attempt in range(retries + 1):
@@ -368,7 +415,7 @@ def scrape_bsr(asin, domain, retries=None):
                     logger.info(f"      Retry {attempt}/{retries}, waiting {wait:.1f}s...")
                     time.sleep(wait)
 
-                status_code, html = fetch_html(url)
+                status_code, html = fetch_html(url, locale)
 
                 if status_code == 404:
                     logger.info(f"      Not available on {domain} (404)")
