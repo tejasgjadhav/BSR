@@ -67,6 +67,14 @@ NOTE: some headline ranks are CATEGORY sub-ranks (e.g. hard/DE #93, hard/CA #60,
 hard/BR #5) because the overall store rank is absent for that format — parser
 takes bsr_data[0]; all_ranks has the full breakdown. Pre-existing behavior.
 
+## Spanish rank POSTED later same day (2026-07-26 ~16:30 UTC)
+The 15:18 run got no Spanish rank because Amazon hadn't posted one yet. It sold
+today and Amazon posted BSR a few hours later: kindle/US #334,833 in Kindle Store
+(#25 Valuation, #28 Info/Internet/Digital Media in Spanish). NOT a parser bug —
+parser extracts it fine now. Lesson: BSR lags sales by hours; a same-day re-fetch
+catches it (or the next daily run does). Did a targeted single-book refresh
+(scratchpad/update_es.py mirrors update_rankings for one book_id) + push.
+
 ## Env / gotchas
 - Playwright + chromium installed under /usr/bin/python3 (system). launchd plist PATH
   includes /usr/bin so `python3` resolves; uses `channel='chrome'` (system Chrome present).
