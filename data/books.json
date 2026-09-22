@@ -1,6 +1,4 @@
 {
-  "author": "Tejas Jadhav",
-  "author_credentials": "CFA, FRM",
   "featured_book_id": "claude_ai_finance",
   "series": "AI and Practical Finance Series",
   "books": [
@@ -285,22 +283,107 @@
     }
   ],
   "countries": {
-    "US": { "flag": "🇺🇸", "name": "United States", "domain": "amazon.com", "currency": "USD" },
-    "UK": { "flag": "🇬🇧", "name": "United Kingdom", "domain": "amazon.co.uk", "currency": "GBP" },
-    "IN": { "flag": "🇮🇳", "name": "India", "domain": "amazon.in", "currency": "INR" },
-    "CA": { "flag": "🇨🇦", "name": "Canada", "domain": "amazon.ca", "currency": "CAD" },
-    "AU": { "flag": "🇦🇺", "name": "Australia", "domain": "amazon.com.au", "currency": "AUD" },
-    "DE": { "flag": "🇩🇪", "name": "Germany", "domain": "amazon.de", "currency": "EUR" },
-    "FR": { "flag": "🇫🇷", "name": "France", "domain": "amazon.fr", "currency": "EUR" },
-    "IT": { "flag": "🇮🇹", "name": "Italy", "domain": "amazon.it", "currency": "EUR" },
-    "ES": { "flag": "🇪🇸", "name": "Spain", "domain": "amazon.es", "currency": "EUR" },
-    "JP": { "flag": "🇯🇵", "name": "Japan", "domain": "amazon.co.jp", "currency": "JPY" },
-    "BR": { "flag": "🇧🇷", "name": "Brazil", "domain": "amazon.com.br", "currency": "BRL" },
-    "MX": { "flag": "🇲🇽", "name": "Mexico", "domain": "amazon.com.mx", "currency": "MXN" },
-    "NL": { "flag": "🇳🇱", "name": "Netherlands", "domain": "amazon.nl", "currency": "EUR" },
-    "SE": { "flag": "🇸🇪", "name": "Sweden", "domain": "amazon.se", "currency": "SEK" },
-    "PL": { "flag": "🇵🇱", "name": "Poland", "domain": "amazon.pl", "currency": "PLN" },
-    "BE": { "flag": "🇧🇪", "name": "Belgium", "domain": "amazon.com.be", "currency": "EUR" },
-    "IE": { "flag": "🇮🇪", "name": "Ireland", "domain": "amazon.ie", "currency": "EUR" }
+    "US": {
+      "flag": "🇺🇸",
+      "name": "United States",
+      "domain": "amazon.com",
+      "currency": "USD"
+    },
+    "UK": {
+      "flag": "🇬🇧",
+      "name": "United Kingdom",
+      "domain": "amazon.co.uk",
+      "currency": "GBP"
+    },
+    "IN": {
+      "flag": "🇮🇳",
+      "name": "India",
+      "domain": "amazon.in",
+      "currency": "INR"
+    },
+    "CA": {
+      "flag": "🇨🇦",
+      "name": "Canada",
+      "domain": "amazon.ca",
+      "currency": "CAD"
+    },
+    "AU": {
+      "flag": "🇦🇺",
+      "name": "Australia",
+      "domain": "amazon.com.au",
+      "currency": "AUD"
+    },
+    "DE": {
+      "flag": "🇩🇪",
+      "name": "Germany",
+      "domain": "amazon.de",
+      "currency": "EUR"
+    },
+    "FR": {
+      "flag": "🇫🇷",
+      "name": "France",
+      "domain": "amazon.fr",
+      "currency": "EUR"
+    },
+    "IT": {
+      "flag": "🇮🇹",
+      "name": "Italy",
+      "domain": "amazon.it",
+      "currency": "EUR"
+    },
+    "ES": {
+      "flag": "🇪🇸",
+      "name": "Spain",
+      "domain": "amazon.es",
+      "currency": "EUR"
+    },
+    "JP": {
+      "flag": "🇯🇵",
+      "name": "Japan",
+      "domain": "amazon.co.jp",
+      "currency": "JPY"
+    },
+    "BR": {
+      "flag": "🇧🇷",
+      "name": "Brazil",
+      "domain": "amazon.com.br",
+      "currency": "BRL"
+    },
+    "MX": {
+      "flag": "🇲🇽",
+      "name": "Mexico",
+      "domain": "amazon.com.mx",
+      "currency": "MXN"
+    },
+    "NL": {
+      "flag": "🇳🇱",
+      "name": "Netherlands",
+      "domain": "amazon.nl",
+      "currency": "EUR"
+    },
+    "SE": {
+      "flag": "🇸🇪",
+      "name": "Sweden",
+      "domain": "amazon.se",
+      "currency": "SEK"
+    },
+    "PL": {
+      "flag": "🇵🇱",
+      "name": "Poland",
+      "domain": "amazon.pl",
+      "currency": "PLN"
+    },
+    "BE": {
+      "flag": "🇧🇪",
+      "name": "Belgium",
+      "domain": "amazon.com.be",
+      "currency": "EUR"
+    },
+    "IE": {
+      "flag": "🇮🇪",
+      "name": "Ireland",
+      "domain": "amazon.ie",
+      "currency": "EUR"
+    }
   }
 }

@@ -1,4 +1,4 @@
-# Amazon BSR Dashboard — Tejas Jadhav (KDP Author)
+# Amazon BSR Dashboard
 
 Live dashboard tracking Amazon Best Seller Ranks across **8 books**, **3 formats**, and **15 countries**, updated daily via GitHub Actions.
 
