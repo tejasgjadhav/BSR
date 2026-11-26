@@ -1,68 +1,68 @@
 {
-  "last_updated": "2026-11-25T05:00:02.452282+00:00",
+  "last_updated": "2026-11-26T02:42:56.975531+00:00",
   "current": {
     "claude_ai_finance": {
       "kindle": {
         "US": {
-          "rank": 174969,
+          "rank": 265338,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 174969,
+              "rank": 265338,
               "category": "Kindle Store"
             },
             {
-              "rank": 11,
+              "rank": 19,
               "category": "Valuation (Kindle Store)"
             },
             {
-              "rank": 19,
+              "rank": 31,
               "category": "Valuation (Books)"
             },
             {
-              "rank": 57,
-              "category": "Generative AI (Kindle Store)"
+              "rank": 127,
+              "category": "Generative AI (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com/dp/B0GSX73KF6"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
-          "rank": 6606,
+          "rank": 17224,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 6606,
+              "rank": 17224,
               "category": "Kindle Store"
             },
             {
-              "rank": 58,
+              "rank": 320,
               "category": "Computers & Technology eBooks"
             },
             {
-              "rank": 187,
+              "rank": 604,
               "category": "Business, Strategy & Management"
             },
             {
-              "rank": 290,
+              "rank": 858,
               "category": "Computers & Internet"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.in/dp/B0GSX73KF6"
         },
         "CA": {
-          "rank": 315435,
+          "rank": 322290,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 315435,
+              "rank": 322290,
               "category": "Kindle Store"
             },
             {
@@ -70,15 +70,15 @@
               "category": "Valuation"
             },
             {
-              "rank": 290,
+              "rank": 296,
               "category": "Investing (Kindle Store)"
             },
             {
-              "rank": 401,
+              "rank": 399,
               "category": "Generative AI"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.ca/dp/B0GSX73KF6"
         },
@@ -107,36 +107,36 @@
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com.au/dp/B0GSX73KF6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 286593,
+          "rank": 293982,
           "category": "Kindle-Shop",
           "all_ranks": [
             {
-              "rank": 286593,
+              "rank": 293982,
               "category": "Kindle-Shop"
             },
             {
-              "rank": 50,
+              "rank": 86,
               "category": "Generative KI"
             },
             {
-              "rank": 817,
+              "rank": 844,
               "category": "Fachbücher Investment Banking"
             },
             {
-              "rank": 1028,
+              "rank": 1068,
               "category": "Finanzierung & Investition"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.de/dp/B0GSX73KF6"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "rank": 37951,
@@ -163,38 +163,38 @@
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.it/dp/B0GSX73KF6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 108036,
+          "rank": 113420,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 108036,
+              "rank": 113420,
               "category": "Loja Kindle"
             },
             {
-              "rank": 198,
+              "rank": 209,
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 573,
+              "rank": 598,
               "category": "Computação, internet e mídia digital em inglês"
             },
             {
-              "rank": 583,
+              "rank": 614,
               "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com.br/dp/B0GSX73KF6"
         },
@@ -215,7 +215,7 @@
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.com.mx/dp/B0GSX73KF6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 29061,
@@ -242,48 +242,48 @@
           "asin": "B0GSX73KF6",
           "url": "https://www.amazon.nl/dp/B0GSX73KF6",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 195562,
+          "rank": 412225,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 195562,
+              "rank": 412225,
               "category": "Books"
             },
             {
-              "rank": 19,
+              "rank": 32,
               "category": "Valuation (Books)"
             },
             {
-              "rank": 67,
+              "rank": 134,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 84,
+              "rank": 183,
               "category": "Financial Risk Management (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com/dp/B0GV2SS77G"
         },
@@ -312,14 +312,14 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GV2SS77G/ref=tmm_pap_swatch_0",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 1218312,
+          "rank": 1219322,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1218312,
+              "rank": 1219322,
               "category": "Books"
             },
             {
@@ -327,15 +327,15 @@
               "category": "Valuation"
             },
             {
-              "rank": 401,
+              "rank": 399,
               "category": "Generative AI"
             },
             {
-              "rank": 685,
+              "rank": 678,
               "category": "Financial Risk Management"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.ca/dp/B0GV2SS77G"
         },
@@ -356,30 +356,30 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com.au/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 71756,
+          "rank": 129811,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 71756,
+              "rank": 129811,
               "category": "Bücher"
             },
             {
-              "rank": 33,
+              "rank": 74,
               "category": "Risikomanagement"
             },
             {
-              "rank": 50,
+              "rank": 86,
               "category": "Generative KI"
             },
             {
-              "rank": 1200,
+              "rank": 2221,
               "category": "Computer & Internet"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.de/dp/B0GV2SS77G"
         },
@@ -404,59 +404,59 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.fr/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
-          "rank": 163766,
+          "rank": 187273,
           "category": "Libri",
           "all_ranks": [
             {
-              "rank": 163766,
+              "rank": 187273,
               "category": "Libri"
             },
             {
-              "rank": 3513,
+              "rank": 4689,
               "category": "Economia, affari e finanza"
             },
             {
-              "rank": 17954,
+              "rank": 26487,
               "category": "Libri in altre lingue"
             },
             {
-              "rank": 33886,
+              "rank": 43751,
               "category": "Libri in inglese"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.it/dp/B0GV2SS77G"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 184736,
+          "rank": 190255,
           "category": "Livros",
           "all_ranks": [
             {
-              "rank": 184736,
+              "rank": 190255,
               "category": "Livros"
             },
             {
-              "rank": 38,
+              "rank": 41,
               "category": "Importados sobre Finanças Corporativas"
             },
             {
-              "rank": 201,
+              "rank": 207,
               "category": "Importados sobre Finanças e Investimentos"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com.br/dp/B0GV2SS77G"
         },
@@ -485,7 +485,7 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com.mx/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 127954,
@@ -512,7 +512,7 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.nl/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "rank": 33378,
@@ -535,11 +535,11 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.se/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "rank": 65614,
@@ -562,32 +562,32 @@
           "asin": "B0GV2SS77G",
           "url": "https://www.amazon.com.be/dp/B0GV2SS77G",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "hardcover": {
         "US": {
-          "rank": 1739264,
+          "rank": 1767966,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1739264,
+              "rank": 1767966,
               "category": "Books"
             },
             {
-              "rank": 19,
+              "rank": 32,
               "category": "Valuation (Books)"
             },
             {
-              "rank": 2413,
+              "rank": 2458,
               "category": "Investment Analysis & Strategy"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com/dp/B0GVJPXVP8"
         },
@@ -608,22 +608,22 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.co.uk/Claude-Finance-Professionals-Institutional-Investment/dp/B0GVJPXVP8/ref=tmm_pap_swatch_0",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 68,
+          "rank": 67,
           "category": "Valuation",
           "all_ranks": [
             {
-              "rank": 68,
+              "rank": 67,
               "category": "Valuation"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.ca/dp/B0GVJPXVP8"
         },
@@ -644,84 +644,84 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com.au/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 3477952,
+          "rank": 3481711,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 3477952,
+              "rank": 3481711,
               "category": "Bücher"
             },
             {
-              "rank": 1028,
+              "rank": 1068,
               "category": "Finanzierung & Investition"
             },
             {
-              "rank": 1368,
+              "rank": 1369,
               "category": "Aktienanalyse"
             },
             {
-              "rank": 13188,
+              "rank": 13199,
               "category": "Finanzwirtschaft"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.de/dp/B0GVJPXVP8"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
-          "rank": 1482196,
+          "rank": 1484484,
           "category": "Libri",
           "all_ranks": [
             {
-              "rank": 1482196,
+              "rank": 1484484,
               "category": "Libri"
             },
             {
-              "rank": 2336,
+              "rank": 3171,
               "category": "Impresa, strategia e gestione"
             },
             {
-              "rank": 17954,
+              "rank": 26487,
               "category": "Libri in altre lingue"
             },
             {
-              "rank": 33886,
+              "rank": 43751,
               "category": "Libri in inglese"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.it/dp/B0GVJPXVP8"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 38,
+          "rank": 41,
           "category": "Importados sobre Finanças Corporativas",
           "all_ranks": [
             {
-              "rank": 38,
+              "rank": 41,
               "category": "Importados sobre Finanças Corporativas"
             },
             {
-              "rank": 201,
+              "rank": 207,
               "category": "Importados sobre Finanças e Investimentos"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com.br/dp/B0GVJPXVP8"
         },
@@ -746,7 +746,7 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com.mx/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 1081,
@@ -765,7 +765,7 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.nl/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "rank": 526,
@@ -780,11 +780,11 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.se/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "rank": 638,
@@ -799,38 +799,38 @@
           "asin": "B0GVJPXVP8",
           "url": "https://www.amazon.com.be/dp/B0GVJPXVP8",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "ai_prompts_financial_analysis": {
       "kindle": {
         "US": {
-          "rank": 234639,
+          "rank": 199328,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 234639,
+              "rank": 199328,
               "category": "Kindle Store"
             },
             {
-              "rank": 50,
+              "rank": 43,
               "category": "Investing Portfolio Management"
             },
             {
-              "rank": 97,
+              "rank": 83,
               "category": "Generative AI (Kindle Store)"
             },
             {
-              "rank": 140,
+              "rank": 110,
               "category": "Analysis & Trading Investing Strategies"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.com/dp/B0GS5RL6XS"
         },
@@ -859,14 +859,14 @@
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.co.uk/dp/B0GS5RL6XS",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
-          "rank": 77425,
+          "rank": 78352,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 77425,
+              "rank": 78352,
               "category": "Kindle Store"
             },
             {
@@ -874,40 +874,40 @@
               "category": "Computers & Technology eBooks"
             },
             {
-              "rank": 4129,
+              "rank": 4101,
               "category": "Computers & Internet"
             },
             {
-              "rank": 4628,
+              "rank": 4690,
               "category": "Business & Investing eBooks"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.in/dp/B0GS5RL6XS"
         },
         "CA": {
-          "rank": 413160,
+          "rank": 421747,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 413160,
+              "rank": 421747,
               "category": "Kindle Store"
             },
             {
-              "rank": 323,
+              "rank": 331,
               "category": "Investment Portfolio Management"
             },
             {
-              "rank": 396,
+              "rank": 404,
               "category": "Manager's Guides to Computing"
             },
             {
-              "rank": 528,
+              "rank": 552,
               "category": "Generative AI"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.ca/dp/B0GS5RL6XS"
         },
@@ -936,50 +936,50 @@
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.com.au/dp/B0GS5RL6XS",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 272553,
+          "rank": 273479,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 272553,
+              "rank": 273479,
               "category": "Loja Kindle"
             },
             {
-              "rank": 2169,
+              "rank": 2179,
               "category": "Computação, internet e mídia digital em inglês"
             },
             {
-              "rank": 2193,
+              "rank": 2205,
               "category": "Computação, Informática e Mídias Digitais em Línguas Estrangeiras"
             },
             {
-              "rank": 3365,
+              "rank": 3366,
               "category": "Negócios e economia em inglês"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.com.br/dp/B0GS5RL6XS"
         },
@@ -1000,7 +1000,7 @@
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.com.mx/dp/B0GS5RL6XS",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 764,
@@ -1015,48 +1015,48 @@
           "asin": "B0GS5RL6XS",
           "url": "https://www.amazon.nl/dp/B0GS5RL6XS",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 573396,
+          "rank": 739896,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 573396,
+              "rank": 739896,
               "category": "Books"
             },
             {
-              "rank": 148,
+              "rank": 138,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 283,
+              "rank": 266,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 1560,
+              "rank": 1939,
               "category": "Budgeting & Money Management (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.com/dp/9357823662"
         },
@@ -1085,26 +1085,26 @@
           "asin": "9357823662",
           "url": "https://www.amazon.co.uk/AI-Prompts-Financial-Analysis-Practical/dp/9357823662/ref=tmm_pap_swatch_0",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 396,
+          "rank": 404,
           "category": "Manager's Guides to Computing",
           "all_ranks": [
             {
-              "rank": 396,
+              "rank": 404,
               "category": "Manager's Guides to Computing"
             },
             {
-              "rank": 528,
+              "rank": 552,
               "category": "Generative AI"
             },
             {
-              "rank": 856,
+              "rank": 872,
               "category": "Investment Analysis & Strategy"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.ca/dp/9357823662"
         },
@@ -1121,30 +1121,30 @@
           "asin": "9357823662",
           "url": "https://www.amazon.com.au/dp/9357823662",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 1270101,
+          "rank": 1272822,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 1270101,
+              "rank": 1272822,
               "category": "Bücher"
             },
             {
-              "rank": 507,
+              "rank": 512,
               "category": "Aktienanalyse"
             },
             {
-              "rank": 1044,
+              "rank": 1046,
               "category": "Generative KI"
             },
             {
-              "rank": 3700,
+              "rank": 3689,
               "category": "Ratgeber Börse & Geld"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.de/dp/9357823662"
         },
@@ -1169,59 +1169,59 @@
           "asin": "9357823662",
           "url": "https://www.amazon.fr/dp/9357823662",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
-          "rank": 1093880,
+          "rank": 1094693,
           "category": "Libri",
           "all_ranks": [
             {
-              "rank": 1093880,
+              "rank": 1094693,
               "category": "Libri"
             },
             {
-              "rank": 65747,
+              "rank": 65805,
               "category": "Self-help"
             },
             {
-              "rank": 531461,
+              "rank": 531761,
               "category": "Libri in inglese"
             },
             {
-              "rank": 567438,
+              "rank": 567968,
               "category": "Libri in altre lingue"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.it/dp/9357823662"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 526327,
+          "rank": 527163,
           "category": "Livros",
           "all_ranks": [
             {
-              "rank": 526327,
+              "rank": 527163,
               "category": "Livros"
             },
             {
-              "rank": 3613,
+              "rank": 3632,
               "category": "Computação, Informática e Mídias Digitais"
             },
             {
-              "rank": 6729,
+              "rank": 6764,
               "category": "Administração, Negócios e Economia"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "9357823662",
           "url": "https://www.amazon.com.br/dp/9357823662"
         },
@@ -1250,7 +1250,7 @@
           "asin": "9357823662",
           "url": "https://www.amazon.com.mx/dp/9357823662",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 732,
@@ -1269,79 +1269,79 @@
           "asin": "9357823662",
           "url": "https://www.amazon.nl/dp/9357823662",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "wealth_code_shivaji": {
       "kindle": {
         "US": {
-          "rank": 906039,
+          "rank": 970605,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 906039,
+              "rank": 970605,
               "category": "Kindle Store"
             },
             {
-              "rank": 232,
+              "rank": 250,
               "category": "Historical Asian Biographies (Kindle Store)"
             },
             {
-              "rank": 429,
+              "rank": 447,
               "category": "Wealth Management (Kindle Store)"
             },
             {
-              "rank": 1247,
+              "rank": 1296,
               "category": "Wealth Management (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.com/dp/B0D8R41W2F"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
-          "rank": 231244,
+          "rank": 233302,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 231244,
+              "rank": 233302,
               "category": "Kindle Store"
             },
             {
-              "rank": 7619,
+              "rank": 7715,
               "category": "Biographies & Memoirs (Kindle Store)"
             },
             {
-              "rank": 9645,
+              "rank": 9761,
               "category": "Business, Strategy & Management"
             },
             {
-              "rank": 20865,
+              "rank": 21097,
               "category": "Analysis & Strategy"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.in/dp/B0D8R41W2F"
         },
@@ -1358,556 +1358,556 @@
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.ca/dp/B0D8R41W2F",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 742184,
+          "rank": 761304,
           "category": "Kindle-Shop",
           "all_ranks": [
             {
-              "rank": 742184,
+              "rank": 761304,
               "category": "Kindle-Shop"
             },
             {
-              "rank": 1117,
+              "rank": 1157,
               "category": "Historische Biografien & Erinnerungen"
             },
             {
-              "rank": 3082,
+              "rank": 3182,
               "category": "Finanzierung & Investition"
             },
             {
-              "rank": 3937,
+              "rank": 4071,
               "category": "Bankwesen & Börse"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.de/dp/B0D8R41W2F"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 850713,
+          "rank": 851650,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 850713,
+              "rank": 851650,
               "category": "Loja Kindle"
             },
             {
-              "rank": 3066,
+              "rank": 3067,
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 4172,
+              "rank": 4175,
               "category": "Biografias Importadas e Casos Verdadeiros Históricos"
             },
             {
-              "rank": 14876,
+              "rank": 14894,
               "category": "Biografias e histórias reais em inglês"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0D8R41W2F",
           "url": "https://www.amazon.com.br/dp/B0D8R41W2F"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 6473,
+          "rank": 6940,
           "category": "Investing (Books)",
           "all_ranks": [
             {
-              "rank": 6473,
+              "rank": 6940,
               "category": "Investing (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GWWG34W6",
           "url": "https://www.amazon.com/dp/B0GWWG34W6"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 3082,
+          "rank": 3182,
           "category": "Finanzierung & Investition",
           "all_ranks": [
             {
-              "rank": 3082,
+              "rank": 3182,
               "category": "Finanzierung & Investition"
             },
             {
-              "rank": 830871,
+              "rank": 859965,
               "category": "Fremdsprachige Bücher          Kunden"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GWWG34W6",
           "url": "https://www.amazon.de/dp/B0GWWG34W6"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 4172,
+          "rank": 4175,
           "category": "Biografias Importadas e Casos Verdadeiros Históricos",
           "all_ranks": [
             {
-              "rank": 4172,
+              "rank": 4175,
               "category": "Biografias Importadas e Casos Verdadeiros Históricos"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GWWG34W6",
           "url": "https://www.amazon.com.br/dp/B0GWWG34W6"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "hardcover": {
         "US": {
-          "rank": 6473,
+          "rank": 6940,
           "category": "Investing (Books)",
           "all_ranks": [
             {
-              "rank": 6473,
+              "rank": 6940,
               "category": "Investing (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H9FCDVVB",
           "url": "https://www.amazon.com/dp/B0H9FCDVVB"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 3082,
+          "rank": 3182,
           "category": "Finanzierung & Investition",
           "all_ranks": [
             {
-              "rank": 3082,
+              "rank": 3182,
               "category": "Finanzierung & Investition"
             },
             {
-              "rank": 3937,
+              "rank": 4071,
               "category": "Bankwesen & Börse"
             },
             {
-              "rank": 830871,
+              "rank": 859965,
               "category": "Fremdsprachige Bücher          Kunden"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H9FCDVVB",
           "url": "https://www.amazon.de/dp/B0H9FCDVVB"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "stop_losing_money": {
       "kindle": {
         "US": {
-          "rank": 1033659,
+          "rank": 1099454,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 1033659,
+              "rank": 1099454,
               "category": "Kindle Store"
             },
             {
-              "rank": 393,
+              "rank": 420,
               "category": "Investing Portfolio Management"
             },
             {
-              "rank": 803,
+              "rank": 840,
               "category": "Investment Portfolio Management"
             },
             {
-              "rank": 2398,
+              "rank": 2546,
               "category": "Personal Finance (Kindle Store)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0G7YSZZJM",
           "url": "https://www.amazon.com/dp/B0G7YSZZJM"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
-          "rank": 101680,
+          "rank": 106764,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 101680,
+              "rank": 106764,
               "category": "Kindle Store"
             },
             {
-              "rank": 3988,
+              "rank": 4193,
               "category": "Business, Strategy & Management"
             },
             {
-              "rank": 7380,
+              "rank": 7784,
               "category": "Self-Help eBooks"
             },
             {
-              "rank": 9848,
+              "rank": 10345,
               "category": "Analysis & Strategy"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0G7YSZZJM",
           "url": "https://www.amazon.in/dp/B0G7YSZZJM"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 673840,
+          "rank": 676796,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 673840,
+              "rank": 676796,
               "category": "Loja Kindle"
             },
             {
-              "rank": 1019,
+              "rank": 1030,
               "category": "Importados sobre Finanças Pessoais"
             },
             {
-              "rank": 2242,
+              "rank": 2252,
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 13083,
+              "rank": 13163,
               "category": "Autoajuda e desenvolvimento pessoal em inglês"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0G7YSZZJM",
           "url": "https://www.amazon.com.br/dp/B0G7YSZZJM"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 7786137,
+          "rank": 7808919,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 7786137,
+              "rank": 7808919,
               "category": "Books"
             },
             {
-              "rank": 8406,
+              "rank": 8423,
               "category": "Introduction to Investing"
             },
             {
-              "rank": 10450,
+              "rank": 11078,
               "category": "Personal Finance (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GWHZLVK8",
           "url": "https://www.amazon.com/dp/B0GWHZLVK8"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 1019,
+          "rank": 1030,
           "category": "Importados sobre Finanças Pessoais",
           "all_ranks": [
             {
-              "rank": 1019,
+              "rank": 1030,
               "category": "Importados sobre Finanças Pessoais"
             },
             {
-              "rank": 2242,
+              "rank": 2252,
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 22777,
+              "rank": 22919,
               "category": "Desenvolvimento Pessoal e Autoajuda"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GWHZLVK8",
           "url": "https://www.amazon.com.br/dp/B0GWHZLVK8"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "ai_prompts_equity_research": {
       "hardcover": {
         "US": {
-          "rank": 2346383,
+          "rank": 2409310,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 2346383,
+              "rank": 2409310,
               "category": "Books"
             },
             {
-              "rank": 158,
+              "rank": 126,
               "category": "Investment Portfolio Management"
             },
             {
-              "rank": 283,
+              "rank": 266,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 1368,
+              "rank": 1403,
               "category": "Business Finance"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.com/dp/B0GSBV7QX9"
         },
@@ -1924,30 +1924,30 @@
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.co.uk/dp/B0GSBV7QX9",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 323,
+          "rank": 331,
           "category": "Investment Portfolio Management",
           "all_ranks": [
             {
-              "rank": 323,
+              "rank": 331,
               "category": "Investment Portfolio Management"
             },
             {
-              "rank": 856,
+              "rank": 872,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 5345,
+              "rank": 5440,
               "category": "Management (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.ca/dp/B0GSBV7QX9"
         },
@@ -1964,76 +1964,76 @@
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.com.au/dp/B0GSBV7QX9",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 2216159,
+          "rank": 2234793,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 2216159,
+              "rank": 2234793,
               "category": "Bücher"
             },
             {
-              "rank": 507,
+              "rank": 512,
               "category": "Aktienanalyse"
             },
             {
-              "rank": 8029,
+              "rank": 8098,
               "category": "Finanzwirtschaft"
             },
             {
-              "rank": 581802,
+              "rank": 583552,
               "category": "Fremdsprachige Bücher          Kunden"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.de/dp/B0GSBV7QX9"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
-          "rank": 531461,
+          "rank": 531761,
           "category": "Libri in inglese",
           "all_ranks": [
             {
-              "rank": 531461,
+              "rank": 531761,
               "category": "Libri in inglese"
             },
             {
-              "rank": 567438,
+              "rank": 567968,
               "category": "Libri in altre lingue"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.it/dp/B0GSBV7QX9"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 767114,
+          "rank": 768223,
           "category": "Livros",
           "all_ranks": [
             {
-              "rank": 767114,
+              "rank": 768223,
               "category": "Livros"
             },
             {
-              "rank": 1540,
+              "rank": 1539,
               "category": "Importados sobre Finanças e Investimentos"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.com.br/dp/B0GSBV7QX9"
         },
@@ -2058,7 +2058,7 @@
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.com.mx/dp/B0GSBV7QX9",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "rank": 764,
@@ -2077,92 +2077,92 @@
           "asin": "B0GSBV7QX9",
           "url": "https://www.amazon.nl/dp/B0GSBV7QX9",
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "claude_cowork_finance": {
       "kindle": {
         "US": {
-          "rank": 592331,
+          "rank": 664617,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 592331,
+              "rank": 664617,
               "category": "Kindle Store"
             },
             {
-              "rank": 472,
+              "rank": 556,
               "category": "Generative AI (Kindle Store)"
             },
             {
-              "rank": 498,
+              "rank": 562,
               "category": "Analysis & Trading Investing Strategies"
             },
             {
-              "rank": 772,
+              "rank": 794,
               "category": "Generative AI (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H1R2GZX9",
           "url": "https://www.amazon.com/dp/B0H1R2GZX9"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
-          "rank": 117904,
+          "rank": 122075,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 117904,
+              "rank": 122075,
               "category": "Kindle Store"
             },
             {
-              "rank": 3549,
+              "rank": 3709,
               "category": "Computers & Technology eBooks"
             },
             {
-              "rank": 6484,
+              "rank": 6743,
               "category": "Computers & Internet"
             },
             {
-              "rank": 7252,
+              "rank": 7546,
               "category": "Business & Investing eBooks"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H1R2GZX9",
           "url": "https://www.amazon.in/dp/B0H1R2GZX9"
         },
         "CA": {
-          "rank": 1682,
+          "rank": 1698,
           "category": "Generative AI",
           "all_ranks": [
             {
-              "rank": 1682,
+              "rank": 1698,
               "category": "Generative AI"
             },
             {
-              "rank": 2530,
+              "rank": 2528,
               "category": "Investment Analysis & Strategy"
             },
             {
@@ -2170,69 +2170,69 @@
               "category": "Finance in Accounting"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H1R2GZX9",
           "url": "https://www.amazon.ca/dp/B0H1R2GZX9"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 952104,
+          "rank": 952629,
           "category": "Kindle-Shop",
           "all_ranks": [
             {
-              "rank": 952104,
+              "rank": 952629,
               "category": "Kindle-Shop"
             },
             {
-              "rank": 1220,
+              "rank": 1221,
               "category": "Generative KI"
             },
             {
-              "rank": 5264,
+              "rank": 5268,
               "category": "Finanzwirtschaft"
             },
             {
-              "rank": 7276,
+              "rank": 7281,
               "category": "Computer & Internet"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H1R2GZX9",
           "url": "https://www.amazon.de/dp/B0H1R2GZX9"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 324564,
+          "rank": 324823,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 324564,
+              "rank": 324823,
               "category": "Loja Kindle"
             },
             {
-              "rank": 198,
+              "rank": 208,
               "category": "Importados sobre Finanças e Investimentos"
             },
             {
-              "rank": 1826,
+              "rank": 1925,
               "category": "Computação, Informática e Mídias Digitais"
             },
             {
@@ -2240,742 +2240,742 @@
               "category": "Computação, internet e mídia digital em inglês"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H1R2GZX9",
           "url": "https://www.amazon.com.br/dp/B0H1R2GZX9"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 1025130,
+          "rank": 1080656,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1025130,
+              "rank": 1080656,
               "category": "Books"
             },
             {
-              "rank": 772,
+              "rank": 794,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 915,
+              "rank": 964,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 2842,
+              "rank": 2995,
               "category": "Finance (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CZKK2W",
           "url": "https://www.amazon.com/dp/B0H2CZKK2W"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 1824989,
+          "rank": 1828776,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1824989,
+              "rank": 1828776,
               "category": "Books"
             },
             {
-              "rank": 1682,
+              "rank": 1698,
               "category": "Generative AI"
             },
             {
-              "rank": 2530,
+              "rank": 2528,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 3302,
+              "rank": 3316,
               "category": "AI Machine Learning"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CZKK2W",
           "url": "https://www.amazon.ca/dp/B0H2CZKK2W"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 1767043,
+          "rank": 1769515,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 1767043,
+              "rank": 1769515,
               "category": "Bücher"
             },
             {
-              "rank": 728,
+              "rank": 733,
               "category": "Aktienanalyse"
             },
             {
-              "rank": 1220,
+              "rank": 1221,
               "category": "Generative KI"
             },
             {
-              "rank": 5264,
+              "rank": 5268,
               "category": "Finanzwirtschaft"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CZKK2W",
           "url": "https://www.amazon.de/dp/B0H2CZKK2W"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 193521,
+          "rank": 203005,
           "category": "Livros",
           "all_ranks": [
             {
-              "rank": 193521,
+              "rank": 203005,
               "category": "Livros"
             },
             {
-              "rank": 198,
+              "rank": 208,
               "category": "Importados sobre Finanças e Investimentos"
             },
             {
-              "rank": 1826,
+              "rank": 1925,
               "category": "Computação, Informática e Mídias Digitais"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CZKK2W",
           "url": "https://www.amazon.com.br/dp/B0H2CZKK2W"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "hardcover": {
         "US": {
-          "rank": 1619139,
+          "rank": 1757741,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 1619139,
+              "rank": 1757741,
               "category": "Books"
             },
             {
-              "rank": 772,
+              "rank": 794,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 915,
+              "rank": 964,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 2842,
+              "rank": 2995,
               "category": "Finance (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CWS6K7",
           "url": "https://www.amazon.com/dp/B0H2CWS6K7"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
-          "rank": 1682,
+          "rank": 1698,
           "category": "Generative AI",
           "all_ranks": [
             {
-              "rank": 1682,
+              "rank": 1698,
               "category": "Generative AI"
             },
             {
-              "rank": 2530,
+              "rank": 2528,
               "category": "Investment Analysis & Strategy"
             },
             {
-              "rank": 3302,
+              "rank": 3316,
               "category": "AI Machine Learning"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CWS6K7",
           "url": "https://www.amazon.ca/dp/B0H2CWS6K7"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 728,
+          "rank": 733,
           "category": "Aktienanalyse",
           "all_ranks": [
             {
-              "rank": 728,
+              "rank": 733,
               "category": "Aktienanalyse"
             },
             {
-              "rank": 1220,
+              "rank": 1221,
               "category": "Generative KI"
             },
             {
-              "rank": 5264,
+              "rank": 5268,
               "category": "Finanzwirtschaft"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CWS6K7",
           "url": "https://www.amazon.de/dp/B0H2CWS6K7"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 198,
+          "rank": 208,
           "category": "Importados sobre Finanças e Investimentos",
           "all_ranks": [
             {
-              "rank": 198,
+              "rank": 208,
               "category": "Importados sobre Finanças e Investimentos"
             },
             {
-              "rank": 1826,
+              "rank": 1925,
               "category": "Computação, Informática e Mídias Digitais"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2CWS6K7",
           "url": "https://www.amazon.com.br/dp/B0H2CWS6K7"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "claude_ai_finance_es": {
       "kindle": {
         "US": {
-          "rank": 494883,
+          "rank": 657177,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 494883,
+              "rank": 657177,
               "category": "Kindle Store"
             },
             {
-              "rank": 36,
+              "rank": 46,
               "category": "Valuation (Kindle Store)"
             },
             {
-              "rank": 52,
+              "rank": 85,
               "category": "Information, Internet & Digital Media in Spanish"
             },
             {
-              "rank": 88,
+              "rank": 121,
               "category": "Valuation (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H57YSP56",
           "url": "https://www.amazon.com/dp/B0H57YSP56"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 864430,
+          "rank": 885409,
           "category": "Kindle-Shop",
           "all_ranks": [
             {
-              "rank": 864430,
+              "rank": 885409,
               "category": "Kindle-Shop"
             },
             {
-              "rank": 39,
+              "rank": 40,
               "category": "Spanischsprachige Computer- & Internetbücher"
             },
             {
-              "rank": 185,
+              "rank": 192,
               "category": "Spanischsprachige Wirtschaftsbücher"
             },
             {
-              "rank": 1558,
+              "rank": 1607,
               "category": "Generative KI"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H57YSP56",
           "url": "https://www.amazon.de/dp/B0H57YSP56"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 709765,
+          "rank": 711100,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 709765,
+              "rank": 711100,
               "category": "Loja Kindle"
             },
             {
-              "rank": 265,
+              "rank": 266,
               "category": "Computação, internet e mídia digital em espanhol"
             },
             {
-              "rank": 804,
+              "rank": 809,
               "category": "Negócios e economia em espanhol"
             },
             {
-              "rank": 1299,
+              "rank": 1300,
               "category": "Importados sobre Finanças e Investimentos"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H57YSP56",
           "url": "https://www.amazon.com.br/dp/B0H57YSP56"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 863910,
+          "rank": 1102602,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 863910,
+              "rank": 1102602,
               "category": "Books"
             },
             {
-              "rank": 88,
+              "rank": 121,
               "category": "Valuation (Books)"
             },
             {
-              "rank": 493,
+              "rank": 800,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 19506,
+              "rank": 32087,
               "category": "Libros en español (Special Features Stores)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H9B6HXK2",
           "url": "https://www.amazon.com/dp/B0H9B6HXK2"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 1558,
+          "rank": 1607,
           "category": "Generative KI",
           "all_ranks": [
             {
-              "rank": 1558,
+              "rank": 1607,
               "category": "Generative KI"
             },
             {
-              "rank": 40360,
+              "rank": 41533,
               "category": "Computer & Internet"
             },
             {
-              "rank": 1014136,
+              "rank": 1047559,
               "category": "Fremdsprachige Bücher"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H9B6HXK2",
           "url": "https://www.amazon.de/dp/B0H9B6HXK2"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 17416,
+          "rank": 17488,
           "category": "Computação, Informática e Mídias Digitais",
           "all_ranks": [
             {
-              "rank": 17416,
+              "rank": 17488,
               "category": "Computação, Informática e Mídias Digitais"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H9B6HXK2",
           "url": "https://www.amazon.com.br/dp/B0H9B6HXK2"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "hardcover": {
         "US": {
-          "rank": 6212366,
+          "rank": 6217526,
           "category": "Books",
           "all_ranks": [
             {
-              "rank": 6212366,
+              "rank": 6217526,
               "category": "Books"
             },
             {
-              "rank": 96,
+              "rank": 121,
               "category": "Valuation (Books)"
             },
             {
-              "rank": 570,
+              "rank": 800,
               "category": "Generative AI (Books)"
             },
             {
-              "rank": 23064,
+              "rank": 32087,
               "category": "Libros en español (Special Features Stores)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H99G7KFX",
           "url": "https://www.amazon.com/dp/B0H99G7KFX"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 1558,
+          "rank": 1607,
           "category": "Generative KI",
           "all_ranks": [
             {
-              "rank": 1558,
+              "rank": 1607,
               "category": "Generative KI"
             },
             {
-              "rank": 40356,
+              "rank": 41533,
               "category": "Computer & Internet"
             },
             {
-              "rank": 1014201,
+              "rank": 1047559,
               "category": "Fremdsprachige Bücher"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H99G7KFX",
           "url": "https://www.amazon.de/dp/B0H99G7KFX"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 17416,
+          "rank": 17488,
           "category": "Computação, Informática e Mídias Digitais",
           "all_ranks": [
             {
-              "rank": 17416,
+              "rank": 17488,
               "category": "Computação, Informática e Mídias Digitais"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H99G7KFX",
           "url": "https://www.amazon.com.br/dp/B0H99G7KFX"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     },
     "claude_ai_finance_de": {
       "kindle": {
         "US": {
-          "rank": 1393590,
+          "rank": 1437288,
           "category": "Kindle Store",
           "all_ranks": [
             {
-              "rank": 1393590,
+              "rank": 1437288,
               "category": "Kindle Store"
             },
             {
-              "rank": 30,
+              "rank": 28,
               "category": "Business & Economics in German"
             },
             {
-              "rank": 3643,
+              "rank": 3747,
               "category": "Investing (Kindle Store)"
             },
             {
-              "rank": 5392,
+              "rank": 5578,
               "category": "Business Economics (Kindle Store)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2TGNDDV",
           "url": "https://www.amazon.com/dp/B0H2TGNDDV"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 25190,
+          "rank": 31684,
           "category": "Kindle-Shop",
           "all_ranks": [
             {
-              "rank": 25190,
+              "rank": 31684,
               "category": "Kindle-Shop"
             },
             {
@@ -2983,40 +2983,40 @@
               "category": "Betriebswirtschaftslehre"
             },
             {
-              "rank": 3,
+              "rank": 4,
               "category": "Wirtschaftslehre"
             },
             {
-              "rank": 6,
+              "rank": 11,
               "category": "eBooks Investieren          Kunden"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2TGNDDV",
           "url": "https://www.amazon.de/dp/B0H2TGNDDV"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
-          "rank": 808904,
+          "rank": 809871,
           "category": "Loja Kindle",
           "all_ranks": [
             {
-              "rank": 808904,
+              "rank": 809871,
               "category": "Loja Kindle"
             },
             {
@@ -3028,224 +3028,224 @@
               "category": "Importados sobre Investimento"
             },
             {
-              "rank": 20563,
+              "rank": 20590,
               "category": "Administração, Negócios e Economia em Línguas Estrangeiras"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H2TGNDDV",
           "url": "https://www.amazon.com.br/dp/B0H2TGNDDV"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "paperback": {
         "US": {
-          "rank": 17427,
+          "rank": 17958,
           "category": "Economics (Books)",
           "all_ranks": [
             {
-              "rank": 17427,
+              "rank": 17958,
               "category": "Economics (Books)"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H32M1F9Q",
           "url": "https://www.amazon.com/dp/B0H32M1F9Q"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 289005,
+          "rank": 325141,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 289005,
+              "rank": 325141,
               "category": "Bücher"
             },
             {
-              "rank": 29,
+              "rank": 40,
               "category": "Wirtschaftslehre"
             },
             {
-              "rank": 246,
+              "rank": 279,
               "category": "Wirtschaftliches Wachstum"
             },
             {
-              "rank": 835,
+              "rank": 964,
               "category": "Finanzwirtschaft"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H32M1F9Q",
           "url": "https://www.amazon.de/dp/B0H32M1F9Q"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       },
       "hardcover": {
         "US": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "UK": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IN": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "CA": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "AU": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "DE": {
-          "rank": 936651,
+          "rank": 970427,
           "category": "Bücher",
           "all_ranks": [
             {
-              "rank": 936651,
+              "rank": 970427,
               "category": "Bücher"
             },
             {
-              "rank": 246,
+              "rank": 279,
               "category": "Wirtschaftliches Wachstum"
             },
             {
-              "rank": 835,
+              "rank": 964,
               "category": "Finanzwirtschaft"
             }
           ],
-          "timestamp": "2026-11-25T05:00:02.452282+00:00",
+          "timestamp": "2026-11-26T02:42:56.975531+00:00",
           "asin": "B0H98B8CMY",
           "url": "https://www.amazon.de/dp/B0H98B8CMY"
         },
         "FR": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IT": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "ES": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "JP": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BR": {
           "last_error": "Not available (404)",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "MX": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "NL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "SE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "PL": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "BE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         },
         "IE": {
           "last_error": "BSR not found",
-          "error_timestamp": "2026-11-25T05:00:02.452282+00:00"
+          "error_timestamp": "2026-11-26T02:42:56.975531+00:00"
         }
       }
     }
@@ -3254,11 +3254,6 @@
     "claude_ai_finance": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-02",
-            "rank": 133727,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-02",
             "rank": 133727,
@@ -3703,14 +3698,14 @@
             "date": "2026-11-25",
             "rank": 174969,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 265338,
+            "category": "Kindle Store"
           }
         ],
         "IN": [
-          {
-            "date": "2026-09-30",
-            "rank": 51899,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-09-30",
             "rank": 51899,
@@ -4155,14 +4150,14 @@
             "date": "2026-11-25",
             "rank": 6606,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 17224,
+            "category": "Kindle Store"
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-04",
-            "rank": 137051,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 137051,
@@ -4607,6 +4602,11 @@
             "date": "2026-11-25",
             "rank": 315435,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 322290,
+            "category": "Kindle Store"
           }
         ],
         "AU": [
@@ -4671,11 +4671,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-04",
-            "rank": 97298,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-04",
             "rank": 97298,
@@ -5120,6 +5115,11 @@
             "date": "2026-11-25",
             "rank": 108036,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 113420,
+            "category": "Loja Kindle"
           }
         ],
         "DE": [
@@ -5442,6 +5442,11 @@
             "date": "2026-11-25",
             "rank": 286593,
             "category": "Kindle-Shop"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 293982,
+            "category": "Kindle-Shop"
           }
         ],
         "IT": [
@@ -5699,11 +5704,6 @@
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-04",
-            "rank": 205719,
-            "category": "Books"
-          },
           {
             "date": "2026-10-05",
             "rank": 287497,
@@ -6148,6 +6148,11 @@
             "date": "2026-11-25",
             "rank": 195562,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 412225,
+            "category": "Books"
           }
         ],
         "UK": [
@@ -6178,11 +6183,6 @@
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-04",
-            "rank": 996346,
-            "category": "Books"
-          },
           {
             "date": "2026-10-05",
             "rank": 1135017,
@@ -6627,6 +6627,11 @@
             "date": "2026-11-25",
             "rank": 1218312,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1219322,
+            "category": "Books"
           }
         ],
         "AU": [
@@ -6662,11 +6667,6 @@
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-04",
-            "rank": 163342,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-05",
             "rank": 230055,
@@ -7111,6 +7111,11 @@
             "date": "2026-11-25",
             "rank": 71756,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 129811,
+            "category": "Bücher"
           }
         ],
         "FR": [
@@ -7131,11 +7136,6 @@
           }
         ],
         "IT": [
-          {
-            "date": "2026-10-02",
-            "rank": 417692,
-            "category": "Libri"
-          },
           {
             "date": "2026-10-03",
             "rank": 417653,
@@ -7580,6 +7580,11 @@
             "date": "2026-11-25",
             "rank": 163766,
             "category": "Libri"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 187273,
+            "category": "Libri"
           }
         ],
         "NL": [
@@ -7639,11 +7644,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 260750,
-            "category": "Livros"
-          },
           {
             "date": "2026-10-04",
             "rank": 262867,
@@ -8088,6 +8088,11 @@
             "date": "2026-11-25",
             "rank": 184736,
             "category": "Livros"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 190255,
+            "category": "Livros"
           }
         ],
         "BE": [
@@ -8115,11 +8120,6 @@
       },
       "hardcover": {
         "US": [
-          {
-            "date": "2026-10-04",
-            "rank": 2162284,
-            "category": "Books"
-          },
           {
             "date": "2026-10-04",
             "rank": 2162284,
@@ -8564,6 +8564,11 @@
             "date": "2026-11-25",
             "rank": 1739264,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1767966,
+            "category": "Books"
           }
         ],
         "UK": [
@@ -8599,11 +8604,6 @@
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 31,
-            "category": "Valuation"
-          },
           {
             "date": "2026-10-04",
             "rank": 33,
@@ -9048,6 +9048,11 @@
             "date": "2026-11-25",
             "rank": 68,
             "category": "Valuation"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 67,
+            "category": "Valuation"
           }
         ],
         "AU": [
@@ -9112,11 +9117,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-04",
-            "rank": 76,
-            "category": "Importados sobre Finanças Corporativas"
-          },
           {
             "date": "2026-10-04",
             "rank": 76,
@@ -9561,6 +9561,11 @@
             "date": "2026-11-25",
             "rank": 38,
             "category": "Importados sobre Finanças Corporativas"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 41,
+            "category": "Importados sobre Finanças Corporativas"
           }
         ],
         "SE": [
@@ -9598,11 +9603,6 @@
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 3220794,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-04",
             "rank": 3226362,
@@ -10047,14 +10047,14 @@
             "date": "2026-11-25",
             "rank": 3477952,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 3481711,
+            "category": "Bücher"
           }
         ],
         "IT": [
-          {
-            "date": "2026-10-03",
-            "rank": 1317627,
-            "category": "Libri"
-          },
           {
             "date": "2026-10-03",
             "rank": 1317691,
@@ -10499,6 +10499,11 @@
             "date": "2026-11-25",
             "rank": 1482196,
             "category": "Libri"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1484484,
+            "category": "Libri"
           }
         ]
       }
@@ -10506,11 +10511,6 @@
     "ai_prompts_financial_analysis": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 398762,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 493821,
@@ -10955,6 +10955,11 @@
             "date": "2026-11-25",
             "rank": 234639,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 199328,
+            "category": "Kindle Store"
           }
         ],
         "UK": [
@@ -10985,11 +10990,6 @@
           }
         ],
         "IN": [
-          {
-            "date": "2026-10-03",
-            "rank": 73650,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 75935,
@@ -11434,14 +11434,14 @@
             "date": "2026-11-25",
             "rank": 77425,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 78352,
+            "category": "Kindle Store"
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 817631,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 819700,
@@ -11886,6 +11886,11 @@
             "date": "2026-11-25",
             "rank": 413160,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 421747,
+            "category": "Kindle Store"
           }
         ],
         "AU": [
@@ -11955,11 +11960,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-02",
-            "rank": 25309,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-02",
             "rank": 30149,
@@ -12404,16 +12404,16 @@
             "date": "2026-11-25",
             "rank": 272553,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 273479,
+            "category": "Loja Kindle"
           }
         ]
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 419610,
-            "category": "Books"
-          },
           {
             "date": "2026-10-03",
             "rank": 485803,
@@ -12858,6 +12858,11 @@
             "date": "2026-11-25",
             "rank": 573396,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 739896,
+            "category": "Books"
           }
         ],
         "UK": [
@@ -12888,11 +12893,6 @@
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 1777931,
-            "category": "Books"
-          },
           {
             "date": "2026-10-03",
             "rank": 1779198,
@@ -13337,6 +13337,11 @@
             "date": "2026-11-25",
             "rank": 396,
             "category": "Manager's Guides to Computing"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 404,
+            "category": "Manager's Guides to Computing"
           }
         ],
         "AU": [
@@ -13372,11 +13377,6 @@
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-02",
-            "rank": 783757,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-02",
             "rank": 783757,
@@ -13821,6 +13821,11 @@
             "date": "2026-11-25",
             "rank": 1270101,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1272822,
+            "category": "Bücher"
           }
         ],
         "FR": [
@@ -13851,11 +13856,6 @@
           }
         ],
         "IT": [
-          {
-            "date": "2026-10-02",
-            "rank": 985405,
-            "category": "Libri"
-          },
           {
             "date": "2026-10-03",
             "rank": 987866,
@@ -14300,6 +14300,11 @@
             "date": "2026-11-25",
             "rank": 1093880,
             "category": "Libri"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1094693,
+            "category": "Libri"
           }
         ],
         "NL": [
@@ -14337,11 +14342,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-02",
-            "rank": 288929,
-            "category": "Livros"
-          },
           {
             "date": "2026-10-03",
             "rank": 291831,
@@ -14786,6 +14786,11 @@
             "date": "2026-11-25",
             "rank": 526327,
             "category": "Livros"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 527163,
+            "category": "Livros"
           }
         ]
       }
@@ -14793,11 +14798,6 @@
     "wealth_code_shivaji": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-02",
-            "rank": 2643658,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-02",
             "rank": 2656517,
@@ -15242,14 +15242,14 @@
             "date": "2026-11-25",
             "rank": 906039,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 970605,
+            "category": "Kindle Store"
           }
         ],
         "IN": [
-          {
-            "date": "2026-10-02",
-            "rank": 276340,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-03",
             "rank": 276752,
@@ -15694,14 +15694,14 @@
             "date": "2026-11-25",
             "rank": 231244,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 233302,
+            "category": "Kindle Store"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-02",
-            "rank": 795668,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-03",
             "rank": 796432,
@@ -16146,6 +16146,11 @@
             "date": "2026-11-25",
             "rank": 850713,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 851650,
+            "category": "Loja Kindle"
           }
         ],
         "CA": [
@@ -16445,16 +16450,16 @@
             "date": "2026-11-25",
             "rank": 742184,
             "category": "Kindle-Shop"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 761304,
+            "category": "Kindle-Shop"
           }
         ]
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-02",
-            "rank": 21018,
-            "category": "Investing (Books)"
-          },
           {
             "date": "2026-10-03",
             "rank": 21117,
@@ -16899,14 +16904,14 @@
             "date": "2026-11-25",
             "rank": 6473,
             "category": "Investing (Books)"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 6940,
+            "category": "Investing (Books)"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 3767,
-            "category": "Biografias Importadas e Casos Verdadeiros Históricos"
-          },
           {
             "date": "2026-10-03",
             "rank": 3770,
@@ -17351,6 +17356,11 @@
             "date": "2026-11-25",
             "rank": 4172,
             "category": "Biografias Importadas e Casos Verdadeiros Históricos"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 4175,
+            "category": "Biografias Importadas e Casos Verdadeiros Históricos"
           }
         ],
         "DE": [
@@ -17633,16 +17643,16 @@
             "date": "2026-11-25",
             "rank": 3082,
             "category": "Finanzierung & Investition"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 3182,
+            "category": "Finanzierung & Investition"
           }
         ]
       },
       "hardcover": {
         "US": [
-          {
-            "date": "2026-10-02",
-            "rank": 21018,
-            "category": "Investing (Books)"
-          },
           {
             "date": "2026-10-03",
             "rank": 21117,
@@ -18087,6 +18097,11 @@
             "date": "2026-11-25",
             "rank": 6473,
             "category": "Investing (Books)"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 6940,
+            "category": "Investing (Books)"
           }
         ],
         "DE": [
@@ -18359,6 +18374,11 @@
             "date": "2026-11-25",
             "rank": 3082,
             "category": "Finanzierung & Investition"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 3182,
+            "category": "Finanzierung & Investition"
           }
         ]
       }
@@ -18366,11 +18386,6 @@
     "stop_losing_money": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 1786802,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-03",
             "rank": 1791301,
@@ -18815,14 +18830,14 @@
             "date": "2026-11-25",
             "rank": 1033659,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1099454,
+            "category": "Kindle Store"
           }
         ],
         "IN": [
-          {
-            "date": "2026-10-03",
-            "rank": 161900,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-03",
             "rank": 162118,
@@ -19267,14 +19282,14 @@
             "date": "2026-11-25",
             "rank": 101680,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 106764,
+            "category": "Kindle Store"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 219637,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-03",
             "rank": 224032,
@@ -19719,16 +19734,16 @@
             "date": "2026-11-25",
             "rank": 673840,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 676796,
+            "category": "Loja Kindle"
           }
         ]
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 2989550,
-            "category": "Books"
-          },
           {
             "date": "2026-10-03",
             "rank": 3052203,
@@ -20173,14 +20188,14 @@
             "date": "2026-11-25",
             "rank": 7786137,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 7808919,
+            "category": "Books"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 282,
-            "category": "Importados sobre Finanças Pessoais"
-          },
           {
             "date": "2026-10-03",
             "rank": 292,
@@ -20625,6 +20640,11 @@
             "date": "2026-11-25",
             "rank": 1019,
             "category": "Importados sobre Finanças Pessoais"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1030,
+            "category": "Importados sobre Finanças Pessoais"
           }
         ]
       }
@@ -20632,11 +20652,6 @@
     "ai_prompts_equity_research": {
       "hardcover": {
         "US": [
-          {
-            "date": "2026-10-02",
-            "rank": 3284236,
-            "category": "Books"
-          },
           {
             "date": "2026-10-03",
             "rank": 3310779,
@@ -21081,6 +21096,11 @@
             "date": "2026-11-25",
             "rank": 2346383,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 2409310,
+            "category": "Books"
           }
         ],
         "UK": [
@@ -21116,11 +21136,6 @@
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-02",
-            "rank": 661,
-            "category": "Investment Portfolio Management"
-          },
           {
             "date": "2026-10-03",
             "rank": 664,
@@ -21565,6 +21580,11 @@
             "date": "2026-11-25",
             "rank": 323,
             "category": "Investment Portfolio Management"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 331,
+            "category": "Investment Portfolio Management"
           }
         ],
         "AU": [
@@ -21639,11 +21659,6 @@
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 735751,
-            "category": "Livros"
-          },
           {
             "date": "2026-10-03",
             "rank": 736136,
@@ -22088,14 +22103,14 @@
             "date": "2026-11-25",
             "rank": 767114,
             "category": "Livros"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 768223,
+            "category": "Livros"
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-01",
-            "rank": 3128904,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-02",
             "rank": 3133646,
@@ -22540,14 +22555,14 @@
             "date": "2026-11-25",
             "rank": 2216159,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 2234793,
+            "category": "Bücher"
           }
         ],
         "IT": [
-          {
-            "date": "2026-10-01",
-            "rank": 381276,
-            "category": "Libri in inglese"
-          },
           {
             "date": "2026-10-02",
             "rank": 382825,
@@ -22992,6 +23007,11 @@
             "date": "2026-11-25",
             "rank": 531461,
             "category": "Libri in inglese"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 531761,
+            "category": "Libri in inglese"
           }
         ]
       }
@@ -22999,11 +23019,6 @@
     "claude_cowork_finance": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 218551,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 350505,
@@ -23448,14 +23463,14 @@
             "date": "2026-11-25",
             "rank": 592331,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 664617,
+            "category": "Kindle Store"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 232475,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-04",
             "rank": 235186,
@@ -23900,14 +23915,14 @@
             "date": "2026-11-25",
             "rank": 324564,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 324823,
+            "category": "Loja Kindle"
           }
         ],
         "IN": [
-          {
-            "date": "2026-10-03",
-            "rank": 50884,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 59809,
@@ -24352,14 +24367,14 @@
             "date": "2026-11-25",
             "rank": 117904,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 122075,
+            "category": "Kindle Store"
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 825360,
-            "category": "Kindle-Shop"
-          },
           {
             "date": "2026-10-04",
             "rank": 832404,
@@ -24804,14 +24819,14 @@
             "date": "2026-11-25",
             "rank": 952104,
             "category": "Kindle-Shop"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 952629,
+            "category": "Kindle-Shop"
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 952,
-            "category": "Generative AI"
-          },
           {
             "date": "2026-10-04",
             "rank": 961,
@@ -25256,16 +25271,16 @@
             "date": "2026-11-25",
             "rank": 1682,
             "category": "Generative AI"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1698,
+            "category": "Generative AI"
           }
         ]
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 267614,
-            "category": "Books"
-          },
           {
             "date": "2026-10-03",
             "rank": 316110,
@@ -25710,14 +25725,14 @@
             "date": "2026-11-25",
             "rank": 1025130,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1080656,
+            "category": "Books"
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 1343989,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-04",
             "rank": 1366810,
@@ -26162,14 +26177,14 @@
             "date": "2026-11-25",
             "rank": 1767043,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1769515,
+            "category": "Bücher"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 324,
-            "category": "Importados sobre Finanças e Investimentos"
-          },
           {
             "date": "2026-10-03",
             "rank": 324,
@@ -26614,14 +26629,14 @@
             "date": "2026-11-25",
             "rank": 193521,
             "category": "Livros"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 203005,
+            "category": "Livros"
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 1229683,
-            "category": "Books"
-          },
           {
             "date": "2026-10-04",
             "rank": 1232921,
@@ -27066,16 +27081,16 @@
             "date": "2026-11-25",
             "rank": 1824989,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1828776,
+            "category": "Books"
           }
         ]
       },
       "hardcover": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 4652309,
-            "category": "Books"
-          },
           {
             "date": "2026-10-04",
             "rank": 4667318,
@@ -27520,14 +27535,14 @@
             "date": "2026-11-25",
             "rank": 1619139,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1757741,
+            "category": "Books"
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 635,
-            "category": "Aktienanalyse"
-          },
           {
             "date": "2026-10-04",
             "rank": 643,
@@ -27972,14 +27987,14 @@
             "date": "2026-11-25",
             "rank": 728,
             "category": "Aktienanalyse"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 733,
+            "category": "Aktienanalyse"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 324,
-            "category": "Importados sobre Finanças e Investimentos"
-          },
           {
             "date": "2026-10-04",
             "rank": 332,
@@ -28424,14 +28439,14 @@
             "date": "2026-11-25",
             "rank": 198,
             "category": "Importados sobre Finanças e Investimentos"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 208,
+            "category": "Importados sobre Finanças e Investimentos"
           }
         ],
         "CA": [
-          {
-            "date": "2026-10-03",
-            "rank": 952,
-            "category": "Generative AI"
-          },
           {
             "date": "2026-10-04",
             "rank": 961,
@@ -28876,6 +28891,11 @@
             "date": "2026-11-25",
             "rank": 1682,
             "category": "Generative AI"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1698,
+            "category": "Generative AI"
           }
         ]
       }
@@ -28883,11 +28903,6 @@
     "claude_ai_finance_es": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-04",
-            "rank": 1320399,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 1320399,
@@ -29332,14 +29347,14 @@
             "date": "2026-11-25",
             "rank": 494883,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 657177,
+            "category": "Kindle Store"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 366260,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-03",
             "rank": 366260,
@@ -29784,6 +29799,11 @@
             "date": "2026-11-25",
             "rank": 709765,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 711100,
+            "category": "Loja Kindle"
           }
         ],
         "DE": [
@@ -30116,16 +30136,16 @@
             "date": "2026-11-25",
             "rank": 864430,
             "category": "Kindle-Shop"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 885409,
+            "category": "Kindle-Shop"
           }
         ]
       },
       "paperback": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 1818081,
-            "category": "Books"
-          },
           {
             "date": "2026-10-04",
             "rank": 1908675,
@@ -30570,6 +30590,11 @@
             "date": "2026-11-25",
             "rank": 863910,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1102602,
+            "category": "Books"
           }
         ],
         "DE": [
@@ -30907,6 +30932,11 @@
             "date": "2026-11-25",
             "rank": 1558,
             "category": "Generative KI"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1607,
+            "category": "Generative KI"
           }
         ],
         "BR": [
@@ -31074,16 +31104,16 @@
             "date": "2026-11-25",
             "rank": 17416,
             "category": "Computação, Informática e Mídias Digitais"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 17488,
+            "category": "Computação, Informática e Mídias Digitais"
           }
         ]
       },
       "hardcover": {
         "US": [
-          {
-            "date": "2026-10-04",
-            "rank": 4422155,
-            "category": "Books"
-          },
           {
             "date": "2026-10-04",
             "rank": 4422155,
@@ -31528,6 +31558,11 @@
             "date": "2026-11-25",
             "rank": 6212366,
             "category": "Books"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 6217526,
+            "category": "Books"
           }
         ],
         "DE": [
@@ -31865,6 +31900,11 @@
             "date": "2026-11-25",
             "rank": 1558,
             "category": "Generative KI"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1607,
+            "category": "Generative KI"
           }
         ],
         "BR": [
@@ -32032,6 +32072,11 @@
             "date": "2026-11-25",
             "rank": 17416,
             "category": "Computação, Informática e Mídias Digitais"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 17488,
+            "category": "Computação, Informática e Mídias Digitais"
           }
         ]
       }
@@ -32039,11 +32084,6 @@
     "claude_ai_finance_de": {
       "kindle": {
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 2293658,
-            "category": "Kindle Store"
-          },
           {
             "date": "2026-10-04",
             "rank": 2305607,
@@ -32488,14 +32528,14 @@
             "date": "2026-11-25",
             "rank": 1393590,
             "category": "Kindle Store"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 1437288,
+            "category": "Kindle Store"
           }
         ],
         "BR": [
-          {
-            "date": "2026-10-03",
-            "rank": 753191,
-            "category": "Loja Kindle"
-          },
           {
             "date": "2026-10-04",
             "rank": 754041,
@@ -32940,14 +32980,14 @@
             "date": "2026-11-25",
             "rank": 808904,
             "category": "Loja Kindle"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 809871,
+            "category": "Loja Kindle"
           }
         ],
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 134506,
-            "category": "Kindle-Shop"
-          },
           {
             "date": "2026-10-04",
             "rank": 60650,
@@ -33392,16 +33432,16 @@
             "date": "2026-11-25",
             "rank": 25190,
             "category": "Kindle-Shop"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 31684,
+            "category": "Kindle-Shop"
           }
         ]
       },
       "paperback": {
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 64362,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-04",
             "rank": 51879,
@@ -33846,14 +33886,14 @@
             "date": "2026-11-25",
             "rank": 289005,
             "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 325141,
+            "category": "Bücher"
           }
         ],
         "US": [
-          {
-            "date": "2026-10-03",
-            "rank": 32616,
-            "category": "Economics (Books)"
-          },
           {
             "date": "2026-10-03",
             "rank": 32853,
@@ -34298,16 +34338,16 @@
             "date": "2026-11-25",
             "rank": 17427,
             "category": "Economics (Books)"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 17958,
+            "category": "Economics (Books)"
           }
         ]
       },
       "hardcover": {
         "DE": [
-          {
-            "date": "2026-10-03",
-            "rank": 634419,
-            "category": "Bücher"
-          },
           {
             "date": "2026-10-04",
             "rank": 684743,
@@ -34751,6 +34791,11 @@
           {
             "date": "2026-11-25",
             "rank": 936651,
+            "category": "Bücher"
+          },
+          {
+            "date": "2026-11-26",
+            "rank": 970427,
             "category": "Bücher"
           }
         ]
